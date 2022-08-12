@@ -1,0 +1,48 @@
+body {
+  font: 11px sans-serif;
+}
+
+path:hover {
+  fill-opacity: 0.7;
+}
+
+div.tooltip {
+  background: white;
+  border-radius: 8px;
+  border: 0;
+  font: 12px sans-serif;
+  padding: 2px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  width: 125px;
+}
+
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+.feature {
+  cursor: pointer;
+  fill: rgb(232 232 232);
+  stroke-width: 0.2;
+  stroke: black;
+}
+
+.feature.active {
+  fill: #ffc;
+}
+
+.mesh {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: black;
+}
+
+.legend {
+  left: 800px;
+  position: absolute;
+  top: 350px;
+}

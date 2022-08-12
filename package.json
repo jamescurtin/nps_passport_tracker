@@ -1,0 +1,46 @@
+{
+  "name": "nps_passport_tracker",
+  "version": "0.1.0",
+  "description": "Map tracking NPS sites we've visited",
+  "homepage": "https://github.com/jamescurtin/nps_passport_tracker",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamescurtin/nps_passport_tracker.git"
+  },
+  "dependencies": {
+    "d3": "^7.6.1",
+    "d3-array": "^3.2.0",
+    "geo-albers-usa-territories": "^0.1.0",
+    "topojson-client": "^3.1.0",
+    "us-atlas": "^3.0.0"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "eslint": "^8.21.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "2.7.1",
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.10.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^27.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "server": "webpack serve",
+    "eslint": "eslint --fix .",
+    "eslint-check": "eslint .",
+    "stylelint-check": "stylelint **/*.css",
+    "stylelint-validate-config": "stylelint-config-prettier-check",
+    "prettier": "prettier --write .",
+    "prettier-check": "prettier --check .",
+    "lint": "npm run stylelint-check && npm run eslint-check && npm run prettier-check",
+    "lint-fix": "npm run eslint && npm run prettier && npm run stylelint-check"
+  }
+}
