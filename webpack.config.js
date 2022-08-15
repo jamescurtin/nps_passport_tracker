@@ -58,4 +58,7 @@ module.exports = {
     logging: "info", //  errors, warnings, and info messages
     warnings: true,
   },
+  performance: {
+    maxAssetSize: 2000000,
+  },
 };

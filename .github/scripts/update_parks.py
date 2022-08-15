@@ -22,6 +22,7 @@ class Photo(BaseModel):
 class NationalPark(BaseModel):
     id: str
     url: HttpUrl
+    name: str
     fullName: str  # noqa: N815
     parkCode: str  # noqa: N815
     description: str

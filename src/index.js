@@ -2,8 +2,8 @@ import * as d3 from "d3";
 import * as topojson from "topojson-client";
 
 import topoJsonStates from "us-atlas/states-10m.json";
-import parksCsv from "./data/parks.csv";
-import visitsCsv from "./data/visits.csv";
+import parksJSON from "./data/parks.json";
+import visitsJSON from "./data/visits.json";
 import "./css/map.css";
 import color from "./js/colorscale.js";
 
@@ -68,18 +68,18 @@ d3.json(topoJsonStates).then(function (json) {
     .attr("stroke-width", strokeWidth)
     .attr("d", path);
 
-  d3.csv(parksCsv).then(function (parkData) {
-    d3.csv(visitsCsv).then(function (visitData) {
+  d3.json(parksJSON).then(function (parkData) {
+    d3.json(visitsJSON).then(function (visitData) {
       const data = mergeNPSData(parkData, visitData);
       g.selectAll(".mark")
         .data(data)
         .enter()
         .append("circle")
         .attr("cx", function (d) {
-          return projection([d.lon, d.lat])[0];
+          return projection([d.longitude, d.latitude])[0];
         })
         .attr("cy", function (d) {
-          return projection([d.lon, d.lat])[1];
+          return projection([d.longitude, d.latitude])[1];
         })
         .attr("r", pointRadius)
         .style("fill", function (d) {
@@ -176,8 +176,8 @@ function reset() {
 
 /**
  * Merge data from parks visited with all parks
- * @param {object} parkData - CSV data for all national parks
- * @param {object} visitData - CSV data for parks that have been visited
+ * @param {object} parkData - JSON data for all national parks
+ * @param {object} visitData - JSON data for parks that have been visited
  * @return {object} merged data
  */
 function mergeNPSData(parkData, visitData) {
@@ -187,7 +187,7 @@ function mergeNPSData(parkData, visitData) {
     park.visited = 0;
     for (let j = 0; j < visitData.length; j++) {
       const visit = visitData[j];
-      if (park.code == visit.code) {
+      if (park.parkCode == visit.parkCode) {
         park.visited = 1;
       }
     }
