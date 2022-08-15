@@ -25,3 +25,15 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run lint
+  pyLint:
+    name: Python Script Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+          cache: "pip"
+      - run: pip install -r requirements.txt
+      - run: ./.github/scripts/python_lint.sh --check
