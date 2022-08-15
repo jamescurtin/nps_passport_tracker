@@ -1,5 +1,37 @@
 [
   {
+    "id": "77E0D7F0-1942-494A-ACE2-9004D2BDC59E",
+    "url": "https://www.nps.gov/abli/index.htm",
+    "name": "Abraham Lincoln Birthplace",
+    "fullName": "Abraham Lincoln Birthplace National Historical Park",
+    "parkCode": "abli",
+    "description": "For over a century people from around the world have come to rural Central Kentucky to honor the humble beginnings of our 16th president, Abraham Lincoln. His early life on Kentucky's frontier shaped his character and prepared him to lead the nation through Civil War. The country's first memorial to Lincoln, built with donations from young and old, enshrines the symbolic birthplace cabin.",
+    "latitude": 37.5858662,
+    "longitude": -85.67330523,
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C861078-1DD8-B71B-0B774A242EF6A706.jpg",
+        "title": "The Memorial Building with fall colors",
+        "altText": "The Memorial Building surrounded by fall colors"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C861263-1DD8-B71B-0B71EF9B95F9644F.jpg",
+        "title": "The Memorial Building",
+        "altText": "The first memorial erected to honor Abraham Lincoln"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C86137D-1DD8-B71B-0B978BACD7EBAEF1.jpg",
+        "title": "The Symbolic Birth Cabin of Abraham Lincoln",
+        "altText": "The symbolic birth cabin on the traditional site of the birth of Abraham Lincoln."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C8614D1-1DD8-B71B-0B1AF72CA452B051.jpg",
+        "title": "Statue of the Lincoln Family in the Visitor Center",
+        "altText": "Statue of the Lincoln family in the park's Visitor Center"
+      }
+    ]
+  },
+  {
     "id": "6DA17C86-088E-4B4D-B862-7C1BD5CF236B",
     "url": "https://www.nps.gov/acad/index.htm",
     "name": "Acadia",
