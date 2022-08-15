@@ -11,6 +11,7 @@ JSONType = Dict[str, Any]
 
 BASE_URL: str = "https://developer.nps.gov/api/v1"
 HEADERS: Dict[str, str] = {"X-Api-Key": os.environ["NPS_API_KEY"]}
+MAX_PICTURES_PER_SITE: int = 2
 
 
 class Photo(BaseModel):
@@ -76,6 +77,10 @@ def main() -> None:
     for page in get_paginated_json_response(f"{BASE_URL}/parks", 100):
         raw_data.extend(page["data"])
     park_data = [NationalPark(**record) for record in raw_data]
+    park_data.sort(key=lambda x: x.name)
+    for park in park_data:
+        park.images.sort(key=lambda x: x.title)
+        park.images = park.images[:MAX_PICTURES_PER_SITE]
 
     with open(args.file, "w") as f:
         json.dump([m.dict() for m in park_data], f)
