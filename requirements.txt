@@ -1,0 +1,10 @@
+# Script Deps
+pydantic==1.9.2
+requests==2.28.1
+
+# CI Deps
+black==22.6.0
+flake8==5.0.4
+isort==5.10.1
+mypy==0.971
+types-requests==2.28.8
