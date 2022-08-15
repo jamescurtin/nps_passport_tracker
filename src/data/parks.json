@@ -1538,29 +1538,49 @@
     "longitude": -94.386742115,
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/2AC3258E-059F-09FF-344F81C5789FB3BC.jpg",
-        "title": "Johns Lake",
-        "altText": "Many bald cypress trees growing right out of the water on a murky swamp"
+        "url": "https://www.nps.gov/common/uploads/structured_data/5CD6D99E-E546-9968-747215A9C8E9D695.jpg",
+        "title": "Cypress Swamp",
+        "altText": "Bright green swamp with shallow water and many kinds of trees and jungle-like plants."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/2B293615-AFCF-4D63-7D71E38A0CB70278.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/5D2AE499-F59C-A379-5714B0E6024F9188.jpg",
+        "title": "Staley Cabin",
+        "altText": "A log cabin in a forest beneath a canopy of sprawling live oak trees."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/5DB295BE-F9A9-3D10-CA6D5204ED24E79A.jpg",
+        "title": "Canoe on Lake Bayou",
+        "altText": "A park ranger paddling a green canoe on a slow-moving waterway below cypress trees."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/5DE7960F-AE37-F376-C881303E50FE17D5.jpg",
+        "title": "Beaver Slide Trail Bridge",
+        "altText": "A small wooden bridge on a trail through dense woods."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/5E0F3C64-0778-094B-17BCF61C3B0909E6.jpg",
+        "title": "Pitcher Plant",
+        "altText": "Close-up of a carnivorous pitcher plant with the shadow of an insect inside."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/5E81C2C0-CE7C-092A-B2FBDC0C058958D8.jpg",
         "title": "Red-Headed Woodpecker",
-        "altText": "A red-headed woodpecker tapping into a dead tree"
+        "altText": "A woodpecker with bright red head clinging to a dead tree."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/2B37E2DE-9AC9-C185-869EBF89A71FD166.jpg",
-        "title": "Pitcher Plants",
-        "altText": "A field of thousands of funnel-like pitcher plants on a spring morning"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/2B701FA9-0759-C1B7-16C7D37891711072.jpg",
-        "title": "Cypress Knees",
-        "altText": "Several knobby cypress knees and their reflections in still green water with green grasses nearby."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/2BABC748-A830-11D3-63DBA88CD4B1650C.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/60F6F249-D0F2-9EAA-3B863696CC12C4B0.jpg",
         "title": "Village Creek Bridge",
-        "altText": "An iron bridge spans a murky creek in dense, dark woods."
+        "altText": "An iron bridge above a murky creek surrounded by dense woods."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/60B44B03-C641-7B6F-0D0A2E1B31AA8C5E.jpg",
+        "title": "Cypress Knees",
+        "altText": "Shadowy-looking cypress knees and their reflections in still water."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/610C81AE-92FC-06DC-6B78B41C2DE97B98.jpg",
+        "title": "Cooks Lake Paddlers",
+        "altText": "2 people in a canoe and 1 person in a kayak paddle through a forested slough."
       }
     ]
   },
@@ -5552,14 +5572,14 @@
     "longitude": -75.56353942,
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/B2BE43AE-F527-DF72-2128343A2C155557.jpg",
-        "title": "Brandywine Valley",
-        "altText": "Rolling agricultural hills on a bright sunny day."
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/BEAD404F-1DD8-B71B-0B3324BE4EFD6BFD.jpg",
         "title": "John Dickinson Plantation",
         "altText": "A view of the front of the John Dickinson House on the Plantation."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/B2BE43AE-F527-DF72-2128343A2C155557.jpg",
+        "title": "Brandywine Valley",
+        "altText": "Rolling agricultural hills on a bright sunny day."
       },
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/B2D3DE78-A3E9-4059-2EF875E99FA3FD24.jpg",
