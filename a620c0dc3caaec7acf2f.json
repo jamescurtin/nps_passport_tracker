@@ -11,5 +11,6 @@
   { "parkCode": "long", "visitedOn": ["2022-08-05"] },
   { "parkCode": "frla", "visitedOn": ["2022-08-07"] },
   { "parkCode": "blrv", "visitedOn": ["2022-08-13"] },
-  { "parkCode": "rowi", "visitedOn": ["2022-08-13"] }
+  { "parkCode": "rowi", "visitedOn": ["2022-08-13"] },
+  { "parkCode": "lowe", "visitedOn": ["2022-08-15"] }
 ]
