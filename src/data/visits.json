@@ -1,15 +1,15 @@
 [
-  { "parkCode": "acad", "date": "2017-08-13" },
-  { "parkCode": "this", "date": "2018-08-13" },
-  { "parkCode": "boha", "date": "2018-10-20" },
-  { "parkCode": "muwo", "date": "2019-06-19" },
-  { "parkCode": "saga", "date": "2019-10-29" },
-  { "parkCode": "mima", "date": "2020-03-21" },
-  { "parkCode": "caco", "date": "2020-12-12" },
-  { "parkCode": "nebe", "date": "2022-07-23" },
-  { "parkCode": "wefa", "date": "2022-07-31" },
-  { "parkCode": "long", "date": "2022-08-05" },
-  { "parkCode": "frla", "date": "2022-08-07" },
-  { "parkCode": "blrv", "date": "2022-08-13" },
-  { "parkCode": "rowi", "date": "2022-08-13" }
+  { "parkCode": "acad", "visitedOn": ["2017-08-13"] },
+  { "parkCode": "this", "visitedOn": ["2018-08-13"] },
+  { "parkCode": "boha", "visitedOn": ["2018-10-20"] },
+  { "parkCode": "muwo", "visitedOn": ["2019-06-19"] },
+  { "parkCode": "saga", "visitedOn": ["2019-10-29"] },
+  { "parkCode": "mima", "visitedOn": ["2020-03-21"] },
+  { "parkCode": "caco", "visitedOn": ["2020-12-12"] },
+  { "parkCode": "nebe", "visitedOn": ["2022-07-23"] },
+  { "parkCode": "wefa", "visitedOn": ["2022-07-31"] },
+  { "parkCode": "long", "visitedOn": ["2022-08-05"] },
+  { "parkCode": "frla", "visitedOn": ["2022-08-07"] },
+  { "parkCode": "blrv", "visitedOn": ["2022-08-13"] },
+  { "parkCode": "rowi", "visitedOn": ["2022-08-13"] }
 ]
