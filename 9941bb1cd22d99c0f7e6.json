@@ -858,14 +858,14 @@
     "longitude": -94.386742115,
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/6294B8FD-F81F-C34B-645CC57C054AB5A9.jpg",
+        "title": "Anole on Palmetto",
+        "altText": "A green anole lizard resting on an outstretched palmetto leaf."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/5DE7960F-AE37-F376-C881303E50FE17D5.jpg",
         "title": "Beaver Slide Trail Bridge",
         "altText": "A small wooden bridge on a trail through dense woods."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/5DB295BE-F9A9-3D10-CA6D5204ED24E79A.jpg",
-        "title": "Canoe on Lake Bayou",
-        "altText": "A park ranger paddling a green canoe on a slow-moving waterway below cypress trees."
       }
     ]
   },
