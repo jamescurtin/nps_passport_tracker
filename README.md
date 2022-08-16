@@ -55,4 +55,4 @@ npm run lint
 
 - [ ] Automated tests
 - [ ] Add additional elements to the page (e.g. total park visit count)
-- [ ] Store additional information about visits (e.g. date of visit, picture, etc.)
+- [ ] Store additional information about visits (e.g. picture)
