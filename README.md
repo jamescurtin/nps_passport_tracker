@@ -50,9 +50,3 @@ To run lints and fail on error (like in CI), run
 npm run lint
 ./.github/scripts/python_lint.sh --check
 ```
-
-## To Dos
-
-- [ ] Automated tests
-- [ ] Add additional elements to the page (e.g. total park visit count)
-- [ ] Store additional information about visits (e.g. picture)
