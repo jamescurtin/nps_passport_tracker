@@ -1,16 +1,21 @@
 body {
-  font: 11px sans-serif;
+  font: 12px sans-serif;
+  margin: 0;
 }
 
-path:hover {
-  fill-opacity: 0.7;
+a,
+a:visited {
+  color: darkblue;
+}
+
+.map-container {
+  text-align: center;
 }
 
 div.tooltip {
   background: white;
   border-radius: 8px;
   border: 0;
-  font: 12px sans-serif;
   padding: 2px;
   pointer-events: none;
   position: absolute;
@@ -19,15 +24,19 @@ div.tooltip {
 }
 
 .background {
-  fill: none;
+  fill: lightblue;
   pointer-events: all;
 }
 
 .feature {
   cursor: pointer;
-  fill: rgb(232 232 232);
+  fill: rgb(210 226 185);
   stroke-width: 0.2;
   stroke: black;
+}
+
+.feature:hover {
+  fill: rgb(254 254 229);
 }
 
 .feature.active {
@@ -42,19 +51,15 @@ div.tooltip {
 }
 
 .legend {
-  left: 800px;
-  position: absolute;
-  top: 350px;
+  text-align: center;
 }
 
 .modal {
   display: none;
   height: 100%;
-  left: 0;
   overflow: auto;
-  padding-top: 100px;
+  padding-top: 5px;
   position: fixed;
-  top: 0;
   width: 100%;
   z-index: 1;
 }
@@ -69,7 +74,6 @@ div.tooltip {
   width: 80%;
 }
 
-/* The modal close Button */
 .close {
   color: #aaa;
   float: right;
@@ -102,4 +106,48 @@ img {
   padding: 10px;
   text-align: center;
   width: 115px;
+}
+
+.title {
+  fill: black;
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+}
+
+.park-list {
+  padding: 8px;
+}
+
+.park-list-table {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  align-self: center;
+  width: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table :not(thead) tr:hover {
+  background-color: #ddd;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: white;
 }

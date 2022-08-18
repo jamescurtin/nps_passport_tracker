@@ -29,10 +29,6 @@ module.exports = {
       import: "./src/index.js",
       dependOn: "colorscale",
     },
-    legend: {
-      import: "./src/js/legend.js",
-      dependOn: "colorscale",
-    },
     colorscale: {
       import: "./src/js/colorscale.js",
     },

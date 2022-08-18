@@ -1,10 +1,10 @@
 import argparse
 import json
 import os
-from typing import Any, Dict, Iterator, List
+from typing import Any, Dict, Iterator, List, Union
 
 import requests
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, HttpUrl, validator
 from requests.exceptions import HTTPError, JSONDecodeError
 
 JSONType = Dict[str, Any]
@@ -21,6 +21,11 @@ class Photo(BaseModel):
 
 
 class NationalPark(BaseModel):
+    """
+    Full data model is available at
+    https://www.nps.gov/subjects/developer/api-documentation.htm
+    """
+
     id: str
     url: HttpUrl
     name: str
@@ -29,7 +34,14 @@ class NationalPark(BaseModel):
     description: str
     latitude: float
     longitude: float
+    states: List[str]
     images: List[Photo]
+
+    @validator("states", pre=True)
+    def split_states(cls, v: Union[str, List[str]]) -> List[str]:
+        if isinstance(v, str):
+            return v.split(",")
+        return v
 
 
 def _process_response(response: requests.Response) -> JSONType:
