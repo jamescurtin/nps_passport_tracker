@@ -12,5 +12,7 @@
   { "parkCode": "frla", "visitedOn": ["2022-08-07"] },
   { "parkCode": "blrv", "visitedOn": ["2022-08-13"] },
   { "parkCode": "rowi", "visitedOn": ["2022-08-13"] },
-  { "parkCode": "lowe", "visitedOn": ["2022-08-15"] }
+  { "parkCode": "lowe", "visitedOn": ["2022-08-15"] },
+  { "parkCode": "sair", "visitedOn": ["2022-08-19"] },
+  { "parkCode": "sama", "visitedOn": ["2022-08-19"] }
 ]
