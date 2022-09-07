@@ -1,10 +1,10 @@
 [
   { "parkCode": "acad", "visitedOn": ["2017-08-13"] },
   { "parkCode": "this", "visitedOn": ["2018-08-13"] },
-  { "parkCode": "boha", "visitedOn": ["2018-10-20"] },
+  { "parkCode": "boha", "visitedOn": ["2018-10-20", "2022-09-03"] },
   { "parkCode": "muwo", "visitedOn": ["2019-06-19"] },
   { "parkCode": "saga", "visitedOn": ["2019-10-29"] },
-  { "parkCode": "mima", "visitedOn": ["2020-03-21"] },
+  { "parkCode": "mima", "visitedOn": ["2020-03-21", "2022-08-15"] },
   { "parkCode": "caco", "visitedOn": ["2020-12-12"] },
   { "parkCode": "nebe", "visitedOn": ["2022-07-23"] },
   { "parkCode": "wefa", "visitedOn": ["2022-07-31"] },
@@ -14,5 +14,7 @@
   { "parkCode": "rowi", "visitedOn": ["2022-08-13"] },
   { "parkCode": "lowe", "visitedOn": ["2022-08-15"] },
   { "parkCode": "sair", "visitedOn": ["2022-08-19"] },
-  { "parkCode": "sama", "visitedOn": ["2022-08-19"] }
+  { "parkCode": "sama", "visitedOn": ["2022-08-19"] },
+  { "parkCode": "bost", "visitedOn": ["2022-09-03"] },
+  { "parkCode": "boaf", "visitedOn": ["2022-09-03"] }
 ]
