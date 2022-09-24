@@ -8493,14 +8493,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7ECF9D-1DD8-B71B-0BDDCD1305CF6893.jpg",
-        "title": "Elk in Moraine Park",
-        "altText": "A herd of elk stand in a meadow."
+        "url": "https://www.nps.gov/common/uploads/structured_data/046B50E2-F10F-6C7D-E944F02015238F4A.jpg",
+        "title": "Alpine Ridge Trail looking down on Alpine Visitor Center",
+        "altText": "Visitors are walking on the Alpine Ridge Trail, looking down on Alpine Visitor Center"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7ECB23-1DD8-B71B-0BC28A0330D6D8D6.png",
-        "title": "Longs Peak",
-        "altText": "Longs Peak, covered in snow, against dark moody clouds."
+        "url": "https://www.nps.gov/common/uploads/structured_data/081100D0-E746-C1F7-DA33DC53FD0566EB.jpg",
+        "title": "Aspen and transitioning from green to gold",
+        "altText": "Aspen leaves are turning from green to gold"
       }
     ]
   },
