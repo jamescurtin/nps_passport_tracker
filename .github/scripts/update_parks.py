@@ -4,7 +4,7 @@ import os
 from typing import Any, Dict, Iterator, List, Union
 
 import requests
-from pydantic import BaseModel, HttpUrl, validator
+from pydantic import BaseModel, HttpUrl, ValidationError, validator
 from requests.exceptions import HTTPError, JSONDecodeError
 
 JSONType = Dict[str, Any]
@@ -88,7 +88,15 @@ def main() -> None:
     raw_data = []
     for page in get_paginated_json_response(f"{BASE_URL}/parks", 100):
         raw_data.extend(page["data"])
-    park_data = [NationalPark(**record) for record in raw_data]
+    park_data = []
+    for record in raw_data:
+        try:
+            park_data.append(NationalPark(**record))
+        except ValidationError as ex:
+            print(
+                "::warning file=src/data/parks.json::Unable to process the following "
+                f"record:\n{record}\n\n{ex}"
+            )
     park_data.sort(key=lambda x: x.name)
     for park in park_data:
         park.images.sort(key=lambda x: x.title)
