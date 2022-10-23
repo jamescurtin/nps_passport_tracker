@@ -16,5 +16,11 @@
   { "parkCode": "sair", "visitedOn": ["2022-08-19"] },
   { "parkCode": "sama", "visitedOn": ["2022-08-19"] },
   { "parkCode": "bost", "visitedOn": ["2022-09-03"] },
-  { "parkCode": "boaf", "visitedOn": ["2022-09-03"] }
+  { "parkCode": "boaf", "visitedOn": ["2022-09-03"] },
+  { "parkCode": "liho", "visitedOn": ["2022-10-16"] },
+  { "parkCode": "pull", "visitedOn": ["2022-10-17"] },
+  { "parkCode": "jeff", "visitedOn": ["2022-10-16"] },
+  { "parkCode": "stge", "visitedOn": ["2022-10-15"] },
+  { "parkCode": "ulsg", "visitedOn": ["2022-10-15"] },
+  { "parkCode": "lecl", "visitedOn": ["2022-10-16"] }
 ]
