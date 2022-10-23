@@ -4585,7 +4585,7 @@
     "name": "Greenbelt",
     "fullName": "Greenbelt Park",
     "parkCode": "gree",
-    "description": "Camp ten miles from the Washington Monument! Greenbelt Park is located in suburban Greenbelt, Maryland just ten miles from the Washington D.C. attractions. Visit to enjoy affordable camping, peaceful surroundings in an urban forest, and National Park Service hospitality. Greenbelt Park has a 172 site campground, nine miles of trails and three picnic areas.",
+    "description": "Camp ten miles from the Washington Monument! Greenbelt Park is located in suburban Greenbelt, Maryland just ten miles from the Washington D.C. attractions. Visit to enjoy affordable camping, peaceful surroundings in an urban forest, and National Park Service hospitality. Greenbelt Park has a 172 site campground, nine miles of trails (Trails are temporarily closed) and three picnic areas.",
     "latitude": 38.98328267,
     "longitude": -76.89722133,
     "states": ["MD"],
@@ -5392,7 +5392,7 @@
       },
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/6593D65B-C84F-49D1-833D0F4F38BF288D.jpg",
-        "title": "Historic James Cant Ranch Home",
+        "title": "Historic James Cant Ranch Homestead",
         "altText": "White house surrounded by green with concrete path leading to the front"
       }
     ]
@@ -7889,7 +7889,7 @@
     "name": "Petrified Forest",
     "fullName": "Petrified Forest National Park",
     "parkCode": "pefo",
-    "description": "Park Hours: 8am to 5pm, MST. Don't forget that Arizona does not observe Daylight Savings. We are an hour earlier than New Mexico, Utah, and the Navajo Nation. Would you like to see the park film? It is located at the park's YouTube Channel as well as the giftshop at Rainbow Forest.",
+    "description": "Park Hours: 8am to 5pm, MST. Don't forget that Arizona does not observe Daylight Savings. Would you like to see the park film? It is located at the park's YouTube Channel as well as the giftshop at Rainbow Forest.",
     "latitude": 34.98387664,
     "longitude": -109.7877678,
     "states": ["AZ"],
@@ -9581,7 +9581,7 @@
     "name": "Timpanogos Cave",
     "fullName": "Timpanogos Cave National Monument",
     "parkCode": "tica",
-    "description": "Hike your way past stunning vistas to explore a hidden underground world. Taste the thrill of caving as you twist and bend to enter beautifully decorated rooms. Learn the science behind formations and hear stories of cave exploration and preservation. Experience and discover as you go \u2013 geologic mysteries await.",
+    "description": "Cave tours are closed for the 2022 winter season. Hike your way past stunning vistas to explore a hidden underground world. Taste the thrill of caving as you twist and bend to enter beautifully decorated rooms. Learn the science behind formations and hear stories of cave exploration and preservation. Experience and discover as you go \u2013 geologic mysteries await.",
     "latitude": 40.44039719,
     "longitude": -111.7093944,
     "states": ["UT"],
