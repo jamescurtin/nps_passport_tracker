@@ -1362,7 +1362,7 @@
     "name": "Canaveral",
     "fullName": "Canaveral National Seashore",
     "parkCode": "cana",
-    "description": "Reflect on a pristine undeveloped shoreline, explore a historic site, or experience the rumble of a rocket soaring into space. This pristine barrier island composed of dune, hammock and lagoon habitats provides protection from storms, preserves ancient Timucua Native American mounds, and is sanctuary for thousands of species of plants and animals that call Canaveral National Seashore home.",
+    "description": "Reflect on the pristine barrier island which is composed of dune, hammock and lagoon habitat. Explore ancient Timucua shell mounds. Experience the sanctuary that is provided for thousands of species of plants and animals that call Canaveral National Seashore home",
     "latitude": 28.78637529,
     "longitude": -80.75419576,
     "states": ["FL"],
@@ -2173,9 +2173,9 @@
         "altText": "3 silhouetted foggy granite formations highlighted by golden sunlight."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F21D28A9-A42F-2700-B09C6AC3B245B066.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/6969795B-C212-F59F-32D18D86BCB8ACDE.jpg",
         "title": "City of Rocks Granite",
-        "altText": "Jagged granite formations jut up with gentle sloping mountains in the distance."
+        "altText": "Snow dusted granite formations jut up from a mountainous juniper covered landscape."
       }
     ]
   },
@@ -4355,7 +4355,7 @@
     "name": "Grand Canyon-Parashant",
     "fullName": "Grand Canyon-Parashant National Monument",
     "parkCode": "para",
-    "description": "Take a lonely and rocky two-track road in a 4x4 to the edge of the Grand Wash Cliffs. Find a stunning solitary vista deep into the Grand Canyon. Relax in the shade of ponderosas at Mt. Trumbull. Touch ancient waters at Pakoon Springs in one of the driest places in the world. Parashant is remote. There are no crowds here. Be equipped to leave pavement, cell service, and the 21st century behind.",
+    "description": "Take a lonely and rocky two-track road in a 4x4 to the edge of the Grand Wash Cliffs. Find a stunning solitary vista deep into the Grand Canyon. Relax in the shade of ponderosas at Mount Trumbull. Touch ancient waters at Pakoon Springs in one of the driest places in the world. Parashant is remote. There are no crowds here. Be equipped to leave pavement, cell service, and the 21st century behind.",
     "latitude": 36.41535465,
     "longitude": -113.6682797,
     "states": ["AZ"],
@@ -5518,7 +5518,7 @@
     "name": "Kalaupapa",
     "fullName": "Kalaupapa National Historical Park",
     "parkCode": "kala",
-    "description": "When Hansen's disease (leprosy) was introduced to the Hawaiian Islands, King Kamehameha V banished all afflicted to the isolated Kalaupapa peninsula on the north shore of Molokai. Since 1866, more than 8000 people, mostly Hawaiians, have died at Kalaupapa. Once a prison, Kalaupapa is now refuge for the few remaining residents who are now cured, but were forced to live their lives in isolation.",
+    "description": "When Hansen's disease (leprosy) was introduced to the Hawaiian Islands, King Kamehameha V banished all afflicted to the isolated Kalaupapa peninsula on the north shore of Molokai. Since 1866, more than 8,000 people, mostly Hawaiians, have died at Kalaupapa. Once a prison, Kalaupapa is now refuge for the few remaining residents who are now cured, but were forced to live their lives in isolation.",
     "latitude": 21.1731108,
     "longitude": -156.9511609,
     "states": ["HI"],
@@ -5748,7 +5748,7 @@
     "name": "Klondike Gold Rush - Seattle Unit",
     "fullName": "Klondike Gold Rush - Seattle Unit National Historical Park",
     "parkCode": "klse",
-    "description": "Seattle flourished during and after the Klondike Gold Rush. Merchants supplied people from around the world passing through this port city on their way to a remarkable adventure in Alaska. Today, the park is your gateway to learn about the Klondike Gold Rush, explore the area's public lands, and engage with the local community.",
+    "description": "Seattle flourished during and after the Klondike Gold Rush. Merchants supplied people from around the world passing through this port city on their way to a remarkable adventure in the Yukon Territory of Canada. Today, the park is your gateway to learn about the Klondike Gold Rush, explore the area's public lands, and engage with the local community.",
     "latitude": 47.5993663,
     "longitude": -122.3319664,
     "states": ["WA"],
