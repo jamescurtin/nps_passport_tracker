@@ -22,5 +22,6 @@
   { "parkCode": "jeff", "visitedOn": ["2022-10-16"] },
   { "parkCode": "stge", "visitedOn": ["2022-10-15"] },
   { "parkCode": "ulsg", "visitedOn": ["2022-10-15"] },
-  { "parkCode": "lecl", "visitedOn": ["2022-10-16"] }
+  { "parkCode": "lecl", "visitedOn": ["2022-10-16"] },
+  { "parkCode": "spar", "visitedOn": ["2022-10-30"] }
 ]
