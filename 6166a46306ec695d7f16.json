@@ -4056,7 +4056,7 @@
     "name": "George Washington Birthplace",
     "fullName": "George Washington Birthplace National Monument",
     "parkCode": "gewa",
-    "description": "George Washington Birthplace National Monument is located in the Northern Neck of Virginia. It encompasses 550 acres of the former Popes Creek Plantation, the American ancestral home of the Washington Family where George Washington was born. In addition to a Colonial Revival farm, burial ground, visitor center, and historic structures, the park also has picnic grounds and a public beach.",
+    "description": "George Washington Birthplace National Monument is located in the Northern Neck of Virginia. It encompasses 551 acres of the former Popes Creek Plantation, the American ancestral home of the Washington Family where George Washington was born. In addition to a Colonial Revival farm, burial ground, visitor center, and historic structures, the park also has picnic grounds and a public beach.",
     "latitude": 38.19362603,
     "longitude": -76.92079458,
     "states": ["VA"],
@@ -7268,7 +7268,7 @@
     "name": "Nez Perce",
     "fullName": "Nez Perce National Historical Park",
     "parkCode": "nepe",
-    "description": "Since time immemorial, the valleys, prairies, mountains, and plateaus of the inland northwest have been home to the Nimiipuu (Nez Perce) people. Extremely resilient, they survived the settling of the United States and adapted to a changed world. Nez Perce National Historical Park consists of 38 places important to the history and culture of the Nimiipuu. Explore these places. Learn their stories.",
+    "description": "Since time immemorial, the valleys, prairies, mountains, and plateaus of the inland northwest have been home to the nim\u00edipuu (Nez Perce) people. Extremely resilient, they survived the settling of the United States and adapted to a changed world. Nez Perce National Historical Park consists of 38 places important to the history and culture of the nim\u00edipuu. Explore these places. Learn their stories.",
     "latitude": 46.07019093,
     "longitude": -115.8761258,
     "states": ["ID", "MT", "OR", "WA"],
@@ -7877,9 +7877,9 @@
         "altText": "Plantation home prior to the War. U.S. Quartermaster Headquarters during the Siege."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8582BD-1DD8-B71B-0B0763F341D1BF0F.jpg",
-        "title": "Artillery Demonstration",
-        "altText": "Fire! Reenactors fire cannon during 150th Anniv. program."
+        "url": "https://www.nps.gov/common/uploads/structured_data/2C283FE1-CF96-D6D1-CB3789BDE51F879A.jpg",
+        "title": "Eastern Front Visitor Center",
+        "altText": "Pictured is the front of the brick visitor center under a cloudless blue sky."
       }
     ]
   },
