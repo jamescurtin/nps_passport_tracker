@@ -138,75 +138,6 @@
     ]
   },
   {
-    "id": "3B8307B3-54AB-4E5F-ACBC-8DECB98AD5F1",
-    "url": "https://www.nps.gov/alka/index.htm",
-    "name": "Ala Kahakai",
-    "fullName": "Ala Kahakai National Historic Trail",
-    "parkCode": "alka",
-    "description": "Established in 2000 to preserve, protect and interpret traditional Native Hawaiian culture and natural resources, Ala Kahakai National Historic Trail is a 175 mile corridor encompassing a network of culturally and historically significant trails. This \"trail by the sea\" traverses wahi pana (storied landscapes), ancient Hawaiian sites and over 200 ahupua\u02bba (traditional land divisions). Connect now!",
-    "latitude": 19.144668109,
-    "longitude": -155.890734294,
-    "states": ["HI"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3145A461-D738-080A-6DBFF05B9E67ED76.jpg",
-        "title": "Ancient ala hele trail, South Kohala",
-        "altText": "An ancient ala hele foot trail curves through a lava field along an ocean cliff"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/317D3E74-B539-A668-469F5AFB6CD52961.jpg",
-        "title": "On the historic Kiholo-Puako Trail",
-        "altText": "Trail stewards are greeted by the trail crew, who are performing traditional cultural protocol."
-      }
-    ]
-  },
-  {
-    "id": "C4E1A9A4-D121-4734-94FA-7788A93C2AAA",
-    "url": "https://www.nps.gov/alag/index.htm",
-    "name": "Alagnak",
-    "fullName": "Alagnak Wild River",
-    "parkCode": "alag",
-    "description": "The headwaters of Alagnak Wild River lie within the rugged Aleutian Range of neighboring Katmai National Park and Preserve. Meandering west towards Bristol Bay and the Bering Sea, the Alagnak traverses the beautiful Alaska Peninsula, providing an unparalleled opportunity to experience the unique wilderness, wildlife, and cultural heritage of southwest Alaska.",
-    "latitude": 59.05180188,
-    "longitude": -156.112002,
-    "states": ["AK"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E8391-1DD8-B71B-0BB3E18B7F96110A.jpg",
-        "title": "Alagnak Wild River",
-        "altText": "aerial view of braided Alagnak River"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E8259-1DD8-B71B-0B45810F0CB6E02C.jpg",
-        "title": "Rafts along the river",
-        "altText": "inflatable rafts on the edge of a river"
-      }
-    ]
-  },
-  {
-    "id": "7D6098F9-3F75-4775-A56D-CD9C7F9A9488",
-    "url": "https://www.nps.gov/anch/index.htm",
-    "name": "Alaska Public Lands",
-    "fullName": "Alaska Public Lands",
-    "parkCode": "anch",
-    "description": "Alaska\u2019s parks, forests, and refuges are rich and varied. The Alaska Public Lands Information Centers help visitors and residents to have meaningful, safe, enjoyable experiences on public lands, and encourages them to sustain the natural and cultural resources of Alaska. These centers provide trip-planning, interpretation, and education for all ages.",
-    "latitude": 61.2188,
-    "longitude": -149.894536,
-    "states": ["AK"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C86397B-1DD8-B71B-0B8F02FE5D76B46D.jpg",
-        "title": "Anchorage APLIC",
-        "altText": "Front of the Anchorage Federal Building, housing the Anchorage APLIC"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C860F61-1DD8-B71B-0B4E7399BE80347C.jpg",
-        "title": "Fairbanks APLIC",
-        "altText": "Fairbanks Alaska Public Lands Information Center, located inside the Morris Thompson Cultural & Visi"
-      }
-    ]
-  },
-  {
     "id": "C08AD828-98FF-478E-A63C-614E7534274B",
     "url": "https://www.nps.gov/alca/index.htm",
     "name": "Alcatraz Island",
@@ -501,44 +432,6 @@
     ]
   },
   {
-    "id": "FAEF5684-83A4-4CF2-A701-60CF8D4014BD",
-    "url": "https://www.nps.gov/appa/index.htm",
-    "name": "Appalachian",
-    "fullName": "Appalachian National Scenic Trail",
-    "parkCode": "appa",
-    "description": "The Appalachian Trail is a 2,180+ mile long public footpath that traverses the scenic, wooded, pastoral, wild, and culturally resonant lands of the Appalachian Mountains. Conceived in 1921, built by private citizens, and completed in 1937, today the trail is managed by the National Park Service, US Forest Service, Appalachian Trail Conservancy, numerous state agencies and thousands of volunteers.",
-    "latitude": 40.41029575,
-    "longitude": -76.4337548,
-    "states": [
-      "CT",
-      "GA",
-      "MA",
-      "MD",
-      "ME",
-      "NC",
-      "NH",
-      "NJ",
-      "NY",
-      "PA",
-      "TN",
-      "VA",
-      "VT",
-      "WV"
-    ],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C83A128-1DD8-B71B-0B02DED286AFD8C6.jpg",
-        "title": "Appalachian Trail",
-        "altText": "The Appalachian Trail runs across a mountain ridge line with views to the horizon of mountain range."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8397D6-1DD8-B71B-0BEF4C54462A1EB3.jpg",
-        "title": "McAfee Knob",
-        "altText": "Silhouette of a man with backpack standing on McAfee Knob at sunset with mountains in the distance."
-      }
-    ]
-  },
-  {
     "id": "16CCCC56-1DC1-47D6-AE91-E939955BFC53",
     "url": "https://www.nps.gov/apco/index.htm",
     "name": "Appomattox Court House",
@@ -696,29 +589,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C82EE63-1DD8-B71B-0BD6EE0FDCB5D402.jpg",
         "title": "Badlands Storm",
         "altText": "Layered badlands formations behind fields of green grass under cloudy and billowing clouds."
-      }
-    ]
-  },
-  {
-    "id": "A21F01BC-9E47-4DBE-8655-A1651FC2C1B1",
-    "url": "https://www.nps.gov/bawa/index.htm",
-    "name": "Baltimore-Washington",
-    "fullName": "Baltimore-Washington Parkway",
-    "parkCode": "bawa",
-    "description": "This 29-mile highway connects Baltimore, MD and Washington, D.C. The parkway has carried visitors to and from the capital city since 1954.",
-    "latitude": 39.02604289,
-    "longitude": -76.85410921,
-    "states": ["MD"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F83E6-1DD8-B71B-0BD4AB5763204C1E.jpg",
-        "title": "Baltimore Washington Parkway",
-        "altText": "Gladys Noon Spellman sign on the Baltimore Washington Parkway"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F858F-1DD8-B71B-0B673EC0A945016E.jpg",
-        "title": "Baltimore Washington Parkway",
-        "altText": "Greenbelt-Road overpass on the Baltimore Washington Parkway"
       }
     ]
   },
@@ -884,24 +754,6 @@
     ]
   },
   {
-    "id": "61EC5C9A-1A38-4040-AE38-E62FD2A9A836",
-    "url": "https://www.nps.gov/biso/index.htm",
-    "name": "Big South Fork",
-    "fullName": "Big South Fork National River & Recreation Area",
-    "parkCode": "biso",
-    "description": "Encompassing 125,000 acres of the Cumberland Plateau, Big South Fork National River and Recreation Area protects the free-flowing Big South Fork of the Cumberland River and its tributaries. The area boasts miles of scenic gorges and sandstone bluffs, is rich with natural and historic features and has been developed to provide visitors with a wide range of outdoor recreational activities.",
-    "latitude": 36.5348388,
-    "longitude": -84.66506688,
-    "states": ["KY", "TN"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C793E18-1DD8-B71B-0B815C3EA6EF7F23.jpg",
-        "title": "Big South Fork NRRA in Fall",
-        "altText": "Big South Fork NRRA in Fall"
-      }
-    ]
-  },
-  {
     "id": "3AA12AD8-4FEB-491D-AEB2-CC0F74CD00E0",
     "url": "https://www.nps.gov/bith/index.htm",
     "name": "Big Thicket",
@@ -1036,52 +888,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7BD6A6-1DD8-B71B-0BB41BBE33806A03.jpg",
         "title": "Autumn in the Blackstone Valley",
         "altText": "Autumn in the Blackstone Valley"
-      }
-    ]
-  },
-  {
-    "id": "712044CE-4C85-48C2-813E-310A9C6C74E1",
-    "url": "https://www.nps.gov/blri/index.htm",
-    "name": "Blue Ridge",
-    "fullName": "Blue Ridge Parkway",
-    "parkCode": "blri",
-    "description": "A Blue Ridge Parkway experience is unlike any other: a slow-paced and relaxing drive revealing stunning long-range vistas and close-up views of the rugged mountains and pastoral landscapes of the Appalachian Highlands. The Parkway meanders for 469 miles, protecting a diversity of plants and animals, and providing opportunities for enjoying all that makes this region of the country so special.",
-    "latitude": 35.5657195274,
-    "longitude": -82.486484587,
-    "states": ["NC", "VA"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/88113186-C82C-0C45-EB7789FE6E4D8DC2.jpg",
-        "title": "Black Bear",
-        "altText": "Black Bear sitting on large rocks at the edge of a forest"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/87E985D9-BF92-9DC3-74B91467FBA15010.jpg",
-        "title": "Evening on the Blue Ridge",
-        "altText": "A long pine tree stands in front of distant mountain ridges beneath an orange sunset"
-      }
-    ]
-  },
-  {
-    "id": "14025CA9-91DE-4D36-B4CA-9880463C3BC2",
-    "url": "https://www.nps.gov/blue/index.htm",
-    "name": "Bluestone",
-    "fullName": "Bluestone National Scenic River",
-    "parkCode": "blue",
-    "description": "The Bluestone River and the rugged and ancient gorge it has carved is a richly diverse and scenic area of the southern Appalachians. Bluestone National Scenic River is preserved as a living landscape that provides an unspoiled experience for visitors and a haven for a variety of plants and animals. The park protects a 10.5-mile section of the Bluestone River in southern West Virginia.",
-    "latitude": 37.56577087,
-    "longitude": -80.98366657,
-    "states": ["WV"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C800E49-1DD8-B71B-0BD0956F0EFE00F0.jpg",
-        "title": "Bluestone River",
-        "altText": "Bluestone River"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/6F37F8DC-C649-5B81-F8C2F239936D4C27.jpg",
-        "title": "Bluestone River",
-        "altText": "river with trees"
       }
     ]
   },
@@ -1265,29 +1071,6 @@
     ]
   },
   {
-    "id": "DBD2FCBF-D0DD-4262-A04E-93090888F0F5",
-    "url": "https://www.nps.gov/buff/index.htm",
-    "name": "Buffalo",
-    "fullName": "Buffalo National River",
-    "parkCode": "buff",
-    "description": "Established in 1972, Buffalo National River flows freely for 135 miles and is one of the few remaining undammed rivers in the lower 48 states. Once you arrive, prepare to journey from running rapids to quiet pools while surrounded by massive bluffs as you cruise through the Ozark Mountains down to the White River.",
-    "latitude": 36.04116481,
-    "longitude": -92.90761584,
-    "states": ["AR"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7D6BE9-1DD8-B71B-0BE7024117A6287B.jpg",
-        "title": "Floating the Buffalo",
-        "altText": "Floaters on the river."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7AAA8F-1DD8-B71B-0B030B40F222703A.jpg",
-        "title": "Indian Rockhouse",
-        "altText": "A large bluff shelter near Buffalo Point."
-      }
-    ]
-  },
-  {
     "id": "2DB09FB7-0408-44C9-8083-8F50039BD6DA",
     "url": "https://www.nps.gov/cabr/index.htm",
     "name": "Cabrillo",
@@ -1307,29 +1090,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C83C0FF-1DD8-B71B-0B85BBD2186E9F44.jpg",
         "title": "Old Point Loma Lighthouse",
         "altText": "Spring flowers in front of Old Point Loma Lighthouse"
-      }
-    ]
-  },
-  {
-    "id": "B39C368F-CB27-49EC-B2A9-E6C1552430FB",
-    "url": "https://www.nps.gov/cali/index.htm",
-    "name": "California",
-    "fullName": "California National Historic Trail",
-    "parkCode": "cali",
-    "description": "Follow in the footsteps of over 250,000 emigrants who traveled to the gold fields and rich farmlands of California during the 1840s and 1850s: the greatest mass migration in American history. The California National Historic Trail is over 5,000 miles long and covers portions of 10 states. Step into history along more than 1,000 miles of ruts and traces from travelers and their overland wagons.",
-    "latitude": 42.3999643979,
-    "longitude": -108.702415369,
-    "states": ["CA", "CO", "ID", "KS", "MO", "NE", "NV", "OR", "UT", "WY"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B7CDA-1DD8-B71B-0B999C4AC7A9D37C.jpg",
-        "title": "A creek in Carlin Canyon, Nevada on the California Trail",
-        "altText": "A still creek winds through brown rolling hills."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B7FCF-1DD8-B71B-0BA502EF5988BC47.jpg",
-        "title": "Devil's Gate, Wyoming",
-        "altText": "A rock buttress with a notch in it surrounded by sagebrush flats."
       }
     ]
   },
@@ -1606,29 +1366,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C82E740-1DD8-B71B-0B6FC6B644FB96D0.jpg",
         "title": "Capitol Reef Visitor Center with \"The Castle\"",
         "altText": "Cliffs known as \"The Castle\" tower above the Capitol Reef Visitor Center"
-      }
-    ]
-  },
-  {
-    "id": "481CEBB8-1942-4FAE-8D89-9902E7B9EECA",
-    "url": "https://www.nps.gov/cajo/index.htm",
-    "name": "Captain John Smith Chesapeake",
-    "fullName": "Captain John Smith Chesapeake National Historic Trail",
-    "parkCode": "cajo",
-    "description": "People first arrived in the Chesapeake Bay during the last ice age. As glaciers melted, diverse societies learned to thrive in a world of water. When Englishman Captain John Smith explored the Bay in 1608, he documented hundreds of American Indian communities. Today, sites on his map are archeological treasures and sacred sites for tribal citizens. Come join us on the shores of the Chesapeake Bay!",
-    "latitude": 38.971601,
-    "longitude": -76.483355,
-    "states": ["VA", "MD", "DE", "DC", "PA", "NY"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C822CB2-1DD8-B71B-0BF6D067DAF20F8C.jpg",
-        "title": "Cypress Trees Chickahominy River",
-        "altText": "Many baldcypress trees standing in the Chickahominy River"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C823100-1DD8-B71B-0B3AE3516DDF485B.jpg",
-        "title": "Heron at sunset at Blackwater NWR",
-        "altText": "A heron at sunset in the waters and marshes of Blackwater National Wildlife Refuge"
       }
     ]
   },
@@ -2865,52 +2602,6 @@
     ]
   },
   {
-    "id": "2EE542B6-3806-4E9C-ABBD-C4CC4C7E97C7",
-    "url": "https://www.nps.gov/elca/index.htm",
-    "name": "El Camino Real de Tierra Adentro",
-    "fullName": "El Camino Real de Tierra Adentro National Historic Trail",
-    "parkCode": "elca",
-    "description": "Travel along El Camino Real de Tierra Adentro National Historic Trail to experience and learn from a complicated legacy of 300 years of conflict, cooperation, and cultural exchange between a variety of empires\u2014European and non-European alike.",
-    "latitude": 33.7990672546,
-    "longitude": -106.866386195,
-    "states": ["NM", "TX"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A67D0-1DD8-B71B-0BA03160D7947352.jpg",
-        "title": "El Rancho de las Golondrinas, La Cienega, New Mexico",
-        "altText": "adobe buildings including two beehive-looking ovens with people in a courtyard"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A6A93-1DD8-B71B-0B25C2DE5079660E.jpg",
-        "title": "Fort Selden Historic Site, Radium Springs, New Mexico",
-        "altText": "fort ruins in the sunlight with cottonwood trees on the left"
-      }
-    ]
-  },
-  {
-    "id": "111711AC-B056-4CCF-B08F-35EE0E313CF4",
-    "url": "https://www.nps.gov/elte/index.htm",
-    "name": "El Camino Real de los Tejas",
-    "fullName": "El Camino Real de los Tejas National Historic Trail",
-    "parkCode": "elte",
-    "description": "Explore a diverse array of histories contained within El Camino Real de los Tejas\u2019 150-year life, including the Spanish struggle to missionize American Indian nations, the growth of cattle ranching in the Mexican period, and the movement for Texan independence and statehood.",
-    "latitude": 30.0922964581,
-    "longitude": -97.3397666725,
-    "states": ["TX", "LA"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E7952-1DD8-B71B-0BFB5B12C3B0E5DA.jpg",
-        "title": "El Paso de Jacinto/Paso de los Indios, Webb County, Texas",
-        "altText": "lots of greenery along a river; sunflowers in the foreground"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E7C07-1DD8-B71B-0B637A2BD1BCF7A6.jpg",
-        "title": "McKinney Falls State Park, Travis County, Texas",
-        "altText": "rock indentations in a dry creek with five people walking under clouds"
-      }
-    ]
-  },
-  {
     "id": "0826F21E-43A2-4675-8D2A-11F676293364",
     "url": "https://www.nps.gov/elma/index.htm",
     "name": "El Malpais",
@@ -4028,29 +3719,6 @@
     ]
   },
   {
-    "id": "E6D5BB41-3251-469F-ABDA-7B43B966F0CF",
-    "url": "https://www.nps.gov/gwmp/index.htm",
-    "name": "George Washington",
-    "fullName": "George Washington Memorial Parkway",
-    "parkCode": "gwmp",
-    "description": "The George Washington Memorial Parkway was designed for recreational driving. It links sites that commemorate important episodes in American history and preserve habitat for local wildlife. The parkway and its associated trails provide a scenic place to play and rest in the busy Washington, DC metropolitan area.",
-    "latitude": 38.9628,
-    "longitude": -77.1495,
-    "states": ["DC", "MD", "VA"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C828BAC-1DD8-B71B-0B1A9857AB2A50E1.jpg",
-        "title": "George Washington Memorial Parkway",
-        "altText": "A view of the Parkway"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C645D155-EDA3-ED3B-6DE6F6A95D3A8A6F.jpg",
-        "title": "George Washington Memorial Parkway Stone Bridge",
-        "altText": "Stone Bridge Along the George Washington Memorial Parkway"
-      }
-    ]
-  },
-  {
     "id": "542D7CC3-B948-4891-9811-829661F30686",
     "url": "https://www.nps.gov/gewa/index.htm",
     "name": "George Washington Birthplace",
@@ -5145,52 +4813,6 @@
     ]
   },
   {
-    "id": "DED290D0-879A-4134-BBC3-54980D80959E",
-    "url": "https://www.nps.gov/iatr/index.htm",
-    "name": "Ice Age",
-    "fullName": "Ice Age National Scenic Trail",
-    "parkCode": "iatr",
-    "description": "A mere 15,000 years ago during the Ice Age, much of North America lay under a huge glacier. Mammoths, saber tooth cats and cave lions roamed the earth! Some of the best evidence of this glacier is found in Wisconsin such as the state\u2019s many lakes, river valleys, gently rolling hills, and ridges. The nearly 1,200 mile Ice Age National Scenic Trail, established in 1980, traces the glacier's edge.",
-    "latitude": 43.9895697794,
-    "longitude": -89.5612021706,
-    "states": ["WI"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7CA1B9-1DD8-B71B-0B17FE2CA9588112.jpg",
-        "title": "Lake Michigan",
-        "altText": "For a short time, the trail follows a beach along the Lake Michigan Shore."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C9700-1DD8-B71B-0B7F7D7D94CE39E6.jpg",
-        "title": "Volunteers build a boardwalk at Straight Lake State Park",
-        "altText": "volunteers build a boardwalk"
-      }
-    ]
-  },
-  {
-    "id": "07D9E506-B86A-4762-801F-2D333F369D5D",
-    "url": "https://www.nps.gov/iafl/index.htm",
-    "name": "Ice Age Floods",
-    "fullName": "Ice Age Floods National Geologic Trail",
-    "parkCode": "iafl",
-    "description": "At the end of the last Ice Age, 18,000 to 15,000 years ago, an ice dam in northern Idaho created Glacial Lake Missoula stretching 3,000 square miles around Missoula, Montana. The dam burst and released flood waters across Washington, down the Columbia River into Oregon before reaching the Pacific Ocean. The Ice Age Floods forever changed the lives and landscape of the Pacific Northwest.",
-    "latitude": 46.5669309008,
-    "longitude": -118.992564971,
-    "states": ["WA", "OR", "ID", "MT"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D4C33AFB-B84F-E87C-E19705F8380417D1.jpeg",
-        "title": "Banks Lake",
-        "altText": "Steamboat rock in the foreground with Banks Lake in the distance"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/0BDAB952-1DD8-B71B-0B509D5898489BD4.jpg",
-        "title": "Dry Falls",
-        "altText": "A overhead shot of the Dry Falls area"
-      }
-    ]
-  },
-  {
     "id": "CF35CC35-12CE-473D-9E4C-703916105B78",
     "url": "https://www.nps.gov/inde/index.htm",
     "name": "Independence",
@@ -5486,29 +5108,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C85EA46-1DD8-B71B-0B28B646B53F0C37.jpg",
         "title": "Historic Keys Ranch",
         "altText": "an historic wood house seen through the missing windshield of an old, rusty vehicle"
-      }
-    ]
-  },
-  {
-    "id": "062F89B7-8DB4-4ACD-88D1-573669E63091",
-    "url": "https://www.nps.gov/juba/index.htm",
-    "name": "Juan Bautista de Anza",
-    "fullName": "Juan Bautista de Anza National Historic Trail",
-    "parkCode": "juba",
-    "description": "\"\u00a1Vayan Subiendo!\"(\"Everyone mount up!\") was the rousing call from Juan Bautista de Anza. In 1775-76, he led some 240 men, women, and children on an epic journey to establish the first non-Native settlement at San Francisco Bay. Today, the 1,200-mile Juan Bautista de Anza National Historic Trail connects history, culture, and outdoor recreation from Nogales, Arizona, to the San Francisco Bay Area.",
-    "latitude": 33.8743390994,
-    "longitude": -117.224179857,
-    "states": ["AZ", "CA"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C872DB3-1DD8-B71B-0B6201C88B96A87D.jpg",
-        "title": "Anza Trail Logo",
-        "altText": "Anza Trail Logo"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8730AA-1DD8-B71B-0BDE0D71A786E9DB.jpg",
-        "title": "Anza Trail at Presidio of San Francisco",
-        "altText": "Anza Trail at the Presidio"
       }
     ]
   },
@@ -5996,46 +5595,6 @@
     ]
   },
   {
-    "id": "5D443C5F-19A0-4A06-9CE4-30534A3DD81A",
-    "url": "https://www.nps.gov/lecl/index.htm",
-    "name": "Lewis & Clark",
-    "fullName": "Lewis & Clark National Historic Trail",
-    "parkCode": "lecl",
-    "description": "The Lewis and Clark National Historic Trail winds nearly 4,900 miles through the homelands of more than 60 Tribal nations. It follows the historic outbound and inbound routes of the Lewis and Clark Expedition of 1803-1806 from Pittsburgh, Pennsylvania to the Pacific Ocean. Follow the trail to find the people, places, and stories that make up the complex legacy of the expedition.",
-    "latitude": 41.2646141052,
-    "longitude": -95.9245147705,
-    "states": [
-      "IA",
-      "ID",
-      "IL",
-      "IN",
-      "KS",
-      "KY",
-      "MO",
-      "MT",
-      "NE",
-      "ND",
-      "OH",
-      "OR",
-      "PA",
-      "SD",
-      "WA",
-      "WV"
-    ],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F21788EE-E877-C00C-257B0EB8AD8F49DB.jpg",
-        "title": "Beacon Rock",
-        "altText": "Water in the foreground with large conical rock on shore"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F1E53C07-CAC7-1E47-F3002F9102E59BA6.jpg",
-        "title": "Biking the Lewis and Clark National Historic Trail",
-        "altText": "Cyclist biking dirt path along riverfront. Leafy trees and wetlands habitat in distance."
-      }
-    ]
-  },
-  {
     "id": "2666104A-6685-4F93-9412-8091007BEF6C",
     "url": "https://www.nps.gov/lewi/index.htm",
     "name": "Lewis and Clark",
@@ -6239,29 +5798,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7D2BF1-1DD8-B71B-0BE36B49DC090AE1.jpg",
         "title": "Boott Mills Weave Room",
         "altText": "Two young visitors look over the rail at a room full of working looms"
-      }
-    ]
-  },
-  {
-    "id": "64FF65B7-0847-4495-9464-667CAFBF4D16",
-    "url": "https://www.nps.gov/lode/index.htm",
-    "name": "Lower Delaware",
-    "fullName": "Lower Delaware National Wild and Scenic River",
-    "parkCode": "lode",
-    "description": "The largest free-flowing river in the eastern United States, the Delaware River runs past forests, farmlands, and villages, and it also links some of the most densely populated regions in America. In 2000, the National Wild and Scenic River System incorporated key segments of the lower Delaware River to form this unit of the National Park System.",
-    "latitude": 40.4000389,
-    "longitude": -74.983737,
-    "states": ["PA", "NJ"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A403C-1DD8-B71B-0B48D4D57314EA3D.jpg",
-        "title": "Delaware Canal at Raubsville, Locks 22 & 23",
-        "altText": "A rural boat lock with a gate"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A42DB-1DD8-B71B-0BD49DA7BCB7957C.jpg",
-        "title": "Delaware River Sojourners",
-        "altText": "Kayakers enter the river from a riverside beach"
       }
     ]
   },
@@ -6698,52 +6234,6 @@
     ]
   },
   {
-    "id": "913100E9-987E-4659-8124-DFCEE3158FCB",
-    "url": "https://www.nps.gov/miss/index.htm",
-    "name": "Mississippi",
-    "fullName": "Mississippi National River & Recreation Area",
-    "parkCode": "miss",
-    "description": "In the middle of a bustling urban setting, this 72 mile river park offers quiet stretches for fishing, boating and canoeing, birdwatching, bicycling, and hiking. And there are plenty of visitor centers and trails that highlight the fascinating human history of the Mississippi River. This a great place to start your exploration of this important river.",
-    "latitude": 44.942487,
-    "longitude": -93.098712,
-    "states": ["MN"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7D7E72-1DD8-B71B-0B847D9BFF1C6045.jpg",
-        "title": "Building a Nest",
-        "altText": "A large, long-necked, long-legged bird flies overhead carrying a branch."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7D791B-1DD8-B71B-0BB02885F2438F0E.jpg",
-        "title": "Canoeing Past Gulls",
-        "altText": "Gulls stand on a floating log while a canoe passes in the background."
-      }
-    ]
-  },
-  {
-    "id": "D43C7439-5C0B-4F4F-9D5B-65080F13AD28",
-    "url": "https://www.nps.gov/mnrr/index.htm",
-    "name": "Missouri",
-    "fullName": "Missouri National Recreational River",
-    "parkCode": "mnrr",
-    "description": "Imagine a 100-mile stretch of North America's longest river, a vestige of the untamed American West. The Missouri National Recreational River is where imagination meets reality. Two free flowing stretches of the Missouri make up the National Park. Relive the past by making an exploration of the wild, untamed and mighty river that continues to flow as nature intended.",
-    "latitude": 42.7882189,
-    "longitude": -97.59077822,
-    "states": ["SD", "NE"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8375D2-1DD8-B71B-0B28DF0D3992CFAE.jpg",
-        "title": "Aerial of Missouri River",
-        "altText": "Aerial view of the Missouri River and surrounding landscape."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/176CC10B-9149-BA14-EBA7934F1BDCA490.jpg",
-        "title": "All alone with my canoe",
-        "altText": "A canoe loaded with gear sits quietly on a sandy river bank with blue sky above."
-      }
-    ]
-  },
-  {
     "id": "D509DC08-53AD-4661-A2EA-FC69BE456E50",
     "url": "https://www.nps.gov/moja/index.htm",
     "name": "Mojave",
@@ -6832,29 +6322,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/D1EC1D05-1DD8-B71B-0B465385EACC58D5.jpg",
         "title": "Bridge at Moore's Creek",
         "altText": "Bridge at Moore's Creek."
-      }
-    ]
-  },
-  {
-    "id": "AD731EF0-685F-4397-88C1-A9BB21EBF034",
-    "url": "https://www.nps.gov/mopi/index.htm",
-    "name": "Mormon Pioneer",
-    "fullName": "Mormon Pioneer National Historic Trail",
-    "parkCode": "mopi",
-    "description": "Explore the Mormon Pioneer National Historic Trail across five states to see the 1,300-mile route traveled by Mormons who fled Nauvoo, Illinois, to the Great Salt Lake Valley in 1846-1847.",
-    "latitude": 41.2650321741,
-    "longitude": -101.84083756,
-    "states": ["IL", "IA", "NE", "UT", "WY"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DB518-1DD8-B71B-0BB500A79506970B.jpg",
-        "title": "Brigham Young grave, Utah",
-        "altText": "A bronze plaque with description on a metal fence surrounding Brigham Young's grave."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DB6E0-1DD8-B71B-0BF585CE20DBD781.jpg",
-        "title": "Echo Canyon, Utah",
-        "altText": "Red cliffs line a highway as seen from a high point with grass in the foreground."
       }
     ]
   },
@@ -6970,52 +6437,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C81B61B-1DD8-B71B-0B02E907D6D77626.jpg",
         "title": "Inside the William Johnson House",
         "altText": "room with tall windows and fireplace, round table containing lamp and surrounded by chairs"
-      }
-    ]
-  },
-  {
-    "id": "3ACC9199-1234-4E50-B80E-65DB783B4BB7",
-    "url": "https://www.nps.gov/natt/index.htm",
-    "name": "Natchez Trace",
-    "fullName": "Natchez Trace National Scenic Trail",
-    "parkCode": "natt",
-    "description": "The Natchez Trace National Scenic Trail is five sections of hiking trail running roughly parallel to the 444-mile long Natchez Trace Parkway scenic motor road. The foot trails total more than 60 miles and offer opportunities to explore wetlands, swamps, hardwood forest, and the history of the area. For What's Open What's Close visit www.nps.gov/natr/planyourvisit/what-is-open-what-is-closed.htm",
-    "latitude": 34.330290333,
-    "longitude": -88.7100104094,
-    "states": ["AL", "MS", "TN"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C843CE5-1DD8-B71B-0BAFBFE2E37ADA31.jpg",
-        "title": "Potkopinu Section of the Natchez Trace National Scenic Trail",
-        "altText": "Potkopinu Section of the Natchez Trace National Scenic Trail"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C843EB9-1DD8-B71B-0B958F0F60585D20.jpg",
-        "title": "Rocky Springs Section of the Natchez Trace National Scenic Trail",
-        "altText": "A section of the Old Trace at Rocky Springs (MP 52.4-59)"
-      }
-    ]
-  },
-  {
-    "id": "E8A0F0B6-983F-4B9A-9A67-BFF6F9E4204A",
-    "url": "https://www.nps.gov/natr/index.htm",
-    "name": "Natchez Trace",
-    "fullName": "Natchez Trace Parkway",
-    "parkCode": "natr",
-    "description": "The Natchez Trace Parkway is a 444-mile recreational road and scenic drive through three states. It roughly follows the \"Old Natchez Trace\" a historic travel corridor used by American Indians, \"Kaintucks,\" European settlers, slave traders, soldiers, and future presidents. Today, people can enjoy not only a scenic drive but also hiking, biking, horseback riding, and camping along the Parkway.",
-    "latitude": 33.78002293,
-    "longitude": -89.03092439,
-    "states": ["AL", "MS", "TN"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7FFB07-1DD8-B71B-0B35C15D0834A556.jpg",
-        "title": "Double Arch Bridge over Birdsong Hollow (milepost 438) on the Natchez Trace Parkway",
-        "altText": "View of the Double Arch Bridge from Birdsong Hollow"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7FFE3F-1DD8-B71B-0B9E86CB3BBD9041.jpg",
-        "title": "Mount Locust Historic House (milepost 15.5) on the Natchez Trace Parkway",
-        "altText": "Mount Locust Historic House"
       }
     ]
   },
@@ -7176,29 +6597,6 @@
     ]
   },
   {
-    "id": "CF83E09C-3E55-4B5A-9D8B-E833CF6FEB5A",
-    "url": "https://www.nps.gov/neen/index.htm",
-    "name": "New England",
-    "fullName": "New England National Scenic Trail",
-    "parkCode": "neen",
-    "description": "From the Sound to the Summits: the New England Trail covers 215 miles from Long Island Sound across long ridges to scenic mountain summits in Connecticut and Massachusetts. The trail offers panoramic vistas and close-ups of New England\u2019s natural and cultural landscape: traprock ridges, historic village centers, farmlands, unfragmented forests, quiet streams, steep river valleys and waterfalls.",
-    "latitude": 42.2915819137,
-    "longitude": -72.5242767334,
-    "states": ["MA", "CT"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/62EEBADD-1DD8-B71B-0B610F999ED4F0F5.jpg",
-        "title": "Fall on the NET",
-        "altText": "Fall trees on the mountains of the trail"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/62D44561-1DD8-B71B-0B2578338FED38F1.jpg",
-        "title": "Mt Tom Overlook",
-        "altText": "Overview of the trail in the fall"
-      }
-    ]
-  },
-  {
     "id": "D0F897A0-9545-4901-A1B8-7128E11A51FA",
     "url": "https://www.nps.gov/pine/index.htm",
     "name": "New Jersey Pinelands",
@@ -7332,29 +6730,6 @@
     ]
   },
   {
-    "id": "406594CB-1532-45CD-82EA-0C03FD2F0422",
-    "url": "https://www.nps.gov/niob/index.htm",
-    "name": "Niobrara",
-    "fullName": "Niobrara National Scenic River",
-    "parkCode": "niob",
-    "description": "With a little something for everyone, the Niobrara National Scenic River is a destination for crossing adventures off your bucket list. Most popular for river recreation, you can float the Niobrara River on a canoe, tube, or kayak as a beginner and have a blast. Hiking, biking, and wildlife watching keep our visitors busy. Oh! And we haven't even told you about the waterfalls yet.",
-    "latitude": 42.79413083,
-    "longitude": -99.91870646,
-    "states": ["NE"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C95AD-1DD8-B71B-0B9C962E8BA62E89.jpg",
-        "title": "Berry Falls along the Niobrara NSR.",
-        "altText": "A beautiful, if short, waterfall empties into the side of the Niobrara NSR."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C948A-1DD8-B71B-0B91A2ACA9AACDDF.jpg",
-        "title": "Canoeing the Niobrara NSR",
-        "altText": "Two people in one canoe paddle along the bluffs of the Niobrara NSR."
-      }
-    ]
-  },
-  {
     "id": "C9AA17CC-3152-464A-A9E2-494368086045",
     "url": "https://www.nps.gov/noat/index.htm",
     "name": "Noatak",
@@ -7397,52 +6772,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7A5B0D-1DD8-B71B-0B1104A95B7A2026.jpg",
         "title": "Camping on Ross Lake",
         "altText": "Tents set up in a wooded area."
-      }
-    ]
-  },
-  {
-    "id": "4BE453C2-6527-484F-90D6-98057901EBDF",
-    "url": "https://www.nps.gov/noco/index.htm",
-    "name": "North Country",
-    "fullName": "North Country National Scenic Trail",
-    "parkCode": "noco",
-    "description": "Come to the North Country. Trek the hills and valleys. Stand on the shores of lakes & streams from glaciers 10,000 years before. Clear-flowing water, red/gold of autumn, a fairyland of snow, open prairies, and distant horizons paint the land. Historic sites along the way tell how America settled and grew as a nation. From North Dakota to Vermont, adventure is never far away.",
-    "latitude": 46.334400743,
-    "longitude": -90.8165630499,
-    "states": ["MI", "MN", "ND", "NY", "OH", "PA", "VT", "WI"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C834D56-1DD8-B71B-0B74388D9102A08E.jpg",
-        "title": "Fall foliage",
-        "altText": "Fall colors along the trail"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C834ED3-1DD8-B71B-0B816A8BE4C5F955.jpg",
-        "title": "Hiking the NCT",
-        "altText": "Hiking on the North Country Trail"
-      }
-    ]
-  },
-  {
-    "id": "EE2565D2-D745-4EF7-8814-21DF448427AD",
-    "url": "https://www.nps.gov/obed/index.htm",
-    "name": "Obed",
-    "fullName": "Obed Wild & Scenic River",
-    "parkCode": "obed",
-    "description": "The Obed Wild and Scenic River looks much the same today as it did when the first white settlers strolled its banks in the late 1700s. While meagerly populated due to poor farming soil, the river was a hospitable fishing and hunting area for trappers and pioneers. Today, the Obed stretches along the Cumberland Plateau and offers visitors a variety of outdoor recreational opportunities.",
-    "latitude": 36.1056026037,
-    "longitude": -84.5979170501,
-    "states": ["TN"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/36E8B202-F88E-262B-3256425F034B554C.jpg",
-        "title": "Nemo at Night",
-        "altText": "A star-filled night sky above the silhouette of a truss-bridge"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C792DFB-1DD8-B71B-0B5E8EB41685A5BB.jpg",
-        "title": "Obed WSR in Fall",
-        "altText": "Obed in Fall"
       }
     ]
   },
@@ -7493,29 +6822,6 @@
     ]
   },
   {
-    "id": "8B07C05F-9C4A-4799-8428-DFA2BBB733AC",
-    "url": "https://www.nps.gov/olsp/index.htm",
-    "name": "Old Spanish",
-    "fullName": "Old Spanish National Historic Trail",
-    "parkCode": "olsp",
-    "description": "Follow the routes of mule pack trains across the Southwest on the Old Spanish National Historic Trail between Santa Fe, New Mexico, and Los Angeles, California. New Mexican traders moved locally produced merchandise across what are now six states to exchange for mules and horses.",
-    "latitude": 37.0791782514,
-    "longitude": -112.114693431,
-    "states": ["AZ", "CA", "CO", "NV", "NM", "UT"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7EB4A7-1DD8-B71B-0B2D8F31E6140253.jpg",
-        "title": "Mojave Road, California",
-        "altText": "trail through desert scrub with Joshua trees, mountains in the distance, puffy clouds"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7EB2EF-1DD8-B71B-0BECD6A6AC240936.jpg",
-        "title": "Old Spanish Trail segment, Nevada",
-        "altText": "rocky trail through desert with yucca, mountain in the background"
-      }
-    ]
-  },
-  {
     "id": "81CFE898-AD06-4C0D-8A9B-C8D356273F0D",
     "url": "https://www.nps.gov/olym/index.htm",
     "name": "Olympic",
@@ -7535,29 +6841,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/389CBF78-F250-CB08-78C1AFA0FEFDE68E.jpg",
         "title": "Kalaloch Tree of Life",
         "altText": "A tree's root system holds it suspended in a gap in a bluff overlooking a sandy beach."
-      }
-    ]
-  },
-  {
-    "id": "4E072F12-3E85-4219-B456-A8F04C688879",
-    "url": "https://www.nps.gov/oreg/index.htm",
-    "name": "Oregon",
-    "fullName": "Oregon National Historic Trail",
-    "parkCode": "oreg",
-    "description": "Imagine yourself an emigrant headed for Oregon: would promises of lush farmlands and a new beginning lure you to leave home and walk for weeks? More than 2,000 miles of trail ruts and traces can still be seen along the Oregon National Historic Trail in six states and serve as reminders of the sacrifices, struggles, and triumphs of early American settlers.",
-    "latitude": 41.9876977831,
-    "longitude": -109.634200841,
-    "states": ["ID", "KS", "MO", "NE", "OR", "WA", "WY"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7D8F7A-1DD8-B71B-0BCF2B8441626FBC.jpg",
-        "title": "Alcove Spring Park Wayside",
-        "altText": "An exhibit with an illustration in front of green trees and a rock ledge."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7D8DD1-1DD8-B71B-0B83B71E8F57AF65.jpg",
-        "title": "Devil's Gate, Wyoming",
-        "altText": "A rock buttress with a notch in it surrounded by sagebrush flats."
       }
     ]
   },
@@ -7608,29 +6891,6 @@
     ]
   },
   {
-    "id": "BAB8E761-8BB9-4DFF-9D38-5D4BA9AB2BD4",
-    "url": "https://www.nps.gov/ovvi/index.htm",
-    "name": "Overmountain Victory",
-    "fullName": "Overmountain Victory National Historic Trail",
-    "parkCode": "ovvi",
-    "description": "Stretching 330 miles through four states (Virginia, Tennessee, North and South Carolina) the Overmountain Victory National Historic Trail traces the route used by patriot militia during the pivotal Kings Mountain campaign of 1780. Follow the campaign by utilizing a Commemorative Motor Route which uses existing state highways marked with the distinctive trail logo, or 87 miles of walkable pathways.",
-    "latitude": 35.14044,
-    "longitude": -81.377,
-    "states": ["NC", "SC", "TN", "VA"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C86952F-1DD8-B71B-0BFECBEFB31CCB84.jpg",
-        "title": "Alexander's Ford Trail",
-        "altText": "Reenactors march along the historic trail at Alexander's Ford in North Carolina."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C86935E-1DD8-B71B-0BE36DA6ABE25174.jpg",
-        "title": "AlexandersFordAtTheGreenRiver",
-        "altText": "The OVVI NHT marker is on a fence with the Green River in the background."
-      }
-    ]
-  },
-  {
     "id": "5536A389-5457-4E3F-84E2-D67861BB34D9",
     "url": "https://www.nps.gov/oxhi/index.htm",
     "name": "Oxon Cove Park & Oxon Hill Farm",
@@ -7650,29 +6910,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7C60A9-1DD8-B71B-0BF24255DCA7767D.jpg",
         "title": "Farm Sunrise",
         "altText": "Sunrise at the Farm"
-      }
-    ]
-  },
-  {
-    "id": "CEC2A157-CDDC-4F11-BBE5-0AA2CEA35ADB",
-    "url": "https://www.nps.gov/ozar/index.htm",
-    "name": "Ozark",
-    "fullName": "Ozark National Scenic Riverways",
-    "parkCode": "ozar",
-    "description": "Ozark National Scenic Riverways is the first national park area to protect a river system. The Current and Jacks Fork rivers are two of the finest floating rivers you'll find anywhere. Spring-fed, cold and clear they are a delight to canoe, swim, boat or fish. Besides these two famous rivers, the park is home to hundreds of freshwater springs, caves, trails and historic sites such as Alley Mill.",
-    "latitude": 37.13968894,
-    "longitude": -91.25709817,
-    "states": ["MO"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8635B6F1-D42D-85BF-59AE2567E62B6817.jpg",
-        "title": "Alley Mill-Winter",
-        "altText": "a red mill with snow on roof with a stream emanating from it."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C81882B-1DD8-B71B-0BB6270ECBB772DC.jpg",
-        "title": "Big Spring",
-        "altText": "A sunrise photo with blue turbulent water and a algae colored rock with trees overhanging"
       }
     ]
   },
@@ -8068,29 +7305,6 @@
     ]
   },
   {
-    "id": "A0125F49-080E-4292-BD91-C1FA1657F547",
-    "url": "https://www.nps.gov/poex/index.htm",
-    "name": "Pony Express",
-    "fullName": "Pony Express National Historic Trail",
-    "parkCode": "poex",
-    "description": "It is hard to believe that young men once rode horses to carry mail from Missouri to California in the unprecedented time of only 10 days. This relay system along the Pony Express National Historic Trail in eight states was the most direct and practical means of east-west communications before the telegraph.",
-    "latitude": 42.2365761128,
-    "longitude": -109.266148417,
-    "states": ["CA", "CO", "KS", "MO", "NE", "NV", "UT", "WY"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DB875-1DD8-B71B-0BE5099AF762C684.jpg",
-        "title": "Devil's Gate, Wyoming",
-        "altText": "A tall rock buttress with a cleft in the center sits behind a sagebrush covered valley."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DBA26-1DD8-B71B-0B84C188F6EDE09F.jpg",
-        "title": "Fort Laramie NHS monument, Wyoming",
-        "altText": "A tall obelisk monument with bronze plaques sits on a paved pathway in front of a building."
-      }
-    ]
-  },
-  {
     "id": "F26E7620-3284-4F39-AB1B-98100B4AC6A7",
     "url": "https://www.nps.gov/poch/index.htm",
     "name": "Port Chicago Naval Magazine",
@@ -8110,29 +7324,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/F8907716-E877-89E2-3DF458305A6BDE90.jpg",
         "title": "Port Chicago Naval Magazine National Memorial",
         "altText": "Park signs sitting in rock bed. Trees and bay in background."
-      }
-    ]
-  },
-  {
-    "id": "B7429C72-D8CA-46D9-8E89-E659259D8EEF",
-    "url": "https://www.nps.gov/pohe/index.htm",
-    "name": "Potomac Heritage",
-    "fullName": "Potomac Heritage National Scenic Trail",
-    "parkCode": "pohe",
-    "description": "The Potomac River corridor is rich in both history and recreation, offering a chance to both explore your heritage and choose your adventure along the way. Start your journey here!",
-    "latitude": 39.15060133,
-    "longitude": -77.52301085,
-    "states": ["DC", "MD", "PA", "VA"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C836D0F-1DD8-B71B-0B24CE5E540B0534.jpg",
-        "title": "C&O Canal Towpath",
-        "altText": "In a wooded setting, a biker is riding along the unpaved C&O Canal Towpath, parallel to the canal."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C836E6F-1DD8-B71B-0BDFC8EED394C32E.jpg",
-        "title": "Great Allegheny Passage (GAP)",
-        "altText": "A bicycle sits on a bright summer day overlooking the rolling mountains in the distance."
       }
     ]
   },
@@ -8413,29 +7604,6 @@
     ]
   },
   {
-    "id": "E1A636E5-E7AC-4B71-93DE-F1408F65C458",
-    "url": "https://www.nps.gov/rigr/index.htm",
-    "name": "Rio Grande",
-    "fullName": "Rio Grande Wild & Scenic River",
-    "parkCode": "rigr",
-    "description": "For 196 miles, this free-flowing stretch of the Rio winds its way through desert expanses and stunning canyons of stratified rock. For the well prepared, an extended float trip provides opportunities to explore the most remote corner of Texas and experience the ultimate in solitude, self-reliance, and immersion in natural soundscapes.",
-    "latitude": 29.52743158,
-    "longitude": -102.5979169,
-    "states": ["TX"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/7F000DA5-F0C4-D048-1EF137BD2F80CB3C.jpg",
-        "title": "Boquillas Canyon",
-        "altText": "View in Boquillas Canyon"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/7F2119C6-9098-7131-FCBAC74787E4E2DB.jpg",
-        "title": "Canoeing Boquillas Canyon",
-        "altText": "Canoeing Boquillas Canyon"
-      }
-    ]
-  },
-  {
     "id": "0AEC82D5-0D49-492A-9936-DBE44AF69F09",
     "url": "https://www.nps.gov/rira/index.htm",
     "name": "River Raisin",
@@ -8639,29 +7807,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C858462-1DD8-B71B-0BB499810C61332C.jpg",
         "title": "Flowering Fishhook Pincushion Cactus",
         "altText": "A flowering fishhook pincushion cactus"
-      }
-    ]
-  },
-  {
-    "id": "5CB26B91-B888-46E0-95E1-0683A63C45B0",
-    "url": "https://www.nps.gov/sacn/index.htm",
-    "name": "Saint Croix",
-    "fullName": "Saint Croix National Scenic Riverway",
-    "parkCode": "sacn",
-    "description": "Grab your paddle and your longing for adventure and head to the St. Croix and Namekagon rivers! Together they form the St. Croix National Scenic Riverway, offering over 200 miles of clean water that glides and rushes through a forested landscape. Paddle, boat, fish, and camp among this wild and scenic beauty. Hiking and historic towns also beckon.",
-    "latitude": 45.70019235,
-    "longitude": -92.36126685,
-    "states": ["WI", "MN"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C82DAFA-1DD8-B71B-0B042435F96D7124.jpg",
-        "title": "Evening on the St. Croix River.",
-        "altText": "A man stands next to a river watching a sunset."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C82D9B1-1DD8-B71B-0B22EF948984D549.jpg",
-        "title": "Fast Water on the St. Croix River.",
-        "altText": "A fast river flows over large rocks in a forested landscape."
       }
     ]
   },
@@ -8919,29 +8064,6 @@
     ]
   },
   {
-    "id": "2B14155F-0E31-43F3-8B87-8B1DA6FA0BF7",
-    "url": "https://www.nps.gov/safe/index.htm",
-    "name": "Santa Fe",
-    "fullName": "Santa Fe National Historic Trail",
-    "parkCode": "safe",
-    "description": "You can almost hear the whoops and cries of \"All's set!\" as trail hands hitched their oxen to freight wagons carrying cargo between western Missouri and Santa Fe, New Mexico. Follow the Santa Fe National Historic Trail through five states and you'll find adventure and evidence of past travelers who made this remarkable trip before you!",
-    "latitude": 37.7276522226,
-    "longitude": -99.921969227,
-    "states": ["CO", "KS", "MO", "NM", "OK"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E722D-1DD8-B71B-0B1689F2366B4E44.jpg",
-        "title": "Bent's Old Fort National Historic Site, La Junta, Colorado",
-        "altText": "emigrant wagons pulled by oxen and horses cross the prairie with people walking alongside"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/5580C726-C882-0DDF-0171D443948EB5F4.jpg",
-        "title": "Cimarron National Grassland",
-        "altText": "Warm light from the setting sun gives an orange glow to a rock bluff overlooking a grassland."
-      }
-    ]
-  },
-  {
     "id": "6E020F5D-3F97-4A43-88E6-C68254B55F2C",
     "url": "https://www.nps.gov/samo/index.htm",
     "name": "Santa Monica Mountains",
@@ -9030,29 +8152,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7AB9C7-1DD8-B71B-0BE8539018DE86B3.jpg",
         "title": "Eagle Rock with Conestoga Wagon",
         "altText": "Conestoga wagon in front of Eagle Rock"
-      }
-    ]
-  },
-  {
-    "id": "F5676388-94E5-45D2-8A51-344C825F5C12",
-    "url": "https://www.nps.gov/semo/index.htm",
-    "name": "Selma To Montgomery",
-    "fullName": "Selma To Montgomery National Historic Trail",
-    "parkCode": "semo",
-    "description": "\u200f\u200f\u200eEstablished by Congress in 1996, the Selma to Montgomery National Historic Trail commemorates the people, events, and route of the 1965 Voting Rights March in Alabama. Led by Dr. Martin Luther King Jr., Black and White non-violent supporters fought for the right to vote in Central Alabama. Today, you can connect with this history and trace the events of these marches along the 54-mile trail. \u200f",
-    "latitude": 32.27082092,
-    "longitude": -86.72823702,
-    "states": ["AL"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C878A7E-1DD8-B71B-0B5F97E4D222FACF.jpg",
-        "title": "50th Anniversary Walking Classroom",
-        "altText": "50th Anniversary Walking Classroom Participants."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C879072-1DD8-B71B-0B8BFBF4A9142404.jpg",
-        "title": "A Tribute to The Civil Rights Martys",
-        "altText": "A tribute to remember."
       }
     ]
   },
@@ -9191,29 +8290,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/EF74A0C2-E271-6041-2D2A097B9A5D86A4.jpg",
         "title": "Organ of Muskets",
         "altText": "A double musket rack holding 645 Springfield US Model 1861 rifle muskets."
-      }
-    ]
-  },
-  {
-    "id": "F22ED7C4-DDB8-43F8-AAF2-D474864352DA",
-    "url": "https://www.nps.gov/stsp/index.htm",
-    "name": "Star-Spangled Banner",
-    "fullName": "Star-Spangled Banner National Historic Trail",
-    "parkCode": "stsp",
-    "description": "For three years the young United States was embroiled in the War of 1812 and the Chesapeake Bay region felt the brunt of it, choked by shipping blockades and ravaged by enemy raids. Through sites and landscapes in Virginia, the District of Columbia, and Maryland, the Trail tells the stories of the events, people, and places that led to the birth of the U.S. national anthem.",
-    "latitude": 39.2872505188,
-    "longitude": -76.6034317017,
-    "states": ["MD", "VA", "DC"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F12D5A96-94D4-C33A-0DA8312DDC17F436.jpg",
-        "title": "Historic Sotterley",
-        "altText": "Image of a large historic house with green lawn in foreground."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F32EE65B-D0CD-D7B5-209E00AE83CD2C7B.jpg",
-        "title": "Living History at Fort McHenry",
-        "altText": "People in 18th century period clothing standing in a line and firing muskets."
       }
     ]
   },
@@ -9668,29 +8744,6 @@
     ]
   },
   {
-    "id": "07A92FEB-682E-4895-8070-3323BC6F9EF7",
-    "url": "https://www.nps.gov/trte/index.htm",
-    "name": "Trail Of Tears",
-    "fullName": "Trail Of Tears National Historic Trail",
-    "parkCode": "trte",
-    "description": "Remember and commemorate the survival of the Cherokee people, forcefully removed from their homelands in Georgia, Alabama, and Tennessee to live in Indian Territory, now Oklahoma. They traveled by foot, horse, wagon, or steamboat in 1838-1839.",
-    "latitude": 36.0530021046,
-    "longitude": -89.6761041963,
-    "states": ["AL", "AR", "GA", "IL", "KY", "MO", "NC", "OK", "TN"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E6990-1DD8-B71B-0B75FFAF17A4B2A8.jpg",
-        "title": "Brown's Ferry Tavern, Chattanooga, Tennessee",
-        "altText": "structure in the background with large chimney on the end; signs saying Brown's Ferry Tavern"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E6C3A-1DD8-B71B-0B1C7619213A627A.jpg",
-        "title": "Cherokee Retracement at Pea Ridge National Military Park, Garfield, Arkansas",
-        "altText": "dozens of people walk a section of the Trail of Tears, winter scene, trees with no leaves"
-      }
-    ]
-  },
-  {
     "id": "C315119F-1597-4C44-A8FA-60D707730FF0",
     "url": "https://www.nps.gov/tule/index.htm",
     "name": "Tule Lake",
@@ -9861,29 +8914,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C8277AE-1DD8-B71B-0B99AAADE2FBE255.jpg",
         "title": "Outbuildings",
         "altText": "To the left is the ice house and to right is chicken house."
-      }
-    ]
-  },
-  {
-    "id": "09812D3A-1E2B-4402-9ABC-31C79BCB9F6B",
-    "url": "https://www.nps.gov/upde/index.htm",
-    "name": "Upper Delaware",
-    "fullName": "Upper Delaware Scenic & Recreational River",
-    "parkCode": "upde",
-    "description": "Canoe through rapids and quiet pools as the Delaware River winds its way through a valley of swiftly changing scenery or fish amid rolling hills and riverfront villages in one of the finest fishing rivers in the northeastern United States. The clean water of the Delaware, the last major undammed river in the eastern United States, supports a healthy ecosystem and offers tranquility and excitement.",
-    "latitude": 41.66172578,
-    "longitude": -75.03861562,
-    "states": ["NY", "PA"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/CD6C7346-1DD8-B71B-0BC90615DE962D11.jpg",
-        "title": "Lackawaxen, PA River Access at Upper Delaware Scenic and Recreational River",
-        "altText": "park ranger canoes on the shore at Upper Delaware Scenic and Recreational River"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/CD123899-1DD8-B71B-0BDDF82BB429114F.jpg",
-        "title": "Park Ranger - Upper Delaware Scenic and Recreational River",
-        "altText": "a Park Ranger shows children the wonders of nature"
       }
     ]
   },
@@ -10159,24 +9189,6 @@
     ]
   },
   {
-    "id": "3D547E73-F0BF-4FEA-9CAC-9611D024E2FF",
-    "url": "https://www.nps.gov/waro/index.htm",
-    "name": "Washington-Rochambeau Revolutionary Route",
-    "fullName": "Washington-Rochambeau Revolutionary Route National Historic Trail",
-    "parkCode": "waro",
-    "description": "In 1781, General Rochambeau\u2019s French Army joined forces with General Washington\u2019s Continental Army to fight the British Army in Yorktown, Virginia. With the French Navy in support, the allied armies moved hundreds of miles to become the largest troop movement of the American Revolution. The effort and cooperation between the two sides led to a victory at Yorktown and secured American independence.",
-    "latitude": 40.0958204557,
-    "longitude": -74.8563515109,
-    "states": ["MA", "RI", "CT", "NY", "NJ", "PA", "DE", "MD", "VA", "DC"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/38D13B48-1DD8-B71B-0B557C5D33E45D9D.jpg",
-        "title": "Washington Rochambeau",
-        "altText": "Flag marking the trail"
-      }
-    ]
-  },
-  {
     "id": "BE27CCA2-1ECA-4A6A-90E7-8EB38029FEF3",
     "url": "https://www.nps.gov/waba/index.htm",
     "name": "Washita Battlefield",
@@ -10357,29 +9369,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7ACFE9-1DD8-B71B-0BA11E8BB9A0EE0D.jpg",
         "title": "Boxwork",
         "altText": "criss-cross-patterned calcite fins of the cave feature boxwork"
-      }
-    ]
-  },
-  {
-    "id": "CEC8BD62-9229-4455-ABE8-F4310F4AB623",
-    "url": "https://www.nps.gov/wing/index.htm",
-    "name": "Wing Luke Museum",
-    "fullName": "Wing Luke Museum Affiliated Area",
-    "parkCode": "wing",
-    "description": "More than a museum, the Wing is an experience. A chance to truly understand what it was - and is - to be Asian American in the Pacific Northwest. Take a guided tour of a historic hotel and learn the inside story about what makes the local Chinatown-International District unique. Visitors explore thought-provoking exhibitions of real stories, including actor and martial arts master Bruce Lee.",
-    "latitude": 47.59820859,
-    "longitude": -122.3228912,
-    "states": ["WA"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C81CB2F-1DD8-B71B-0B90378FD5C9894B.jpg",
-        "title": "\"Letter Cloud\"",
-        "altText": "a mobile of letters written on white paper hangs in the museum lobby"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C81CC78-1DD8-B71B-0B5AD50A668E5314.jpg",
-        "title": "\"Letter Cloud\"",
-        "altText": "a mobile of letters written on white paper hangs in the museum lobby"
       }
     ]
   },
