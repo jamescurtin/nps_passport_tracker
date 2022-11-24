@@ -26,7 +26,7 @@ const borderRadius = 5;
 
 // NPS Site point marker properties
 const pointRadius = 3;
-const pointRadiusScaled = 8;
+const pointRadiusScaled = 4;
 
 // On click properties
 const tooltipOpacity = 0.9;

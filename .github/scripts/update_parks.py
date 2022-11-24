@@ -1,7 +1,7 @@
 import argparse
 import json
 import os
-from typing import Any, Dict, Iterator, List, Union
+from typing import Any, Dict, Iterator, List, Set, Union
 
 import requests
 from pydantic import BaseModel, HttpUrl, ValidationError, validator
@@ -12,6 +12,22 @@ JSONType = Dict[str, Any]
 BASE_URL: str = "https://developer.nps.gov/api/v1"
 HEADERS: Dict[str, str] = {"X-Api-Key": os.environ["NPS_API_KEY"]}
 MAX_PICTURES_PER_SITE: int = 2
+EXCLUDED_DESIGNATIONS: Set[str] = {
+    "Affiliated Area",
+    "National Geologic Trail",
+    "National Historic Trail",
+    "National Recreational River",
+    "National River",
+    "National Scenic River",
+    "National Scenic Trail",
+    "Parkway",
+    "Public Lands",
+    "Scenic & Recreational River",
+    "Scenic River",
+    "Scenic Riverway",
+    "Wild and Scenic River",
+    "Wild River",
+}
 
 
 class Photo(BaseModel):
@@ -97,6 +113,13 @@ def main() -> None:
                 "::warning file=src/data/parks.json::Unable to process the following "
                 f"record:\n{record}\n\n{ex}"
             )
+    park_data = [
+        park
+        for park in park_data
+        if not any(
+            designation in park.fullName for designation in EXCLUDED_DESIGNATIONS
+        )
+    ]
     park_data.sort(key=lambda x: x.name)
     for park in park_data:
         park.images.sort(key=lambda x: x.title)
