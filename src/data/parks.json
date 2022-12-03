@@ -1945,7 +1945,7 @@
     "name": "Clara Barton",
     "fullName": "Clara Barton National Historic Site",
     "parkCode": "clba",
-    "description": "Clara Barton dedicated her life and energies to help others in times of need - both home and abroad, in peacetime as well as during military emergencies. Glen Echo was her home the last 15 years of her life and the structure illustrates her dedication and concern for those less fortunate than herself. Virtual Presentations about Clara Barton are offered free to groups of 10 or more.",
+    "description": "Clara Barton dedicated her life and energies to help others in times of need - both home and abroad, in peacetime as well as during military emergencies. Glen Echo was her home the last 15 years of her life and the structure illustrates her dedication and concern for those less fortunate than herself. Guided tours: Fri, Sat, & Sun. 1, 2, 3, & 4 PM First Floor only, free. Closed Dec. 25 & Jan. 1",
     "latitude": 38.96762882,
     "longitude": -77.14009689,
     "states": ["MD"],
@@ -4000,7 +4000,7 @@
     "name": "Grand Canyon",
     "fullName": "Grand Canyon National Park",
     "parkCode": "grca",
-    "description": "Grand Canyon National Park, in northern Arizona, encompasses 278 miles (447 km) of the Colorado River and adjacent uplands. Located on the ancestral homeland of 11 Associated Tribes, Grand Canyon is one of the most spectacular examples of erosion anywhere in the world\u2014unmatched in the incomparable vistas it offers visitors on the rim. South Rim and North Rim are open 24 hours. Daily updates >",
+    "description": "Grand Canyon National Park, in Northern Arizona, encompasses 278 miles (447 km) of the Colorado River and adjacent uplands. Located on ancestral homeland of 11 Associated Tribes, Grand Canyon is one of the most spectacular examples of erosion anywhere in the world\u2014unmatched in the incomparable vistas it offers visitors from the rim. South Rim is open. North Rim closed for winter. Daily updates >",
     "latitude": 36.0001165336,
     "longitude": -112.121516363,
     "states": ["AZ"],
@@ -4841,7 +4841,7 @@
     "name": "Indiana Dunes",
     "fullName": "Indiana Dunes National Park",
     "parkCode": "indu",
-    "description": "Indiana Dunes National Park hugs 15 miles of the southern shore of Lake Michigan and has much to offer. Whether you enjoy scouting for rare species of birds or flying kites on the sandy beach, the national park's 15,000 acres will continually enchant you. Hikers will enjoy 50 miles of trails over rugged dunes, mysterious wetlands, sunny prairies, meandering rivers and peaceful forests.",
+    "description": "Lake Michigan's might has influenced Indiana Dunes for millennia. Wind and waves have shaped the land, leaving a rich mosaic of habitats along these 15 miles of Indiana coast. Over 50 miles of trails lead through shifting sand dunes, quiet woodlands, sunny prairies and lush wetlands. Known for its striking plant and bird diversity, it's easy to find inspiration throughout the park\u2019s 15,000 acres.",
     "latitude": 41.63765525,
     "longitude": -87.09647445,
     "states": ["IN"],
@@ -5117,7 +5117,7 @@
     "name": "Kalaupapa",
     "fullName": "Kalaupapa National Historical Park",
     "parkCode": "kala",
-    "description": "When Hansen's disease (leprosy) was introduced to the Hawaiian Islands, King Kamehameha V banished all afflicted to the isolated Kalaupapa peninsula on the north shore of Molokai. Since 1866, more than 8,000 people, mostly Hawaiians, have died at Kalaupapa. Once a prison, Kalaupapa is now refuge for the few remaining residents who are now cured, but were forced to live their lives in isolation.",
+    "description": "When Hansen's disease (leprosy) was introduced to the Hawaiian Islands, King Kamehameha V banished all afflicted to the isolated Kalaupapa Peninsula on the north shore of Molokai. Since 1866, more than 8,000 people, mostly Hawaiians, have died at Kalaupapa. Once a prison, Kalaupapa is now a refuge for the few remaining residents who are cured but were forced to live their lives in isolation.",
     "latitude": 21.1731108,
     "longitude": -156.9511609,
     "states": ["HI"],
@@ -8998,14 +8998,14 @@
     "states": ["MS", "LA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C79FA38-1DD8-B71B-0B8150B72708AE31.jpg",
-        "title": "Headstone in Tree",
-        "altText": "a headstone is seen in a tree"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C79FC6D-1DD8-B71B-0B666D4D8ACAA98D.jpg",
         "title": "Illinois State Memorial",
         "altText": "Stars behind the Illinois State Memorial"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3EF74E3C-EC29-66FF-6FD94ACE7F103C90.jpg",
+        "title": "Ranger Programs",
+        "altText": "Park Ranger in Civil War Uniform Talks to Crowd"
       }
     ]
   },
