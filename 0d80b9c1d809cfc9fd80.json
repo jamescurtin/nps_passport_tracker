@@ -351,12 +351,12 @@
     "states": ["TN"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/EC39774A-008A-5580-AC8ECA5E8D8B98AD.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/E2BFF5E1-09C3-E7F2-72B7CCFE54BC4A95.jpg",
         "title": "Andrew Johnson Homestead",
-        "altText": "Andrew Johnson Homestead with irises and flag"
+        "altText": "Andrew Johnson Homestead with snow"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/EC5971C5-9F35-EFF4-6040FF724B94B58E.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/E2E04948-D419-0F6C-920120F9C1532194.jpg",
         "title": "Andrew Johnson Monument",
         "altText": "Andrew Johnson Monument"
       }
@@ -5002,7 +5002,7 @@
     "name": "John Day Fossil Beds",
     "fullName": "John Day Fossil Beds National Monument",
     "parkCode": "joda",
-    "description": "Colorful rock formations at John Day Fossil Beds preserve a world class record of plant and animal evolution, changing climate, and past ecosystems that span over 40 million years. Exhibits and a working lab at the Thomas Condon Visitor Center as well as scenic drives and hikes at all three units allow visitors to explore the prehistoric past of Oregon and see science in action.",
+    "description": "Colorful rock formations at John Day Fossil Beds preserve a world class record of plant and animal evolution, changing climate, and past ecosystems that span over 40 million years. Exhibits and a working lab at the Thomas Condon Visitor Center, as well as scenic drives and hikes at all three units, allow visitors to explore the prehistoric past of Oregon and see science in action.",
     "latitude": 44.62566508,
     "longitude": -119.8811491,
     "states": ["OR"],
