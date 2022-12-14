@@ -2170,7 +2170,7 @@
     "name": "Cumberland Gap",
     "fullName": "Cumberland Gap National Historical Park",
     "parkCode": "cuga",
-    "description": "Cumberland Gap was the first great gateway to the west. Come follow the path of the bison, Native American, longhunter, and pioneer. Walk where 300,000 people crossed the Appalachians to settle America. Explore 85 miles of trails and 14,000 acres of wilderness. Stand in 3 states at once. Explore a cave, see Hensley Settlement, or camp under the stars. Come find your connection to Cumberland Gap.",
+    "description": "Cumberland Gap was the first great gateway to the west. Come follow the path of bisons, Native Americans, longhunters, and pioneers. Walk where 300,000 people crossed the Appalachians to settle America. Explore 85 miles of trails and 14,000 acres of wilderness. Stand in 3 states at once. Explore a cave, see Hensley Settlement, or camp under the stars. Come find your connection to Cumberland Gap.",
     "latitude": 36.62503076,
     "longitude": -83.6114083,
     "states": ["KY", "TN", "VA"],
@@ -5675,9 +5675,9 @@
     "states": ["DC"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F1119C53-C9F4-8689-048B3347C3A00D7A.jpg",
-        "title": "Lincoln Memorial Statue at Night",
-        "altText": "Marble statue of Abraham Lincoln sitting inside the Chamber of the Lincoln Memorial"
+        "url": "https://www.nps.gov/common/uploads/structured_data/46D0B9D2-F712-7744-5F284B24E11A86BC.jpg",
+        "title": "Aerial View of the Lincoln Memorial",
+        "altText": "A rectangular, white colonnaded building seen from the air"
       },
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/F1119C53-C9F4-8689-048B3347C3A00D7A.jpg",
