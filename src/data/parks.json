@@ -7724,7 +7724,7 @@
     "name": "Rosie the Riveter WWII Home Front",
     "fullName": "Rosie the Riveter WWII Home Front National Historical Park",
     "parkCode": "rori",
-    "description": "Explore and honor the efforts and sacrifices of American civilians on the World War II home front. Find out how they lived, worked and got along. Many faces, many stories, many truths weave a complex tapestry of myths and realities from this time of opportunity and loss.",
+    "description": "Explore and honor the efforts and sacrifices of American civilians on the World War II Home Front. Find out how they lived, worked and got along. Many faces, many stories, many truths weave a complex tapestry of myths and realities from this time of opportunity and loss.",
     "latitude": 37.90999027,
     "longitude": -122.360156,
     "states": ["CA"],
@@ -8323,19 +8323,19 @@
     "fullName": "Ste. Genevi\u00e8ve National Historical Park",
     "parkCode": "stge",
     "description": "Established by 1750, Ste. Genevi\u00e8ve was the first permanent European settlement in Missouri. Early French Canadian settlers were drawn here by the rich agricultural land known as Le Grand Champ\u00a0(the Big Field). After the flood of 1785,\u00a0the town relocated to its present location on higher ground approximately three miles to the northwest of its original site.",
-    "latitude": 37.9792171421179,
-    "longitude": -90.0432157516479,
+    "latitude": 37.9792171421,
+    "longitude": -90.0432157516,
     "states": ["MO"],
     "images": [
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/6FED42BD-930F-B92A-9CC652F2D045D60D.jpg",
-        "title": "Amoureux House",
+        "title": "Beauvais-Amoureux House",
         "altText": "Frame house made of wood with U.S. and French flags flying on front porch."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/6FFD4586-ECAC-4E99-645467790B23CABC.jpg",
-        "title": "Jean-Baptiste Valle House",
-        "altText": "red tulips in foreground with cream colored two story frame house in background."
+        "url": "https://www.nps.gov/common/uploads/structured_data/5B50A846-B89F-D5E0-723B97A886B7A67C.jpg",
+        "title": "Green Tree Tavern",
+        "altText": "A large raised building with a covered porch and vertical log construction visible."
       }
     ]
   },
@@ -9355,7 +9355,7 @@
     "name": "Wind Cave",
     "fullName": "Wind Cave National Park",
     "parkCode": "wica",
-    "description": "Bison, elk, and other wildlife roam the rolling prairie grasslands and forested hillsides of one of America's oldest national parks. Below the remnant island of intact prairie sits Wind Cave, one of the longest and most complex caves in the world. Named for barometric winds at its entrance, this maze of passages is home to boxwork, a unique formation rarely found elsewhere.",
+    "description": "Wind Cave National Park protects two very different worlds - one deep within the earth, the other a sunlit world of many resources. Bison, elk, and other wildlife roam the rolling prairie grasslands and forested hillsides of one of America's oldest national parks. Below the remnant island of intact prairie sits Wind Cave, one of the longest and most complex caves in the world.",
     "latitude": 43.58012365,
     "longitude": -103.4394709,
     "states": ["SD"],
