@@ -40,6 +40,9 @@ jobs:
           branch: update-parks-json
           push_options: "--force"
       - name: Create Pull Request
-        run: gh pr create -B main -H update-parks-json --title "Update parks.json" --body "Created via Github action"
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+        uses: devops-infra/action-pull-request@v0.5.3
+        with:
+          github_token: ${{ secrets.PAT }}
+          source_branch: update-parks-json
+          target_branch: main
+          title: Update parks.json
