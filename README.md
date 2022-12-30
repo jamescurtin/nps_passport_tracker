@@ -18,10 +18,7 @@ cron schedule. If changes are detected, a PR is created.
 Install Node and Python, then
 
 ```console
-npm install
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+source .vscode/scripts/init.sh
 ```
 
 ### Local Web server
@@ -32,7 +29,7 @@ Then run the local dev server:
 npm run server
 ```
 
-Then navigate to [http://localhost:9000][http://localhost:9000].
+Then navigate to [http://localhost:9000](http://localhost:9000).
 The server will auto-reload as changes are made.
 
 ### Linting
@@ -47,6 +44,6 @@ npm run lint-fix
 To run lints and fail on error (like in CI), run
 
 ```console
-npm run lint
+npm run lint-check
 ./.github/scripts/python_lint.sh --check
 ```

@@ -12,6 +12,8 @@ JSONType = Dict[str, Any]
 BASE_URL: str = "https://developer.nps.gov/api/v1"
 HEADERS: Dict[str, str] = {"X-Api-Key": os.environ["NPS_API_KEY"]}
 MAX_PICTURES_PER_SITE: int = 2
+# NPS units containing the following designations in their name will be excluded
+# from the list of parks used to populate the map.
 EXCLUDED_DESIGNATIONS: Set[str] = {
     "Affiliated Area",
     "National Geologic Trail",
@@ -30,14 +32,27 @@ EXCLUDED_DESIGNATIONS: Set[str] = {
 }
 
 
-class Photo(BaseModel):
+def _to_camel(snake_string: str) -> str:
+    first, *others = snake_string.split("_")
+    return "".join([first.lower(), *map(str.title, others)])
+
+
+class CamelModel(BaseModel):
+    class Config:
+        """Pydantic config to convert snake_case to camelCase aliases."""
+
+        alias_generator = _to_camel
+
+
+class Photo(CamelModel):
     url: HttpUrl
     title: str
-    altText: str  # noqa: N815
+    alt_text: str
 
 
-class NationalPark(BaseModel):
-    """
+class NationalPark(CamelModel):
+    """National park data model.
+
     Full data model is available at
     https://www.nps.gov/subjects/developer/api-documentation.htm
     """
@@ -45,8 +60,8 @@ class NationalPark(BaseModel):
     id: str
     url: HttpUrl
     name: str
-    fullName: str  # noqa: N815
-    parkCode: str  # noqa: N815
+    full_name: str
+    park_code: str
     description: str
     latitude: float
     longitude: float
@@ -55,9 +70,21 @@ class NationalPark(BaseModel):
 
     @validator("states", pre=True)
     def split_states(cls, v: Union[str, List[str]]) -> List[str]:
+        """Takes comma separated list of states and splits them into a list.
+
+        Args:
+            v (Union[str, List[str]]): States either as a list or comma separated string
+
+        Returns:
+            List[str]: List of states
+        """
         if isinstance(v, str):
             return v.split(",")
         return v
+
+
+def _park_has_excluded_designation(park_name: str) -> bool:
+    return any(designation in park_name for designation in EXCLUDED_DESIGNATIONS)
 
 
 def _process_response(response: requests.Response) -> JSONType:
@@ -104,6 +131,7 @@ def main() -> None:
     raw_data = []
     for page in get_paginated_json_response(f"{BASE_URL}/parks", 100):
         raw_data.extend(page["data"])
+
     park_data = []
     for record in raw_data:
         try:
@@ -114,19 +142,15 @@ def main() -> None:
                 f"record:\n{record}\n\n{ex}"
             )
     park_data = [
-        park
-        for park in park_data
-        if not any(
-            designation in park.fullName for designation in EXCLUDED_DESIGNATIONS
-        )
+        park for park in park_data if not _park_has_excluded_designation(park.full_name)
     ]
-    park_data.sort(key=lambda x: x.name)
     for park in park_data:
         park.images.sort(key=lambda x: x.title)
         park.images = park.images[:MAX_PICTURES_PER_SITE]
+    park_data.sort(key=lambda x: x.name)
 
     with open(args.file, "w") as f:
-        json.dump([m.dict() for m in park_data], f)
+        json.dump([m.dict(by_alias=True) for m in park_data], f)
 
 
 if __name__ == "__main__":

@@ -17,7 +17,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           cache: "pip"
       - run: pip install -r requirements.txt
       - name: Setup Node
@@ -26,9 +26,10 @@ jobs:
           node-version: "18"
           cache: "npm"
       - run: npm ci
-      - run: python .github/scripts/update_parks.py src/data/parks.json
+      - run: output=$(python .github/scripts/update_parks.py src/data/parks.json 2>&1)
         env:
           NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
+      - run: echo "${output}"
       - run: npm run lint-fix
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
@@ -38,9 +39,6 @@ jobs:
           branch: update-parks-json
           push_options: "--force"
       - name: Create Pull Request
-        uses: devops-infra/action-pull-request@v0.5.3
-        with:
-          github_token: ${{ secrets.PAT }}
-          source_branch: update-parks-json
-          target_branch: main
-          title: Update parks.json
+        run: gh pr create -B main -H update-parks-json --title "Update parks.json" --body "Created via Github action"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
