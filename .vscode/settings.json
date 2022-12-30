@@ -1,0 +1,9 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.rulers": [88],
+  "explorer.sortOrder": "type",
+  "files.autoSave": "afterDelay",
+  "files.trimFinalNewlines": true,
+  "workbench.editor.highlightModifiedTabs": true
+}

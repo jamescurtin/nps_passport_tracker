@@ -19,10 +19,7 @@ process_args() {
       case "$1" in
           --check | -c) CHECK_ONLY='--check'
               ;;
-          -h) usage;
-              exit 0
-              ;;
-          --help) usage;
+          --help | -h) usage;
               exit 0
               ;;
           *) usage;

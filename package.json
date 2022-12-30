@@ -35,13 +35,13 @@
   "scripts": {
     "build": "webpack",
     "server": "webpack serve",
-    "eslint": "eslint --fix .",
+    "eslint-fix": "eslint --fix .",
     "eslint-check": "eslint .",
-    "stylelint-check": "stylelint **/*.css",
+    "stylelint": "stylelint **/*.css",
     "stylelint-validate-config": "stylelint-config-prettier-check",
-    "prettier": "prettier --write .",
+    "prettier-fix": "prettier --write .",
     "prettier-check": "prettier --check .",
-    "lint": "npm run stylelint-check && npm run eslint-check && npm run prettier-check",
-    "lint-fix": "npm run eslint && npm run prettier && npm run stylelint-check"
+    "lint-check": "npm run stylelint-validate-config && npm run stylelint && npm run eslint-check && npm run prettier-check",
+    "lint-fix": "npm run stylelint-validate-config && npm run eslint-fix && npm run prettier-fix && npm run stylelint"
   }
 }
