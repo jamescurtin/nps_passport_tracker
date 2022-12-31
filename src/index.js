@@ -48,7 +48,6 @@ const legendText = ["Visited", "Not Visited"];
 
 // Construct the body of the page
 const body = d3.select("body");
-const parkList = body.append("div").attr("class", "park-list");
 
 // Require portrait mode rotation on mobile
 body
@@ -61,6 +60,7 @@ const tooltip = body.append("div").attr("class", "tooltip").style("opacity", 0);
 const svg = body
   .append("div")
   .attr("class", "map-container")
+  .attr("id", "map-container")
   .append("svg")
   .classed("svg-content-responsive", true)
   .attr("width", width)
@@ -75,6 +75,19 @@ svg
   .on("click", resetMap);
 const g = svg.append("g");
 const svgHeader = svg.append("g");
+
+const sidebarControl = svg.append("g").attr("visibility", "hidden");
+const sidebar = body
+  .append("div")
+  .attr("class", "sidebar")
+  .attr("id", "park-list-sidebar");
+const closeSidebarButton = sidebar
+  .append("a")
+  .attr("class", "close-sidebar-button")
+  .attr("href", "#")
+  .on("click", prepareSidebar);
+closeSidebarButton.append("text").text("✕");
+const parkList = sidebar.append("div").attr("class", "park-list");
 
 // Construct the legend
 const legend = svg
@@ -104,6 +117,34 @@ legend
   .text(function (d) {
     return d;
   });
+
+const sidebarX = 20;
+const sidebarY = 20;
+const sidebarWidth = 125;
+const sidebarHeight = 50;
+const sidebarRadius = 10;
+sidebarControl
+  .append("rect")
+  .attr("class", "openbtn")
+  .attr("x", sidebarX)
+  .attr("y", sidebarY)
+  .attr("rx", sidebarRadius)
+  .attr("ry", sidebarRadius)
+  .attr("width", sidebarWidth)
+  .attr("height", sidebarHeight)
+  .style("fill", "#17a2b8")
+  .on("click", openSidebar);
+
+sidebarControl
+  .append("text")
+  .text("☰ Parks in State")
+  .attr("class", "openbtn")
+  .attr("x", sidebarX + sidebarWidth / 2)
+  .attr("y", sidebarY + sidebarHeight / 2)
+  .attr("text-anchor", "middle")
+  .attr("dominant-baseline", "central")
+  .attr("fill", "white")
+  .on("click", openSidebar);
 
 d3.json(topoJsonStates).then(function (json) {
   d3.json(parksJSON).then(function (parkData) {
@@ -256,6 +297,8 @@ function clickedMap(_, d) {
     .duration(zoomDuration)
     .attr("visibility", "hidden");
 
+  prepareSidebar();
+
   $(".park-list").show();
   parkList.selectAll("*").remove();
   const parksVisited = countParksVisited(d.properties.parks);
@@ -267,7 +310,7 @@ function clickedMap(_, d) {
     .attr("class", "park-list-table")
     .append("table");
   const columns = ["Name", "Visited On"];
-  const head = table.append("thead").style("background-color", color(1));
+  const head = table.append("thead").style("background-color", color(2));
   head
     .append("tr")
     .selectAll("th")
@@ -336,6 +379,12 @@ function resetMap() {
     .duration(zoomDuration)
     .attr("visibility", "visible");
 
+  sidebarControl
+    .selectAll("*")
+    .transition()
+    .duration(zoomDuration)
+    .attr("visibility", "hidden");
+  hideSidebar();
   $(".park-list").hide();
 }
 
@@ -374,4 +423,45 @@ function mergeNPSData(parkData, visitData) {
  */
 function countParksVisited(parks) {
   return parks.map((i) => i.visited).reduce((a, b) => a + b);
+}
+
+/**
+ * Prepare sidebar by hiding sidebar content and showing controls.
+ */
+function prepareSidebar() {
+  hideSidebar();
+  sidebarControl
+    .selectAll("*")
+    .transition()
+    .duration(zoomDuration)
+    .attr("visibility", "visible");
+}
+
+/**
+ * Open the park list sidebar and move all content to accommodate.
+ */
+function openSidebar() {
+  const sidebar = document.getElementById("park-list-sidebar");
+  const mapContainer = document.getElementById("map-container");
+  sidebar.style.transition = `all ${zoomDuration}ms`;
+  sidebar.style.width = "25%";
+  mapContainer.style.transition = `all ${zoomDuration}ms`;
+  mapContainer.style.marginLeft = "25%";
+  sidebarControl
+    .selectAll("*")
+    .transition()
+    .duration(zoomDuration)
+    .attr("visibility", "hidden");
+}
+
+/**
+ * Close the park list sidebar and move all content back to fill the screen.
+ */
+function hideSidebar() {
+  const sidebar = document.getElementById("park-list-sidebar");
+  const mapContainer = document.getElementById("map-container");
+  sidebar.style.transition = `all ${zoomDuration}ms`;
+  sidebar.style.width = "0";
+  mapContainer.style.transition = `all ${zoomDuration}ms`;
+  mapContainer.style.marginLeft = "0";
 }
