@@ -49,6 +49,14 @@ const legendText = ["Visited", "Not Visited"];
 // Construct the body of the page
 const body = d3.select("body");
 const parkList = body.append("div").attr("class", "park-list");
+
+// Require portrait mode rotation on mobile
+body
+  .append("div")
+  .attr("id", "please-rotate")
+  .append("text")
+  .text("To view this site, please rotate to portrait mode.");
+
 const tooltip = body.append("div").attr("class", "tooltip").style("opacity", 0);
 const svg = body
   .append("div")
@@ -58,6 +66,7 @@ const svg = body
   .attr("width", width)
   .attr("height", height)
   .style("border-radius", `${borderRadius}px`);
+
 svg
   .append("rect")
   .attr("class", "background")
@@ -329,6 +338,11 @@ function resetMap() {
 
   $(".park-list").hide();
 }
+
+// Reload on mobile when changing orientation so the map is drawn to fill the page
+$(window).bind("orientationchange", function (_) {
+  location.reload(true);
+});
 
 /**
  * Merge data from parks visited with all parks
