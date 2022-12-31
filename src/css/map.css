@@ -1,22 +1,8 @@
-#please-rotate {
-  height: 100vh;
-  background-color: darkgray;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-
-@media screen and (orientation: portrait) {
-  #please-rotate {
-    display: flex;
-  }
-}
-
 body {
   font: 12px sans-serif;
   margin: 0;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
   width: 100%;
   height: 100%;
 }
@@ -79,7 +65,7 @@ div.tooltip {
   padding-top: 5px;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .modal-content {
@@ -133,17 +119,14 @@ img {
   text-align: center;
 }
 
-.park-list {
-  padding: 8px;
-}
-
 .park-list-table {
-  display: flex;
-  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 table {
   font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
   border-collapse: collapse;
   align-self: center;
   width: 100%;
@@ -168,4 +151,75 @@ table th {
   padding-bottom: 12px;
   text-align: left;
   color: white;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .close-sidebar-button {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+
+#please-rotate {
+  height: 100vh;
+  background-color: darkgray;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+@media screen and (orientation: portrait) {
+  #please-rotate {
+    display: flex;
+  }
 }
