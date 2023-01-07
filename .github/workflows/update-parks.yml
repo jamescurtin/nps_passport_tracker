@@ -29,7 +29,19 @@ jobs:
       - run: |
           output=$(python .github/scripts/update_parks.py src/data/parks.json 2>&1)
           touch "${{ runner.temp }}/output.txt"
-          echo "${output}" >> "${{ runner.temp }}/output.txt"
+          if [ ! -z ${output+x} ]; then
+            cat <<EOT >> "${{ runner.temp }}/output.txt"
+            [
+              {
+                "filename": "src/data/parks.json",
+                "lineNumber": 1,
+                "columnNumber": 1,
+                "errorCode": "E1",
+                "errorDesc": "${output}"
+              }
+            ]
+            EOT
+          fi
         env:
           NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
       - run: npm run lint-fix
@@ -53,6 +65,7 @@ jobs:
         if: steps.commit_changes.outputs.changes_detected == 'true'
         uses: pytorch/add-annotations-github-action@8436d20d95a47566529672c4cb464770a1ec0b49
         with:
+          mode: json
           check_name: Park Metadata Updater
           linter_output_path: "../../../../../${{ runner.temp }}/output.txt"
           commit_sha: steps.commit_changes.outputs.commit_hash
