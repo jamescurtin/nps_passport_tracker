@@ -137,10 +137,8 @@ def main() -> None:
         try:
             park_data.append(NationalPark(**record))
         except ValidationError as ex:
-            print(
-                "Unable to process the following record:\\n"
-                f"{record}\\n\\n{ex}"
-            )
+            exception_str = f"Unable to process the following record:\n{record}\n\n{ex}"
+            print(json.dumps(exception_str))
     park_data = [
         park for park in park_data if not _park_has_excluded_designation(park.full_name)
     ]
