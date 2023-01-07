@@ -138,8 +138,8 @@ def main() -> None:
             park_data.append(NationalPark(**record))
         except ValidationError as ex:
             print(
-                "::warning file=src/data/parks.json::Unable to process the following "
-                f"record:\n{record}\n\n{ex}"
+                "Unable to process the following record:\\n"
+                f"{record}\\n\\n{ex}"
             )
     park_data = [
         park for park in park_data if not _park_has_excluded_designation(park.full_name)
