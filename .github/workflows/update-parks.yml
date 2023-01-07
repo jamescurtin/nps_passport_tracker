@@ -70,6 +70,6 @@ jobs:
           mode: json
           check_name: Park Metadata Updater
           linter_output_path: "../../../../../${{ runner.temp }}/output.txt"
-          commit_sha: steps.commit_changes.outputs.commit_hash
+          commit_sha: ${{ steps.commit_changes.outputs.commit_hash }}
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
