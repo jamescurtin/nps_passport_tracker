@@ -35,6 +35,7 @@ jobs:
       - run: echo "${output}"
       - run: npm run lint-fix
       - name: Commit changes
+        id: commit_changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Automated update to parks.json
