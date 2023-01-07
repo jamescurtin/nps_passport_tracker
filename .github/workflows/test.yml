@@ -37,3 +37,9 @@ jobs:
           cache: "pip"
       - run: pip install -r requirements.txt
       - run: ./.github/scripts/python_lint.sh --check
+  # A noop job used to add arbitrary annotations to PRs by the updateParks job
+  parkMetadataUpdater:
+    name: Park Metadata Updater
+    runs-on: ubuntu-latest
+    steps:
+      - run: "exit 0"

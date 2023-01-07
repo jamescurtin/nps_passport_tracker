@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+from pprint import pformat
 from typing import Any, Dict, Iterator, List, Set, Union
 
 import requests
@@ -137,10 +138,10 @@ def main() -> None:
         try:
             park_data.append(NationalPark(**record))
         except ValidationError as ex:
-            print(
-                "::warning file=src/data/parks.json::Unable to process the following "
-                f"record:\n{record}\n\n{ex}"
+            exception_str = (
+                f"Unable to process the following record:\n{pformat(record)}\n\n{ex}"
             )
+            print(json.dumps(exception_str))
     park_data = [
         park for park in park_data if not _park_has_excluded_designation(park.full_name)
     ]
