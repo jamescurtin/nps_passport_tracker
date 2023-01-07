@@ -37,7 +37,7 @@ jobs:
               "lineNumber": 1,
               "columnNumber": 1,
               "errorCode": "E1",
-              "errorDesc": "${output}"
+              "errorDesc": ${output}
             }
           ]
           EOT
