@@ -28,8 +28,8 @@ jobs:
       - run: npm ci
       - run: |
           output=$(python .github/scripts/update_parks.py src/data/parks.json 2>&1)
-          touch output.txt
-          echo "${output}" >> output.txt
+          touch "${{ runner.temp }}/output.txt"
+          echo "${output}" >> "${{ runner.temp }}/output.txt"
         env:
           NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
       - run: echo "${output}"
@@ -50,11 +50,11 @@ jobs:
           target_branch: main
           title: Update parks.json
       - name: Annotate PR
-        if: ${{ steps.commit_changes.outputs.changes_detected == 'true' }}
+        if: steps.commit_changes.outputs.changes_detected == 'true'
         uses: pytorch/add-annotations-github-action@8436d20d95a47566529672c4cb464770a1ec0b49
         with:
           check_name: Park Metadata Updater
-          linter_output_path: output.txt
+          linter_output_path: "${{ runner.temp }}/output.txt"
           commit_sha: steps.commit_changes.outputs.commit_hash
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
