@@ -724,9 +724,9 @@
         "altText": "Two Alligators rest on a river bank"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C87CBC3-1DD8-B71B-0B1A0639FD11D95E.jpg",
-        "title": "Canoeing through mangrove tunnels",
-        "altText": "two visitors in a canoe go through mangrove tunnels on the Turner River"
+        "url": "https://www.nps.gov/common/uploads/structured_data/64775590-9B08-F0CC-DEF538861F03F0F6.jpg",
+        "title": "Big Cypress Milky Way",
+        "altText": "The milky way dominating a starry night sky over palm trees."
       }
     ]
   },
@@ -2590,14 +2590,14 @@
     "states": ["PA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8139F5-1DD8-B71B-0BF757D2A5B85377.jpg",
-        "title": "Eisenhower Shuttlebus",
-        "altText": "Visitors arrive at the site via the park shuttle bus"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C81389C-1DD8-B71B-0BDD6A8DAF590B3E.jpg",
         "title": "Eisenhower home",
         "altText": "The Eisenhower home with Ike's putting green in the foreground"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C813E6E-1DD8-B71B-0B4D9B3A34C619BE.jpg",
+        "title": "The Eisenhower dining room decorated for the holidays",
+        "altText": "The Eisenhower dining room decorated for the holidays"
       }
     ]
   },
@@ -6561,7 +6561,7 @@
     "name": "Navajo",
     "fullName": "Navajo National Monument",
     "parkCode": "nava",
-    "description": "The Hopi, San Juan Southern Paiute, Zuni, and Navajo are tribes that have inhabited the canyons for centuries. Springs fed into farming land on the canyon floor and homes were built in the natural sandstone alcoves. The cliff dwellings of Betatakin, Keet Seel, and Inscription House were last physically occupied around 1300 AD but the villages have a spiritual presence that can still be felt today.",
+    "description": "The Hopi, San Juan Southern Paiute, Zuni, and Navajo people have inhabited the canyons for centuries. Springs fed into farmlands on the canyon floor and homes were built in the natural sandstone alcoves. The cliff dwellings of Betatakin, Keet Seel, and Inscription House were last physically occupied around 1300 AD but the villages have a spiritual presence that can still be felt today.",
     "latitude": 36.71755643,
     "longitude": -110.5504015,
     "states": ["AZ"],
