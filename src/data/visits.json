@@ -141,5 +141,30 @@
     "visitedOn": ["2022-11-18"],
     "notes": "The 419 skeletal remains (average age of 22 years old) uncovered during the construction of a federal building were reinterred at the memorial site."
   },
-  { "parkCode": "npnh", "visitedOn": ["2022-11-18"] }
+  { "parkCode": "npnh", "visitedOn": ["2022-11-18"] },
+  {
+    "parkCode": "sahi",
+    "visitedOn": ["2023-02-18"],
+    "notes": "The uniforms Theodore Roosevelt wore while serving as a Colonel in the Rough Riders were tailored by Brooks Brothers."
+  },
+  {
+    "parkCode": "fiis",
+    "visitedOn": ["2023-02-18"],
+    "notes": "The Fire Island lighthouse was originally constructed at the west end of the island, but is currently more than 5 miles east of the island's end, due to the island's growth from littoral drift."
+  },
+  {
+    "parkCode": "hofr",
+    "visitedOn": ["2023-02-19"],
+    "notes": "The foyer of FDR's house was decorated as it was when he lived in the home. It contained a glass display case containing songbirds and birds of prey that Roosevelt shot and taxidermied as a child."
+  },
+  {
+    "parkCode": "vama",
+    "visitedOn": ["2023-02-19"],
+    "notes": "While the mansion cost $660,000 to build and $1.5 million to furnish, no buyers were willing to purchase the property for more than a few hundred thousand dollars during the Great Depression. As a result, the property was donated to the Park Service in exchange for a significant tax deduction instead."
+  },
+  {
+    "parkCode": "elro",
+    "visitedOn": ["2023-02-19"],
+    "notes": "Eleanor Roosevelt moved to this property after the death of FDR."
+  }
 ]

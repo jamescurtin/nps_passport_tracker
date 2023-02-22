@@ -724,9 +724,9 @@
         "altText": "Two Alligators rest on a river bank"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C87CBC3-1DD8-B71B-0B1A0639FD11D95E.jpg",
-        "title": "Canoeing through mangrove tunnels",
-        "altText": "two visitors in a canoe go through mangrove tunnels on the Turner River"
+        "url": "https://www.nps.gov/common/uploads/structured_data/64775590-9B08-F0CC-DEF538861F03F0F6.jpg",
+        "title": "Big Cypress Milky Way",
+        "altText": "The milky way dominating a starry night sky over palm trees."
       }
     ]
   },
@@ -2590,14 +2590,14 @@
     "states": ["PA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8139F5-1DD8-B71B-0BF757D2A5B85377.jpg",
-        "title": "Eisenhower Shuttlebus",
-        "altText": "Visitors arrive at the site via the park shuttle bus"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C81389C-1DD8-B71B-0BDD6A8DAF590B3E.jpg",
         "title": "Eisenhower home",
         "altText": "The Eisenhower home with Ike's putting green in the foreground"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C813E6E-1DD8-B71B-0B4D9B3A34C619BE.jpg",
+        "title": "The Eisenhower dining room decorated for the holidays",
+        "altText": "The Eisenhower dining room decorated for the holidays"
       }
     ]
   },
@@ -4654,10 +4654,10 @@
   {
     "id": "88F37F00-EAD0-44C4-88D1-F42D52BF661B",
     "url": "https://www.nps.gov/hono/index.htm",
-    "name": "Hono'uli'uli",
-    "fullName": "Hono'uli'uli National Historic Site",
+    "name": "Honouliuli",
+    "fullName": "Honouliuli National Historic Site",
     "parkCode": "hono",
-    "description": "Although not yet open to the public, Hono\u2018uli\u2018uli National Historic Site will tell the history of incarceration, martial law, and the experience of prisoners of war in Hawai\u2018i during World War II. Hono\u2018uli\u2018uli National Historic Site will be a place to reflect on wartime experiences and recommit ourselves to the pursuit of freedom and justice.",
+    "description": "Although not yet open to the public, Honouliuli National Historic Site will tell the history of incarceration, martial law, and the experience of prisoners of war in Hawai\u2018i during World War II. Honouliuli National Historic Site will be a place to reflect on wartime experiences and recommit ourselves to the pursuit of freedom and justice.",
     "latitude": 21.38817536,
     "longitude": -158.0574991,
     "states": ["HI"],
@@ -4795,7 +4795,7 @@
     "name": "Hubbell Trading Post",
     "fullName": "Hubbell Trading Post National Historic Site",
     "parkCode": "hutr",
-    "description": "The squeaky wooden floor greets your entry into the oldest operating Trading Post on the Navajo Nation. When your eyes adjust to the dim light in the \"bullpen\" you find you\u2019ve just entered a mercantile. Hubbell Trading Post has been serving Ganado selling goods and Native American Art since 1878. Discover Hubbell Trading Post NHS, sheep, rugs, jewelry and so much more..",
+    "description": "W\u00f3shd\u0119\u0301\u0119\u0301, please come in where the squeaky wooden floors greet your entry into the oldest operating Trading Post on the Navajo Nation. As your eyes adjust to the dim light in the \"bullpen\", you'll find you've just entered a mercantile. Hubbell's in Ganado has been selling goods and trading Native American Art since 1878. Discover Hubbell Trading Post NHS, sheep, rugs, jewelry and so much more...",
     "latitude": 35.70727324,
     "longitude": -109.5599515,
     "states": ["AZ"],
@@ -4956,7 +4956,7 @@
     "name": "Jewel Cave",
     "fullName": "Jewel Cave National Monument",
     "parkCode": "jeca",
-    "description": "Immerse yourself within the third longest cave in the world. With over 215 miles of mapped and surveyed passages, this underground wilderness appeals to human curiosity. Its splendor is revealed through fragile formations and glimpses of brilliant color. Its maze of passages lure explorers, and its scientific wealth remains a mystery. This resource is truly a jewel in the National Park Service.",
+    "description": "Immerse yourself in one of the longest caves in the world. With over 215 miles of mapped and surveyed passages, this underground wilderness appeals to human curiosity. Its splendor is revealed through fragile formations and glimpses of brilliant color. Its maze of passages lures explorers, and its scientific wealth remains a mystery. This resource is truly a jewel in the National Park Service.",
     "latitude": 43.73102945,
     "longitude": -103.829994,
     "states": ["SD"],
@@ -6561,7 +6561,7 @@
     "name": "Navajo",
     "fullName": "Navajo National Monument",
     "parkCode": "nava",
-    "description": "The Hopi, San Juan Southern Paiute, Zuni, and Navajo are tribes that have inhabited the canyons for centuries. Springs fed into farming land on the canyon floor and homes were built in the natural sandstone alcoves. The cliff dwellings of Betatakin, Keet Seel, and Inscription House were last physically occupied around 1300 AD but the villages have a spiritual presence that can still be felt today.",
+    "description": "The Hopi, San Juan Southern Paiute, Zuni, and Navajo people have inhabited the canyons for centuries. Springs fed into farmlands on the canyon floor and homes were built in the natural sandstone alcoves. The cliff dwellings of Betatakin, Keet Seel, and Inscription House were last physically occupied around 1300 AD but the villages have a spiritual presence that can still be felt today.",
     "latitude": 36.71755643,
     "longitude": -110.5504015,
     "states": ["AZ"],
