@@ -3793,7 +3793,7 @@
     "name": "Gila Cliff Dwellings",
     "fullName": "Gila Cliff Dwellings National Monument",
     "parkCode": "gicl",
-    "description": "For thousands of years, groups of ancient nomads used caves above the Gila River as temporary shelter. In the late 1200s, people of the agricultural Mogollon (Southern Ancestral Pueblo) culture made it a home. They built rooms, crafted pottery and raised children in the cliff dwellings for one or two generations. By approximately 1300, the Mogollon had moved on, leaving the walls behind.",
+    "description": "For thousands of years, groups of nomads used the caves above Cliff Dweller Creek as temporary shelter. In the late 1200s, people of the agricultural Mogollon (Southern Ancestral Pueblo) culture made it a home. They built rooms, crafted pottery and raised children in the cliff dwellings for one or two generations. By approximately 1300, the Mogollon had moved on, leaving the walls behind.",
     "latitude": 33.22715258,
     "longitude": -108.2706711,
     "states": ["NM"],
@@ -4484,14 +4484,14 @@
     "states": ["NY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3F80375F-1DD8-B71B-0B40A16E2EDDA99D.jpg",
-        "title": "Harriet Tubman Home for the Aged",
-        "altText": "White single family home with front porch."
+        "url": "https://www.nps.gov/common/uploads/structured_data/F8567A75-E811-6385-F0258606A32144BD.jpg",
+        "title": "Harriet Tubman National Historical Park",
+        "altText": "A composite of two historical images, one of a church, and another of Harriet Tubman seated."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3FE26B89-1DD8-B71B-0B7E863F6BA073DA.jpg",
-        "title": "Harriet Tubman Residence",
-        "altText": "Brick building surrounded by autumn trees"
+        "url": "https://www.nps.gov/common/uploads/structured_data/F8567A75-E811-6385-F0258606A32144BD.jpg",
+        "title": "Harriet Tubman National Historical Park",
+        "altText": "A composite of two historical images, one of a church, and another of Harriet Tubman seated."
       }
     ]
   },
@@ -9412,9 +9412,9 @@
         "altText": "The Elizabeth Cady Stanton House with a tree and National Park Service sign in the front yard"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C716D-1DD8-B71B-0BDF8B5514339E3F.jpg",
-        "title": "Visitor Center",
-        "altText": "Front of Women's Rights National Historical Park Visitor Center"
+        "url": "https://www.nps.gov/common/uploads/structured_data/F79EA066-957C-F6F1-62943C2A05A10DAC.jpg",
+        "title": "First Wave Statue",
+        "altText": "A bronze statue group of people wearing 19th-century clothing."
       }
     ]
   },
