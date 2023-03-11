@@ -4253,7 +4253,7 @@
     "name": "Greenbelt",
     "fullName": "Greenbelt Park",
     "parkCode": "gree",
-    "description": "Camp ten miles from the Washington Monument! Greenbelt Park is located in suburban Greenbelt, Maryland just ten miles from the Washington D.C. attractions. Visit to enjoy affordable camping, peaceful surroundings in an urban forest, and National Park Service hospitality. Greenbelt Park has a 172 site campground, nine miles of trails (Trails are temporarily closed) and three picnic areas.",
+    "description": "Camp ten miles from the Washington Monument! Greenbelt Park is located in suburban Greenbelt, Maryland just ten miles from the Washington D.C. attractions. Visit to enjoy affordable camping, peaceful surroundings in an urban forest, and National Park Service hospitality. Greenbelt Park has a 172 site campground, nine miles of trails and three picnic areas.",
     "latitude": 38.98328267,
     "longitude": -76.89722133,
     "states": ["MD"],
@@ -5261,14 +5261,14 @@
     "states": ["GA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D0648995-1DD8-B71B-0BADC579C8917954.jpg",
-        "title": "Casson with Cannon Fire",
-        "altText": "Casson with Cannon Fire"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/D087031F-1DD8-B71B-0BB9898C84464224.jpg",
         "title": "Fall at Kennesaw Mountain",
         "altText": "Cannon with front field and Visitor Center in background."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/D0AF3092-1DD8-B71B-0BA0839FF68F8071.jpg",
+        "title": "Illinois Monument at Kennesaw Mountain",
+        "altText": "Illinois Monument at Kennesaw Mountain."
       }
     ]
   },
