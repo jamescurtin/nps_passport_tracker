@@ -9660,14 +9660,14 @@
     "states": ["UT"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F04EA-1DD8-B71B-0BF8CE99D6958A0E.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/69033C8D-B439-855D-6B260FB2F4CDB53B.jpg",
         "title": "Kolob Arch",
-        "altText": "A large red sandstone arch high up on a cliff."
+        "altText": "A red sandstone arch under a clear blue sky."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F0203-1DD8-B71B-0B2DCAE32B684884.jpg",
-        "title": "Mountain of the Sun",
-        "altText": "A white and pink sandstone peak, lit up in the sunlight."
+        "url": "https://www.nps.gov/common/uploads/structured_data/68ED8C2C-A9D3-90B2-BBC96E7A21BC3744.jpg",
+        "title": "The Narrows",
+        "altText": "Tall, red, sandstone walls enclose a narrow river."
       }
     ]
   }
