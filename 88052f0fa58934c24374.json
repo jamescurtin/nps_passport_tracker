@@ -7661,14 +7661,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/946DF86C-A589-3C26-9BF6E1EE2FEC13E2.jpg",
-        "title": "Beaver Meadows Entrance at Sunrise",
-        "altText": "View of the Beaver Meadows Entrance Station building with the sun rising in the background"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/94A4C023-A410-40BD-0954EA7017FE67A8.jpg",
         "title": "Coyote in snow",
         "altText": "Coyote laying in the snow"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/04AE2905-965B-69F2-251362BF43038F1F.jpg",
+        "title": "Safe wildlife viewing",
+        "altText": "Park visitors are viewing wildlife safety at a distance"
       }
     ]
   },
