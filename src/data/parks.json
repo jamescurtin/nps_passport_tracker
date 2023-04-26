@@ -6647,7 +6647,18 @@
     "latitude": 39.69803,
     "longitude": -90.96131,
     "states": ["IL"],
-    "images": []
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3AD24D84-C90A-FDDA-393F72EE680D5E7E.jpg",
+        "title": "Kiosk",
+        "altText": "Four interpretive panels mounted under a covered, open-sided kiosk overlooking a prairie landscape."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3B675DB4-C554-1728-3407BA21EC2A236D.jpg",
+        "title": "Lucy McWorter",
+        "altText": "Historic black and white photo of an African American woman seated looking past the camera."
+      }
+    ]
   },
   {
     "id": "28F155F2-5116-4E4F-9E21-E8CBCFA5FF49",
@@ -7382,29 +7393,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/7FF4FE93-071E-4CE5-32154D31E3507074.jpg",
         "title": "Memorial Garden",
         "altText": "Memorial garden for his mother, Virginia"
-      }
-    ]
-  },
-  {
-    "id": "C59FE971-54EE-447C-9DCE-CB781949B0B8",
-    "url": "https://www.nps.gov/whho/index.htm",
-    "name": "President's Park (White House)",
-    "fullName": "President's Park (White House)",
-    "parkCode": "whho",
-    "description": "Every president except George Washington has called the White House home and has run the executive branch of the United States government from within its walls. Recognizable around the world, the White House stands as a symbol of democracy. The White House and its park grounds also serve as an iconic place for civil discourse.",
-    "latitude": 38.89541886,
-    "longitude": -77.03654147,
-    "states": ["DC"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C85F069-1DD8-B71B-0B74C0AB6CE281CD.jpg",
-        "title": "Andrew Jackson Statue and North Side of the White House",
-        "altText": "Andrew Jackson Statue and view of North Side of the White House"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/25B706FC-9EDB-38F5-42E8C03CEBD4D680.jpg",
-        "title": "First Division Monument",
-        "altText": "A tall stone column with a golden, winged figure on top."
       }
     ]
   },
@@ -8481,6 +8469,29 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/4706DA8B-CF75-5928-70521FE49F65E707.jpg",
         "title": "Kosciuszko House - exhibit area",
         "altText": "Photo of exhibit area with exhibit panels showing images, text, and a map of the eastern U.S."
+      }
+    ]
+  },
+  {
+    "id": "C59FE971-54EE-447C-9DCE-CB781949B0B8",
+    "url": "https://www.nps.gov/whho/index.htm",
+    "name": "The White House and President's Park",
+    "fullName": "The White House and President's Park",
+    "parkCode": "whho",
+    "description": "Every president except George Washington has called the White House home and has run the executive branch of the United States government from within its walls. Recognizable around the world, the White House stands as a symbol of democracy. The White House and its park grounds also serve as an iconic place for civil discourse.",
+    "latitude": 38.89541886,
+    "longitude": -77.03654147,
+    "states": ["DC"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C85F069-1DD8-B71B-0B74C0AB6CE281CD.jpg",
+        "title": "Andrew Jackson Statue and North Side of the White House",
+        "altText": "Andrew Jackson Statue and view of North Side of the White House"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/25B706FC-9EDB-38F5-42E8C03CEBD4D680.jpg",
+        "title": "First Division Monument",
+        "altText": "A tall stone column with a golden, winged figure on top."
       }
     ]
   },
