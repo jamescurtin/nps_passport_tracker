@@ -397,14 +397,14 @@
     "states": ["MD"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/6E015AC6-B35B-4CE5-F7D0F1080E63F2B4.jpg",
+        "title": "14th Connecticut Monument",
+        "altText": "dark clouds with tree and obelisk monument"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C807F36-1DD8-B71B-0B768E166A3DD896.jpg",
         "title": "Antietam National Cemetery",
         "altText": "a monument of a soldier in the background with graves in front of the monument"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/828E1DBA-9A58-DD12-D62FF6F259633B3D.jpg",
-        "title": "Antietam National Cemetery Lodge Building",
-        "altText": "stone building with black fence in foreground"
       }
     ]
   },
