@@ -199,7 +199,7 @@ table th {
   background-color: #444;
 }
 
-@media screen and (max-height: 450px) {
+@media screen and (height <= 450px) {
   .sidebar {
     padding-top: 15px;
   }
