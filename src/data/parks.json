@@ -7678,20 +7678,20 @@
     "name": "Roger Williams",
     "fullName": "Roger Williams National Memorial",
     "parkCode": "rowi",
-    "description": "Roger Williams National Memorial commemorates the life of the founder of Rhode Island and a champion of the ideal of religious freedom. Williams, banished from Massachusetts for his beliefs, founded Providence in 1636. This colony served as a refuge where all could come to worship as their conscience dictated without interference from the state.",
+    "description": "Roger Williams National Memorial commemorates the life of the founder of Rhode Island and a champion of the ideal of soul freedom. Williams was an outcast in England, Massachusetts, and Plymouth. Granted refuge by the First Peoples, he founded Providence in 1636. This colony served as a refuge where all could live according to their conscience, free from government interference.",
     "latitude": 41.8298955,
     "longitude": -71.41056665,
     "states": ["RI"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B5F71-1DD8-B71B-0B4733EBDEB2E583.jpg",
-        "title": "Colonial kitchen garden",
-        "altText": "A colonial kitchen garden with grenery growing."
+        "url": "https://www.nps.gov/common/uploads/structured_data/0BFAF215-F354-E572-F9E1C3AAAF285FE4.jpg",
+        "title": "Crabapple Orchard Picnic Area",
+        "altText": "Accessible tables in the picnic area"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B62BF-1DD8-B71B-0BD7409CD479A5EC.jpg",
-        "title": "Historic marker in the snow.",
-        "altText": "Historic marker in the snow."
+        "url": "https://www.nps.gov/common/uploads/structured_data/0C24B603-BF1E-77CC-43B3BCCEA0F492FA.jpg",
+        "title": "National Memorial Grounds",
+        "altText": "Shady lawn along a brick pathway"
       }
     ]
   },
