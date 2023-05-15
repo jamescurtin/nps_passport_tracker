@@ -163,7 +163,9 @@ d3.json(topoJsonStates).then(function (json) {
         .attr("x", width / 2)
         .attr("y", 20)
         .attr("text-anchor", "middle")
-        .text(`${mapTitle} (Visited ${percentVisited}% of NPS Units)`);
+        .text(
+          `${mapTitle}: Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`
+        );
 
       svgHeader
         .append("text")
