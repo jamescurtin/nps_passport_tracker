@@ -2659,14 +2659,14 @@
     "states": ["NY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C81182F-1DD8-B71B-0B579803DAF3A1A3.jpg",
-        "title": "Bridge at Val-Kill",
-        "altText": "Bridge at Val-Kill"
+        "url": "https://www.nps.gov/common/uploads/structured_data/7D0D09BC-C00C-85E9-52A55FF5F187C157.jpg",
+        "title": "Eleanor Roosevelt's Room at Val-Kill",
+        "altText": "A bedroom with walls covered in framed photographs."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8112E3-1DD8-B71B-0B51AD6484D491FF.jpg",
-        "title": "Eleanor Roosevelt's Val-Kill",
-        "altText": "A view of the buildings at Val-Kill"
+        "url": "https://www.nps.gov/common/uploads/structured_data/7CE8477B-D4CF-33ED-D43D8B45297CE15C.jpg",
+        "title": "Living Room at Val-Kill",
+        "altText": "A paneled room with comfortable furniture and a baby grand piano."
       }
     ]
   },
@@ -6901,7 +6901,7 @@
     "name": "Organ Pipe Cactus",
     "fullName": "Organ Pipe Cactus National Monument",
     "parkCode": "orpi",
-    "description": "Look closely. Look again. The sights and sounds of Organ Pipe Cactus National Monument, an International Biosphere Reserve, reveal a thriving community of plants and animals. Human stories echo throughout this desert preserve, chronicling thousands of years of desert living. A scenic drive, wilderness hike or a night of camping will expose you to a living desert that thrives.",
+    "description": "Look closely. Look again. The sights and sounds of Organ Pipe Cactus National Monument, an International Biosphere Reserve, reveal a thriving community of plants and animals. Human stories echo throughout the Sonoran Desert, chronicling thousands of years of desert living. A wilderness hike, a scenic drive, or a night of camping will expose you to a living desert abounding with hidden life.",
     "latitude": 32.03585543,
     "longitude": -112.8573314,
     "states": ["AZ"],
@@ -8685,7 +8685,7 @@
     "name": "Timpanogos Cave",
     "fullName": "Timpanogos Cave National Monument",
     "parkCode": "tica",
-    "description": "Weather dependent, cave tours may begin late May for the 2023 season. Hike your way past stunning vistas to explore a hidden underground world. Taste the thrill of caving as you twist and bend to enter beautifully decorated rooms. Learn the science behind formations and hear stories of cave exploration and preservation. Experience and discover as you go \u2013 geologic mysteries await.",
+    "description": "Weather dependent, cave tours may begin May 31 for the 2023 season. Hike your way past stunning vistas to explore a hidden underground world. Taste the thrill of caving as you twist and bend to enter beautifully decorated rooms. Learn the science behind formations and hear stories of cave exploration and preservation. Experience and discover as you go \u2013 geologic mysteries await.",
     "latitude": 40.44039719,
     "longitude": -111.7093944,
     "states": ["UT"],
