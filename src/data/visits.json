@@ -5,53 +5,14 @@
     "notes": "Picked a good handful of blueberries after hiking to the top of the beehive trail. Hiked Cadillac Mountain in reverse: parking at the top, then hiking across to Dorr Mountain and back."
   },
   {
-    "parkCode": "this",
-    "visitedOn": ["2018-08-13"]
+    "parkCode": "afbg",
+    "visitedOn": ["2022-11-18"],
+    "notes": "The 419 skeletal remains (average age of 22 years old) uncovered during the construction of a federal building were reinterred at the memorial site."
   },
   {
-    "parkCode": "boha",
-    "visitedOn": ["2018-10-20", "2022-09-03"],
-    "notes": "Collected a variety of sea glass from Spectacle Island."
-  },
-  {
-    "parkCode": "muwo",
-    "visitedOn": ["2019-06-19"],
-    "notes": "Hiked the Dipsea Trail to the Ben Johnson Trail to the Hillside trail, ending in Cathedral Grove. Despite full parking lots, we encountered almost no other hikers until arriving back at the paved section through the grove."
-  },
-  {
-    "parkCode": "saga",
-    "visitedOn": ["2019-10-29"],
-    "notes": "Visited on our way back from vacation in Vermont. Notable statues were the Standing Lincoln and a cast of the Massachusetts 54th Regiment Memorial. Flushed a woodcock while walking through the garden."
-  },
-  {
-    "parkCode": "mima",
-    "visitedOn": ["2020-03-21", "2022-08-15"],
-    "notes": "Walked the length of Battle Road."
-  },
-  {
-    "parkCode": "caco",
-    "visitedOn": ["2020-12-12", "2021-11-16", "2022-12-05"],
-    "notes": "Visited and transmitted from the Marconi wireless station. Collected a good amount of driftwood, which was boiled and is now in aquariums."
-  },
-  {
-    "parkCode": "nebe",
-    "visitedOn": ["2022-07-23"],
-    "notes": "Favorite Fact: The last whaling ship left New Bedford harbor in 1925."
-  },
-  {
-    "parkCode": "wefa",
-    "visitedOn": ["2022-07-31"],
-    "notes": "There were a number of interesting items from the Weir family on display in their home, including a taxidermied Cooper's Hawk."
-  },
-  {
-    "parkCode": "long",
-    "visitedOn": ["2022-08-05"],
-    "notes": "Favorite Fact: The property was purchased by Nathaniel Appleton as a gift to his daughter and son-in-law, Henry Wadsworth Longfellow. The Appleton family also owned the mill factories that grew into the city of Lowell."
-  },
-  {
-    "parkCode": "frla",
-    "visitedOn": ["2022-08-07"],
-    "notes": "Favorite Feature: The drafting rooms on the top floor of the house contained a number of tools for the creation of blueprints, including drafting tables on tracks that could be pushed outdoors to expose in the sun, a floor-to-ceiling glass cylinder lit from the center around which blueprints could be wrapped, and a closet that was retrofitted as an arsenic gas chamber for exposing blueprints chemically."
+    "parkCode": "alca",
+    "visitedOn": ["2023-05-13"],
+    "notes": "We took a tour with Jolene Babyak, who lived on Alacatraz as a child while her father was a guard and, later, assistant warden at the prison. The prison held up to 250 inmates, but the island was also home to over 60 families, including 75 children who took the ferry to and from school every day."
   },
   {
     "parkCode": "blrv",
@@ -59,14 +20,166 @@
     "notes": "Visited Slater Mill, the site of the first water-powered textile mill in the United States."
   },
   {
-    "parkCode": "rowi",
-    "visitedOn": ["2022-08-13"],
-    "notes": "Located in the center of Providence, the memorial is located directly across the street from Roger Williams house. He settled in this location due to the proximity to an active freshwater spring. The spring is located within the memorial."
+    "parkCode": "boaf",
+    "visitedOn": ["2022-09-03"]
+  },
+  {
+    "parkCode": "boha",
+    "visitedOn": ["2018-10-20", "2022-09-03"],
+    "notes": "Collected a variety of sea glass from Spectacle Island."
+  },
+  {
+    "parkCode": "bost",
+    "visitedOn": ["2022-09-03"],
+    "notes": "Visited all sites, starting with a climb to the top of the Bunker Hill Monument, then the USS Constitution and USS Casin Young at the Charlestown Navy Yard, ending at Faneuil Hall. Favorite Fact: The construction of Dry Dock 1 at the Navy yard in 1833, along with the construction of a second dry dock in Norfolk, VA, was the largest civil works project undertaken by the United States at the time."
+  },
+  {
+    "parkCode": "cacl",
+    "visitedOn": ["2022-11-18"],
+    "notes": "Favorite Fact: Castle Clinton was the location of the New York Aquarium from 1896 to 1941."
+  },
+  {
+    "parkCode": "caco",
+    "visitedOn": ["2020-12-12", "2021-11-16", "2022-12-05"],
+    "notes": "Visited and transmitted from the Marconi wireless station. Collected a good amount of driftwood, which was boiled and is now in aquariums."
+  },
+  {
+    "parkCode": "elis",
+    "visitedOn": ["2022-11-18"],
+    "notes": "The Ellis Island Museum was the most extensive NPS museum we have visited. The exhibits of the screening process and family heirlooms were of particular interest."
+  },
+  {
+    "parkCode": "elro",
+    "visitedOn": ["2023-02-19"],
+    "notes": "Eleanor Roosevelt moved to this property after the death of FDR."
+  },
+  {
+    "parkCode": "euon",
+    "visitedOn": ["2023-05-12"],
+    "notes": "Eugene O'Neill is the only American playwright to win a Nobel Prize for Literature. He had extremely fond memories of his time as a sailor, and specially designed his office with a nautical theme reminiscent of the officer's quarters."
+  },
+  {
+    "parkCode": "feha",
+    "visitedOn": ["2022-11-14"],
+    "notes": "Federal Hall was the site of many historic moments including the Zenger trial (helping to establish freedom of the press), authoring of the Bill of Rights, and the inauguration of George Washington. "
+  },
+  {
+    "parkCode": "fiis",
+    "visitedOn": ["2023-02-18"],
+    "notes": "The Fire Island lighthouse was originally constructed at the west end of the island, but is currently more than 5 miles east of the island's end, due to the island's growth from littoral drift."
+  },
+  {
+    "parkCode": "fopo",
+    "visitedOn": ["2023-05-14"],
+    "notes": "Fort Point was used for various military purposes beginning during the Civil War and ending with WWII. It is located underneath the Golden Gate Bridge, which provides an interesting view of the bridge's structure from below."
+  },
+  {
+    "parkCode": "frla",
+    "visitedOn": ["2022-08-07"],
+    "notes": "Favorite Feature: The drafting rooms on the top floor of the house contained a number of tools for the creation of blueprints, including drafting tables on tracks that could be pushed outdoors to expose in the sun, a floor-to-ceiling glass cylinder lit from the center around which blueprints could be wrapped, and a closet that was retrofitted as an arsenic gas chamber for exposing blueprints chemically."
+  },
+  {
+    "parkCode": "goga",
+    "visitedOn": ["2023-05-14"],
+    "notes": "The chief architect of the Golden Gate Bridge, Joseph Strauss, was one of the first to strictly apply hard hat and safety harness rules during work on the project; a safety net used during the construction of the bridge's roadway saved the lives of 19 workers."
+  },
+  {
+    "parkCode": "hofr",
+    "visitedOn": ["2023-02-19"],
+    "notes": "The foyer of FDR's house was decorated as it was when he lived in the home. It contained a glass display case containing songbirds and birds of prey that Roosevelt shot and taxidermied as a child."
+  },
+  {
+    "parkCode": "jeff",
+    "visitedOn": ["2022-10-16"],
+    "notes": "Favorite Feature: The entrance to each tram car is only 4.5 feet tall! Such small trams are necessary due to the arch narrowing to less than 7 feet at the top. The tram cars also rotate 155 degrees over the course of the ride in order to keep passengers upright."
+  },
+  {
+    "parkCode": "jomu",
+    "visitedOn": ["2023-05-12"],
+    "notes": "John Muir inherited this 10,000 square foot house and orchard from his father in law. The National Park Service still maintains some a small orchard, and we were able to take home lemons as souvenirs!"
+  },
+  {
+    "parkCode": "lecl",
+    "visitedOn": ["2022-10-16"]
+  },
+  {
+    "parkCode": "liho",
+    "visitedOn": ["2022-10-16"],
+    "notes": "Favorite Feature: Lincoln's bedroom contains his original writing desk, which was very plain and small. It held sentimental value for him as he had purchased the desk early in his career, so he kept and used it long after he could have afforded a more ornate desk, to the chagrin of Mary Todd."
+  },
+  {
+    "parkCode": "long",
+    "visitedOn": ["2022-08-05"],
+    "notes": "Favorite Fact: The property was purchased by Nathaniel Appleton as a gift to his daughter and son-in-law, Henry Wadsworth Longfellow. The Appleton family also owned the mill factories that grew into the city of Lowell."
   },
   {
     "parkCode": "lowe",
     "visitedOn": ["2022-08-15"],
     "notes": "Favorite Fact: The factories of the city were operated by a series of canals that are almost six miles long. This remains the largest series of power canals in the United States."
+  },
+  {
+    "parkCode": "mima",
+    "visitedOn": ["2020-03-21", "2022-08-15"],
+    "notes": "Walked the length of Battle Road."
+  },
+  {
+    "parkCode": "muwo",
+    "visitedOn": ["2019-06-19"],
+    "notes": "Hiked the Dipsea Trail to the Ben Johnson Trail to the Hillside trail, ending in Cathedral Grove. Despite full parking lots, we encountered almost no other hikers until arriving back at the paved section through the grove."
+  },
+  {
+    "parkCode": "nebe",
+    "visitedOn": ["2022-07-23"],
+    "notes": "Favorite Fact: The last whaling ship left New Bedford harbor in 1925."
+  },
+  {
+    "parkCode": "npnh",
+    "visitedOn": ["2022-11-18"]
+  },
+  {
+    "parkCode": "pinn",
+    "visitedOn": ["2023-05-10"],
+    "notes": "Pinnacles is a relatively small park and we were able to hike all of the trails in two days. The park has interesting geological features, as well as some interesting trails (some lead through caves, others required mining short tunnels through rock faces that could not be climbed around). On our second morning, we were able to watch a group of condors from a distance."
+  },
+  {
+    "parkCode": "pore",
+    "visitedOn": ["2023-05-06"],
+    "notes": "We walked out to Chimney Rock and to Abbots Lagoon during our visit. There were a significant number of valley quail visible from the trails or sitting on fence posts alongside the road."
+  },
+  {
+    "parkCode": "prsf",
+    "visitedOn": ["2023-05-14"],
+    "notes": "The Presidio was transferred to the National Park Service in 1994. Prior to that, it had been an active military base for over two hundred years, spanning three countries. At the time the Presidio was transferred, it was the oldest continually operational military base in the country."
+  },
+  {
+    "parkCode": "pull",
+    "visitedOn": ["2022-10-17"],
+    "notes": "The museum featured a replica of a Pullman sleeper car, including a bed that folded down from the overhead compartment."
+  },
+  {
+    "parkCode": "rori",
+    "visitedOn": ["2023-05-07"],
+    "notes": "The site was primarily a museum describing the development of Richmond, CA and the shipyards needed to support the war effort. We visited the SS Red Oak Victory, which was docked nearby. It is the last remaining WWII ship built at the Kaiser Shipyards to survive."
+  },
+  {
+    "parkCode": "rowi",
+    "visitedOn": ["2022-08-13"],
+    "notes": "Located in the center of Providence, the memorial is located directly across the street from Roger Williams house. He settled in this location due to the proximity to an active freshwater spring. The spring is located within the memorial."
+  },
+  {
+    "parkCode": "safr",
+    "visitedOn": ["2023-05-14"],
+    "notes": "There are a number of historic ships docked at the Hyde Street pier that are open for visitors. The pier (and the ferries that departed from it) were part of the 101 highway until the construction of the Golden Gate Bridge was completed."
+  },
+  {
+    "parkCode": "saga",
+    "visitedOn": ["2019-10-29"],
+    "notes": "Visited on our way back from vacation in Vermont. Notable statues were the Standing Lincoln and a cast of the Massachusetts 54th Regiment Memorial. Flushed a woodcock while walking through the garden."
+  },
+  {
+    "parkCode": "sahi",
+    "visitedOn": ["2023-02-18"],
+    "notes": "The uniforms Theodore Roosevelt wore while serving as a Colonel in the Rough Riders were tailored by Brooks Brothers."
   },
   {
     "parkCode": "sair",
@@ -79,52 +192,14 @@
     "notes": "Favorite Fact: The Salem Maritime NHP was the first National Historic Site established by the Park Service."
   },
   {
-    "parkCode": "bost",
-    "visitedOn": ["2022-09-03"],
-    "notes": "Visited all sites, starting with a climb to the top of the Bunker Hill Monument, then the USS Constitution and USS Casin Young at the Charlestown Navy Yard, ending at Faneuil Hall. Favorite Fact: The construction of Dry Dock 1 at the Navy yard in 1833, along with the construction of a second dry dock in Norfolk, VA, was the largest civil works project undertaken by the United States at the time."
-  },
-  { "parkCode": "boaf", "visitedOn": ["2022-09-03"] },
-  {
-    "parkCode": "liho",
-    "visitedOn": ["2022-10-16"],
-    "notes": "Favorite Feature: Lincoln's bedroom contains his original writing desk, which was very plain and small. It held sentimental value for him as he had purchased the desk early in his career, so he kept and used it long after he could have afforded a more ornate desk, to the chagrin of Mary Todd."
-  },
-  {
-    "parkCode": "pull",
-    "visitedOn": ["2022-10-17"],
-    "notes": "The museum featured a replica of a Pullman sleeper car, including a bed that folded down from the overhead compartment."
-  },
-  {
-    "parkCode": "jeff",
-    "visitedOn": ["2022-10-16"],
-    "notes": "Favorite Feature: The entrance to each tram car is only 4.5 feet tall! Such small trams are necessary due to the arch narrowing to less than 7 feet at the top. The tram cars also rotate 155 degrees over the course of the ride in order to keep passengers upright."
+    "parkCode": "spar",
+    "visitedOn": ["2022-10-30"],
+    "notes": "The museum has a display of government issued firearms that suffered unusual damage, including lightning strikes and barrels split by oncoming bullets."
   },
   {
     "parkCode": "stge",
     "visitedOn": ["2022-10-15"],
-    "notes": "Favorite Fact: The earliest settlers of Ste. Genevieve began farming in the fertile soil along the Missippi River before establishing a permanent settlement. They would travel to the fields in the spring to plant crops and return only in the fall to harvest."
-  },
-  {
-    "parkCode": "ulsg",
-    "visitedOn": ["2022-10-15"],
-    "notes": "Favorite Fact: Grant's residence, Whitehaven, was painted a shade of green known as Paris Green. The color was so named as it contained arsenic and was once used to kill rats in the sewers of Paris. Interestingly, there is also a green dress in the Lincoln home that requires special care when being handled since it also contains traces of arsenic."
-  },
-  { "parkCode": "lecl", "visitedOn": ["2022-10-16"] },
-  {
-    "parkCode": "spar",
-    "visitedOn": ["2022-10-30"],
-    "notes": "The museum has a display of government issued firearms that suffered unusual damage, icluding lightning strikes and barrels split by oncoming bullets."
-  },
-  {
-    "parkCode": "feha",
-    "visitedOn": ["2022-11-14"],
-    "notes": "Federal Hall was the site of many historic moments including the Zenger trial (helping to establish freedom of the press), authoring of the Bill of Rights, and the inauguration of George Washington. "
-  },
-  { "parkCode": "ston", "visitedOn": ["2022-11-14"] },
-  {
-    "parkCode": "elis",
-    "visitedOn": ["2022-11-18"],
-    "notes": "The Ellis Island Museum was the most extensive NPS museum we have visited. The exhibits of the screening process and family heirlooms were of particular interest."
+    "notes": "Favorite Fact: The earliest settlers of Ste. Genevieve began farming in the fertile soil along the Mississippi River before establishing a permanent settlement. They would travel to the fields in the spring to plant crops and return only in the fall to harvest."
   },
   {
     "parkCode": "stli",
@@ -132,30 +207,17 @@
     "notes": "Favorite Fact: The copper sheeting that makes up the Statue of Liberty's form is only as thick as only two pennies!"
   },
   {
-    "parkCode": "cacl",
-    "visitedOn": ["2022-11-18"],
-    "notes": "Favorite Fact: Castle Clinton was the location of the New York Aquarium from 1896 to 1941."
+    "parkCode": "ston",
+    "visitedOn": ["2022-11-14"]
   },
   {
-    "parkCode": "afbg",
-    "visitedOn": ["2022-11-18"],
-    "notes": "The 419 skeletal remains (average age of 22 years old) uncovered during the construction of a federal building were reinterred at the memorial site."
-  },
-  { "parkCode": "npnh", "visitedOn": ["2022-11-18"] },
-  {
-    "parkCode": "sahi",
-    "visitedOn": ["2023-02-18"],
-    "notes": "The uniforms Theodore Roosevelt wore while serving as a Colonel in the Rough Riders were tailored by Brooks Brothers."
+    "parkCode": "this",
+    "visitedOn": ["2018-08-13"]
   },
   {
-    "parkCode": "fiis",
-    "visitedOn": ["2023-02-18"],
-    "notes": "The Fire Island lighthouse was originally constructed at the west end of the island, but is currently more than 5 miles east of the island's end, due to the island's growth from littoral drift."
-  },
-  {
-    "parkCode": "hofr",
-    "visitedOn": ["2023-02-19"],
-    "notes": "The foyer of FDR's house was decorated as it was when he lived in the home. It contained a glass display case containing songbirds and birds of prey that Roosevelt shot and taxidermied as a child."
+    "parkCode": "ulsg",
+    "visitedOn": ["2022-10-15"],
+    "notes": "Favorite Fact: Grant's residence, Whitehaven, was painted a shade of green known as Paris Green. The color was so named as it contained arsenic and was once used to kill rats in the sewers of Paris. Interestingly, there is also a green dress in the Lincoln home that requires special care when being handled since it also contains traces of arsenic."
   },
   {
     "parkCode": "vama",
@@ -163,8 +225,13 @@
     "notes": "While the mansion cost $660,000 to build and $1.5 million to furnish, no buyers were willing to purchase the property for more than a few hundred thousand dollars during the Great Depression. As a result, the property was donated to the Park Service in exchange for a significant tax deduction instead."
   },
   {
-    "parkCode": "elro",
-    "visitedOn": ["2023-02-19"],
-    "notes": "Eleanor Roosevelt moved to this property after the death of FDR."
+    "parkCode": "wefa",
+    "visitedOn": ["2022-07-31"],
+    "notes": "There were a number of interesting items from the Weir family on display in their home, including a taxidermied Cooper's Hawk."
+  },
+  {
+    "parkCode": "yose",
+    "visitedOn": ["2023-05-08"],
+    "notes": "We stayed in Curry Village in Yosemite valley, which helped us get an early start before the park got too busy. During our first full day in the park, we hiked to the top of Yosemite falls. The upper Yosemite falls trail is one of Yosemite's oldest trails; construction started in 1873. On our second day, we were able to hike through the sequoias in Mariposa grove."
   }
 ]

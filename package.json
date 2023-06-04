@@ -39,7 +39,8 @@
     "stylelint": "stylelint **/*.css",
     "prettier-fix": "prettier --write .",
     "prettier-check": "prettier --check .",
+    "sort-visits": "python .github/scripts/sort_visits.py",
     "lint-check": "npm run stylelint && npm run eslint-check && npm run prettier-check",
-    "lint-fix": "npm run eslint-fix && npm run prettier-fix && npm run stylelint"
+    "lint-fix": "npm run sort-visits && npm run eslint-fix && npm run prettier-fix && npm run stylelint"
   }
 }
