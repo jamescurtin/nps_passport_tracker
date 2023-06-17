@@ -37,13 +37,11 @@ The server will auto-reload as changes are made.
 To run lints (and attempt to fix errors), run
 
 ```console
-npm run lint-fix
-./.github/scripts/python_lint.sh
+./.vscode/scripts/lint.sh
 ```
 
 To run lints and fail on error (like in CI), run
 
 ```console
-npm run lint-check
-./.github/scripts/python_lint.sh --check
+./.vscode/scripts/lint.sh --check
 ```
