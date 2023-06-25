@@ -84,9 +84,19 @@
     "notes": "Favorite Feature: The drafting rooms on the top floor of the house contained a number of tools for the creation of blueprints, including drafting tables on tracks that could be pushed outdoors to expose in the sun, a floor-to-ceiling glass cylinder lit from the center around which blueprints could be wrapped, and a closet that was retrofitted as an arsenic gas chamber for exposing blueprints chemically."
   },
   {
+    "parkCode": "gegr",
+    "visitedOn": ["2023-06-24"],
+    "notes": "The mausoleum for President Grant and his wife, Julia, is the largest in North America."
+  },
+  {
     "parkCode": "goga",
     "visitedOn": ["2023-05-14"],
     "notes": "The chief architect of the Golden Gate Bridge, Joseph Strauss, was one of the first to strictly apply hard hat and safety harness rules during work on the project; a safety net used during the construction of the bridge's roadway saved the lives of 19 workers."
+  },
+  {
+    "parkCode": "hagr",
+    "visitedOn": ["2023-06-24"],
+    "notes": "The home has been moved twice: once to accommodate the introduction of the New York City street grid plan, and once again to move it to a larger lot. In the second move, the house needed to be lifted over thirty feet in the air with hydraulic lifts, as it needed to pass over the roof of a church."
   },
   {
     "parkCode": "hofr",
@@ -218,6 +228,11 @@
   {
     "parkCode": "this",
     "visitedOn": ["2018-08-13"]
+  },
+  {
+    "parkCode": "thrb",
+    "visitedOn": ["2023-06-24"],
+    "notes": "The Roosevelt family moved out of the property in 1872, and in 1916 the building was demolished. Members of the Roosevelt family re-purchased the lot and reconstructed the family home in the same style as the original. There is an attached museum, which contains the items Roosevelt was wearing and carrying when he was shot while campaigning, including the folded up speech and glasses case that slowed the trajectory of the bullet."
   },
   {
     "parkCode": "ulsg",
