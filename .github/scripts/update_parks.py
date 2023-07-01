@@ -181,7 +181,7 @@ def main() -> None:
     park_data.sort(key=lambda x: x.name)
 
     with open(args.file, "w") as f:
-        json.dump([m.dict(by_alias=True) for m in park_data], f)
+        json.dump([m.model_dump(by_alias=True) for m in park_data], f)
 
 
 if __name__ == "__main__":
