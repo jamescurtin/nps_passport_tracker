@@ -58,6 +58,14 @@ class Photo(CamelModel):
 
     @field_serializer("url")
     def serialize_url(self, url: HttpUrl) -> str:
+        """Serialize URL to string.
+
+        Args:
+            url (HttpUrl): url
+
+        Returns:
+            str: serialized URL
+        """
         return str(url)
 
 
@@ -95,6 +103,14 @@ class NationalPark(CamelModel):
 
     @field_serializer("url")
     def serialize_url(self, url: HttpUrl) -> str:
+        """Serialize URL to string.
+
+        Args:
+            url (HttpUrl): url
+
+        Returns:
+            str: serialized URL
+        """
         return str(url)
 
 
