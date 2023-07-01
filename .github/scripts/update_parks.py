@@ -2,20 +2,26 @@ import argparse
 import json
 import os
 from pprint import pformat
-from typing import Any, Dict, Iterator, List, Set, Union
+from typing import Any, Iterator
 
 import requests
-from pydantic import BaseModel, HttpUrl, ValidationError, validator
+from pydantic import (
+    BaseModel,
+    HttpUrl,
+    ValidationError,
+    field_serializer,
+    field_validator,
+)
 from requests.exceptions import HTTPError, JSONDecodeError
 
-JSONType = Dict[str, Any]
+JSONType = dict[str, Any]
 
 BASE_URL: str = "https://developer.nps.gov/api/v1"
-HEADERS: Dict[str, str] = {"X-Api-Key": os.environ["NPS_API_KEY"]}
+HEADERS: dict[str, str] = {"X-Api-Key": os.environ["NPS_API_KEY"]}
 MAX_PICTURES_PER_SITE: int = 2
 # NPS units containing the following designations in their name will be excluded
 # from the list of parks used to populate the map.
-EXCLUDED_DESIGNATIONS: Set[str] = {
+EXCLUDED_DESIGNATIONS: set[str] = {
     "Affiliated Area",
     "National Geologic Trail",
     "National Historic Trail",
@@ -50,6 +56,10 @@ class Photo(CamelModel):
     title: str
     alt_text: str
 
+    @field_serializer("url")
+    def serialize_url(self, url: HttpUrl) -> str:
+        return str(url)
+
 
 class NationalPark(CamelModel):
     """National park data model.
@@ -66,22 +76,26 @@ class NationalPark(CamelModel):
     description: str
     latitude: float
     longitude: float
-    states: List[str]
-    images: List[Photo]
+    states: list[str]
+    images: list[Photo]
 
-    @validator("states", pre=True)
-    def split_states(cls, v: Union[str, List[str]]) -> List[str]:
+    @field_validator("states", mode="before")
+    def split_states(cls, v: str | list[str]) -> list[str]:
         """Takes comma separated list of states and splits them into a list.
 
         Args:
-            v (Union[str, List[str]]): States either as a list or comma separated string
+            v (str | list[str]): States either as a list or comma separated string
 
         Returns:
-            List[str]: List of states
+            list[str]: List of states
         """
         if isinstance(v, str):
             return v.split(",")
         return v
+
+    @field_serializer("url")
+    def serialize_url(self, url: HttpUrl) -> str:
+        return str(url)
 
 
 def _park_has_excluded_designation(park_name: str) -> bool:
