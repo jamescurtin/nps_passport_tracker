@@ -154,7 +154,7 @@ d3.json(topoJsonStates).then(function (json) {
 
       const parksVisitedCount = countParksVisited(data);
       const percentVisited = Math.round(
-        (parksVisitedCount / data.length) * 100
+        (parksVisitedCount / data.length) * 100,
       );
 
       svgHeader
@@ -164,7 +164,7 @@ d3.json(topoJsonStates).then(function (json) {
         .attr("y", 20)
         .attr("text-anchor", "middle")
         .text(
-          `${mapTitle}: Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`
+          `${mapTitle}: Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`,
         );
 
       svgHeader
@@ -180,7 +180,7 @@ d3.json(topoJsonStates).then(function (json) {
         for (let j = 0; j < data.length; j++) {
           if (
             data[j].states.includes(
-              stateAbbreviations[features[i].properties.name]
+              stateAbbreviations[features[i].properties.name],
             )
           ) {
             features[i].properties.parks.push(data[j]);
