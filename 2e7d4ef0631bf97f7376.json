@@ -1335,14 +1335,14 @@
     "states": ["DC"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/8C60689F-E0A5-2139-E2D21B1DD8A73D4C.jpg",
+        "title": "Emancipation Memorial",
+        "altText": "Bronze statue of Abraham Lincoln standing over an enslaved man rising from kneeling."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C83EFA3-1DD8-B71B-0B0CFF59BA0F5510.jpg",
         "title": "Folger Park",
         "altText": "Folger"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C83F12F-1DD8-B71B-0BEFAC8C0BD90E8F.jpg",
-        "title": "Lincoln Park",
-        "altText": "Emancipation Group Memorial"
       }
     ]
   },
