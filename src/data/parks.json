@@ -189,7 +189,7 @@
     "name": "Alibates Flint Quarries",
     "fullName": "Alibates Flint Quarries National Monument",
     "parkCode": "alfl",
-    "description": "13,000 years ago, this site was well-known by mammoth hunters as a source of flint for tools. Centuries passed, but the colorful flint never lost its value or usefulness in the Texas Panhandle. Learn how important this site was to the survival, commerce and culture of the people of the High Plains.",
+    "description": "13,000 years ago, Alibates was well-known by mammoth hunters as a source of flint for tools. The colorful flint has never lost its value or usefulness in the Texas Panhandle. Learn how important this site was to the survival, commerce, and culture of the people of the High Plains.",
     "latitude": 35.5819662,
     "longitude": -101.6717008,
     "states": ["TX"],
@@ -1945,7 +1945,7 @@
     "name": "Clara Barton",
     "fullName": "Clara Barton National Historic Site",
     "parkCode": "clba",
-    "description": "Clara Barton dedicated her life and energies to help others in times of need - both home and abroad, in peacetime as well as during military emergencies. Glen Echo was her home the last 15 years of her life and the structure illustrates her dedication and concern for those less fortunate than herself. Guided tours: Fri, Sat, & Sun. 1, 2, 3, & 4 PM First Floor only, free.",
+    "description": "Clara Barton dedicated her life and energies to help others in times of need - both home and abroad, in peacetime as well as during military emergencies. Glen Echo was her home the last 15 years of her life and the structure illustrates her dedication and concern for those less fortunate than herself. 7/30/23 - CLOSED NO TOuRS Guided tours: Fri, Sat, & Sun. 1, 2, 3, & 4 PM First Floor only, free",
     "latitude": 38.96762882,
     "longitude": -77.14009689,
     "states": ["MD"],
@@ -2705,14 +2705,14 @@
     "states": ["IL", "MS"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/904FA468-C327-634B-B5BD07007C927FAD.jpg",
-        "title": "Emmett Till and Mamie Till-Mobley",
-        "altText": "Two African Americans sitting in a room and smiling toward the camera."
+        "url": "https://www.nps.gov/common/uploads/structured_data/C6ADB63A-E12D-F371-C70C1BB91D90A937.jpg",
+        "title": "Emmett Till Interpretive Center",
+        "altText": "A one story store-like front along a street containing two doors and several windows."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/90F3B7FF-99F5-B53B-194A8474FC7F6D28.jpg",
-        "title": "Graball Landing",
-        "altText": "View of a muddy river from between two trees."
+        "url": "https://www.nps.gov/common/uploads/structured_data/C7387047-FA5D-EA46-34C39AE23445B364.jpg",
+        "title": "Emmett Till Interpretive Center 2",
+        "altText": "A table sits besides shelves featuring magazines and books in a white room."
       }
     ]
   },
