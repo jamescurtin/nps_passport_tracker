@@ -282,14 +282,14 @@
     "states": ["TX"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3459C06C-DEA3-F44D-36D1A6393F34BFD4.jpg",
+        "title": "Amistad Reservoir and Hwy 90 Bridge",
+        "altText": "Sunset over Amistad Reservoir with Highway 90 bridge to left of photo going over the reservoir and i"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C805CD0-1DD8-B71B-0B204F0B8630CEBC.jpg",
         "title": "Limestone shoreline along Amistad National Recreation Area",
         "altText": "Limestone shoreline along Amistad National Recreation Area"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C805B38-1DD8-B71B-0BEB3AAF12CCD190.jpg",
-        "title": "Sunset over Amistad National Recreation Area",
-        "altText": "Sunset over Amistad National Recreation Area"
       }
     ]
   },
