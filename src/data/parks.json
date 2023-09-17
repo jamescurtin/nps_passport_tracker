@@ -1122,7 +1122,7 @@
     "name": "Canaveral",
     "fullName": "Canaveral National Seashore",
     "parkCode": "cana",
-    "description": "Reflect on the pristine barrier island which is composed of dune, hammock, and lagoon habitat. Explore ancient Timucua shell mounds. Experience the sanctuary that is provided for thousands of species of plants and animals that call Canaveral National Seashore home.",
+    "description": "Reflect on the barrier island which is composed of dune, hammock, and lagoon habitat. Explore ancient Timucua shell mounds. Experience the sanctuary that is provided for thousands of species of plants and animals that call Canaveral National Seashore home.",
     "latitude": 28.78637529,
     "longitude": -80.75419576,
     "states": ["FL"],
@@ -4719,9 +4719,9 @@
         "altText": "A gray coyote begins walking in the grass in front of a grass-covered mound"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/0C8CDACB-D312-F576-73E8575EE8CB1E34.jpg",
-        "title": "Bone Scraper and Awl",
-        "altText": "Tall pieces of bone on display in a museum case"
+        "url": "https://www.nps.gov/common/uploads/structured_data/0C34A236-F215-9A7D-92B3A6134E6B1F65.jpg",
+        "title": "Hopeton Earthworks",
+        "altText": "A green, grassy field with taller areas of uncut grass in geometric shapes under a partly cloudy sky"
       }
     ]
   },
