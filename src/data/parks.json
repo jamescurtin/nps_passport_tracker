@@ -5789,7 +5789,7 @@
     "name": "Longfellow House Washington's Headquarters",
     "fullName": "Longfellow House Washington's Headquarters National Historic Site",
     "parkCode": "long",
-    "description": "Longfellow House-Washington's Headquarters National Historic Site preserves the home of Henry W. Longfellow, one of the world\u2019s foremost 19th century poets. The house also served as headquarters for General George Washington during the Siege of Boston, July 1775 - April 1776. In addition to its rich history, the site offers unique opportunities to explore 19th century literature and arts.",
+    "description": "Longfellow House-Washington's Headquarters National Historic Site preserves a remarkable Georgian house whose occupants shaped our nation. It was a site of colonial enslavement and community activism, George Washington\u2019s first long-term headquarters of the American Revolution, and the place where Henry Wadsworth Longfellow wrote his canon of 19th-century American literature.",
     "latitude": 42.37698854,
     "longitude": -71.12636956,
     "states": ["MA"],
@@ -7016,7 +7016,7 @@
     "name": "Paterson Great Falls",
     "fullName": "Paterson Great Falls National Historical Park",
     "parkCode": "pagr",
-    "description": "Cotton and silk fabrics; steam locomotives; continuous rolls of paper; airplane engines. What do these things have in common? They were all manufactured in the same place - Paterson, NJ. In 1792, Paterson was established, America's first planned industrial city, centered around the Great Falls of the Passaic River. From humble mills rose industries that changed the face of the United States.",
+    "description": "Silk cloth and steam locomotives; textiles and continuous paper rolls; firearms and aircraft engines. What do these things have in common? All were manufactured in the same place - Paterson, NJ. In 1792, Paterson was established as America's first planned industrial city, centered around the Great Falls of the Passaic River. From humble mills rose industries that changed the face of the nation.",
     "latitude": 40.91584645,
     "longitude": -74.18021494,
     "states": ["NJ"],
@@ -9458,7 +9458,7 @@
     "states": ["NY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C72AF-1DD8-B71B-0B8311EEBE9A89F9.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C43745A-D091-945D-67BD560C3C450291.jpg",
         "title": "Elizabeth Cady Stanton House",
         "altText": "The Elizabeth Cady Stanton House with a tree and National Park Service sign in the front yard"
       },
