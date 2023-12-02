@@ -4028,7 +4028,7 @@
     "name": "Grand Canyon",
     "fullName": "Grand Canyon National Park",
     "parkCode": "grca",
-    "description": "Grand Canyon National Park, in Northern Arizona, encompasses 278 miles (447 km) of the Colorado River and adjacent uplands. Located on ancestral homeland of 11 Associated Tribes, Grand Canyon is one of the most spectacular examples of erosion anywhere in the world\u2014unmatched in the incomparable vistas it offers visitors from the rims. The South Rim is open. The North Rim is open for day use only.",
+    "description": "Grand Canyon National Park, in Northern Arizona, encompasses 278 miles (447 km) of the Colorado River and adjacent uplands. Located on ancestral homeland of 11 Associated Tribes, Grand Canyon is one of the most spectacular examples of erosion anywhere in the world\u2014unmatched in the incomparable vistas it offers visitors from the rims. The South Rim is open. The North Rim is CLOSED for the winter.",
     "latitude": 36.0001165336,
     "longitude": -112.121516363,
     "states": ["AZ"],
@@ -5547,8 +5547,8 @@
         "altText": "A Red-winged Blackbird sitting on greyish-brown stump"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8AA9351B-0C29-901B-A69F072A736C0600.jpg",
-        "title": "Camp with a View",
+        "url": "https://www.nps.gov/common/uploads/structured_data/AED6916F-C5BE-F02F-031F29AD1DF57554.jpg",
+        "title": "Camping with a View",
         "altText": "Picnic shelter at a campsite overlooking Lake Meredith.  The sky is blue with no clouds."
       }
     ]
@@ -7701,7 +7701,7 @@
     "name": "Roger Williams",
     "fullName": "Roger Williams National Memorial",
     "parkCode": "rowi",
-    "description": "Roger Williams National Memorial commemorates the life of the founder of Rhode Island and a champion of the ideal of soul freedom. Williams was an outcast in England, Massachusetts, and Plymouth. Granted refuge by the First Peoples, he founded Providence in 1636. This colony served as a refuge where all could live according to their conscience, free from government interference.",
+    "description": "Roger Williams National Memorial commemorates the life of the founder of Rhode Island and a champion of the ideal of soul freedom. Williams was an outcast in England, Massachusetts, and Plymouth. Granted residence by the First Peoples, he founded Providence in 1636. This colony served as a refuge where all could live according to their conscience, free from government interference.",
     "latitude": 41.8298955,
     "longitude": -71.41056665,
     "states": ["RI"],
@@ -9240,7 +9240,7 @@
     "name": "Washita Battlefield",
     "fullName": "Washita Battlefield National Historic Site",
     "parkCode": "waba",
-    "description": "On November 27, 1868, Lt. Colonel George Armstrong Custer led the 7th US Cavalry on a surprise dawn attack on a Cheyenne village led by Peace Chief Black Kettle. The event was an example of the tragic clash of cultures that occurred during the Great Plains Wars. It is also a place of remembrance and reflection for those who died here.",
+    "description": "On November 27, 1868, Lt. Colonel George Armstrong Custer led the 7th US Cavalry on a surprise dawn attack on a Cheyenne village led by Peace Chief Black Kettle. The event was an example of the tragic clash of cultures that occurred during the Great Plains Wars. It is also a place of remembrance and reflection for those who died here. Read More",
     "latitude": 35.62083963,
     "longitude": -99.70445143,
     "states": ["OK"],
