@@ -650,9 +650,9 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C801E10-1DD8-B71B-0B68B8F8E90A90DD.jpg",
-        "title": "A Lakota warrior barters with the traders in the fort plaza",
-        "altText": "Plains Indian trade in plaza"
+        "url": "https://www.nps.gov/common/uploads/structured_data/5164820E-B3C7-12B1-84F9A25D75F5D67A.jpg",
+        "title": "Beads in the Trade room",
+        "altText": "bundles of glass trade beads tied together hang from a wooden rafter"
       },
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/8D0EC7EA-0A5E-6A59-309722431A8274F7.jpg",
@@ -8184,7 +8184,7 @@
     "name": "Sequoia & Kings Canyon",
     "fullName": "Sequoia & Kings Canyon National Parks",
     "parkCode": "seki",
-    "description": "Huge mountains, rugged foothills, deep canyons, vast caverns, and the world\u2019s largest trees exemplify the diversity of landscapes, life, and beauty here. Explore these pages to learn about the plants and animals here and the threats they face. Our ancient giant sequoias may seem invincible, but they, too are vulnerable.",
+    "description": "Huge mountains, rugged foothills, deep canyons, vast caverns, and the world\u2019s largest trees exemplify the diversity of landscapes, life, and beauty here. Explore these pages to plan your visit or to learn about the plants and animals here and the threats they face. Ancient giant sequoias may seem invincible, but they, too are vulnerable.",
     "latitude": 36.71277299,
     "longitude": -118.587429,
     "states": ["CA"],
