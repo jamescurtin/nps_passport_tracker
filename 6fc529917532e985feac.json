@@ -4287,14 +4287,14 @@
     "states": ["MD"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C903C-1DD8-B71B-0B3397EDDBFBD59C.jpg",
-        "title": "Deer in Greenbelt Park",
-        "altText": "three deer standing in Greenbelt Park"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7F8234-1DD8-B71B-0B30DBD48002A076.jpg",
         "title": "Fall Colors in the Sweetgum Picnic Area, Greenbelt Park, Maryland",
         "altText": "Fall Colors in the Sweetgum Picnic Area, Greenbelt Park, Maryland"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F808E-1DD8-B71B-0B309AAC70EA8407.jpg",
+        "title": "Father and son relaxing in the Greenbelt Park campground",
+        "altText": "Father and son sitting in chairs reading in the Greenbelt Park campground"
       }
     ]
   },
