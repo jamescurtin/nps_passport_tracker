@@ -598,7 +598,7 @@
     "name": "Bandelier",
     "fullName": "Bandelier National Monument",
     "parkCode": "band",
-    "description": "Bandelier National Monument protects over 33,000 acres of rugged but beautiful canyon and mesa country as well as evidence of a human presence here going back over 11,000 years. Petroglyphs, dwellings carved into the soft rock cliffs, and standing masonry walls pay tribute to the early days of a culture that still survives in the surrounding communities.",
+    "description": "Bandelier National Monument protects over 33,000 acres of ruggedly beautiful canyon and mesa country. Petroglyphs, dwellings carved into the soft rock cliffs, and standing masonry walls pay tribute to the early days of a culture that still survives in the surrounding communities.",
     "latitude": 35.77898596,
     "longitude": -106.3317124,
     "states": ["NM"],
@@ -6439,9 +6439,9 @@
         "altText": "A yellow banana slug creeping along a twig"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C82C50E-1DD8-B71B-0BF11FB192985E05.jpg",
-        "title": "Bench along main trail",
-        "altText": "A bench along the boardwalk with the sun shining through the redwoods"
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7CAB0D-1DD8-B71B-0BEBE88513B77274.jpg",
+        "title": "Bohemian Grove",
+        "altText": "Sun rays shine down on a visitor among very tall redwood trees"
       }
     ]
   },
