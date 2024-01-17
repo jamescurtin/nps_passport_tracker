@@ -3321,14 +3321,14 @@
     "states": ["NY"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/CA7E871C-B8C1-2173-916218FC8CC1D4C6.jpg",
+        "title": "A Cloudy Day at Fort Stanwix",
+        "altText": "Puffy white clouds billow over log cabin-like walls. An American flag flies on a wooden pole"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/97B49B54-1DD8-B71B-0B182BEF64FAA577.jpg",
         "title": "Celebrate the Park! Fort Stanwix at 40 & the NPS Centennial!",
         "altText": "Children dance, jump, and skip on the parade ground of reconstructed Fort Stanwix."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/98ADC8DB-1DD8-B71B-0B6F8FEADD955234.jpg",
-        "title": "Fort Stanwix: History Happened Here!",
-        "altText": "Soldiers stand in a neat row holding their muskets."
       }
     ]
   },
@@ -4189,7 +4189,7 @@
     "name": "Great Falls",
     "fullName": "Great Falls Park",
     "parkCode": "grfa",
-    "description": "At Great Falls, the Potomac River builds up speed and force as it falls over a series of steep, jagged rocks and flows through the narrow Mather Gorge. The Patowmack Canal offers a glimpse into the early history of this country. Great Falls Park has many opportunities to explore history and nature, all in a beautiful 800-acre park only 15 miles from the Nation's Capital.",
+    "description": "PARK CLOSED Tues. 1/16/24 At Great Falls, the Potomac River builds up speed and force as it falls over a series of steep, jagged rocks and flows through the narrow Mather Gorge. The Patowmack Canal offers a glimpse into the early history of this country. Great Falls Park has many opportunities to explore history and nature, all in a beautiful 800-acre park only 15 miles from the Nation's Capital.",
     "latitude": 38.98776107,
     "longitude": -77.25128326,
     "states": ["VA"],
@@ -5841,9 +5841,9 @@
     "states": ["NY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/39E65D0C-1DD8-B71B-0B5C18C95C5D04A0.jpg",
-        "title": "Lower East Side Tenement Museum",
-        "altText": "Brick building in downtown NYC"
+        "url": "https://www.nps.gov/common/uploads/structured_data/C81BB61B-B296-C003-0E6B615B84AF38DB.jpg",
+        "title": "Parlor at the Lower East Side Tenement Museum",
+        "altText": "A room with wooden floors, blue wall paper, two windows, some furniture and a dress hanging."
       }
     ]
   },
