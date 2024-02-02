@@ -3528,14 +3528,14 @@
     "states": ["MA"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/F65A8537-B59F-AA0C-C22A85A9C2ECCDE5.jpg",
+        "title": "Drafting Department",
+        "altText": "Large room with wooden tables and stools"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/95700E1B-E576-306D-59E3C9EB03E1F82F.jpg",
         "title": "Drafting Table",
         "altText": "Dark wood box with four shallow drawers on large wooden table with blueprint"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C853BE9-1DD8-B71B-0B625B6B8B89F1A0.jpg",
-        "title": "Frederick Law Olmsted National Historic Site",
-        "altText": "Fairsted"
       }
     ]
   },
@@ -4097,7 +4097,7 @@
     "name": "Grand Teton",
     "fullName": "Grand Teton National Park",
     "parkCode": "grte",
-    "description": "Rising above a scene rich with extraordinary wildlife, pristine lakes, and alpine terrain, the Teton Range stands as a monument to the people who fought to protect it. These are mountains of the imagination. Mountains that led to the creation of Grand Teton National Park where you can explore over two hundred miles of trails, float the Snake River, and enjoy the serenity of this remarkable place.",
+    "description": "Soaring over a landscape rich with wildlife, pristine lakes, and majestic alpine vistas, the Teton Range stands as a testament to generations of stewards. For over 11,000 years, communities have thrived in the valley known as Jackson Hole, turning these mountains into more than just peaks\u2014they embody imagination and enduring human connection.",
     "latitude": 43.81853565,
     "longitude": -110.7054666,
     "states": ["WY"],
