@@ -4051,7 +4051,7 @@
     "name": "Grand Canyon-Parashant",
     "fullName": "Grand Canyon-Parashant National Monument",
     "parkCode": "para",
-    "description": "Take a lonely and rocky two-track road in a 4x4 to the edge of the Grand Wash Cliffs. Find a stunning solitary vista deep into the Grand Canyon. Relax in the shade of ponderosas at Mount Trumbull. Touch ancient waters at Pakoon Springs in one of the driest places in the world. Parashant is remote. There are no crowds here. Be equipped to leave pavement, cell service, and the 21st century behind.",
+    "description": "Despite the hardships created by rugged isolation and the lack of natural waters, Parashant has a long human history spanning more than 11,000 years, and an equally rich geologic history spanning almost two billion years. Full of natural splendor and a sense of solitude, this area remains remote and unspoiled, qualities that are essential to the protection of its scientific and historic resources.",
     "latitude": 36.41535465,
     "longitude": -113.6682797,
     "states": ["AZ"],
@@ -4442,7 +4442,7 @@
     "name": "Hampton",
     "fullName": "Hampton National Historic Site",
     "parkCode": "hamp",
-    "description": "Once possibly the largest private home in America by 1790, the Hampton mansion serves as a grand example of late-Georgian architecture in America. Hampton is also the story of its people, as the estate evolved through the actions of the Ridgely family, enslaved African Americans, European indentured servants, and paid laborers within a nation struggling to define its own concept of freedom.",
+    "description": "Hampton National Historic Site preserves the center of a once-vast Maryland plantation. A microcosm of the nation, it reflects two centuries of American social, historical, and economic development. Visitors can explore the estate, owned by seven generations of the Ridgely family, as it evolved within a nation struggling to define its own concept of freedom.",
     "latitude": 39.4175296,
     "longitude": -76.58781182,
     "states": ["MD"],
@@ -7983,14 +7983,14 @@
     "states": ["TX"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/74D1A662-0F1F-BE6D-E7755A5F9E313CF6.jpg",
+        "title": "Granary at Mission San Jos\u00e9",
+        "altText": "Large room with an arches ceiling"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/1D4C640B-AC88-ED51-59AE87D041A0B129.jpg",
         "title": "Mission Concepcion Convento & Church",
         "altText": "Mission Concepcion convento with church in background."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DAC12-1DD8-B71B-0B52A18E18ADF8B7.jpg",
-        "title": "Mission Espada, World Heritage Site",
-        "altText": "Mission Espada, World Heritage Site"
       }
     ]
   },
