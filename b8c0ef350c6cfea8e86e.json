@@ -7689,9 +7689,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/DD67ADE4-E6E6-17F1-4856D2DC852BC0D0.jpg",
-        "title": "Elk during autumn",
-        "altText": "A bull elk is in a meadow with two cow elk"
+        "url": "https://www.nps.gov/common/uploads/structured_data/A25921D6-B2CF-D895-BF3DC33822088C99.jpg",
+        "title": "Hiking on the Alpine Communities Trail in Summer",
+        "altText": "Park visitors are walking on the paved Alpine Communities Trail in summer."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/A24C5DF4-BF54-9754-7CB44E6E495C4569.jpg",
+        "title": "Spring Hiking in Rocky",
+        "altText": "A hiker in spring is walking on snow, wearing traction devices."
       }
     ]
   },
