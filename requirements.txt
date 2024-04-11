@@ -1,5 +1,5 @@
 # Script Deps
-pydantic==2.6.4
+pydantic==2.7.0
 requests==2.31.0
 
 # CI Deps
