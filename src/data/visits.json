@@ -49,6 +49,11 @@
     "notes": "Visited and transmitted from the Marconi wireless station. Collected a good amount of driftwood, which was boiled and is now in aquariums."
   },
   {
+    "parkCode": "edal",
+    "visitedOn": ["2023-08-19"],
+    "notes": "A reading room containing all of Edgar Allen Poe's works had been built within the house, and many of the visitors spent some time sitting there reading some of his stories."
+  },
+  {
     "parkCode": "elis",
     "visitedOn": ["2022-11-18"],
     "notes": "The Ellis Island Museum was the most extensive NPS museum we have visited. The exhibits of the screening process and family heirlooms were of particular interest."
@@ -89,9 +94,19 @@
     "notes": "The mausoleum for President Grant and his wife, Julia, is the largest in North America."
   },
   {
+    "parkCode": "glde",
+    "visitedOn": ["2023-08-19"],
+    "notes": "Gloria Dei is Pennsylvania's oldest church, and still has an active congregation. It was founded by Swedish Lutherans, and has many items inside that were brought over by the original Swedish missionaries, including a baptismal font and hand-carved wooden angels."
+  },
+  {
     "parkCode": "goga",
     "visitedOn": ["2023-05-14"],
     "notes": "The chief architect of the Golden Gate Bridge, Joseph Strauss, was one of the first to strictly apply hard hat and safety harness rules during work on the project; a safety net used during the construction of the bridge's roadway saved the lives of 19 workers."
+  },
+  {
+    "parkCode": "gois",
+    "visitedOn": ["2023-08-13"],
+    "notes": "We visited both Fort Jay and Castle Williams during the visit. There was a 'Roaring Twenties' themed event happening while we were there, so there were a few hundred people dressed up in period clothes. Holum and Sumanth took out the ferry to meet us there."
   },
   {
     "parkCode": "hagr",
@@ -102,6 +117,16 @@
     "parkCode": "hofr",
     "visitedOn": ["2023-02-19"],
     "notes": "The foyer of FDR's house was decorated as it was when he lived in the home. It contained a glass display case containing songbirds and birds of prey that Roosevelt shot and taxidermied as a child."
+  },
+  {
+    "parkCode": "inde",
+    "visitedOn": ["2023-08-18"],
+    "notes": "In addition to the Liberty Bell and Independence Hall, this site also had other artifacts on display including the Syng inkstand, which was used by many of the signers of both the Declaration of Independence and the Constitution."
+  },
+  {
+    "parkCode": "indu",
+    "visitedOn": ["2023-07-19"],
+    "notes": "We started out along lake Michigan and hiked across the dunes. The area was particularly busy at that time of year because of the beach."
   },
   {
     "parkCode": "jeff",
@@ -121,6 +146,11 @@
     "parkCode": "liho",
     "visitedOn": ["2022-10-16"],
     "notes": "Favorite Feature: Lincoln's bedroom contains his original writing desk, which was very plain and small. It held sentimental value for him as he had purchased the desk early in his career, so he kept and used it long after he could have afforded a more ornate desk, to the chagrin of Mary Todd."
+  },
+  {
+    "parkCode": "loea",
+    "visitedOn": ["2023-08-13"],
+    "notes": "The primary tenement building was being restored during our visit, so we saw apartments in the building next door. One of the interesting items from the period were the natural gas canisters that were used by the stove. Prior to the installation of gas lines and meters, the canister would be filled periodically, and the resident would deposit a coin into a slot, which would allow a predetermined amount of gas to be let out."
   },
   {
     "parkCode": "long",
@@ -228,6 +258,11 @@
   {
     "parkCode": "this",
     "visitedOn": ["2018-08-13"]
+  },
+  {
+    "parkCode": "thko",
+    "visitedOn": ["2023-08-19"],
+    "notes": "We visited the home where Thaddeus Kosciuszko stayed during the period he lived in Pennsylvania after the Revolutionary War. This is the smallest unit maintained by the NPS."
   },
   {
     "parkCode": "thrb",
