@@ -391,7 +391,7 @@ function resetMap() {
 }
 
 // Reload on mobile when changing orientation so the map is drawn to fill the page
-$(window).bind("orientationchange", function (_) {
+$(window).bind("orientationchange", function () {
   location.reload(true);
 });
 
