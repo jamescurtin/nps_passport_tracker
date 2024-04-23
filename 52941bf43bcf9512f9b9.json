@@ -6181,14 +6181,9 @@
     "states": ["KY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/580BA960-D4A1-47F5-32E2FAF28F94496E.jpg",
-        "title": "Driving Tour",
-        "altText": "Zig-zag wooden fence and Confederate tour sign next to a road."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/57ECF29C-E3D1-BC5C-803A0C6691AB28CB.jpg",
-        "title": "Zollicoffer Park",
-        "altText": "Rows of white gravestones on a rolling green hill with tall, mature trees in the background."
+        "url": "https://www.nps.gov/common/uploads/structured_data/145ADAC5-07E3-1AA1-D902CCF0A4219664.jpg",
+        "title": "Sunset on the National Cemetery",
+        "altText": "A orange sunset over the white granite headstones in the national cemetery with silhouetted cannon."
       }
     ]
   },
