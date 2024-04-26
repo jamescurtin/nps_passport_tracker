@@ -4512,14 +4512,14 @@
     "states": ["NY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F8567A75-E811-6385-F0258606A32144BD.jpg",
-        "title": "Harriet Tubman National Historical Park",
-        "altText": "A composite of two historical images, one of a church, and another of Harriet Tubman seated."
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3FE26B89-1DD8-B71B-0B7E863F6BA073DA.jpg",
         "title": "Harriet Tubman Residence",
         "altText": "Brick building surrounded by autumn trees"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/9888332F-EE3A-20BB-813E0AEE37B6A52F.jpg",
+        "title": "Thompsom A.M.E. Zion Church",
+        "altText": "A tall, green and orange painted church steeple, against a blue sky, with a tree in the foreground."
       }
     ]
   },
