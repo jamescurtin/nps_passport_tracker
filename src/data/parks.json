@@ -166,7 +166,7 @@
     "name": "Aleutian Islands World War II",
     "fullName": "Aleutian Islands World War II National Historic Area",
     "parkCode": "aleu",
-    "description": "During World War II the remote Aleutian Islands, home to the Unangax\u0302 (Aleut) people for over 8,000 years, became a fiercely contested battleground in the Pacific. This thousand-mile-long archipelago saw invasion by Japanese forces, the occupation of two islands; a mass relocation of Unangax\u0302 civilians; a 15-month air war; and one of the deadliest battles in the Pacific Theater.",
+    "description": "The remote Aleutian Islands, home to the Unangax\u0302 (Aleut) people for over 8,000 years, became a fiercely contested Pacific battleground in World War II. Some Unangax\u0302 were taken from their homelands as Japanese prisoners of war while the others were evacuated from the islands by the government. Both groups suffered greatly during the war, and some would never return to their villages.",
     "latitude": 53.9143,
     "longitude": -166.5197,
     "states": ["AK"],
@@ -177,9 +177,9 @@
         "altText": "Group of people around a Russian cross in tall grass"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7BC68B-1DD8-B71B-0BED69DAACF6A5AC.jpg",
-        "title": "Challenging weather conditions",
-        "altText": "Four men gather around a invalid man"
+        "url": "https://www.nps.gov/common/uploads/structured_data/11ADB8B7-CE24-B41F-18BB4F3D4D5AA8F1.jpg",
+        "title": "Anti-aircraft Gun Artifact",
+        "altText": "a rusty, large gun sits on a grassy bank overlooking a coastal bay."
       }
     ]
   },
@@ -874,7 +874,7 @@
     "name": "Blackstone River Valley",
     "fullName": "Blackstone River Valley National Historical Park",
     "parkCode": "blrv",
-    "description": "The Blackstone River powered America's entry into the Age of Industry. The success of Samuel Slater's cotton spinning mill in Pawtucket, RI touched off a chain reaction that changed how people worked and where they lived. Learn how this revolution transformed the landscape of the Blackstone Valley and the United States. Old Slater Mill is open seasonally on Thursdays - Sundays starting on May 9.",
+    "description": "The Blackstone River powered America's entry into the Age of Industry. The success of Samuel Slater's cotton spinning mill in Pawtucket, RI touched off a chain reaction that changed how people worked and where they lived. Learn how this revolution transformed the landscape of the Blackstone Valley and the United States. Old Slater Mill is open Thursdays - Sundays.",
     "latitude": 41.8775792792,
     "longitude": -71.382433945,
     "states": ["RI", "MA"],
@@ -1283,7 +1283,7 @@
     "name": "Cape Krusenstern",
     "fullName": "Cape Krusenstern National Monument",
     "parkCode": "cakr",
-    "description": "North of the Arctic Circle, the monument forms 70 miles of shoreline on the Chukchi Sea. More than 114 beach ridges provide evidence of human use for 5,000 years. The Inupiat continue to use the area today. Vast wetlands provide habitat for shorebirds from as far away as South America. Hikers and boaters can see carpets of wildflowers among shrubs containing wisps of qiviut from muskoxen.",
+    "description": "A bridge to the past and a land for the future, Cape Krusenstern National Monument protects approximately 560,000 acres of diverse Arctic coastal, and upland ecosystems. Inhabited by the I\u00f1upiaq people since time-immemorial, over 5,000 years of sequential human use is documented in the 114 successive beach ridges. Rich connections to the land and waters are preserved through subsistence practices.",
     "latitude": 67.41499986,
     "longitude": -163.5037786,
     "states": ["AK"],
@@ -3044,7 +3044,7 @@
     "name": "Fort Frederica",
     "fullName": "Fort Frederica National Monument",
     "parkCode": "fofr",
-    "description": "Georgia's fate was decided in 1742 when Spanish and British forces clashed on St. Simons Island. Fort Frederica's troops defeated the Spanish, ensuring Georgia's future as a British colony. Today, the archeological remnants of Frederica are protected by the National Park Service.",
+    "description": "War was immanent as James Oglethorpe established Fort Frederica in 1736, to help protect the British colonies from the Spanish in Florida. Fort Frederica illustrates the story of the War of Jenkins Ear (1739-1748) and how it's British defenders fought off the Spanish Army. Today, archeology has uncovered the story of the 1,000 people that once lived here.",
     "latitude": 31.2214699,
     "longitude": -81.39452014,
     "states": ["GA"],
@@ -4028,7 +4028,7 @@
     "name": "Grand Canyon",
     "fullName": "Grand Canyon National Park",
     "parkCode": "grca",
-    "description": "Grand Canyon National Park, in Northern Arizona, encompasses 278 miles (447 km) of the Colorado River and adjacent uplands. Located on ancestral homeland of 11 Associated Tribes, Grand Canyon is one of the most spectacular examples of erosion anywhere in the world\u2014unmatched in the incomparable vistas it offers visitors from the rims. The South Rim is open. The North Rim is CLOSED for the winter.",
+    "description": "Grand Canyon National Park, in Northern Arizona, encompasses 278 miles (447 km) of the Colorado River and adjacent uplands. Located on ancestral homeland of 11 Tribal Communities, Grand Canyon is one of the most spectacular examples of erosion anywhere in the world\u2014unmatched in the incomparable vistas it offers visitors from the rims. South Rim is open. North Rim is open for the season.",
     "latitude": 36.0001165336,
     "longitude": -112.121516363,
     "states": ["AZ"],
@@ -4662,7 +4662,7 @@
     "name": "Homestead",
     "fullName": "Homestead National Historical Park",
     "parkCode": "home",
-    "description": "The Homestead Act of 1862 transformed the world. Millions were invited to file claims including, families, immigrants, single women, and freed slaves. Over 10 percent of the United States was homesteaded! The land, long inhabited by American Indian cultures, changed forever. Homesteaders created settlements and farms, drove industrial advancement, and built our nation chasing the American Dream.",
+    "description": "The Homestead Act of 1862 transformed the world. Millions were invited to file claims including families, women, immigrants, and formerly enslaved people. Over 10 percent of the United States was homesteaded! The land, long inhabited by indigenous cultures, changed forever. Homesteaders created settlements and farms, drove industrial advancement, and built our nation chasing the American Dream.",
     "latitude": 40.28802381,
     "longitude": -96.83387781,
     "states": ["NE"],
@@ -5191,7 +5191,7 @@
     "name": "Katahdin Woods and Waters",
     "fullName": "Katahdin Woods and Waters National Monument",
     "parkCode": "kaww",
-    "description": "Spread across a wild landscape offering spectacular views of Mount Katahdin, Katahdin Woods and Waters invites discovery of its rivers, streams, woods, flora, fauna, geology, and the night skies that have attracted humans for millennia.",
+    "description": "Spread across a wild landscape offering spectacular views of Katahdin, Katahdin Woods and Waters invites discovery of its rivers, streams, woods, flora, fauna, geology, and the night skies that have attracted humans for millennia.",
     "latitude": 45.9567565918,
     "longitude": -68.7122879028,
     "states": ["ME"],
@@ -5306,7 +5306,7 @@
     "name": "Keweenaw",
     "fullName": "Keweenaw National Historical Park",
     "parkCode": "kewe",
-    "description": "From 7,000 years ago to the 1900s people mined Keweenaw copper. Native peoples made copper into tools and trade items. Investors and immigrants arrived in the 1800s in a great mineral rush, developing thriving industries and cosmopolitan communities. Though the mines have since closed, their mark is still visible on the land and people.",
+    "description": "The stories of people and copper in the Keweenaw Peninsula have been intertwined for more than 7,000 years. Indigenous Peoples made copper into tools and trade items. Investors and immigrants arrived in the 1800s in a great mineral rush, developing thriving industries and cosmopolitan communities. Though the mines have since closed, their mark is still visible on the land and people.",
     "latitude": 47.1792308,
     "longitude": -88.52275344,
     "states": ["MI"],
@@ -6014,7 +6014,7 @@
     "name": "Marsh - Billings - Rockefeller",
     "fullName": "Marsh - Billings - Rockefeller National Historical Park",
     "parkCode": "mabi",
-    "description": "Experience wintry conditions and bracing temperatures along both groomed cross-country ski trails and natural snowshoe trails in the folded hilly landscape of the park. Reflect on the story of stewardship, of people taking care of places \u2013 sharing an enduring connection to the land - as you observe the tall trees, wildlife and experience the peacefulness of the woods.",
+    "description": "Walk through one of Vermont's most beautiful landscapes, under the shade of sugar maples and 400-year-old hemlocks, across covered bridges and alongside rambling stone walls. This is a landscape of loss, recovery, and conservation. This is a story of stewardship, of people taking care of places - sharing an enduring connection to land and a sense of hope for the future.",
     "latitude": 43.63348732,
     "longitude": -72.53424638,
     "states": ["VT"],
@@ -6083,7 +6083,7 @@
     "name": "Martin Van Buren",
     "fullName": "Martin Van Buren National Historic Site",
     "parkCode": "mava",
-    "description": "Today, Martin Van Buren is an obscure man, often little more than a footnote. In pre-Civil War America, however, it was impossible not to have an opinion of him. Van Buren was central to the creation of America's political parties, and to the largest crisis of his time, slavery. The above quote is from Davy Crockett, one of many Americans trying to understand the Red Fox of Kinderhook.",
+    "description": "Today, Martin Van Buren is an obscure man, often little more than a footnote. In pre-Civil War America, however, it was impossible not to have an opinion of him. Van Buren was central to the creation of America's political parties and to the largest crisis of his time, slavery. The above quote is from Davy Crockett, one of many Americans trying to understand the Red Fox of Kinderhook.",
     "latitude": 42.36819596,
     "longitude": -73.70834257,
     "states": ["NY"],
@@ -6515,7 +6515,7 @@
     "name": "National Park of American Samoa",
     "fullName": "National Park of American Samoa",
     "parkCode": "npsa",
-    "description": "The National Park of American Samoa welcomes you into the heart of the South Pacific, to a world of sights, sounds, and experiences that you will find in no other national park in the United States. Enjoy this unique national park and the welcoming people of American Samoa. We are here to protect its rich culture and natural resources. Come explore them with us!",
+    "description": "The National Park of American Samoa welcomes you into the heart of the South Pacific, to a world of sights, sounds, and experiences that you will find in no other national park. Enjoy this unique national park and the welcoming people of American Samoa. We are here to protect its rich culture and natural resources. Come explore them with us!",
     "latitude": -14.22865935,
     "longitude": -169.8503777,
     "states": ["AS"],
@@ -6781,7 +6781,7 @@
     "name": "Noatak",
     "fullName": "Noatak National Preserve",
     "parkCode": "noat",
-    "description": "As one of North America's largest mountain-ringed river basins with an intact ecosystem, the Noatak River environs feature some of the Arctic's finest arrays of plants and animals. The river is classified as a national wild and scenic river. It offers stunning wilderness float-trip opportunities - from deep in the Brooks Range to the tidewater of the Chukchi Sea.",
+    "description": "As one of North America's largest mountain-ringed river basins with an intact ecosystem, the Noatak River environs feature some of the Arctic's finest arrays of plants and animals. The river is classified as a National Wild and Scenic River. It offers stunning wilderness float-trip opportunities - from deep in the Brooks Range to the tidewater of the Chukchi Sea.",
     "latitude": 68.01027053,
     "longitude": -159.831694,
     "states": ["AK"],
@@ -7172,7 +7172,7 @@
     "name": "Petrified Forest",
     "fullName": "Petrified Forest National Park",
     "parkCode": "pefo",
-    "description": "Park Hours: 8am to 5pm, MST. Don't forget that Arizona does not observe Daylight Savings. Petrified Forest is best known for its Triassic fossils. It's like having two parks in one, an ecosystem over 200 million years old with plants and animals now represented in the surreal landscape of the Painted Desert. There is also a living park with its own denizens adapted to a demanding environment.",
+    "description": "Park Hours: 8am to 6pm, MST. Don't forget that Arizona does not observe Daylight Savings. Petrified Forest is best known for its Triassic fossils. It's like having two parks in one, an ecosystem over 200 million years old with plants and animals now represented in the surreal landscape of the Painted Desert. There is also a living park with its own denizens adapted to a demanding environment.",
     "latitude": 34.98387664,
     "longitude": -109.7877678,
     "states": ["AZ"],
@@ -7684,14 +7684,9 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/A25921D6-B2CF-D895-BF3DC33822088C99.jpg",
-        "title": "Hiking on the Alpine Communities Trail in Summer",
-        "altText": "Park visitors are walking on the paved Alpine Communities Trail in summer."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/A24C5DF4-BF54-9754-7CB44E6E495C4569.jpg",
-        "title": "Spring Hiking in Rocky",
-        "altText": "A hiker in spring is walking on snow, wearing traction devices."
+        "url": "https://www.nps.gov/common/uploads/structured_data/1D8374B5-EDB8-0F29-96C4870C88112CAE.jpg",
+        "title": "Fern Lake Trail in Spring",
+        "altText": "A park visitor is hiking on the Fern Lake Trail in Spring, snow covers the ground, the sky is clear"
       }
     ]
   },
