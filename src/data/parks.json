@@ -420,14 +420,14 @@
     "states": ["WI"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D6DD7C72-B08A-2FEA-D42C46A964D93465.jpg",
-        "title": "Ice Caves",
-        "altText": "Sunlight shines through a cave hole surrounded by icicles onto the frozen lake surface"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/D6BDB844-0A16-7B50-439459D6ECDF195F.jpg",
         "title": "Julian Bay",
         "altText": "Sunrise illuminates a long beach near calm water."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/D67F5EC0-90F7-B996-F946329AAB8DF781.jpg",
+        "title": "Raspberry Island Lighthouse",
+        "altText": "A two story white house with a light tower in the middle, reflects the colors of the setting sun."
       }
     ]
   },
