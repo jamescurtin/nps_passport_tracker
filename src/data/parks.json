@@ -5841,9 +5841,14 @@
     "states": ["NY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C81BB61B-B296-C003-0E6B615B84AF38DB.jpg",
-        "title": "Parlor at the Lower East Side Tenement Museum",
-        "altText": "A room with wooden floors, blue wall paper, two windows, some furniture and a dress hanging."
+        "url": "https://www.nps.gov/common/uploads/structured_data/B360E148-BF7F-1653-4BFE8FB8C05E518C.jpg",
+        "title": "Interior of Rogarshevsky Kitchen",
+        "altText": "A tenement kitchen with cast iron posts, old stove, and a bed next to the stove"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/B360E148-BF7F-1653-4BFE8FB8C05E518C.jpg",
+        "title": "Interior of Rogarshevsky Kitchen",
+        "altText": "A tenement kitchen with cast iron posts, old stove, and a bed next to the stove"
       }
     ]
   },
