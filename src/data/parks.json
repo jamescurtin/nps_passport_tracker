@@ -7689,9 +7689,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/1D8374B5-EDB8-0F29-96C4870C88112CAE.jpg",
-        "title": "Fern Lake Trail in Spring",
-        "altText": "A park visitor is hiking on the Fern Lake Trail in Spring, snow covers the ground, the sky is clear"
+        "url": "https://www.nps.gov/common/uploads/structured_data/ED7E5399-0529-6089-A007633465573DC0.jpg",
+        "title": "Bear Lake in June",
+        "altText": "Bear Lake is in the foreground with Hallett Peak across the lake in the distance."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/ED646C3A-0F7C-67B6-557A500570A68428.jpg",
+        "title": "Elk on tundra",
+        "altText": "A bull elk is standing on tundra in RMNP"
       }
     ]
   },
