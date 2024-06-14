@@ -655,9 +655,9 @@
         "altText": "bundles of glass trade beads tied together hang from a wooden rafter"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8D0EC7EA-0A5E-6A59-309722431A8274F7.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C80168D-1DD8-B71B-0B61A79C6F138439.jpg",
         "title": "Bent's Old Fort",
-        "altText": "Bent's Old Fort in background with wagon in front; fall yellow cottonwood leaves in foreground"
+        "altText": "Bent's Old Fort with shortgrass prairie in foreground and blue sky and clouds above"
       }
     ]
   },
@@ -765,14 +765,14 @@
     "states": ["TX"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/6294B8FD-F81F-C34B-645CC57C054AB5A9.jpg",
-        "title": "Anole on Palmetto",
-        "altText": "A green anole lizard resting on an outstretched palmetto leaf."
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/5DE7960F-AE37-F376-C881303E50FE17D5.jpg",
         "title": "Beaver Slide Trail Bridge",
         "altText": "A small wooden bridge on a trail through dense woods."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/5DB295BE-F9A9-3D10-CA6D5204ED24E79A.jpg",
+        "title": "Canoe on Lake Bayou",
+        "altText": "A park ranger paddling a green canoe on a slow-moving waterway below cypress trees."
       }
     ]
   },
@@ -1853,7 +1853,7 @@
     "name": "Chiricahua",
     "fullName": "Chiricahua National Monument",
     "parkCode": "chir",
-    "description": "A \"Wonderland of Rocks\" is waiting for you to explore at Chiricahua National Monument. The 8-mile paved scenic drive and 17-miles of day-use hiking trails provide opportunities to discover the beauty, natural sounds, and inhabitants of this 12,025 acre site. Visit the Faraway Ranch Historic District to discover more about the people who have called this area home.",
+    "description": "Explore the pinnacles, spires, and balanced rocks that originated 27 million years ago by a massive volcanic eruption. Hike within these formations that help protect the exceptional biodiversity of the sky islands region. Connect with the human history spanning thousands of years, encompassing prehistoric indigenous peoples, Chiricahua Apaches, Buffalo Soldiers, ranchers, CCC, and visitors today.",
     "latitude": 32.01214618,
     "longitude": -109.341607,
     "states": ["AZ"],
@@ -6030,9 +6030,9 @@
         "altText": "Hikers enjoying fall foliage during a park event"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D8FBA1F3-BB47-A3E7-10EB4AE67F1DC29B.jpeg",
-        "title": "Mansion Gardens",
-        "altText": "Visitors amongst the blooms in the Mansions formal gardens"
+        "url": "https://www.nps.gov/common/uploads/structured_data/BB97B147-FF58-8324-C0B4A1AA3AE899FB.jpg",
+        "title": "Fun in the Forest camp",
+        "altText": "Park Ranger points to a trail sign and talks to a group of young children"
       }
     ]
   },
@@ -7689,14 +7689,14 @@
     "states": ["CO"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/F345430A-DBE7-792C-D9C04E33D72A2AD6.jpg",
+        "title": "Bear Lake Trail",
+        "altText": "Hike around Bear Lake"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/ED7E5399-0529-6089-A007633465573DC0.jpg",
         "title": "Bear Lake in June",
         "altText": "Bear Lake is in the foreground with Hallett Peak across the lake in the distance."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/ED646C3A-0F7C-67B6-557A500570A68428.jpg",
-        "title": "Elk on tundra",
-        "altText": "A bull elk is standing on tundra in RMNP"
       }
     ]
   },
@@ -8708,7 +8708,7 @@
     "name": "Timpanogos Cave",
     "fullName": "Timpanogos Cave National Monument",
     "parkCode": "tica",
-    "description": "The 2024 opening date for cave tours will be posted once it has been determined. Hike your way past stunning vistas to explore a hidden underground world. Taste the thrill of caving as you twist and bend to enter beautifully decorated rooms. Learn the science behind formations and hear stories of cave exploration and preservation. Experience and discover as you go \u2013 geologic mysteries await",
+    "description": "Cave tours for the 2024 season will begin on June 14. Hike your way past stunning vistas to explore a hidden underground world. Taste the thrill of caving as you twist and bend to enter beautifully decorated rooms. Learn the science behind formations and hear stories of cave exploration and preservation. Experience and discover as you go \u2013 geologic mysteries await",
     "latitude": 40.44039719,
     "longitude": -111.7093944,
     "states": ["UT"],
