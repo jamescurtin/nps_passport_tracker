@@ -29,7 +29,6 @@ EXCLUDED_DESIGNATIONS: set[str] = {
     "National River",
     "National Scenic River",
     "National Scenic Trail",
-    "Parkway",
     "Public Lands",
     "Scenic & Recreational River",
     "Scenic River",
