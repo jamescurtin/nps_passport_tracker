@@ -593,6 +593,29 @@
     ]
   },
   {
+    "id": "A21F01BC-9E47-4DBE-8655-A1651FC2C1B1",
+    "url": "https://www.nps.gov/bawa/index.htm",
+    "name": "Baltimore-Washington",
+    "fullName": "Baltimore-Washington Parkway",
+    "parkCode": "bawa",
+    "description": "This 29-mile highway connects Baltimore, MD and Washington, D.C. The parkway has carried visitors to and from the capital city since 1954.",
+    "latitude": 39.02604289,
+    "longitude": -76.85410921,
+    "states": ["MD"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F83E6-1DD8-B71B-0BD4AB5763204C1E.jpg",
+        "title": "Baltimore Washington Parkway",
+        "altText": "Gladys Noon Spellman sign on the Baltimore Washington Parkway"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F858F-1DD8-B71B-0B673EC0A945016E.jpg",
+        "title": "Baltimore Washington Parkway",
+        "altText": "Greenbelt-Road overpass on the Baltimore Washington Parkway"
+      }
+    ]
+  },
+  {
     "id": "E28CA30C-2D81-4394-81E9-67677C412115",
     "url": "https://www.nps.gov/band/index.htm",
     "name": "Bandelier",
@@ -888,6 +911,29 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7BD6A6-1DD8-B71B-0BB41BBE33806A03.jpg",
         "title": "Autumn in the Blackstone Valley",
         "altText": "Autumn in the Blackstone Valley"
+      }
+    ]
+  },
+  {
+    "id": "712044CE-4C85-48C2-813E-310A9C6C74E1",
+    "url": "https://www.nps.gov/blri/index.htm",
+    "name": "Blue Ridge",
+    "fullName": "Blue Ridge Parkway",
+    "parkCode": "blri",
+    "description": "A Blue Ridge Parkway experience is unlike any other: a slow-paced and relaxing drive revealing stunning long-range vistas and close-up views of the rugged mountains and pastoral landscapes of the Appalachian Highlands. The Parkway meanders for 469 miles, protecting a diversity of plants and animals, and providing opportunities for enjoying all that makes this region of the country so special.",
+    "latitude": 35.5657195274,
+    "longitude": -82.486484587,
+    "states": ["NC", "VA"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/88113186-C82C-0C45-EB7789FE6E4D8DC2.jpg",
+        "title": "Black Bear",
+        "altText": "Black Bear sitting on large rocks at the edge of a forest"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/87E985D9-BF92-9DC3-74B91467FBA15010.jpg",
+        "title": "Evening on the Blue Ridge",
+        "altText": "A long pine tree stands in front of distant mountain ridges beneath an orange sunset"
       }
     ]
   },
@@ -3747,6 +3793,29 @@
     ]
   },
   {
+    "id": "E6D5BB41-3251-469F-ABDA-7B43B966F0CF",
+    "url": "https://www.nps.gov/gwmp/index.htm",
+    "name": "George Washington",
+    "fullName": "George Washington Memorial Parkway",
+    "parkCode": "gwmp",
+    "description": "The George Washington Memorial Parkway was designed for recreational driving. It links sites that commemorate important episodes in American history and preserve habitat for local wildlife. The parkway and its associated trails provide a scenic place to play and rest in the busy Washington, DC metropolitan area.",
+    "latitude": 38.9628,
+    "longitude": -77.1495,
+    "states": ["DC", "MD", "VA"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C828BAC-1DD8-B71B-0B1A9857AB2A50E1.jpg",
+        "title": "George Washington Memorial Parkway",
+        "altText": "A view of the Parkway"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/C645D155-EDA3-ED3B-6DE6F6A95D3A8A6F.jpg",
+        "title": "George Washington Memorial Parkway Stone Bridge",
+        "altText": "Stone Bridge Along the George Washington Memorial Parkway"
+      }
+    ]
+  },
+  {
     "id": "542D7CC3-B948-4891-9811-829661F30686",
     "url": "https://www.nps.gov/gewa/index.htm",
     "name": "George Washington Birthplace",
@@ -6465,6 +6534,29 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C81B61B-1DD8-B71B-0B02E907D6D77626.jpg",
         "title": "Inside the William Johnson House",
         "altText": "room with tall windows and fireplace, round table containing lamp and surrounded by chairs"
+      }
+    ]
+  },
+  {
+    "id": "E8A0F0B6-983F-4B9A-9A67-BFF6F9E4204A",
+    "url": "https://www.nps.gov/natr/index.htm",
+    "name": "Natchez Trace",
+    "fullName": "Natchez Trace Parkway",
+    "parkCode": "natr",
+    "description": "The Natchez Trace Parkway is a 444-mile recreational road and scenic drive through three states. It roughly follows the \"Old Natchez Trace,\" a historic travel corridor used by American Indians, \"Kaintucks,\" European settlers, slave traders, soldiers, and future presidents. Today, people can enjoy a scenic drive as well as hiking, biking, horseback riding, and camping along the Parkway.",
+    "latitude": 33.78002293,
+    "longitude": -89.03092439,
+    "states": ["AL", "MS", "TN"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7FFB07-1DD8-B71B-0B35C15D0834A556.jpg",
+        "title": "Double Arch Bridge over Birdsong Hollow (milepost 438) on the Natchez Trace Parkway",
+        "altText": "View of the Double Arch Bridge from Birdsong Hollow"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7FFE3F-1DD8-B71B-0B9E86CB3BBD9041.jpg",
+        "title": "Mount Locust Historic House (milepost 15.5) on the Natchez Trace Parkway",
+        "altText": "Mount Locust Historic House"
       }
     ]
   },
