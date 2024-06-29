@@ -1012,7 +1012,7 @@
     "name": "Boston Harbor Islands",
     "fullName": "Boston Harbor Islands National Recreation Area",
     "parkCode": "boha",
-    "description": ". . . where you can walk a Civil War-era fort, visit historic lighthouses, explore tide pools, hike lush trails, camp under the stars, or relax while fishing, picnicking or swimming-all within reach of downtown Boston. Youth programs, visitor services, research, wildlife management, and more are coordinated on the park's 34 islands and peninsulas by the Boston Harbor Islands Partnership.",
+    "description": ". . . where you can walk a Civil War-era fort, view historic lighthouses, explore tide pools, hike lush trails, camp under the stars, or relax while fishing, picnicking, or swimming\u2014all within reach of downtown Boston. Youth programs, visitor services, research, wildlife management, and more are coordinated on the park's 34 islands and peninsulas by the Boston Harbor Islands Partnership.",
     "latitude": 42.30905526,
     "longitude": -70.93941138,
     "states": ["MA"],
@@ -6301,9 +6301,9 @@
         "altText": "Located on Battle Road, the Smith House was home of Captain John Smith of the Lincoln Militia."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8093FE-1DD8-B71B-0B136DB5E8378F8C.jpg",
-        "title": "Concord Minute Man",
-        "altText": "By daniel Chester French"
+        "url": "https://www.nps.gov/common/uploads/structured_data/1D880007-9D4B-60FA-6E450A3F95ABB033.jpg",
+        "title": "Living History!",
+        "altText": "A company of armed minute men stand in formation along a dirt road with the officer out in front."
       }
     ]
   },
@@ -7717,9 +7717,9 @@
         "altText": "A small brick visitor center building flanked by a flagpole and a freestanding interpretive sign."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/9A8616A8-ADA6-DF23-0FBEAC303A04E5A1.jpg",
-        "title": "Cold Harbor Battlefield Visitor Center",
-        "altText": "A small brick visitor center building flanked by a flagpole and a freestanding interpretive sign."
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C79860B-1DD8-B71B-0BF764186C0B45DF.jpg",
+        "title": "Earthworks at Fort Harrison",
+        "altText": "Earthworks at Fort Harrison"
       }
     ]
   },
