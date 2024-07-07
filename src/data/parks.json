@@ -667,7 +667,7 @@
     "name": "Bent's Old Fort",
     "fullName": "Bent's Old Fort National Historic Site",
     "parkCode": "beol",
-    "description": "In the 1840s the Arkansas River was the border between territory claimed by the United States and Mexico. Located on the river, Bent's Fort was an adobe trading post on the Santa Fe Trail, where traders, trappers, travelers, and the Cheyenne and Arapaho tribes came together in peaceful terms for trade. Experience the sights, sounds, and smells of the front line of America's Westward Expansion.",
+    "description": "In the 1840s the Arkansas River was the border between territory claimed by the United States and Mexico. Located along the river, Bent's Fort was an adobe trading post on the Santa Fe Trail, where traders, trappers, travelers, and the Cheyenne and Arapaho tribes came together in peaceful terms for trade. Today, a reconstructed fort allows visitors to explore the front line of Westward Expansion.",
     "latitude": 38.03977546,
     "longitude": -103.4266499,
     "states": ["CO"],
@@ -6048,14 +6048,14 @@
     "states": ["NM", "WA", "TN"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/96DD21C2-D748-B23A-7D3BE1DC1032627B.jpg",
-        "title": "Ashley Pond",
-        "altText": "a landscaped pond with fountain in front of snowy mountains and a blue sky with clouds"
+        "url": "https://www.nps.gov/common/uploads/structured_data/87DC8664-0A66-3B76-6B9BF543D9581735.jpg",
+        "title": "Hanford B Reactor",
+        "altText": "Gray factory building like stacked boxes with single taller smokestack beneath cloudy blue skies."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F6AABFFC-FEB3-C1A1-0FE48BCFF86E5656.jpg",
-        "title": "B Reactor Under Construction",
-        "altText": "Black and white photograph of a construction site with scaffolding and workers visible."
+        "url": "https://www.nps.gov/common/uploads/structured_data/88034665-FD02-40D7-B8CBF850271EC139.jpg",
+        "title": "Hanford Hike Through Time",
+        "altText": "Uniformed park ranger talks animatedly to visitors on a hillside overlooking a sprawling urban area."
       }
     ]
   },
@@ -7844,7 +7844,7 @@
     "name": "Rosie the Riveter WWII Home Front",
     "fullName": "Rosie the Riveter WWII Home Front National Historical Park",
     "parkCode": "rori",
-    "description": "Explore and honor the efforts and sacrifices of American civilians on the WWII home front. Find out how diverse neighbors lived, worked, and interacted. Many faces, many stories, many truths, weave a complex tapestry of experiences from this time of opportunity and loss.",
+    "description": "Celebrate and honor the contributions and sacrifices of American civilians on the WWII home front. Discover how diverse communities lived, worked, and interacted. Many faces, many stories, many truths, weave a rich tapestry of experiences from this era of opportunity and loss.",
     "latitude": 37.90999027,
     "longitude": -122.360156,
     "states": ["CA"],
@@ -9222,7 +9222,7 @@
     "name": "Voyageurs",
     "fullName": "Voyageurs National Park",
     "parkCode": "voya",
-    "description": "With 218,055 acres, Voyageurs National Park is an adventure wonderland all year long full of exposed rock ridges, cliffs, wetlands, forests, streams and lakes. This is a place of transition between land and aquatic ecosystems, between southern boreal and northern hardwood forests, and between wild and developed areas. Whether you are exploring by land, water or ice there is something for everyone.",
+    "description": "Voyageurs National Park spans 218,000 acres of lakes, forests, and streams in northern Minnesota. Established in 1975, the park is named after the French-Canadian Voyageurs who once navigated these abundant waters. Voyageurs National Park provides exceptional opportunities for recreation and exploration amidst landscapes rich in natural beauty, history, and cultural heritage.",
     "latitude": 48.48370609,
     "longitude": -92.8382913,
     "states": ["MN"],
