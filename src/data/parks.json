@@ -2273,9 +2273,9 @@
         "altText": "An arm of the Milky Way galaxy glows over Blue Mesa."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/22501234-D90F-D674-C4F1F0CD7B3DD149.jpg",
-        "title": "Blue Mesa Reservoir",
-        "altText": "A large blue body of water with three boats on it and mesas in the background"
+        "url": "https://www.nps.gov/common/uploads/structured_data/A1496038-AF15-BB3A-3FD6DD366CE0BA4C.jpg",
+        "title": "Crystal Trail View",
+        "altText": "The snow-capped San Juan Mountain Range looms in the distance as viewed from the Crystal Trail"
       }
     ]
   },
@@ -3913,7 +3913,7 @@
     "name": "Glacier",
     "fullName": "Glacier National Park",
     "parkCode": "glac",
-    "description": "A showcase of melting glaciers, alpine meadows, carved valleys, and spectacular lakes. With over 700 miles of trails, Glacier is a paradise for adventurous visitors seeking wilderness steeped in human history. Relive the days of old through historic chalets, lodges, and the famous Going-to-the-Sun Road.",
+    "description": "A showcase of melting glaciers, alpine meadows, carved valleys, and spectacular lakes. With over 700 miles of trails, Glacier is a paradise for adventurous visitors seeking a landscape steeped in human culture. Relive the days of old through historic chalets, lodges, and the famous Going-to-the-Sun Road.",
     "latitude": 48.68414678,
     "longitude": -113.8009306,
     "states": ["MT"],
@@ -4097,7 +4097,7 @@
     "name": "Grand Canyon",
     "fullName": "Grand Canyon National Park",
     "parkCode": "grca",
-    "description": "Grand Canyon National Park, in Northern Arizona, encompasses 278 miles (447 km) of the Colorado River and adjacent uplands. Located on ancestral homeland of 11 Tribal Communities, Grand Canyon is one of the most spectacular examples of erosion anywhere in the world\u2014unmatched in the incomparable vistas it offers visitors from the rims.",
+    "description": "Entirely within Northern Arizona, the park encompasses 278 miles (447 km) of the Colorado River and adjacent uplands. Located on ancestral homeland of 11 present day Tribal Communities, Grand Canyon is one of the most spectacular examples of erosion anywhere in the world\u2014a mile deep canyon unmatched in the incomparable vistas it offers visitors from the north and south rims.",
     "latitude": 36.0001165336,
     "longitude": -112.121516363,
     "states": ["AZ"],
@@ -7275,14 +7275,14 @@
     "states": ["AZ"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C85B311-1DD8-B71B-0B66904CAD8F3429.jpg",
-        "title": "Agate Bridge",
-        "altText": "A large petrified log stretches across a gully"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7D8582-1DD8-B71B-0BCCD89452609E15.jpg",
         "title": "Agate House",
         "altText": "Sunlight highlights the colorful petrified wood of Agate House"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C85B554-1DD8-B71B-0BA79402AD7E7711.jpg",
+        "title": "Blue Mesa Trail",
+        "altText": "Two visitors walk the Blue Mesa Trail between blue, purple, and grey badlands."
       }
     ]
   },
