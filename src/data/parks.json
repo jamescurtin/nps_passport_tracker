@@ -2492,7 +2492,7 @@
     "name": "Dinosaur",
     "fullName": "Dinosaur National Monument",
     "parkCode": "dino",
-    "description": "Dinosaurs once roamed here. Their fantastic remains are still visibly embedded in the rocks. Today, the mountains, desert, and untamed rivers flowing in deep canyons support an array of life. Petroglyphs hint at earlier cultures. Later, homesteaders and outlaws found refuge here. Whether your passion is science, adventure, history or scenery, Dinosaur offers much to explore.",
+    "description": "Dinosaurs once roamed here. Their fantastic remains are still visibly embedded in the rocks. Today, the mountains, desert, and untamed rivers flowing in deep canyons support an array of life. Petroglyphs reveal the lives of Indigenous people. Later, homesteaders and outlaws found refuge here. Whether your passion is science, adventure, history or scenery, Dinosaur offers much to explore.",
     "latitude": 40.50739742,
     "longitude": -108.9333714,
     "states": ["CO", "UT"],
@@ -2860,7 +2860,7 @@
     "name": "First Ladies",
     "fullName": "First Ladies National Historic Site",
     "parkCode": "fila",
-    "description": "First Ladies National Historic Site consists of two properties in downtown Canton, Ohio - the home of First Lady Ida Saxton-McKinley and our Education Center. Come learn about how the position of First Lady has evolved over time to include a public role.",
+    "description": "First Ladies National Historic Site consists of two properties in downtown Canton, Ohio - the home of First Lady Ida Saxton-McKinley and our Visitor Center. Come learn about how the position of First Lady has evolved over time to include a public role.",
     "latitude": 40.79689857,
     "longitude": -81.37579869,
     "states": ["OH"],
@@ -6981,9 +6981,9 @@
         "altText": "Fresh snow atop the Olympic Mountains."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/389CBF78-F250-CB08-78C1AFA0FEFDE68E.jpg",
-        "title": "Kalaloch Tree of Life",
-        "altText": "A tree's root system holds it suspended in a gap in a bluff overlooking a sandy beach."
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B1C43-1DD8-B71B-0B40240896925A49.jpg",
+        "title": "Mountain Sunset",
+        "altText": "Hikers sit and watch the sun set behind snow-capped mountains."
       }
     ]
   },
@@ -7712,14 +7712,14 @@
     "states": ["VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/9A8616A8-ADA6-DF23-0FBEAC303A04E5A1.jpg",
-        "title": "Cold Harbor Battlefield Visitor Center",
-        "altText": "A small brick visitor center building flanked by a flagpole and a freestanding interpretive sign."
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C79860B-1DD8-B71B-0BF764186C0B45DF.jpg",
         "title": "Earthworks at Fort Harrison",
         "altText": "Earthworks at Fort Harrison"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C798177-1DD8-B71B-0BD1E8B6820E87D1.jpg",
+        "title": "Gaines' Mill Battlefield",
+        "altText": "a landscape of Gaines' Mill Battlefield"
       }
     ]
   },
@@ -8074,7 +8074,7 @@
     "name": "San Antonio Missions",
     "fullName": "San Antonio Missions National Historical Park",
     "parkCode": "saan",
-    "description": "Welcome to San Antonio Missions, a National Park Service site and the only UNESCO World Heritage Site in Texas. After 10,000 years, the people of South Texas were faced with drought, European diseases, and colonization. In the early 1700s, many Native people of South Texas foreswore their traditional life to become Spanish, accepting a new religion and agrarian lifestyle in hopes of survival.",
+    "description": "Welcome to San Antonio Missions, a National Park Service site and the only UNESCO World Heritage Site in Texas. After thousands of years, South Texans faced drought, European diseases, and colonization. In the 1700s, these Indigenous South Texans foreswore their traditional subsistence lifestyle and assimilated for survival to the Spanish ways, accepting a new religion, diet, economy and more.",
     "latitude": 29.31262089,
     "longitude": -98.4289522,
     "states": ["TX"],
