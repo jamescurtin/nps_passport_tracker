@@ -3706,7 +3706,7 @@
     "name": "Gateway Arch",
     "fullName": "Gateway Arch National Park",
     "parkCode": "jeff",
-    "description": "The Gateway Arch reflects St. Louis' role in the Westward Expansion of the United States during the nineteenth century. The park is a memorial to Thomas Jefferson's role in opening the West, to the pioneers who helped shape its history, and to Dred Scott who sued for his freedom in the Old Courthouse.",
+    "description": "Gateway Arch National Park commemorates President Jefferson\u2019s vision of a continental nation, the individuals and cultural groups who helped shape its history, St. Louis\u2019 role in westward expansion, and Dred and Harriet Scott, who sued for their freedom in the Old Courthouse.",
     "latitude": 38.6258069,
     "longitude": -90.1892508,
     "states": ["MO"],
@@ -8387,6 +8387,29 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/00D893AA-0DF6-0628-D91892B25263BF5F.jpg",
         "title": "Dunes",
         "altText": "Grass covered sand dunes"
+      }
+    ]
+  },
+  {
+    "id": "8E5D875F-418A-40FD-B8C4-DBE8026A5CC5",
+    "url": "https://www.nps.gov/spra/index.htm",
+    "name": "Springfield 1908 Race Riot",
+    "fullName": "Springfield 1908 Race Riot National Monument",
+    "parkCode": "spra",
+    "description": "In August 1908, a large White mob attacked the Black community in Springfield, Illinois. Rioters destroyed homes and businesses and lynched two men. The event led to the founding of the National Association for the Advancement of Colored People (NAACP). Today, archeological evidence gives a rare glimpse into a community devastated by the race riots of the early 20th century.",
+    "latitude": 39.8027,
+    "longitude": -89.6422,
+    "states": ["IL"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/9C5613D6-C51D-C63B-C5C9F9EC92C9D3C6.jpg",
+        "title": "Destroyed Home at 9th and Madison Streets",
+        "altText": "Historic photo of two people using a hose to extinguish a burning building."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/9C79FA2A-CEE8-E14A-A7FC097D059161B7.jpg",
+        "title": "Illinois State Militia",
+        "altText": "Historic photo of militia members standing in the remains of a burned building."
       }
     ]
   },
