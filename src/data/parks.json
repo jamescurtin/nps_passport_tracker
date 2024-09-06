@@ -874,7 +874,7 @@
     "name": "Black Canyon Of The Gunnison",
     "fullName": "Black Canyon Of The Gunnison National Park",
     "parkCode": "blca",
-    "description": "Big enough to be overwhelming, still intimate enough to feel the pulse of time, Black Canyon of the Gunnison National Park exposes you to some of the steepest cliffs, oldest rock, and craggiest spires in North America. With two million years to work, the Gunnison River, along with the forces of weathering, has sculpted this vertical wilderness of rock, water, and sky.",
+    "description": "Big enough to be overwhelming, yet still intimate enough to feel the pulse of time. Come see some of the steepest cliffs, oldest rock, and craggiest spires in North America. Forces of nature and the Gunnison River sculpted this canyon over two million years. The result is a vertical wilderness of rock, water, and sky.",
     "latitude": 38.57779869,
     "longitude": -107.7242756,
     "states": ["CO"],
@@ -2331,7 +2331,7 @@
     "name": "Dayton Aviation Heritage",
     "fullName": "Dayton Aviation Heritage National Historical Park",
     "parkCode": "daav",
-    "description": "Dayton Aviation Heritage National Historical was established to honor the lives and achievements of poet and author Paul Laurence Dunbar and aviation pioneers Wilbur and Orville Wright. Through perseverance and dedication Orville, Wilbur and Paul were able to overcome obstacles in their lives and leave their respective marks on history. Start your visit at one of our locations today.",
+    "description": "Dayton Aviation Heritage National Historical Park was established to honor the lives and achievements of poet and author Paul Laurence Dunbar and aviation pioneers Wilbur and Orville Wright. Through perseverance and dedication Orville, Wilbur and Paul were able to overcome obstacles in their lives and leave their respective marks on history. Start your visit at one of our locations today.",
     "latitude": 39.78944467,
     "longitude": -84.10442045,
     "states": ["OH"],
@@ -7779,18 +7779,7 @@
     "latitude": 40.3556924,
     "longitude": -105.6972879,
     "states": ["CO"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F345430A-DBE7-792C-D9C04E33D72A2AD6.jpg",
-        "title": "Bear Lake Trail",
-        "altText": "Hike around Bear Lake"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C55D1DF0-926F-CB3F-B3D8ABE0298780F6.jpg",
-        "title": "Hiking in RMNP",
-        "altText": "A person is hiking on a trail along side a lake"
-      }
-    ]
+    "images": []
   },
   {
     "id": "0419867F-20D9-49CF-BC42-88F5A70AD32D",
