@@ -6296,14 +6296,14 @@
     "states": ["MA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C809778-1DD8-B71B-0B66B50F57E39E75.jpg",
-        "title": "Captain William Smith House",
-        "altText": "Located on Battle Road, the Smith House was home of Captain John Smith of the Lincoln Militia."
+        "url": "https://www.nps.gov/common/uploads/structured_data/E5FB543B-D9DA-81DB-536F673B15E1C0C7.png",
+        "title": "British Soldiers on Battle Road",
+        "altText": "An open field with trees and stone wall. British soldiers in red coats march in the distance."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/1D880007-9D4B-60FA-6E450A3F95ABB033.jpg",
-        "title": "Living History!",
-        "altText": "A company of armed minute men stand in formation along a dirt road with the officer out in front."
+        "url": "https://www.nps.gov/common/uploads/structured_data/E5B10817-0ED5-D9EE-108A8418774DBE7A.jpg",
+        "title": "Captain William Smith House",
+        "altText": "Located on Battle Road, the Smith House was home of Captain John Smith of the Lincoln Militia."
       }
     ]
   },
