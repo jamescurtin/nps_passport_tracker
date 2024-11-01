@@ -2823,11 +2823,6 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C855D19-1DD8-B71B-0B2AF1FAF9721319.jpg",
         "title": "Federal Hall Interior",
         "altText": "\u201cLarge crowd inside the rotunda of Federal Hall National Memorial\u201d"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/793130D4-ECEB-38CA-85B17CD76A572A8E.png",
-        "title": "Federal Hall Rotunda",
-        "altText": "Visitors watch a George Washington re-enactor perform."
       }
     ]
   },
@@ -5145,7 +5140,7 @@
     "name": "John Muir",
     "fullName": "John Muir National Historic Site",
     "parkCode": "jomu",
-    "description": "John Muir played many roles in his life, all of which helped him succeed in his role as an advocate for Nature. As America\u2019s most famous naturalist and conservationist, Muir fought to protect the wild places he loved, places we can still visit today. Muir\u2019s writings convinced the U.S. government to protect Yosemite, Sequoia, Grand Canyon and Mt. Rainier as national parks.",
+    "description": "John Muir\u2019s life was a tapestry of roles\u2014fruit rancher, family man, writer\u2014each interwoven with his deep love for nature. As one of America\u2019s most influential naturalists, Muir was more than just an observer of the wilderness; he was its fiercest advocate. His passion for the land drove him to protect the places he held dear, ensuring that future generations could experience their beauty.",
     "latitude": 37.9828422,
     "longitude": -122.1326097,
     "states": ["CA"],
@@ -6088,7 +6083,7 @@
     "name": "Marsh - Billings - Rockefeller",
     "fullName": "Marsh - Billings - Rockefeller National Historical Park",
     "parkCode": "mabi",
-    "description": "Experience Vermont\u2019s only National Park while it is bejeweled in vibrant fall colors. Take in the yellows, oranges and reds of hard wood forests while you experience the changing season and reflect on the story of stewardship, of people taking care of places. Hike the trails and participate in the many fall programs and share in an enduring connection to the land.",
+    "description": "Visit during one of nature\u2019s most spectacular shows and experience Vermont\u2019s only national park while it is bejeweled in vibrant fall colors. Take in the yellows, oranges and reds of the forest while you experience the changing season and reflect on the story of stewardship. Hike the trails, participate in fall programs, and share in an enduring connection to the land.",
     "latitude": 43.63348732,
     "longitude": -72.53424638,
     "states": ["VT"],
@@ -7683,7 +7678,7 @@
     "name": "Redwood",
     "fullName": "Redwood National and State Parks",
     "parkCode": "redw",
-    "description": "Most people know Redwood as home to the tallest trees on Earth. But the Parks also protect vast prairies, oak woodlands, wild rivers, and 40 miles of rugged coastline. People have lived in this verdant landscape since time immemorial. Together, the National Park Service and California State Parks are managing and restoring these lands for the inspiration, enjoyment, and education of all.",
+    "description": "Renowned for the world\u2019s tallest trees, Redwood\u2019s landscapes span from open prairies and oak woodlands to pristine rivers and untamed coastline. This ancient home has supported people for thousands of years. The National Park Service and California State Parks now work to safeguard and rejuvenate these lands for everyone\u2019s enjoyment, learning, and inspiration.",
     "latitude": 41.37237268,
     "longitude": -124.0318129,
     "states": ["CA"],
@@ -7712,14 +7707,14 @@
     "states": ["VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C79860B-1DD8-B71B-0BF764186C0B45DF.jpg",
-        "title": "Earthworks at Fort Harrison",
-        "altText": "Earthworks at Fort Harrison"
+        "url": "https://www.nps.gov/common/uploads/structured_data/816EE112-9C5D-2560-D10FE798B013A447.jpg",
+        "title": "Chimborazo Visitor Center",
+        "altText": "A two story gray brick building and a wooden sign reading \"Chimborazo Visitor Center\""
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C798177-1DD8-B71B-0BD1E8B6820E87D1.jpg",
-        "title": "Gaines' Mill Battlefield",
-        "altText": "a landscape of Gaines' Mill Battlefield"
+        "url": "https://www.nps.gov/common/uploads/structured_data/81593210-FD14-5769-C6EB06FEAD84C0AA.jpg",
+        "title": "Cold Harbor Battlefield Visitor Center",
+        "altText": "A small brick visitor center building beside a flagpole."
       }
     ]
   },
@@ -8511,7 +8506,7 @@
     "name": "Stones River",
     "fullName": "Stones River National Battlefield",
     "parkCode": "stri",
-    "description": "The Battle of Stones River began on the last day of 1862 and was one of the bloodiest conflicts of the Civil War. The battle produced important military and political gains for the Union, and it changed forever the people who lived and fought here.",
+    "description": "The Battle of Stones River began on the last day of 1862 and became one of the bloodiest conflicts of the Civil War. The battle produced important military and political gains for the Union, and it changed forever the people who lived and fought here.",
     "latitude": 35.87608652,
     "longitude": -86.43078399,
     "states": ["TN"],
@@ -8823,7 +8818,7 @@
     "name": "Timpanogos Cave",
     "fullName": "Timpanogos Cave National Monument",
     "parkCode": "tica",
-    "description": "Cave tours are closed for the 2024 season. Hike your way past stunning vistas to explore a hidden underground world. Taste the thrill of caving as you twist and bend to enter beautifully decorated rooms. Learn the science behind formations and hear stories of cave exploration and preservation. Experience and discover as you go \u2013 geologic mysteries await",
+    "description": "The visitor center, caves, and cave tours are closed for the 2024 season. Hike your way past stunning vistas to explore a hidden underground world. Taste the thrill of caving as you twist and bend to enter beautifully decorated rooms. Learn the science behind formations and hear stories of cave exploration and preservation. Experience and discover as you go \u2013 geologic mysteries await",
     "latitude": 40.44039719,
     "longitude": -111.7093944,
     "states": ["UT"],
