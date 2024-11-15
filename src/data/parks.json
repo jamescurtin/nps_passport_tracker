@@ -788,14 +788,14 @@
     "states": ["TX"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/5DE7960F-AE37-F376-C881303E50FE17D5.jpg",
-        "title": "Beaver Slide Trail Bridge",
-        "altText": "A small wooden bridge on a trail through dense woods."
+        "url": "https://www.nps.gov/common/uploads/structured_data/E8CCDE1C-E7F1-2BB0-A8B8F918B482E61B.jpg",
+        "title": "Bald Cypress in Fall",
+        "altText": "a mossy bald cypress tree displaying fiery orange leaves amid a background of green forest."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/5DB295BE-F9A9-3D10-CA6D5204ED24E79A.jpg",
-        "title": "Canoe on Lake Bayou",
-        "altText": "A park ranger paddling a green canoe on a slow-moving waterway below cypress trees."
+        "url": "https://www.nps.gov/common/uploads/structured_data/60B44B03-C641-7B6F-0D0A2E1B31AA8C5E.jpg",
+        "title": "Cypress Knees",
+        "altText": "Shadowy-looking cypress knees and their reflections in still water."
       }
     ]
   },
