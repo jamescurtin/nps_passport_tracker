@@ -2314,14 +2314,14 @@
     "states": ["CA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A4740-1DD8-B71B-0BF737E1DDD1EA21.jpg",
-        "title": "Courtyard at Visitor Center Entrance",
-        "altText": "A walkway with a fountain"
+        "url": "https://www.nps.gov/common/uploads/structured_data/1DF0C1FD-B53D-173F-DAA6CC201E57AE9B.jpg",
+        "title": "Anna's Hummingbird in the Garden",
+        "altText": "A colorful hummingbird rests on a small branch."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A4A13-1DD8-B71B-0BBB7EE1AE655227.jpg",
-        "title": "C\u00e9sar Ch\u00e1vez's Office",
-        "altText": "A chair and desk near bookshelves"
+        "url": "https://www.nps.gov/common/uploads/structured_data/1E11BC20-DA19-C5ED-1A007B8374E1BA3B.jpg",
+        "title": "Cesar Chavez Birthday Folklorico Dancing",
+        "altText": "A set of folklorico dancers in traditional regalia dance together."
       }
     ]
   },
@@ -3908,7 +3908,7 @@
     "name": "Glacier",
     "fullName": "Glacier National Park",
     "parkCode": "glac",
-    "description": "Glacier National Park will once again implement a pilot vehicle reservation system in 2025, from June 13 to September 28, 2025, for the west side of Going-to-the-Sun Road and the North Fork. Visitors can begin making advance reservations on February 12, 2025. Reservations will be required from 7 a.m. to 3 p.m.",
+    "description": "A showcase of melting glaciers, alpine meadows, carved valleys, and spectacular lakes. With over 700 miles of trails, Glacier is a paradise for adventurous visitors seeking a landscape steeped in human culture. Relive the days of old through historic chalets, lodges, and the famous Going-to-the-Sun Road.",
     "latitude": 48.68414678,
     "longitude": -113.8009306,
     "states": ["MT"],
