@@ -4052,12 +4052,12 @@
     "states": ["UT"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E5D2C-1DD8-B71B-0BEA9089D16EFBA6.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/2CC190EB-CE7A-ECB7-99614DA27C6C9737.png",
         "title": "Golden Spike National Historical Park Visitor Center",
-        "altText": "The Flag flies over Golden Spike National Historical Park's Visitor Center, with trees and monument"
+        "altText": "The Golden Spike National Historical Park's Visitor Center colorful stone entrance"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/B5ED9132-9498-BF87-FD97D049D588DEE0.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/2D399A66-D26D-B190-75511CDDB6EB1874.jpg",
         "title": "Golden Spike Park Entrance Sign",
         "altText": "Winter View of Golden Spike Entrance Sign"
       }
@@ -5991,7 +5991,7 @@
     "name": "Mammoth Cave",
     "fullName": "Mammoth Cave National Park",
     "parkCode": "maca",
-    "description": "Rolling hills, deep river valleys, and the world's longest known cave system. Mammoth Cave National Park is home to thousands of years of human history and a rich diversity of plant and animal life, earning it the title of UNESCO World Heritage Site and International Biosphere Reserve.",
+    "description": "Rolling hills, deep river valleys, and the world's longest known cave system. Mammoth Cave National Park is home to thousands of years of human history and a rich diversity of plant and animal life, earning it the title of UNESCO World Heritage Site and International Biosphere Region.",
     "latitude": 37.19760458,
     "longitude": -86.13090198,
     "states": ["KY"],
@@ -6083,7 +6083,7 @@
     "name": "Marsh - Billings - Rockefeller",
     "fullName": "Marsh - Billings - Rockefeller National Historical Park",
     "parkCode": "mabi",
-    "description": "Visit during one of nature\u2019s most spectacular shows and experience Vermont\u2019s only national park while it is bejeweled in vibrant fall colors. Take in the yellows, oranges and reds of the forest while you experience the changing season and reflect on the story of stewardship. Hike the trails, participate in fall programs, and share in an enduring connection to the land.",
+    "description": "Experience wintry conditions and bracing temperatures along both groomed cross-country ski trails and natural snowshoe trails in the folded hilly landscape of the park. Reflect on the story of stewardship, of people taking care of places \u2013 sharing an enduring connection to the land - as you observe the tall trees, wildlife and experience the peacefulness of the woods.",
     "latitude": 43.63348732,
     "longitude": -72.53424638,
     "states": ["VT"],
