@@ -1462,6 +1462,29 @@
     ]
   },
   {
+    "id": "F67AB14C-AFCF-4BD1-BE62-7BA87DF21DDA",
+    "url": "https://www.nps.gov/cibs/index.htm",
+    "name": "Carlisle Federal Indian Boarding School",
+    "fullName": "Carlisle Federal Indian Boarding School National Monument",
+    "parkCode": "cibs",
+    "description": "More than 7,800 children from 140 Tribes went to the Carlisle School from 1879 to 1918. The National Park Service will collaborate with families, affiliated Tribal Nations, the US Army, historians, and partners to develop resources and share the story of the children, families, and communities impacted by Carlisle Federal Indian Boarding School.",
+    "latitude": 40.2094,
+    "longitude": -77.17971,
+    "states": ["PA"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/E8DF79BB-9418-E325-BD61C15093DCC5FE.jpg",
+        "title": "Carlisle Barracks",
+        "altText": "Campus with large buildings, trees, and walkways"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/E8C9CDA6-E69B-8060-4B02ABC94A23AB34.jpg",
+        "title": "Carlisle Federal Indian Boarding SchoolThe campus of the Carlisle Indian Industrial School, as seen",
+        "altText": "Historic black and white image of a large boarding school campus"
+      }
+    ]
+  },
+  {
     "id": "6FDE39B1-AB4A-4C9A-A5CD-4AF67601CD78",
     "url": "https://www.nps.gov/cave/index.htm",
     "name": "Carlsbad Caverns",
