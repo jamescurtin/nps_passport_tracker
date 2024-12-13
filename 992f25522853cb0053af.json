@@ -7799,14 +7799,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/79822237-EB61-94B3-6C008AC63717133C.jpg",
-        "title": "Elk viewing in fall",
-        "altText": "A group of cow elk are standing next to a bull elk in a meadow"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8DC19E8B-E407-4A67-15068AB0F58652D7.jpg",
+        "title": "Cross-country skiing in RMNP",
+        "altText": "A group is cross-country skiing in RMNP"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/9D6A3EAC-0FCC-E27B-6A1B665B51578EE3.jpg",
-        "title": "Enjoy fall hikes in Rocky Mountain National Park",
-        "altText": "A person is hiking up a trail lined with aspen trees, leaves have turned from green to gold"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8D6B1E8E-F855-882A-B877A8F67BC25DF6.jpg",
+        "title": "Hiking in Winter",
+        "altText": "A person is hiking in RMNP on a trail covered with snow in winter"
       }
     ]
   },
@@ -9113,14 +9113,14 @@
     "states": ["NM"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C84AF3D-1DD8-B71B-0B2FA3C605E6A11D.jpg",
-        "title": "Elk Bulls Fighting",
-        "altText": "Two bull elk fighting."
+        "url": "https://www.nps.gov/common/uploads/structured_data/8DB2060F-DEE0-EAD7-DE87220D060A15CD.jpeg",
+        "title": "Coyote on Thin Ice",
+        "altText": "A coyote walks across a frozen stream in a snowy valley."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/9207CE80-DFCF-584D-4E3869071DD3D508.jpg",
-        "title": "Fall Color in Valles Caldera",
-        "altText": "Aspen tree trunks with golden fall leaf color above"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8D6CBE97-98D3-EDE2-2F0AF5FBD451BA18.jpg",
+        "title": "East Fork",
+        "altText": "A narrow stream meanders through a montane grassland."
       }
     ]
   },
