@@ -897,7 +897,7 @@
     "name": "Blackstone River Valley",
     "fullName": "Blackstone River Valley National Historical Park",
     "parkCode": "blrv",
-    "description": "The Blackstone River powered America's entry into the Age of Industry. The success of Samuel Slater's cotton spinning mill in Pawtucket, RI touched off a chain reaction that changed how people worked and where they lived. Learn how this revolution transformed the landscape of the Blackstone Valley and the United States. Old Slater Mill will reopen in the Spring 2025.",
+    "description": "The Blackstone River powered America's entry into the Age of Industry. The success of Samuel Slater's cotton spinning mill in Pawtucket, RI touched off a chain reaction that changed how people worked and where they lived. Learn how this revolution transformed the landscape of the Blackstone Valley and the United States. Old Slater Mill will reopen in Spring 2025.",
     "latitude": 41.8775792792,
     "longitude": -71.382433945,
     "states": ["RI", "MA"],
@@ -3535,6 +3535,29 @@
     ]
   },
   {
+    "id": "32BA62F5-5678-4202-9E68-6EC5ED9FA0CC",
+    "url": "https://www.nps.gov/frpe/index.htm",
+    "name": "Frances Perkins",
+    "fullName": "Frances Perkins National Monument",
+    "parkCode": "frpe",
+    "description": "Known as the first woman to hold a presidential cabinet position and the \u201cWoman behind the New Deal,\u201d Frances Perkins championed many labor rights that Americans enjoy today, including safety standards, Social Security, and shorter workweeks. Her impressive career and accomplishments, including as Secretary of Labor, opened the door for other women to hold high government positions.",
+    "latitude": 44.0052,
+    "longitude": -69.5568,
+    "states": ["ME"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/2CC7130F-941F-CA23-DB43310BB9EA5AAB.jpg",
+        "title": "A profile view of the Frances Perkins Homestead",
+        "altText": "A two-story red brick home stands just beyond a row of green ferns."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/23F044BC-D30D-0BC8-D7F62B9544DE0559.jpg",
+        "title": "Approach to the Frances Perkins Homestead",
+        "altText": "A sandy brown driveway curves through green grass towards the two story-red brick homestead and grey"
+      }
+    ]
+  },
+  {
     "id": "8F8CC788-D1BB-42BC-A41E-B442E2B001C8",
     "url": "https://www.nps.gov/frde/index.htm",
     "name": "Franklin Delano Roosevelt Memorial",
@@ -5393,7 +5416,7 @@
     "name": "Keweenaw",
     "fullName": "Keweenaw National Historical Park",
     "parkCode": "kewe",
-    "description": "The stories of people and copper in the Keweenaw Peninsula have been intertwined for more than 8,000 years. Indigenous peoples made copper into tools and trade items. Investors and immigrants arrived in the 1800s in a great mineral rush, developing thriving industries and cosmopolitan communities. Though the mines have since closed, their mark is still visible on the land and people.",
+    "description": "The stories of people and copper in the Keweenaw Peninsula have been intertwined for more than 7,000 years. Indigenous peoples made copper into tools and trade items. Investors and immigrants arrived in the 1800s in a great mineral rush, developing thriving industries and cosmopolitan communities. Though the mines have since closed, their mark is still visible on the land and people.",
     "latitude": 47.1792308,
     "longitude": -88.52275344,
     "states": ["MI"],
