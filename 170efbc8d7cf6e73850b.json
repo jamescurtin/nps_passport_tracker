@@ -7822,14 +7822,14 @@
     "states": ["CO"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/956399BF-B658-283A-6295BDEE754DD948.jpg",
+        "title": "Beaver Meadows Visitor Center",
+        "altText": "Front entry to the Beaver Meadows Visitor Center"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/8DC19E8B-E407-4A67-15068AB0F58652D7.jpg",
         "title": "Cross-country skiing in RMNP",
         "altText": "A group is cross-country skiing in RMNP"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8D6B1E8E-F855-882A-B877A8F67BC25DF6.jpg",
-        "title": "Hiking in Winter",
-        "altText": "A person is hiking in RMNP on a trail covered with snow in winter"
       }
     ]
   },
