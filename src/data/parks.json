@@ -1922,7 +1922,7 @@
     "name": "Chiricahua",
     "fullName": "Chiricahua National Monument",
     "parkCode": "chir",
-    "description": "Explore the pinnacles, spires, and balanced rocks that originated 27 million years ago by a massive volcanic eruption. Hike within these formations that help protect the exceptional biodiversity of the sky islands region. Connect with the human history spanning thousands of years, encompassing prehistoric indigenous peoples, Chiricahua Apaches, Buffalo Soldiers, ranchers, CCC, and visitors today.",
+    "description": "Explore rhyolite pinnacles and balanced rocks on foot or by car. Relax at the campground under star-filled, dark skies. See how a mountain range rising between two deserts creates a home for diverse wildlife. Imagine history here. Prehistoric peoples, Apaches, Buffalo Soldiers, Civilian Conservation Corps, ranchers, and homesteaders inhabited Chiricahua.",
     "latitude": 32.01214618,
     "longitude": -109.341607,
     "states": ["AZ"],
@@ -6879,14 +6879,14 @@
     "states": ["KS"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8336EF-1DD8-B71B-0B6789502BDA7E24.jpg",
-        "title": "District #1 Schoolhouse",
-        "altText": "District #1 Schoolhouse"
+        "url": "https://www.nps.gov/common/uploads/structured_data/C71D6C09-9F6D-9027-52520EDA8DBABF14.jpg",
+        "title": "District Number 1 Schoolhouse",
+        "altText": "Frame one story schoolhouse with most of white paint worn off to show gray."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C833DC7-1DD8-B71B-0B78F333DBB962DB.jpg",
-        "title": "Nicodemus African Methodist Episcopal Church",
-        "altText": "Nicodemus African Methodist Episcopal building"
+        "url": "https://www.nps.gov/common/uploads/structured_data/C6D16A5F-9E06-6968-D75AF157CE2CFFF7.jpg",
+        "title": "Nicodemus A.M.E. (African Methodist Episcopal) Church",
+        "altText": "White stucco church with white double doors and text above the doors that reads \"A.M.E. CHURCH 1885\""
       }
     ]
   },
