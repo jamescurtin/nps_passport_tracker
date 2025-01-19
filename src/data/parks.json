@@ -3868,14 +3868,14 @@
     "states": ["VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/B1E849B2-E9A9-D53F-76496DE9CEC6C806.jpg",
-        "title": "Memorial House Museum and Colonial Kitchen",
-        "altText": "Brick Memorial House Museum and Wooden Colonial Kitchen"
+        "url": "https://www.nps.gov/common/uploads/structured_data/678B843C-0D04-17B1-41E634FC92C3F98A.jpg",
+        "title": "George Washington Birthplace National Monument in Winter",
+        "altText": "A large monument sits in the middle of a roundabout with snow on the ground"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/B1BC42A4-B749-0E55-A6D101DCD7ABBE57.jpg",
-        "title": "Overlook of Popes Creek",
-        "altText": "View of Popes Creek"
+        "url": "https://www.nps.gov/common/uploads/structured_data/914DDB77-D53B-3BE6-D9719CC45E8EF4E3.jpg",
+        "title": "Memorial House Museum",
+        "altText": "A red brick building surrounded by trees and a dirt path leading to the building"
       }
     ]
   },
@@ -8662,7 +8662,7 @@
     "name": "The White House and President's Park",
     "fullName": "The White House and President's Park",
     "parkCode": "whho",
-    "description": "Every president except George Washington has called the White House home and has run the executive branch of the United States government from within its walls. Recognizable around the world, the White House stands as a symbol of democracy. The White House and its park grounds also serve as an iconic place for civil discourse.",
+    "description": "The White House is owned by the American people and stewarded by the National Park Service. It is more than the President's residence; it is a site for protests and national conversations defining policy and what it means to be American. As one of the most iconic sites in the country, the White House and President's Park seeks to tell the stories of all people who have lived, worked and visited.",
     "latitude": 38.89541886,
     "longitude": -77.03654147,
     "states": ["DC"],
