@@ -1444,7 +1444,7 @@
     "name": "Carl Sandburg Home",
     "fullName": "Carl Sandburg Home National Historic Site",
     "parkCode": "carl",
-    "description": "PHASE ONE REOPENS TRAILS ONLY AT CARL STARTING DEC 23, 2024 \u201cI make it clear why I write as I do and why other poets write as they do. After hundreds of experiments I decided to go my own way in style and see what would happen.\u201d Sandburg's free verse style of poetry, journalism, biography, children's stories, prose writing, and social activism provided a popular voice for the American people.",
+    "description": "PHASE TWO OPENS ACCESS TO GOAT BARN AT CARL ON JAN 22, 2025 \u201cI make it clear why I write as I do and why other poets write as they do. After hundreds of experiments I decided to go my own way in style and see what would happen.\u201d Sandburg's free verse style of poetry, journalism, biography, children's stories, prose writing, and social activism provided a popular voice for the American people.",
     "latitude": 35.26815509,
     "longitude": -82.45106258,
     "states": ["NC"],
@@ -5416,7 +5416,7 @@
     "name": "Keweenaw",
     "fullName": "Keweenaw National Historical Park",
     "parkCode": "kewe",
-    "description": "The stories of people and copper in the Keweenaw Peninsula have been intertwined for more than 7,000 years. Indigenous peoples made copper into tools and trade items. Investors and immigrants arrived in the 1800s in a great mineral rush, developing thriving industries and cosmopolitan communities. Though the mines have since closed, their mark is still visible on the land and people.",
+    "description": "The stories of people and copper in the Keweenaw Peninsula have been intertwined for more than 7,000 years. Indigenous peoples made copper into tools and trade items. People arrived in the 1800s in a great mineral rush, developing thriving industries and cosmopolitan communities. Though the mines have since closed, their mark is still visible on the land and people.",
     "latitude": 47.1792308,
     "longitude": -88.52275344,
     "states": ["MI"],
@@ -6152,7 +6152,7 @@
     "name": "Martin Luther King, Jr.",
     "fullName": "Martin Luther King, Jr. National Historical Park",
     "parkCode": "malu",
-    "description": "Welcome to Martin Luther King, Jr. National Historical Park & Preservation District A young boy grows up in a time of segregation\u2026 He is moved by destiny into leadership of the modern civil rights movement. This was Martin Luther King, Jr. Explore his roots, walk in his footsteps, visit the home of his birth, and where he played as a child. Hear his voice in the church where he changed the world.",
+    "description": "Welcome to Martin Luther King, Jr. National Historical Park & Preservation District where a young boy grows up in a time of segregation. He was moved by destiny to lead the modern civil rights movement. This was Martin Luther King, Jr. Explore his roots, walk in his footsteps, visit the home of his birth, and where he played as a child. Hear his voice in the church where he changed the world.",
     "latitude": 33.75618241,
     "longitude": -84.37256768,
     "states": ["GA"],
@@ -6342,9 +6342,9 @@
         "altText": "An open field with trees and stone wall. British soldiers in red coats march in the distance."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/E5B10817-0ED5-D9EE-108A8418774DBE7A.jpg",
-        "title": "Captain William Smith House",
-        "altText": "Located on Battle Road, the Smith House was home of Captain John Smith of the Lincoln Militia."
+        "url": "https://www.nps.gov/common/uploads/structured_data/69585BFC-F6D6-756F-5D17A314CCFA9484.jpg",
+        "title": "British Soldiers on the Old North Bridge",
+        "altText": "British soldiers marching together over the a wooden bridge. A stone monument towers behind."
       }
     ]
   },
@@ -8662,7 +8662,7 @@
     "name": "The White House and President's Park",
     "fullName": "The White House and President's Park",
     "parkCode": "whho",
-    "description": "The White House is owned by the American people and stewarded by the National Park Service. It is more than the President's residence; it is a site for protests and national conversations defining policy and what it means to be American. As one of the most iconic sites in the country, the White House and President's Park seeks to tell the stories of all people who have lived, worked and visited.",
+    "description": "The White House is owned by the American people and stewarded by the National Park Service. It is more than the President's residence; it is a site for protests and national discourse about what it means to be American. As one of the most iconic sites in the country, the White House and President's Park seeks to tell the stories of all people who have lived, worked, and visited.",
     "latitude": 38.89541886,
     "longitude": -77.03654147,
     "states": ["DC"],
@@ -9153,7 +9153,7 @@
     "name": "Valley Forge",
     "fullName": "Valley Forge National Historical Park",
     "parkCode": "vafo",
-    "description": "Valley Forge is the encampment site of the Continental Army during the winter of 1777-1778. The park features 3,500 acres of meadows, woodlands, and monuments commemorating the sacrifices and perseverance of the Revolutionary War generation and honoring the power of people to pull together and overcome adversity during extraordinary times.",
+    "description": "Valley Forge is the place where George Washington and the Continental Army took refuge during the winter of 1777-1778. Today the park protects 3,500 acres of meadows, woodlands, historic landscapes, and monuments commemorating the resolve of the Revolutionary War generation and honoring the power of people to pull together and overcome adversity during extraordinary times.",
     "latitude": 40.10054985,
     "longitude": -75.44581889,
     "states": ["PA"],
