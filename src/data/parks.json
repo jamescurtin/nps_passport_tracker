@@ -995,14 +995,14 @@
     "states": ["MA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C79121E-1DD8-B71B-0BCA364A0C215DA4.jpg",
-        "title": "Flowers at the Shaw Memorial",
-        "altText": "A close up image of flowers laid at the feet of the soldiers on the Shaw Memorial"
+        "url": "https://www.nps.gov/common/uploads/structured_data/68301D98-A14F-2A1E-EA8839FFA6B0CD72.jpg",
+        "title": "Faneuil Hall in Spring",
+        "altText": "A four-story federal-style brick building with rows of arched windows on each floor."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C790A8C-1DD8-B71B-0BB037E9568998D1.jpg",
-        "title": "The African Meeting House",
-        "altText": "View from the pulpit at the African Meeting House"
+        "url": "https://www.nps.gov/common/uploads/structured_data/68301D98-A14F-2A1E-EA8839FFA6B0CD72.jpg",
+        "title": "Faneuil Hall in Spring",
+        "altText": "A four-story federal-style brick building with rows of arched windows on each floor."
       }
     ]
   },
