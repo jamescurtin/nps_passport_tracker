@@ -97,7 +97,7 @@
     "name": "African Burial Ground",
     "fullName": "African Burial Ground National Monument",
     "parkCode": "afbg",
-    "description": "African Burial Ground is the oldest and largest known excavated burial ground in North America for both free and enslaved Africans. It protects the historic role slavery played in building New York",
+    "description": "African Burial Ground is the oldest and largest known excavated burial ground in North America for both free and enslaved Africans. It protects the historic role slavery played in building New York.",
     "latitude": 40.71452681,
     "longitude": -74.00447358,
     "states": ["NY"],
@@ -1000,9 +1000,9 @@
         "altText": "A four-story federal-style brick building with rows of arched windows on each floor."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/68301D98-A14F-2A1E-EA8839FFA6B0CD72.jpg",
-        "title": "Faneuil Hall in Spring",
-        "altText": "A four-story federal-style brick building with rows of arched windows on each floor."
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C79121E-1DD8-B71B-0BCA364A0C215DA4.jpg",
+        "title": "Flowers at the Shaw Memorial",
+        "altText": "A close up image of flowers laid at the feet of the soldiers on the Shaw Memorial"
       }
     ]
   },
@@ -1444,7 +1444,7 @@
     "name": "Carl Sandburg Home",
     "fullName": "Carl Sandburg Home National Historic Site",
     "parkCode": "carl",
-    "description": "PHASE TWO OPENS ACCESS TO GOAT BARN AT CARL ON JAN 22, 2025 \u201cI make it clear why I write as I do and why other poets write as they do. After hundreds of experiments I decided to go my own way in style and see what would happen.\u201d Sandburg's free verse style of poetry, journalism, biography, children's stories, prose writing, and social activism provided a popular voice for the American people.",
+    "description": "Post Helene Status: Grounds and trails open dawn till dusk 7 days a week. Hikers lot limited to 24 cars. Barn & video open 7 days a week 10-3. Bookstore open Sat and Sun 10-3 Half mile walk from parking to farm / house area. Sandburg's free verse style of poetry, journalism, biography, children's stories, prose writing, and social activism provided a popular voice for the American people.",
     "latitude": 35.26815509,
     "longitude": -82.45106258,
     "states": ["NC"],
@@ -4818,7 +4818,7 @@
     "name": "Hopewell Culture",
     "fullName": "Hopewell Culture National Historical Park",
     "parkCode": "hocu",
-    "description": "Nearly 2000 years ago, American Indians built dozens of monumental mounds and earthen enclosures in southern Ohio. These earthwork complexes were ceremonial landscapes used for feasts, funerals, rituals, and rites of passage associated with an American Indian religious movement that swept over half the continent for almost 400 years. Come walk among the earthworks and experience the past.",
+    "description": "Nearly 2000 years ago, Native Americans built dozens of monumental mounds and earthen enclosures in southern Ohio. These earthwork complexes were ceremonial landscapes used for feasts, funerals, rituals, and rites of passage associated with a Native American religious movement that swept over half the continent for almost 400 years. Come walk among the earthworks and experience the past.",
     "latitude": 39.31594374,
     "longitude": -83.08049456,
     "states": ["OH"],
