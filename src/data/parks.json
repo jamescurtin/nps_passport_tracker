@@ -4466,14 +4466,14 @@
     "states": ["FL", "MS"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C42CDDE1-DB1A-14FA-97D1FA62BD391651.jpg",
-        "title": "Beach Scene",
-        "altText": "Fluffy white clouds shadow overhead as blue-green waves crash against a white sand beach."
+        "url": "https://www.nps.gov/common/uploads/structured_data/CF532898-AD17-5265-F3C3891182FEE203.jpg",
+        "title": "Davis Bayou",
+        "altText": "Water"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D1718E2E-1DD8-B71B-0B7C511F0B8F71B7.jpg",
-        "title": "Fort Massachusetts",
-        "altText": "A brick fort stands on the edge of a white sand beach."
+        "url": "https://www.nps.gov/common/uploads/structured_data/CF8AA22D-A3C2-8DBE-98F1255BBA16CE3C.jpg",
+        "title": "Fort Barrancas and Spanish Water Battery",
+        "altText": "A white building and a fort"
       }
     ]
   },
