@@ -31,18 +31,27 @@ div.tooltip {
   pointer-events: all;
 }
 
-.feature {
+.state {
   cursor: pointer;
   fill: rgb(210 226 185);
   stroke-width: 0.2;
   stroke: black;
 }
 
-.feature:hover {
+.state-complete {
+  cursor: pointer;
+  fill: rgb(95 144 16);
+  stroke-width: 0.2;
+  stroke: black;
+}
+
+.state:hover,
+.state-complete:hover {
   fill: rgb(254 254 229);
 }
 
-.feature.active {
+.state.active,
+.state-complete.active {
   fill: #ffc;
 }
 
