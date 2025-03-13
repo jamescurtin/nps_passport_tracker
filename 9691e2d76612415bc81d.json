@@ -20,6 +20,11 @@
     "notes": "We took a tour with Jolene Babyak, who lived on Alacatraz as a child while her father was a guard and, later, assistant warden at the prison. The prison held up to 250 inmates, but the island was also home to over 60 families, including 75 children who took the ferry to and from school every day."
   },
   {
+    "parkCode": "anti",
+    "visitedOn": ["2024-06-17"],
+    "_comment": "TODO"
+  },
+  {
     "parkCode": "blrv",
     "visitedOn": ["2022-08-13"],
     "notes": "Visited Slater Mill, the site of the first water-powered textile mill in the United States."
@@ -47,6 +52,16 @@
     "parkCode": "caco",
     "visitedOn": ["2020-12-12", "2021-11-16", "2022-12-05"],
     "notes": "Visited and transmitted from the Marconi wireless station. Collected a good amount of driftwood, which was boiled and is now in aquariums."
+  },
+  {
+    "parkCode": "coga",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "ddem",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "edal",
@@ -84,14 +99,29 @@
     "notes": "Fort Point was used for various military purposes beginning during the Civil War and ending with WWII. It is located underneath the Golden Gate Bridge, which provides an interesting view of the bridge's structure from below."
   },
   {
+    "parkCode": "frde",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
     "parkCode": "frla",
     "visitedOn": ["2022-08-07"],
     "notes": "Favorite Feature: The drafting rooms on the top floor of the house contained a number of tools for the creation of blueprints, including drafting tables on tracks that could be pushed outdoors to expose in the sun, a floor-to-ceiling glass cylinder lit from the center around which blueprints could be wrapped, and a closet that was retrofitted as an arsenic gas chamber for exposing blueprints chemically."
   },
   {
+    "parkCode": "frst",
+    "visitedOn": ["2024-06-21"],
+    "_comment": "TODO"
+  },
+  {
     "parkCode": "gegr",
     "visitedOn": ["2023-06-24"],
     "notes": "The mausoleum for President Grant and his wife, Julia, is the largest in North America."
+  },
+  {
+    "parkCode": "gett",
+    "visitedOn": ["2024-06-17"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "glde",
@@ -109,6 +139,21 @@
     "notes": "We visited both Fort Jay and Castle Williams during the visit. There was a 'Roaring Twenties' themed event happening while we were there, so there were a few hundred people dressed up in period clothes. Holum and Sumanth took out the ferry to meet us there."
   },
   {
+    "parkCode": "grfa",
+    "visitedOn": ["2024-06-19"],
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "gwmp",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "hafe",
+    "visitedOn": ["2024-06-17"],
+    "_comment": "TODO"
+  },
+  {
     "parkCode": "hagr",
     "visitedOn": ["2023-06-24"],
     "notes": "The home has been moved twice: once to accommodate the introduction of the New York City street grid plan, and once again to move it to a larger lot. In the second move, the house needed to be lifted over thirty feet in the air with hydraulic lifts, as it needed to pass over the roof of a church."
@@ -117,6 +162,11 @@
     "parkCode": "hofr",
     "visitedOn": ["2023-02-19"],
     "notes": "The foyer of FDR's house was decorated as it was when he lived in the home. It contained a glass display case containing songbirds and birds of prey that Roosevelt shot and taxidermied as a child."
+  },
+  {
+    "parkCode": "hofu",
+    "visitedOn": ["2024-06-15"],
+    "notes": "Hopewell Furnace began operations more than one hundred years after the first ironworks were founded in Saugus, Massachusetts. The smelting process and construction of the forges was virtually identical, except for Hopewell's larger overall scale."
   },
   {
     "parkCode": "inde",
@@ -134,9 +184,19 @@
     "notes": "Favorite Feature: The entrance to each tram car is only 4.5 feet tall! Such small trams are necessary due to the arch narrowing to less than 7 feet at the top. The tram cars also rotate 155 degrees over the course of the ride in order to keep passengers upright."
   },
   {
+    "parkCode": "jofi",
+    "visitedOn": ["2024-07-05"],
+    "notes": "The Kennedy family sold the property in 1920, and it remained a private residence until 1966 when Rose Kennedy repurchased the house. About 20% of the items in the house were original to the Kennedy family, including the bassinet in the nursery that was used by all of the Kennedy children."
+  },
+  {
     "parkCode": "jomu",
     "visitedOn": ["2023-05-12"],
     "notes": "John Muir inherited this 10,000 square foot house and orchard from his father in law. The National Park Service still maintains some a small orchard, and we were able to take home lemons as souvenirs!"
+  },
+  {
+    "parkCode": "kowa",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "lecl",
@@ -146,6 +206,11 @@
     "parkCode": "liho",
     "visitedOn": ["2022-10-16"],
     "notes": "Favorite Feature: Lincoln's bedroom contains his original writing desk, which was very plain and small. It held sentimental value for him as he had purchased the desk early in his career, so he kept and used it long after he could have afforded a more ornate desk, to the chagrin of Mary Todd."
+  },
+  {
+    "parkCode": "linc",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "loea",
@@ -163,14 +228,34 @@
     "notes": "Favorite Fact: The factories of the city were operated by a series of canals that are almost six miles long. This remains the largest series of power canals in the United States."
   },
   {
+    "parkCode": "mana",
+    "visitedOn": ["2024-06-20"],
+    "_comment": "TODO"
+  },
+  {
     "parkCode": "mima",
     "visitedOn": ["2020-03-21", "2022-08-15"],
     "notes": "Walked the length of Battle Road."
   },
   {
+    "parkCode": "mlkm",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "morr",
+    "visitedOn": ["2024-06-15"],
+    "notes": "Morristown served as the site of Washington's headquarters, as well as the Continental Army's winter encampment during 1780, which happened to be the coldest winter on record. The constructed a planned settlement consisting of 14x16 foot log cabins."
+  },
+  {
     "parkCode": "muwo",
     "visitedOn": ["2019-06-19"],
     "notes": "Hiked the Dipsea Trail to the Ben Johnson Trail to the Hillside trail, ending in Cathedral Grove. Despite full parking lots, we encountered almost no other hikers until arriving back at the paved section through the grove."
+  },
+  {
+    "parkCode": "nama",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "nebe",
@@ -180,6 +265,11 @@
   {
     "parkCode": "npnh",
     "visitedOn": ["2022-11-18"]
+  },
+  {
+    "parkCode": "paav",
+    "visitedOn": ["2018-08-13"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "pinn",
@@ -260,6 +350,11 @@
     "visitedOn": ["2018-08-13"]
   },
   {
+    "parkCode": "thje",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
     "parkCode": "thko",
     "visitedOn": ["2023-08-19"],
     "notes": "We visited the home where Thaddeus Kosciuszko stayed during the period he lived in Pennsylvania after the Revolutionary War. This is the smallest unit maintained by the NPS."
@@ -268,6 +363,11 @@
     "parkCode": "thrb",
     "visitedOn": ["2023-06-24"],
     "notes": "The Roosevelt family moved out of the property in 1872, and in 1916 the building was demolished. Members of the Roosevelt family re-purchased the lot and reconstructed the family home in the same style as the original. There is an attached museum, which contains the items Roosevelt was wearing and carrying when he was shot while campaigning, including the folded up speech and glasses case that slowed the trajectory of the bullet."
+  },
+  {
+    "parkCode": "tosy",
+    "visitedOn": ["2024-08-23"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "ulsg",
@@ -280,9 +380,39 @@
     "notes": "While the mansion cost $660,000 to build and $1.5 million to furnish, no buyers were willing to purchase the property for more than a few hundred thousand dollars during the Great Depression. As a result, the property was donated to the Park Service in exchange for a significant tax deduction instead."
   },
   {
+    "parkCode": "vive",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "wamo",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
     "parkCode": "wefa",
     "visitedOn": ["2022-07-31"],
     "notes": "There were a number of interesting items from the Weir family on display in their home, including a taxidermied Cooper's Hawk."
+  },
+  {
+    "parkCode": "whho",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "wotr",
+    "visitedOn": ["2024-06-20"],
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "wwii",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "wwim",
+    "visitedOn": ["2024-06-18"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "yose",
