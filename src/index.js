@@ -197,7 +197,14 @@ d3.json(topoJsonStates).then(function (json) {
         .enter()
         .append("path")
         .attr("d", path)
-        .attr("class", "feature")
+        .attr("class", function (d) {
+          let visit_count = d.properties.parks.reduce(
+            (count, park) => count + parseInt(park.visited),
+            0,
+          );
+          let parks_in_state = d.properties.parks.length;
+          return visit_count === parks_in_state ? "state-complete" : "state";
+        })
         .on("mouseover", function (event, d) {
           tooltip
             .transition()
