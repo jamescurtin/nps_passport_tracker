@@ -798,9 +798,9 @@
         "altText": "a mossy bald cypress tree displaying fiery orange leaves amid a background of green forest."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/60B44B03-C641-7B6F-0D0A2E1B31AA8C5E.jpg",
-        "title": "Cypress Knees",
-        "altText": "Shadowy-looking cypress knees and their reflections in still water."
+        "url": "https://www.nps.gov/common/uploads/structured_data/39EC3CA1-9934-FE72-CF899277FA59400B.jpg",
+        "title": "Beaver Slide Trail",
+        "altText": "Tupelo trees growing on the edge of a reflective pond in the woods in spring."
       }
     ]
   },
@@ -1449,7 +1449,7 @@
     "name": "Carl Sandburg Home",
     "fullName": "Carl Sandburg Home National Historic Site",
     "parkCode": "carl",
-    "description": "Post Helene Status: Grounds / trails open dawn till dusk 7 days a week. Hikers lot limited to 24 cars. Barn & video open 7 days a week 10-3. Bookstore / park open Sat and Sun 10-3. Interagency passes can be purchased here. Half mile walk from parking to farm / house area.",
+    "description": "Post Helene Status: Grounds / trails open dawn till dusk 7 days a week. Hikers lot limited to 24 cars. Barn & video open 7 days a week 10-3. Bookstore / Visitor Center open Thurs, Fri, Sat and Sun 10-3. Interagency passes can be purchased here. Half mile walk from parking to farm / house area.",
     "latitude": 35.26815509,
     "longitude": -82.45106258,
     "states": ["NC"],
@@ -3873,14 +3873,14 @@
     "states": ["VA"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/0ABBFD32-FE2A-6141-1486AC0FF80936EC.jpg",
+        "title": "George Washington Birthplace National Monument in Spring",
+        "altText": "White obelisk in a roundabout, surrounded by trees and the park sign"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/678B843C-0D04-17B1-41E634FC92C3F98A.jpg",
         "title": "George Washington Birthplace National Monument in Winter",
         "altText": "A large monument sits in the middle of a roundabout with snow on the ground"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/914DDB77-D53B-3BE6-D9719CC45E8EF4E3.jpg",
-        "title": "Memorial House Museum",
-        "altText": "A red brick building surrounded by trees and a dirt path leading to the building"
       }
     ]
   },
@@ -4800,7 +4800,7 @@
     "name": "Honouliuli",
     "fullName": "Honouliuli National Historic Site",
     "parkCode": "hono",
-    "description": "Ten years after President Barack Obama designated Hawaii's largest and longest-run WWII POW and incarceration camp as a National Park, Honouliuli remains a quiet place of reflection for internee and incarceree wartime experiences. Join us this year in celebrating Honouliuli's legacy while continuing to spread its message of peace, justice, and freedom for the pursuit of freedom and justice.",
+    "description": "Ten years after Hawaii's largest and longest-run WWII POW and incarceration camp was designated as a National Park, per the Proclamation, Honouliuli is a \"powerful reminder of the need to protect civil liberties in times of conflict... It is a\u00a0place to reflect on wartime experiences and recommit ourselves to the pursuit of freedom and justice.\u201d Join us in continuing this legacy.",
     "latitude": 21.38817536,
     "longitude": -158.0574991,
     "states": ["HI"],
@@ -4961,7 +4961,7 @@
     "name": "Independence",
     "fullName": "Independence National Historical Park",
     "parkCode": "inde",
-    "description": "The park represents the founding ideals of the nation, and preserves national and international symbols of freedom and democracy, including Independence Hall and the Liberty Bell. The Declaration of Independence and U.S. Constitution were both debated and signed inside Independence Hall, a UNESCO World Heritage Site.",
+    "description": "The park represents the founding ideals of the nation, and preserves national and international symbols of freedom and democracy, including Independence Hall and the Liberty Bell. The Declaration of Independence and US Constitution were both debated and signed inside Independence Hall, a UNESCO World Heritage Site.",
     "latitude": 39.94746112,
     "longitude": -75.14794157,
     "states": ["PA"],
