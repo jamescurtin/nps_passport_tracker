@@ -1363,14 +1363,14 @@
     "states": ["NC"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C86A358-1DD8-B71B-0BC275CB93DB8D43.jpg",
-        "title": "Cape Lookout Lighthouse",
-        "altText": ": Black & white patterned tower of the Cape Lookout Lighthouse stands against a blue & white cloud f"
+        "url": "https://www.nps.gov/common/uploads/structured_data/D6A6C7B3-FB79-E0BB-46EF5A26D80627CD.jpg",
+        "title": "American Oystercatcher",
+        "altText": "A bird with orange bill and orange legs runs along the tide line. Waves in the background"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C86A52A-1DD8-B71B-0B4A17FEFC65B6EA.jpg",
-        "title": "Relaxing by the Ocean",
-        "altText": "2 ladies sit in beach chairs on the sand with their feet in the water"
+        "url": "https://www.nps.gov/common/uploads/structured_data/D95446A8-C2B7-6787-7F14A2F008E1ACA0.jpg",
+        "title": "Beach Driving",
+        "altText": "A Jeep drives on the sand in between grass covered dunes."
       }
     ]
   },
