@@ -764,7 +764,7 @@
     "name": "Big Hole",
     "fullName": "Big Hole National Battlefield",
     "parkCode": "biho",
-    "description": "On August 9, 1877, gun shots shattered a chilly dawn on a sleeping camp of nim\u00ed\u00b7pu\u00b7 (Nez Perce). By the time the smoke cleared on August 10, almost 90 nim\u00ed\u00b7pu\u00b7 were dead, along with 31 soldiers and volunteers. Big Hole National Battlefield was created to honor all who were there.",
+    "description": "On August 9, 1877, gunshots shattered a chilly dawn on a sleeping camp of nim\u00ed\u00b7pu\u00b7 (Nez Perce). By the time the smoke cleared on August 10, almost 90 nim\u00ed\u00b7pu\u00b7 were dead, along with 31 soldiers and volunteers. Big Hole National Battlefield was created to honor all who were there.",
     "latitude": 45.64647324,
     "longitude": -113.6458443,
     "states": ["MT"],
@@ -4200,9 +4200,9 @@
         "altText": "Log buildings, stockade fence and dock near Lake."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C8B5E-1DD8-B71B-0BA20EF8040D873E.jpg",
-        "title": "Historic Depot, Hat Point",
-        "altText": "Three log buildings with Lake and point of land in background."
+        "url": "https://www.nps.gov/common/uploads/structured_data/12235CDB-D43A-4807-EFA0C9F352813A42.jpg",
+        "title": "Historic Depot in Spring",
+        "altText": "Historic wooden buildings on a bright green lawn in front of a lake."
       }
     ]
   },
@@ -5283,7 +5283,7 @@
     "name": "Kaloko-Honok\u014dhau",
     "fullName": "Kaloko-Honok\u014dhau National Historical Park",
     "parkCode": "kaho",
-    "description": "To survive in a hot and arid environment the native Hawaiians (kanaka maoli) used ancient fishing skills, including the building of fishponds, and the knowledge of the location of precious fresh water (wai) that flows into the many brackish pools throughout the park. The spirit of the people (poe) and the knowledge of the elders (kupuna) created a tradition of respect and reverence for this area.",
+    "description": "Along the western coastline of the Island of Hawai\u02bbi lies the hot, rugged lava of Kaloko, Honok\u014dhau. This seemingly barren and harsh landscape does not appear to be suitable for human existence, and yet, long before written history, the Hawaiian people built a thriving settlement upon this \u02bba\u02bb\u0101 lava.",
     "latitude": 19.68083237,
     "longitude": -156.0306932,
     "states": ["HI"],
