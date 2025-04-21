@@ -2848,6 +2848,11 @@
     "states": ["NY"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/82B14AFC-F641-E994-43C0407DFBC630EB.jpg",
+        "title": "2015 Evacuation Day Commemoration at Federal Hal",
+        "altText": "Three people in reenactment clothing hold instruments in front of a stone building and giant statue."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C855D19-1DD8-B71B-0B2AF1FAF9721319.jpg",
         "title": "Federal Hall Interior",
         "altText": "\u201cLarge crowd inside the rotunda of Federal Hall National Memorial\u201d"
@@ -7827,14 +7832,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/956399BF-B658-283A-6295BDEE754DD948.jpg",
-        "title": "Beaver Meadows Visitor Center",
-        "altText": "Front entry to the Beaver Meadows Visitor Center"
+        "url": "https://www.nps.gov/common/uploads/structured_data/7F348D99-94E4-29FF-CA02F86FD8B85985.png",
+        "title": "Bear Lake Ranger Station",
+        "altText": "Visitors are at the Bear Lake Ranger Station in spring"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8DC19E8B-E407-4A67-15068AB0F58652D7.jpg",
-        "title": "Cross-country skiing in RMNP",
-        "altText": "A group is cross-country skiing in RMNP"
+        "url": "https://www.nps.gov/common/uploads/structured_data/7F5D25D9-A906-0E9B-0CADD08EEB8327F4.jpg",
+        "title": "Elk in a meadow with snow",
+        "altText": "A bull elk herd is in a meadow with snow on the ground"
       }
     ]
   },
