@@ -6254,7 +6254,7 @@
     "name": "Medgar and Myrlie Evers Home",
     "fullName": "Medgar and Myrlie Evers Home National Monument",
     "parkCode": "memy",
-    "description": "Medgar and Myrlie Evers were partners in the civil rights struggle. The assassination of Medgar Evers in the carport of their home on June 12, 1963, was the first murder of a nationally significant leader of the American Civil Rights Movement, and it became a catalyst for passage of the Civil Rights Act of 1964. Myrlie Evers continued to promote issues of racial equality and social justice.",
+    "description": "Medgar and Myrlie Evers were partners in the civil rights struggle. The assassination of Medgar Evers in the carport of their home on June 12, 1963, was the first murder of a nationally significant leader of the American Civil Rights Movement, and it became a catalyst for passage of the Civil Rights Act of 1964. Myrlie Evers continues to promote issues of racial equality and social justice.",
     "latitude": 32.34096274,
     "longitude": -90.21264553,
     "states": ["MS"],
@@ -6262,12 +6262,12 @@
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/4AE26CFC-C1F5-2B9C-2D590D913A3CDF8D.jpg",
         "title": "Medgar Evers",
-        "altText": "Close up black and white image of a black man with a pencil mustache."
+        "altText": "Close up black and white portrait of a black man with a thin mustache"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/4AB08F6B-F8F1-ECEC-3C0A068DEB9F4E08.jpg",
-        "title": "Medgar Evers at Work",
-        "altText": "A black and white photo of a black man in a white shirt sitting at a desk next to a typewriter."
+        "url": "https://www.nps.gov/common/uploads/structured_data/A9FDD030-BEAF-C4EE-7688C55E2902CB09.jpg",
+        "title": "Medgar and Myrlie Evers Home",
+        "altText": "A small ranch-style home, aqua in color with light brown brick accents, sits on a shaded lot."
       }
     ]
   },
