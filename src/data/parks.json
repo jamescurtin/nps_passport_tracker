@@ -764,7 +764,7 @@
     "name": "Big Hole",
     "fullName": "Big Hole National Battlefield",
     "parkCode": "biho",
-    "description": "On August 9, 1877, gunshots shattered a chilly dawn on a sleeping camp of nim\u00ed\u00b7pu\u00b7 (Nez Perce). By the time the smoke cleared on August 10, almost 90 nim\u00ed\u00b7pu\u00b7 were dead, along with 31 soldiers and volunteers. Big Hole National Battlefield was created to honor all who were there.",
+    "description": "On August 9, 1877, gunshots shattered a chilly dawn on a sleeping camp of n\u0131m\u00ed\u00b7pu\u00b7 (Nez Perce). By the time the smoke cleared on August 10, almost 90 nim\u00ed\u00b7pu\u00b7 were dead, along with 31 soldiers and volunteers. Big Hole National Battlefield was created to honor all who were there.",
     "latitude": 45.64647324,
     "longitude": -113.6458443,
     "states": ["MT"],
@@ -1219,7 +1219,7 @@
     "name": "Canyon de Chelly",
     "fullName": "Canyon de Chelly National Monument",
     "parkCode": "cach",
-    "description": "This canyon is home to Dine' families who raise livestock, farm lands, and live here. People have lived in these canyons for nearly 5,000 years, which is longer than anyone has lived continuously on the Colorado Plateau. In this place called Tsegi, their homes and images tell us their stories. Today, the park and Navajo Nation work together to manage the rich cultural and natural resources.",
+    "description": "This canyon is home to Din\u00e9 families who raise livestock, farmlands, and live here. People have lived in these canyons for nearly 5,000 years, which is longer than anyone has lived continuously on the Colorado Plateau. In this place called Tsegi, their homes and images tell us their stories. Today, the park and Navajo Nation work together to manage the rich cultural and natural resources.",
     "latitude": 36.14319567,
     "longitude": -109.3388303,
     "states": ["AZ"],
@@ -7832,14 +7832,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/7F348D99-94E4-29FF-CA02F86FD8B85985.png",
-        "title": "Bear Lake Ranger Station",
-        "altText": "Visitors are at the Bear Lake Ranger Station in spring"
+        "url": "https://www.nps.gov/common/uploads/structured_data/BD756279-C7DD-F5FC-5E71A2AC5FF7F130.jpg",
+        "title": "Elk in spring",
+        "altText": "Elk cow with young calf in a lush, green meadow"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/7F5D25D9-A906-0E9B-0CADD08EEB8327F4.jpg",
-        "title": "Elk in a meadow with snow",
-        "altText": "A bull elk herd is in a meadow with snow on the ground"
+        "url": "https://www.nps.gov/common/uploads/structured_data/BD30F898-ED9A-A042-E56BFE4C3DC5EFAF.jpg",
+        "title": "Junior Ranger",
+        "altText": "Meet with a park ranger and earn your Junior Ranger Badge"
       }
     ]
   },
