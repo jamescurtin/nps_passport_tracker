@@ -1,6 +1,6 @@
 # Script Deps
 pydantic==2.11.5
-requests==2.32.3
+requests==2.32.4
 
 # CI Deps
 black==25.1.0
