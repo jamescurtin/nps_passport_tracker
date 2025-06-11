@@ -7832,14 +7832,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/BD756279-C7DD-F5FC-5E71A2AC5FF7F130.jpg",
-        "title": "Elk in spring",
-        "altText": "Elk cow with young calf in a lush, green meadow"
+        "url": "https://www.nps.gov/common/uploads/structured_data/99E5760D-DFC0-8D98-09BFA0AD3D4272E2.jpg",
+        "title": "Colorado River and the Holzwarth Historic Site",
+        "altText": "Park visitors are reading a wayside exhibit overlooking the Colorado River"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/BD30F898-ED9A-A042-E56BFE4C3DC5EFAF.jpg",
-        "title": "Junior Ranger",
-        "altText": "Meet with a park ranger and earn your Junior Ranger Badge"
+        "url": "https://www.nps.gov/common/uploads/structured_data/99D0A5F3-CAD8-DBAB-483F6C02BB8AEFA3.jpg",
+        "title": "Enjoy a drive on Trail Ridge Road",
+        "altText": "Enjoy a scenic drive on Trail Ridge Road"
       }
     ]
   },
