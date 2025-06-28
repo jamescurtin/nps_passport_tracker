@@ -1871,29 +1871,6 @@
     ]
   },
   {
-    "id": "25554F74-A4AB-4C49-9071-341F00F0DAB8",
-    "url": "https://www.nps.gov/cbpo/index.htm",
-    "name": "Chesapeake Bay",
-    "fullName": "Chesapeake Bay",
-    "parkCode": "cbpo",
-    "description": "Over 41 million acres are connected through the waters that flow to and through Chesapeake Bay. The National Park Service strives to connect people to the opportunities and adventures throughout the watershed. Inspiring stewardship across this vast region supports recreation, business, tourism, learning, and a thriving natural resource for all to enjoy.",
-    "latitude": 38.971601,
-    "longitude": -76.483355,
-    "states": ["DC", "DE", "MD", "NY", "PA", "VA", "WV"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C826015-1DD8-B71B-0B3CDF09AEBFA11E.jpg",
-        "title": "Calvert Cliffs",
-        "altText": "A family walks along the beach searching for fossils at Calvert Cliffs."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C825EB4-1DD8-B71B-0BCF3FF1FE0211DA.jpg",
-        "title": "Cape Charles",
-        "altText": "A view of docks and boats in the waterside town of Cape Charles VA"
-      }
-    ]
-  },
-  {
     "id": "FD536267-125D-4CEB-8978-2B2767C3B2FF",
     "url": "https://www.nps.gov/chch/index.htm",
     "name": "Chickamauga & Chattanooga",

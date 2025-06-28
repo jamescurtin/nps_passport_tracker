@@ -23,6 +23,7 @@ MAX_PICTURES_PER_SITE: int = 2
 # from the list of parks used to populate the map.
 EXCLUDED_DESIGNATIONS: set[str] = {
     "Affiliated Area",
+    "Bay",
     "National Geologic Trail",
     "National Historic Trail",
     "National Recreational River",
@@ -114,7 +115,7 @@ class NationalPark(CamelModel):
 
 
 def _park_has_excluded_designation(park_name: str) -> bool:
-    return any(designation in park_name for designation in EXCLUDED_DESIGNATIONS)
+    return any(park_name.endswith(designation) for designation in EXCLUDED_DESIGNATIONS)
 
 
 def _process_response(response: requests.Response) -> JSONType:

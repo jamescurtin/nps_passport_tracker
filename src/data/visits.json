@@ -418,5 +418,68 @@
     "parkCode": "yose",
     "visitedOn": ["2023-05-08"],
     "notes": "We stayed in Curry Village in Yosemite valley, which helped us get an early start before the park got too busy. During our first full day in the park, we hiked to the top of Yosemite falls. The upper Yosemite falls trail is one of Yosemite's oldest trails; construction started in 1873. On our second day, we were able to hike through the sequoias in Mariposa grove."
-  }
+  },
+    {
+      "parkCode": "sapa",
+      "visitedOn": [
+        "2025-03-27"
+      ],
+      "notes": "TODO st paul"
+    },
+    {
+      "parkCode": "vafo",
+      "visitedOn": [
+        "2025-03-27"
+      ],
+      "notes": "TODO valley forge"
+    },
+    {
+      "parkCode": "bawa",
+      "visitedOn": [
+        "2025-03-27"
+      ],
+      "notes": "TODO Baltimore Washington Parkway"
+    },
+    {
+      "parkCode": "rocr",
+      "visitedOn": [
+        "2025-03-28"
+      ],
+      "notes": "TODO rock creek"
+    },
+    {
+      "parkCode": "glec",
+      "visitedOn": [
+        "2025-03-28"
+      ],
+      "notes": "TODO glen echo"
+    },
+    {
+      "parkCode": "clba",
+      "visitedOn": [
+        "2025-03-28"
+      ],
+      "notes": "TODO clara barton"
+    },
+    {
+      "parkCode": "choh",
+      "visitedOn": [
+        "2025-03-28"
+      ],
+      "notes": "TODO C&O Canal"
+    },
+    {
+      "parkCode": "fomc",
+      "visitedOn": [
+        "2025-03-30"
+      ],
+      "notes": "TODO Ft. McHenry"
+    },
+    {
+      "parkCode": "hamp",
+      "visitedOn": [
+        "2025-03-30"
+      ],
+      "notes": "TODO Hampton National"
+    }
 ]
