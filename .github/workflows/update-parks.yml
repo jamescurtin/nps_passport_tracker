@@ -57,7 +57,7 @@ jobs:
           branch: update-parks-json
           push_options: "--force"
       - name: Create Pull Request
-        uses: devops-infra/action-pull-request@v0.6.0
+        uses: devops-infra/action-pull-request@v0.6.1
         with:
           github_token: ${{ secrets.PAT }}
           source_branch: update-parks-json
