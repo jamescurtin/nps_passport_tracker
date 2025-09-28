@@ -66,7 +66,9 @@ jobs:
       # PR needs to be created and have checks start running before annotations can be made
       - run: sleep 10
       - name: Annotate PR
-        if: steps.commit_changes.outputs.changes_detected == 'true'
+        if: |
+          steps.commit_changes.outputs.changes_detected == 'true' && \
+          hashFiles('${{ runner.temp }}/output.txt') != ''if: steps.commit_changes.outputs.changes_detected == 'true'
         uses: pytorch/add-annotations-github-action@8436d20d95a47566529672c4cb464770a1ec0b49
         with:
           mode: json
