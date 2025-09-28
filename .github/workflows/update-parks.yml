@@ -29,7 +29,7 @@ jobs:
       - run: |
           output=$(python .github/scripts/update_parks.py src/data/parks.json 2>&1)
           touch "${{ runner.temp }}/output.txt"
-          if [ ! -z ${output+x} ]; then
+          if [ -n "$output" ]; then
           cat <<EOT >> "${{ runner.temp }}/output.txt"
           [
             {
