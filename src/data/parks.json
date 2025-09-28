@@ -920,6 +920,24 @@
     ]
   },
   {
+    "id": "4A71FEB9-5968-4A27-9794-F202C96FFA55",
+    "url": "https://www.nps.gov/blsc/index.htm",
+    "name": "Blackwell School",
+    "fullName": "Blackwell School National Historic Site",
+    "parkCode": "blsc",
+    "description": "Written by prejudice rather than law, the story of the Blackwell School is one of \u201cseparate but equal\u201d education for Mexican and Mexican American citizens of Marfa, Texas. Built in 1909, the school serves as a significant example of how racism and cultural disparity dominated education and social systems in the United States during this period of de facto segregation from 1889-1965.",
+    "latitude": 30.3057966497568,
+    "longitude": -104.022553112857,
+    "states": ["TX"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/41BC060B-9362-F9FE-AD6294CE7DF1B02A.jpg",
+        "title": "Blackwell School East Exterior",
+        "altText": "cream colored building with two windows and a wooden doorway with steps leading up to it."
+      }
+    ]
+  },
+  {
     "id": "712044CE-4C85-48C2-813E-310A9C6C74E1",
     "url": "https://www.nps.gov/blri/index.htm",
     "name": "Blue Ridge",
@@ -7832,14 +7850,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/99E5760D-DFC0-8D98-09BFA0AD3D4272E2.jpg",
-        "title": "Colorado River and the Holzwarth Historic Site",
-        "altText": "Park visitors are reading a wayside exhibit overlooking the Colorado River"
+        "url": "https://www.nps.gov/common/uploads/structured_data/EA522802-F14B-7E80-EF93849654DDDD09.jpg",
+        "title": "Elk in fall in Rocky",
+        "altText": "A bull elk is in a meadow next to two cow elk"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C711597A-AF6B-2D4B-B2509AC34C804938.jpg",
-        "title": "Elk near Black Lake in July",
-        "altText": "A small group of elk are standing on a snowfield in an alpine tundra area near Black Lake"
+        "url": "https://www.nps.gov/common/uploads/structured_data/EA45CD14-A923-E75A-CD9446D2168FA246.jpg",
+        "title": "Enjoy a hike on the west side of Rocky",
+        "altText": "A man is hiking on the Green Mountain Trail"
       }
     ]
   },
@@ -9169,14 +9187,14 @@
     "states": ["PA"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/B0AC3B46-F1F9-B2A1-4DA9CE223B32166F.jpg",
+        "title": "Fall Wildflowers near Washington's Headquarters",
+        "altText": "Field of yellow flowers in the foreground with two log huts and a paved trail in the middle distance"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/4745A057-0C77-874C-62AC3C99AF2F2293.jpg",
         "title": "Muhlenberg's Brigade at Sunset",
         "altText": "outdoors, log huts, gravel path, sunset, clouds"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/476F62D7-DDCA-AAAE-26AFDC0A99E7F820.jpg",
-        "title": "National Memorial Arch",
-        "altText": "outdoors, arch, monument, snow, trees"
       }
     ]
   },
