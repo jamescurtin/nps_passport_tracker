@@ -27,7 +27,7 @@
   {
     "parkCode": "bawa",
     "visitedOn": ["2025-03-27"],
-    "notes": "TODO Baltimore Washington Parkway"
+    "_comment": "TODO"
   },
   {
     "parkCode": "blrv",
@@ -61,12 +61,12 @@
   {
     "parkCode": "choh",
     "visitedOn": ["2025-03-28"],
-    "notes": "TODO C&O Canal"
+    "_comment": "TODO"
   },
   {
     "parkCode": "clba",
     "visitedOn": ["2025-03-28"],
-    "notes": "TODO clara barton"
+    "_comment": "TODO"
   },
   {
     "parkCode": "coga",
@@ -111,7 +111,7 @@
   {
     "parkCode": "fomc",
     "visitedOn": ["2025-03-30"],
-    "notes": "TODO Ft. McHenry"
+    "_comment": "TODO"
   },
   {
     "parkCode": "fopo",
@@ -151,7 +151,7 @@
   {
     "parkCode": "glec",
     "visitedOn": ["2025-03-28"],
-    "notes": "TODO glen echo"
+    "_comment": "TODO"
   },
   {
     "parkCode": "goga",
@@ -186,7 +186,12 @@
   {
     "parkCode": "hamp",
     "visitedOn": ["2025-03-30"],
-    "notes": "TODO Hampton National"
+    "_comment": "TODO"
+  },
+  {
+    "parkCode": "hocu",
+    "visitedOn": ["2025-11-07"],
+    "_comment": "TODO"
   },
   {
     "parkCode": "hofr",
@@ -324,7 +329,7 @@
   {
     "parkCode": "rocr",
     "visitedOn": ["2025-03-28"],
-    "notes": "TODO rock creek"
+    "_comment": "TODO"
   },
   {
     "parkCode": "rori",
@@ -364,7 +369,7 @@
   {
     "parkCode": "sapa",
     "visitedOn": ["2025-03-27"],
-    "notes": "TODO st paul"
+    "_comment": "TODO"
   },
   {
     "parkCode": "spar",
@@ -417,7 +422,7 @@
   {
     "parkCode": "vafo",
     "visitedOn": ["2025-03-27"],
-    "notes": "TODO valley forge"
+    "_comment": "TODO"
   },
   {
     "parkCode": "vama",
