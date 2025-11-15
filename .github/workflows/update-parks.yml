@@ -27,20 +27,26 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: |
-          output=$(python .github/scripts/update_parks.py src/data/parks.json 2>&1)
-          touch "${{ runner.temp }}/output.txt"
+          set -euo pipefail
+          outfile="${{ runner.temp }}/output.txt"
+
+          # Run updater; capture stdout/stderr but don't abort the whole job if the script exits non-zero
+          output=$(python .github/scripts/update_parks.py src/data/parks.json 2>&1) || true
+
           if [ -n "$output" ]; then
-          cat <<EOT >> "${{ runner.temp }}/output.txt"
-          [
-            {
-              "filename": "src/data/parks.json",
-              "lineNumber": 1,
-              "columnNumber": 1,
-              "errorCode": "E1",
-              "errorDesc": ${output}
-            }
-          ]
-          EOT
+            # Use jq to construct valid JSON and escape any special characters/newlines from $output
+            jq -n --arg f "src/data/parks.json" --arg m "$output" '[
+              {
+                filename: $f,
+                lineNumber: 1,
+                columnNumber: 1,
+                errorCode: "E1",
+                errorDesc: $m
+              }
+            ]' > "$outfile"
+          else
+            # No errors -> write an empty JSON array so jq . will succeed later
+            echo '[]' > "$outfile"
           fi
         env:
           NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
@@ -63,18 +69,14 @@ jobs:
           source_branch: update-parks-json
           target_branch: main
           title: Update parks.json
-      # PR needs to be created and have checks start running before annotations can be made
       - run: sleep 10
       - name: Annotate PR
-        if: |
-          steps.commit_changes.outputs.changes_detected == 'true' && \
-          hashFiles('${{ runner.temp }}/output.txt') != ''if: steps.commit_changes.outputs.changes_detected == 'true' && \
-          test -s "../../../../../${{ runner.temp }}/output.txt"
+        if: steps.commit_changes.outputs.changes_detected == 'true' && steps.commit_changes.outputs.commit_hash != ''
         uses: pytorch/add-annotations-github-action@8436d20d95a47566529672c4cb464770a1ec0b49
         with:
           mode: json
           check_name: Park Metadata Updater
-          linter_output_path: "../../../../../${{ runner.temp }}/output.txt"
+          linter_output_path: ${{ runner.temp }}/output.txt
           commit_sha: ${{ steps.commit_changes.outputs.commit_hash }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
