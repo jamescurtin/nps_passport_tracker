@@ -68,7 +68,8 @@ jobs:
       - name: Annotate PR
         if: |
           steps.commit_changes.outputs.changes_detected == 'true' && \
-          hashFiles('${{ runner.temp }}/output.txt') != ''if: steps.commit_changes.outputs.changes_detected == 'true'
+          hashFiles('${{ runner.temp }}/output.txt') != ''if: steps.commit_changes.outputs.changes_detected == 'true' && \
+          test -s "../../../../../${{ runner.temp }}/output.txt"
         uses: pytorch/add-annotations-github-action@8436d20d95a47566529672c4cb464770a1ec0b49
         with:
           mode: json
