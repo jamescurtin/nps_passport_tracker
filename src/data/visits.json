@@ -25,6 +25,11 @@
     "_comment": "TODO"
   },
   {
+    "parkCode": "bawa",
+    "visitedOn": ["2025-03-27"],
+    "notes": "TODO Baltimore Washington Parkway"
+  },
+  {
     "parkCode": "blrv",
     "visitedOn": ["2022-08-13"],
     "notes": "Visited Slater Mill, the site of the first water-powered textile mill in the United States."
@@ -52,6 +57,16 @@
     "parkCode": "caco",
     "visitedOn": ["2020-12-12", "2021-11-16", "2022-12-05"],
     "notes": "Visited and transmitted from the Marconi wireless station. Collected a good amount of driftwood, which was boiled and is now in aquariums."
+  },
+  {
+    "parkCode": "choh",
+    "visitedOn": ["2025-03-28"],
+    "notes": "TODO C&O Canal"
+  },
+  {
+    "parkCode": "clba",
+    "visitedOn": ["2025-03-28"],
+    "notes": "TODO clara barton"
   },
   {
     "parkCode": "coga",
@@ -94,6 +109,11 @@
     "notes": "The Fire Island lighthouse was originally constructed at the west end of the island, but is currently more than 5 miles east of the island's end, due to the island's growth from littoral drift."
   },
   {
+    "parkCode": "fomc",
+    "visitedOn": ["2025-03-30"],
+    "notes": "TODO Ft. McHenry"
+  },
+  {
     "parkCode": "fopo",
     "visitedOn": ["2023-05-14"],
     "notes": "Fort Point was used for various military purposes beginning during the Civil War and ending with WWII. It is located underneath the Golden Gate Bridge, which provides an interesting view of the bridge's structure from below."
@@ -129,6 +149,11 @@
     "notes": "Gloria Dei is Pennsylvania's oldest church, and still has an active congregation. It was founded by Swedish Lutherans, and has many items inside that were brought over by the original Swedish missionaries, including a baptismal font and hand-carved wooden angels."
   },
   {
+    "parkCode": "glec",
+    "visitedOn": ["2025-03-28"],
+    "notes": "TODO glen echo"
+  },
+  {
     "parkCode": "goga",
     "visitedOn": ["2023-05-14"],
     "notes": "The chief architect of the Golden Gate Bridge, Joseph Strauss, was one of the first to strictly apply hard hat and safety harness rules during work on the project; a safety net used during the construction of the bridge's roadway saved the lives of 19 workers."
@@ -157,6 +182,11 @@
     "parkCode": "hagr",
     "visitedOn": ["2023-06-24"],
     "notes": "The home has been moved twice: once to accommodate the introduction of the New York City street grid plan, and once again to move it to a larger lot. In the second move, the house needed to be lifted over thirty feet in the air with hydraulic lifts, as it needed to pass over the roof of a church."
+  },
+  {
+    "parkCode": "hamp",
+    "visitedOn": ["2025-03-30"],
+    "notes": "TODO Hampton National"
   },
   {
     "parkCode": "hofr",
@@ -292,6 +322,11 @@
     "notes": "The museum featured a replica of a Pullman sleeper car, including a bed that folded down from the overhead compartment."
   },
   {
+    "parkCode": "rocr",
+    "visitedOn": ["2025-03-28"],
+    "notes": "TODO rock creek"
+  },
+  {
     "parkCode": "rori",
     "visitedOn": ["2023-05-07"],
     "notes": "The site was primarily a museum describing the development of Richmond, CA and the shipyards needed to support the war effort. We visited the SS Red Oak Victory, which was docked nearby. It is the last remaining WWII ship built at the Kaiser Shipyards to survive."
@@ -325,6 +360,11 @@
     "parkCode": "sama",
     "visitedOn": ["2022-08-19"],
     "notes": "Favorite Fact: The Salem Maritime NHP was the first National Historic Site established by the Park Service."
+  },
+  {
+    "parkCode": "sapa",
+    "visitedOn": ["2025-03-27"],
+    "notes": "TODO st paul"
   },
   {
     "parkCode": "spar",
@@ -375,6 +415,11 @@
     "notes": "Favorite Fact: Grant's residence, Whitehaven, was painted a shade of green known as Paris Green. The color was so named as it contained arsenic and was once used to kill rats in the sewers of Paris. Interestingly, there is also a green dress in the Lincoln home that requires special care when being handled since it also contains traces of arsenic."
   },
   {
+    "parkCode": "vafo",
+    "visitedOn": ["2025-03-27"],
+    "notes": "TODO valley forge"
+  },
+  {
     "parkCode": "vama",
     "visitedOn": ["2023-02-19"],
     "notes": "While the mansion cost $660,000 to build and $1.5 million to furnish, no buyers were willing to purchase the property for more than a few hundred thousand dollars during the Great Depression. As a result, the property was donated to the Park Service in exchange for a significant tax deduction instead."
@@ -418,68 +463,5 @@
     "parkCode": "yose",
     "visitedOn": ["2023-05-08"],
     "notes": "We stayed in Curry Village in Yosemite valley, which helped us get an early start before the park got too busy. During our first full day in the park, we hiked to the top of Yosemite falls. The upper Yosemite falls trail is one of Yosemite's oldest trails; construction started in 1873. On our second day, we were able to hike through the sequoias in Mariposa grove."
-  },
-    {
-      "parkCode": "sapa",
-      "visitedOn": [
-        "2025-03-27"
-      ],
-      "notes": "TODO st paul"
-    },
-    {
-      "parkCode": "vafo",
-      "visitedOn": [
-        "2025-03-27"
-      ],
-      "notes": "TODO valley forge"
-    },
-    {
-      "parkCode": "bawa",
-      "visitedOn": [
-        "2025-03-27"
-      ],
-      "notes": "TODO Baltimore Washington Parkway"
-    },
-    {
-      "parkCode": "rocr",
-      "visitedOn": [
-        "2025-03-28"
-      ],
-      "notes": "TODO rock creek"
-    },
-    {
-      "parkCode": "glec",
-      "visitedOn": [
-        "2025-03-28"
-      ],
-      "notes": "TODO glen echo"
-    },
-    {
-      "parkCode": "clba",
-      "visitedOn": [
-        "2025-03-28"
-      ],
-      "notes": "TODO clara barton"
-    },
-    {
-      "parkCode": "choh",
-      "visitedOn": [
-        "2025-03-28"
-      ],
-      "notes": "TODO C&O Canal"
-    },
-    {
-      "parkCode": "fomc",
-      "visitedOn": [
-        "2025-03-30"
-      ],
-      "notes": "TODO Ft. McHenry"
-    },
-    {
-      "parkCode": "hamp",
-      "visitedOn": [
-        "2025-03-30"
-      ],
-      "notes": "TODO Hampton National"
-    }
+  }
 ]
