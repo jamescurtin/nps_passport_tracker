@@ -1,3 +1,22 @@
 {
-  "extends": ["config:base"]
+  "extends": ["config:base"],
+  "baseBranches": ["main"],
+  "branchPrefix": "renovate/",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "labels": ["dependencies", "bot"],
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "groupName": "javascript-dependencies",
+      "groupSlug": "javascript-dependencies",
+      "separateMinorPatch": false
+    },
+    {
+      "matchDatasources": ["pip"],
+      "groupName": "python-dependencies",
+      "groupSlug": "python-dependencies",
+      "separateMinorPatch": false
+    }
+  ]
 }
