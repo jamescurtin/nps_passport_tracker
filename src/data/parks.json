@@ -782,6 +782,24 @@
     ]
   },
   {
+    "id": "61EC5C9A-1A38-4040-AE38-E62FD2A9A836",
+    "url": "https://www.nps.gov/biso/index.htm",
+    "name": "Big South Fork",
+    "fullName": "Big South Fork National River & Recreation Area",
+    "parkCode": "biso",
+    "description": "Encompassing 125,000 acres of the Cumberland Plateau, Big South Fork National River and Recreation Area protects the free-flowing Big South Fork of the Cumberland River and its tributaries. The area boasts miles of scenic gorges and sandstone bluffs, is rich with natural and historic features and has been developed to provide visitors with a wide range of outdoor recreational activities.",
+    "latitude": 36.5348388,
+    "longitude": -84.66506688,
+    "states": ["KY", "TN"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C793E18-1DD8-B71B-0B815C3EA6EF7F23.jpg",
+        "title": "Big South Fork NRRA in Fall",
+        "altText": "Big South Fork NRRA in Fall"
+      }
+    ]
+  },
+  {
     "id": "3AA12AD8-4FEB-491D-AEB2-CC0F74CD00E0",
     "url": "https://www.nps.gov/bith/index.htm",
     "name": "Big Thicket",
@@ -6377,6 +6395,29 @@
     ]
   },
   {
+    "id": "913100E9-987E-4659-8124-DFCEE3158FCB",
+    "url": "https://www.nps.gov/miss/index.htm",
+    "name": "Mississippi",
+    "fullName": "Mississippi National River & Recreation Area",
+    "parkCode": "miss",
+    "description": "In the middle of a bustling urban setting, this 72 mile river park offers quiet stretches for fishing, boating and canoeing, birdwatching, bicycling, and hiking. And there are plenty of visitor centers and trails that highlight the fascinating human history of the Mississippi River. This a great place to start your exploration of this important river.",
+    "latitude": 44.942487,
+    "longitude": -93.098712,
+    "states": ["MN"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7D7E72-1DD8-B71B-0B847D9BFF1C6045.jpg",
+        "title": "Building a Nest",
+        "altText": "A large, long-necked, long-legged bird flies overhead carrying a branch."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7D791B-1DD8-B71B-0BB02885F2438F0E.jpg",
+        "title": "Canoeing Past Gulls",
+        "altText": "Gulls stand on a floating log while a canoe passes in the background."
+      }
+    ]
+  },
+  {
     "id": "D509DC08-53AD-4661-A2EA-FC69BE456E50",
     "url": "https://www.nps.gov/moja/index.htm",
     "name": "Mojave",
@@ -7099,6 +7140,29 @@
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7C60A9-1DD8-B71B-0BF24255DCA7767D.jpg",
         "title": "Farm Sunrise",
         "altText": "Sunrise at the Farm"
+      }
+    ]
+  },
+  {
+    "id": "CEC2A157-CDDC-4F11-BBE5-0AA2CEA35ADB",
+    "url": "https://www.nps.gov/ozar/index.htm",
+    "name": "Ozark",
+    "fullName": "Ozark National Scenic Riverways",
+    "parkCode": "ozar",
+    "description": "Ozark National Scenic Riverways is the first national park area to protect a river system. The Current and Jacks Fork rivers are two of the finest floating rivers found anywhere. Spring-fed, cold and clear: they are a delight to canoe, swim, boat, or fish. Besides these two famous rivers, the park is home to hundreds of freshwater springs, caves, trails, and historic sites such as Alley Mill.",
+    "latitude": 37.13968894,
+    "longitude": -91.25709817,
+    "states": ["MO"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/8635B6F1-D42D-85BF-59AE2567E62B6817.jpg",
+        "title": "Alley Mill-Winter",
+        "altText": "a red mill with snow on roof with a stream emanating from it."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C81882B-1DD8-B71B-0BB6270ECBB772DC.jpg",
+        "title": "Big Spring",
+        "altText": "A sunrise photo with blue turbulent water and a algae colored rock with trees overhanging"
       }
     ]
   },

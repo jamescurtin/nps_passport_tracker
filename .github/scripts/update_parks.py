@@ -7,6 +7,7 @@ from typing import Any, Iterator
 import requests
 from pydantic import (
     BaseModel,
+    ConfigDict,
     HttpUrl,
     ValidationError,
     field_serializer,
@@ -45,10 +46,7 @@ def _to_camel(snake_string: str) -> str:
 
 
 class CamelModel(BaseModel):
-    class Config:
-        """Pydantic config to convert snake_case to camelCase aliases."""
-
-        alias_generator = _to_camel
+    model_config = ConfigDict(alias_generator=_to_camel)
 
 
 class Photo(CamelModel):
