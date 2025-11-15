@@ -3,7 +3,7 @@ pydantic==2.11.9
 requests==2.32.5
 
 # CI Deps
-black==25.9.0
+black==25.11.0
 flake8==7.3.0
 isort==7.0.0
 mypy==1.18.2
