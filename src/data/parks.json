@@ -811,14 +811,14 @@
     "states": ["TX"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/E8CCDE1C-E7F1-2BB0-A8B8F918B482E61B.jpg",
-        "title": "Bald Cypress in Fall",
-        "altText": "a mossy bald cypress tree displaying fiery orange leaves amid a background of green forest."
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/39EC3CA1-9934-FE72-CF899277FA59400B.jpg",
         "title": "Beaver Slide Trail",
         "altText": "Tupelo trees growing on the edge of a reflective pond in the woods in spring."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/60B44B03-C641-7B6F-0D0A2E1B31AA8C5E.jpg",
+        "title": "Cypress Knees",
+        "altText": "Shadowy-looking cypress knees and their reflections in still water."
       }
     ]
   },
@@ -920,7 +920,7 @@
     "name": "Blackstone River Valley",
     "fullName": "Blackstone River Valley National Historical Park",
     "parkCode": "blrv",
-    "description": "The Blackstone River powered America's entry into the Age of Industry. The success of Samuel Slater's cotton spinning mill in Pawtucket, RI touched off a chain reaction that changed how people worked and where they lived. Learn how this revolution transformed the landscape of the Blackstone Valley and the United States. The Visitor Center at Old Slater Mill is currently open Thursday-Sunday, 10-4.",
+    "description": "The Blackstone River powered America's entry into the Age of Industry. The success of Samuel Slater's cotton spinning mill in Pawtucket, RI touched off a chain reaction that changed how people worked and where they lived. Learn how this revolution transformed the landscape of the Blackstone Valley and the United States. The Visitor Center at Old Slater Mill is open Friday & Saturday, 10-4.",
     "latitude": 41.8775792792,
     "longitude": -71.382433945,
     "states": ["RI", "MA"],
@@ -2993,7 +2993,7 @@
     "name": "Ford's Theatre",
     "fullName": "Ford's Theatre National Historic Site",
     "parkCode": "foth",
-    "description": "April 14, 1865. President Lincoln is assassinated at Ford\u2019s Theatre. Discover how a nation handled grief and loss, how everyday people experienced a national tragedy, and how we have remembered a fallen leader. Today, in partnership with Ford\u2019s Theatre Society, live dramatic productions highlight Lincoln\u2019s love of the theatre, and the power of stories to connect us to ourselves and our history.",
+    "description": "On April 14, 1865, President Abraham Lincoln was assassinated at Ford\u2019s Theatre. Discover how everyday people experienced a national tragedy and how we have remembered a fallen leader. Today, in partnership with Ford\u2019s Theatre Society, live dramatic productions highlight Lincoln\u2019s love of the theatre and the power of stories to connect us to ourselves and our history.",
     "latitude": 38.89668819,
     "longitude": -77.02577944,
     "states": ["DC"],
@@ -7891,14 +7891,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/EA522802-F14B-7E80-EF93849654DDDD09.jpg",
-        "title": "Elk in fall in Rocky",
-        "altText": "A bull elk is in a meadow next to two cow elk"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8F00E229-C7E4-3315-ABAD5878D05C422F.jpg",
+        "title": "Dream Lake in November",
+        "altText": "Dream Lake in early winter, the lake is beginning to freeze"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/EA45CD14-A923-E75A-CD9446D2168FA246.jpg",
-        "title": "Enjoy a hike on the west side of Rocky",
-        "altText": "A man is hiking on the Green Mountain Trail"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8EF7230F-0FD7-BCE6-542E90978715A801.jpg",
+        "title": "Enjoy fishing!",
+        "altText": "A man is fishing in a stream"
       }
     ]
   },
