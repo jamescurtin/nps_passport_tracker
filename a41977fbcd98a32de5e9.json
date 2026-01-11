@@ -811,14 +811,14 @@
     "states": ["TX"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/E8CCDE1C-E7F1-2BB0-A8B8F918B482E61B.jpg",
-        "title": "Bald Cypress in Fall",
-        "altText": "a mossy bald cypress tree displaying fiery orange leaves amid a background of green forest."
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/39EC3CA1-9934-FE72-CF899277FA59400B.jpg",
         "title": "Beaver Slide Trail",
         "altText": "Tupelo trees growing on the edge of a reflective pond in the woods in spring."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/A234EDCB-029E-0510-504D8E364BD5F601.jpg",
+        "title": "Collins Pond, Woodlands Trail",
+        "altText": "A calm pond reflecting red, green, and yellow foliage of trees along its shore."
       }
     ]
   },
@@ -920,7 +920,7 @@
     "name": "Blackstone River Valley",
     "fullName": "Blackstone River Valley National Historical Park",
     "parkCode": "blrv",
-    "description": "The Blackstone River powered America's entry into the Age of Industry. The success of Samuel Slater's cotton spinning mill in Pawtucket, RI touched off a chain reaction that changed how people worked and where they lived. Learn how this revolution transformed the landscape of the Blackstone Valley and the United States. The Visitor Center at Old Slater Mill is currently open Thursday-Sunday, 10-4.",
+    "description": "The Blackstone River powered America's entry into the Age of Industry. The success of Samuel Slater's cotton spinning mill in Pawtucket, RI touched off a chain reaction that changed how people worked and where they lived. Learn how this revolution transformed the landscape of the Blackstone Valley and the United States. The Visitor Center at Old Slater Mill is closed for the winter season.",
     "latitude": 41.8775792792,
     "longitude": -71.382433945,
     "states": ["RI", "MA"],
@@ -1209,7 +1209,7 @@
     "name": "Canaveral",
     "fullName": "Canaveral National Seashore",
     "parkCode": "cana",
-    "description": "Reflect on the barrier island which is composed of dune, hammock, and lagoon habitat. Explore ancient Timucua shell mounds. Experience the sanctuary that is provided for thousands of species of plants and animals that call Canaveral National Seashore home.",
+    "description": "Discover a dynamic barrier island shaped by dunes, coastal hammocks, and Mosquito Lagoon. Walk among ancient Timucua shell mounds and connect with thousands of years of human history. Immerse yourself in a protected sanctuary where diverse plants and wildlife thrive\u2014making Canaveral National Seashore a place where nature, history, and discovery come together.",
     "latitude": 28.78637529,
     "longitude": -80.75419576,
     "states": ["FL"],
@@ -1255,7 +1255,7 @@
     "name": "Canyon de Chelly",
     "fullName": "Canyon de Chelly National Monument",
     "parkCode": "cach",
-    "description": "This canyon is home to Din\u00e9 families who raise livestock, farmlands, and live here. People have lived in these canyons for nearly 5,000 years, which is longer than anyone has lived continuously on the Colorado Plateau. In this place called Tsegi, their homes and images tell us their stories. Today, the park and Navajo Nation work together to manage the rich cultural and natural resources.",
+    "description": "This canyon is home to Din\u00e9 families who raise livestock, grow crops and live here. People have lived in these canyons for nearly 5,000 years, which is longer than anyone has lived continuously on the Colorado Plateau. In this place called Tsegi, their homes and images tell us their stories. Today, the park and Navajo Nation work together to manage the rich cultural and natural resources.",
     "latitude": 36.14319567,
     "longitude": -109.3388303,
     "states": ["AZ"],
@@ -2993,7 +2993,7 @@
     "name": "Ford's Theatre",
     "fullName": "Ford's Theatre National Historic Site",
     "parkCode": "foth",
-    "description": "April 14, 1865. President Lincoln is assassinated at Ford\u2019s Theatre. Discover how a nation handled grief and loss, how everyday people experienced a national tragedy, and how we have remembered a fallen leader. Today, in partnership with Ford\u2019s Theatre Society, live dramatic productions highlight Lincoln\u2019s love of the theatre, and the power of stories to connect us to ourselves and our history.",
+    "description": "On April 14, 1865, President Abraham Lincoln was assassinated at Ford\u2019s Theatre. Discover how everyday people experienced a national tragedy and how we have remembered a fallen leader. Today, in partnership with Ford\u2019s Theatre Society, live dramatic productions highlight Lincoln\u2019s love of the theatre and the power of stories to connect us to ourselves and our history.",
     "latitude": 38.89668819,
     "longitude": -77.02577944,
     "states": ["DC"],
@@ -4218,9 +4218,9 @@
         "altText": "Log buildings, stockade fence and dock near Lake."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/12235CDB-D43A-4807-EFA0C9F352813A42.jpg",
-        "title": "Historic Depot in Spring",
-        "altText": "Historic wooden buildings on a bright green lawn in front of a lake."
+        "url": "https://www.nps.gov/common/uploads/structured_data/242F987D-A5C9-C97D-FA692D01CE985AE4.jpg",
+        "title": "Historic Depot in Snow",
+        "altText": "Historic wooden buildings behind a palisade in a snowy landscape."
       }
     ]
   },
@@ -5560,14 +5560,14 @@
     "states": ["AK"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A168D-1DD8-B71B-0B5167863DD39B57.jpg",
-        "title": "Kobuk Locoweed",
-        "altText": "pink flower growing in sand"
+        "url": "https://www.nps.gov/common/uploads/structured_data/9B843EAB-BE9D-AF8A-7D23CF259CD9FCB9.jpg",
+        "title": "A rainbow over Niaktovik Creek",
+        "altText": "Dark skies shadow the horizon. A rainbow is illuminated above Niaktovik Creek"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A1214-1DD8-B71B-0B00D823BD9BF4CF.jpg",
-        "title": "Kobuk Sand Dunes",
-        "altText": "sun setting on sand dunes"
+        "url": "https://www.nps.gov/common/uploads/structured_data/9B41FCED-9287-749E-01E2C1A2DFE31A1A.jpg",
+        "title": "Canoe on the Kobuk River",
+        "altText": "A green pack canoe sits on the bank of the Kobuk River. Clouds are mirrored on the water's surface."
       }
     ]
   },
@@ -6919,7 +6919,7 @@
     "name": "Nicodemus",
     "fullName": "Nicodemus National Historic Site",
     "parkCode": "nico",
-    "description": "Formerly enslaved African Americans left Kentucky at the end of the post-Civil War Reconstruction period to experience freedom in the \"Promised Land\" of Kansas. Nicodemus represents the involvement of African Americans in the homesteading movement across the Great Plains. It is the oldest and only remaining Black settlement west of the Mississippi River.",
+    "description": "Formerly enslaved African Americans left Kentucky at the end of the post-Civil War Reconstruction period to experience freedom in the \"Promised Land\" of Kansas. Nicodemus represents the involvement of African Americans in the homesteading movement across the Great Plains. It is the oldest remaining Black settlement west of the Mississippi River.",
     "latitude": 39.39167606,
     "longitude": -99.61680329,
     "states": ["KS"],
@@ -7891,14 +7891,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/EA522802-F14B-7E80-EF93849654DDDD09.jpg",
-        "title": "Elk in fall in Rocky",
-        "altText": "A bull elk is in a meadow next to two cow elk"
+        "url": "https://www.nps.gov/common/uploads/structured_data/95088F70-DF7D-E872-F1F6E8CBCFF660CC.jpg",
+        "title": "Cross-Country Skiing in Rocky",
+        "altText": "A person is cross-country skiing on a trail in the park"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/EA45CD14-A923-E75A-CD9446D2168FA246.jpg",
-        "title": "Enjoy a hike on the west side of Rocky",
-        "altText": "A man is hiking on the Green Mountain Trail"
+        "url": "https://www.nps.gov/common/uploads/structured_data/95687CBD-09CD-DCF2-1A201107F522BEAA.jpg",
+        "title": "Night Sky Viewing in Winter",
+        "altText": "Stars are in the sky, over mountain peaks, at night"
       }
     ]
   },
@@ -8783,14 +8783,9 @@
     "states": ["NY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/CC46004B-0E38-8BDB-FB6FE43421BFB392.jpg",
-        "title": "Dining Room",
-        "altText": "Colored photograph of a long, narrow dining room"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/CC898133-0B14-EDB8-D451DB04952E3FD9.jpg",
-        "title": "Exhibits",
-        "altText": "Photo of exhibit hallway with display cases on sides of room and running through center of room."
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C855E63-1DD8-B71B-0B4BD6B7AEC50FF4.jpg",
+        "title": "Theodore Roosevelt Birthplace Exterior",
+        "altText": "Theodore Roosevelt Birthplace Exterior"
       }
     ]
   },
