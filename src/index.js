@@ -299,6 +299,45 @@ d3.json(topoJsonStates).then(function (json) {
         }
       };
 
+      // Function to zoom to a location with a given radius
+      const zoomToLocation = (lat, lng, radiusMiles) => {
+        // Project the center point
+        const center = projection([lng, lat]);
+        if (!center) return; // Location outside projection bounds
+
+        // Calculate scale based on radius
+        // radiusMiles determines how much area we want to show
+        // We want the radius to fit within ~40% of the smaller screen dimension
+        const targetPixels = Math.min(width, height) * 0.4;
+        // Convert miles to approximate pixels at current projection
+        // At scale=1, roughly 1 degree = varies, but we can estimate
+        // Using the haversine-based approach: figure out how many degrees the radius spans
+        const degreesPerMile = 1 / 69; // Roughly 69 miles per degree
+        const radiusDegrees = radiusMiles * degreesPerMile;
+
+        // Project a point at the edge of the radius to calculate pixel distance
+        const edgePoint = projection([lng + radiusDegrees, lat]);
+        if (!edgePoint) return;
+        const radiusPixels = Math.abs(edgePoint[0] - center[0]);
+
+        // Calculate scale so that radius fits in targetPixels
+        const desiredScale = radiusPixels > 0 ? targetPixels / radiusPixels : 1;
+        const clampedScale = Math.max(1, Math.min(16, desiredScale));
+
+        // Calculate translation to center the point
+        const translate = [
+          width / 2 - clampedScale * center[0],
+          height / 2 - clampedScale * center[1],
+        ];
+
+        // Apply the zoom transform
+        const transform = d3.zoomIdentity
+          .translate(translate[0], translate[1])
+          .scale(clampedScale);
+
+        svg.transition().duration(zoomDuration).call(zoom.transform, transform);
+      };
+
       // Initialize search functionality
       const parkSearch = new ParkSearch(
         data,
@@ -311,6 +350,7 @@ d3.json(topoJsonStates).then(function (json) {
             );
         },
         zoomToStateByAbbrev,
+        zoomToLocation,
       );
 
       // Create search UI
