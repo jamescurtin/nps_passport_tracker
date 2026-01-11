@@ -40,12 +40,17 @@ export function clickedPoint(_, d) {
 
   modalContent.append("p").text(d.description);
 
-  modalContent
-    .selectAll(".images")
+  // Image gallery with lazy loading
+  const imageContainer = modalContent
+    .append("div")
+    .attr("class", "modal-images");
+
+  imageContainer
+    .selectAll("img")
     .data(d.images)
     .enter()
     .append("img")
-    .attr("width", "20%")
+    .attr("loading", "lazy")
     .attr("src", function (d) {
       return d.url;
     })

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint-check:*)",
+      "Bash(npm run prettier-fix:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

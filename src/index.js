@@ -9,6 +9,8 @@ import visitsJSON from "./data/visits";
 import color from "./js/colorscale";
 import { clickedPoint } from "./js/modal";
 import stateAbbreviations from "./js/state_abbreviations";
+import { ParkSearch, createSearchUI } from "./js/search";
+import { calculateStats, createStatsButton } from "./js/statistics";
 
 import "./css/map.css";
 
@@ -18,10 +20,16 @@ const geoAlbersUsaTerritories = require("geo-albers-usa-territories");
 // Selector for active state when zoomed
 let active = d3.select(null);
 
-// SVG container properties
-const width = d3.select("html").node().getBoundingClientRect().width;
-const height = window.innerHeight;
-const scale = 2 * height;
+// SVG container properties - now responsive
+let width = window.innerWidth;
+let height = window.innerHeight;
+// Use smaller scale on mobile to prevent map from being cut off
+const getMapScale = () => {
+  const isMobileDevice = window.innerWidth <= 768;
+  const baseScale = isMobileDevice ? 1.2 : 1.5;
+  return Math.min(width, height) * baseScale;
+};
+let scale = getMapScale();
 const borderRadius = 5;
 
 // NPS Site point marker properties
@@ -36,11 +44,11 @@ const mouseoverDuration = 200;
 // Map properties
 const strokeWidth = 0.25;
 const mapTitle = "James & Elize's National Park Trips";
-const projection = geoAlbersUsaTerritories
+let projection = geoAlbersUsaTerritories
   .geoAlbersUsaTerritories()
   .scale(scale)
   .translate([width / 2, height / 2]);
-const path = d3.geoPath(projection);
+let path = d3.geoPath(projection);
 
 // Legend properties
 const legendBoxSize = 18;
@@ -48,13 +56,6 @@ const legendText = ["Visited", "Not Visited"];
 
 // Construct the body of the page
 const body = d3.select("body");
-
-// Require portrait mode rotation on mobile
-body
-  .append("div")
-  .attr("id", "please-rotate")
-  .append("text")
-  .text("To view this site, please rotate to portrait mode.");
 
 const tooltip = body.append("div").attr("class", "tooltip").style("opacity", 0);
 const svg = body
@@ -74,6 +75,23 @@ svg
   .attr("height", height)
   .on("click", resetMap);
 const g = svg.append("g");
+
+// Create zoom behavior for pinch-to-zoom and pan on mobile
+// Extended max zoom (16x) to handle small states like DC
+const zoom = d3
+  .zoom()
+  .scaleExtent([1, 16])
+  .on("zoom", (event) => {
+    g.attr("transform", event.transform);
+
+    // Adjust stroke widths and point sizes based on zoom level
+    const k = event.transform.k;
+    g.selectAll(".mesh").attr("stroke-width", strokeWidth / k);
+    g.selectAll("circle").attr("r", pointRadius / k);
+  });
+
+// Apply zoom to SVG (but filter out click events to allow state clicking)
+svg.call(zoom).on("dblclick.zoom", null);
 const svgHeader = svg.append("g");
 
 const sidebarControl = svg.append("g").attr("visibility", "hidden");
@@ -89,12 +107,12 @@ const closeSidebarButton = sidebar
 closeSidebarButton.append("text").text("✕");
 const parkList = sidebar.append("div").attr("class", "park-list");
 
-// Construct the legend
+// Construct the legend (positioned at top-right to avoid stats button overlap)
 const legend = svg
   .append("svg")
   .attr("class", "legend")
-  .attr("x", width - 100)
-  .attr("y", height - 100)
+  .attr("x", width - 110)
+  .attr("y", 60)
   .selectAll("g")
   .data(color.domain().slice().reverse())
   .enter()
@@ -132,7 +150,7 @@ sidebarControl
   .attr("ry", sidebarRadius)
   .attr("width", sidebarWidth)
   .attr("height", sidebarHeight)
-  .style("fill", "#17a2b8")
+  .style("fill", "#3d2314")
   .on("click", openSidebar);
 
 sidebarControl
@@ -157,22 +175,30 @@ d3.json(topoJsonStates).then(function (json) {
         (parksVisitedCount / data.length) * 100,
       );
 
+      // Use shorter title on mobile
+      const isMobileView = window.innerWidth <= 768;
+      const titleText = isMobileView
+        ? `${parksVisitedCount} NPS Units Visited (${percentVisited}%)`
+        : `${mapTitle}: Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`;
+      const subtitleText = isMobileView
+        ? "Tap a state to zoom"
+        : "Click on a point for more info, or on a state to zoom";
+
       svgHeader
         .append("text")
         .attr("class", "title")
         .attr("x", width / 2)
         .attr("y", 20)
         .attr("text-anchor", "middle")
-        .text(
-          `${mapTitle}: Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`,
-        );
+        .text(titleText);
 
       svgHeader
         .append("text")
+        .attr("class", "subtitle")
         .attr("x", width / 2)
         .attr("y", 40)
         .attr("text-anchor", "middle")
-        .text("Click on a point for more info, or on a state to zoom");
+        .text(subtitleText);
 
       // Add NPS sites as properties of the states they are located within
       for (let i = 0; i < features.length; i++) {
@@ -254,6 +280,45 @@ d3.json(topoJsonStates).then(function (json) {
           tooltip.transition().duration(mouseoverDuration).style("opacity", 0);
         })
         .on("click", clickedPoint);
+
+      // Function to zoom to a state by abbreviation
+      const zoomToStateByAbbrev = (stateAbbrev) => {
+        // Find the state feature by abbreviation
+        const stateFeature = features.find(
+          (f) => stateAbbreviations[f.properties.name] === stateAbbrev,
+        );
+        if (stateFeature) {
+          // Find the corresponding DOM element
+          const stateElements = g.selectAll("path:not(.mesh)").nodes();
+          const stateIndex = features.indexOf(stateFeature);
+          if (stateIndex >= 0 && stateElements[stateIndex]) {
+            // Simulate a click on the state
+            const stateElement = stateElements[stateIndex];
+            clickedMap.call(stateElement, null, stateFeature);
+          }
+        }
+      };
+
+      // Initialize search functionality
+      const parkSearch = new ParkSearch(
+        data,
+        (filteredParks) => {
+          // Update map to highlight/dim parks based on filter
+          g.selectAll("circle")
+            .style("opacity", (d) => (filteredParks.includes(d) ? 1 : 0.2))
+            .style("pointer-events", (d) =>
+              filteredParks.includes(d) ? "auto" : "none",
+            );
+        },
+        zoomToStateByAbbrev,
+      );
+
+      // Create search UI
+      createSearchUI(body, parkSearch);
+
+      // Calculate and create stats button
+      const stats = calculateStats(data, visitData);
+      createStatsButton(body, stats);
     });
   });
 });
@@ -305,6 +370,12 @@ function clickedMap(_, d) {
     .transition()
     .duration(zoomDuration)
     .attr("visibility", "hidden");
+
+  // Close search panel when zooming (but keep toggle visible)
+  const searchContainer = document.getElementById("search-container");
+  if (searchContainer) {
+    searchContainer.style.display = "none";
+  }
 
   prepareSidebar();
 
@@ -362,6 +433,9 @@ function resetMap() {
   active.classed("active", false);
   active = d3.select(null);
 
+  // Reset d3 zoom transform
+  svg.transition().duration(zoomDuration).call(zoom.transform, d3.zoomIdentity);
+
   g.transition()
     .duration(zoomDuration)
     .style("stroke-width", strokeWidth)
@@ -397,10 +471,68 @@ function resetMap() {
   $(".park-list").hide();
 }
 
-// Reload on mobile when changing orientation so the map is drawn to fill the page
-$(window).bind("orientationchange", function () {
-  location.reload(true);
-});
+// Debounce helper function
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Detect if on mobile
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+// Handle window resize for responsive map
+const handleResize = debounce(() => {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  scale = getMapScale();
+
+  // Update projection
+  projection = geoAlbersUsaTerritories
+    .geoAlbersUsaTerritories()
+    .scale(scale)
+    .translate([width / 2, height / 2]);
+  path = d3.geoPath(projection);
+
+  // Update SVG dimensions
+  svg.attr("width", width).attr("height", height);
+
+  // Update background rect
+  svg.select(".background").attr("width", width).attr("height", height);
+
+  // Redraw all paths
+  g.selectAll("path:not(.mesh)").attr("d", path);
+  g.selectAll(".mesh").attr("d", path);
+
+  // Reposition circles
+  g.selectAll("circle")
+    .attr("cx", (d) => projection([d.longitude, d.latitude])[0])
+    .attr("cy", (d) => projection([d.longitude, d.latitude])[1]);
+
+  // Reposition legend (top-right)
+  svg
+    .select(".legend")
+    .attr("x", width - 110)
+    .attr("y", 60);
+
+  // Reposition title
+  svgHeader.selectAll("text").attr("x", width / 2);
+
+  // Reset map view if zoomed
+  if (active.node()) {
+    resetMap();
+  }
+}, 150);
+
+window.addEventListener("resize", handleResize);
 
 /**
  * Merge data from parks visited with all parks
@@ -448,14 +580,19 @@ function prepareSidebar() {
 
 /**
  * Open the park list sidebar and move all content to accommodate.
+ * On mobile, uses CSS classes for bottom sheet behavior.
+ * On desktop, uses CSS classes for left sidebar.
  */
 function openSidebar() {
   const sidebar = document.getElementById("park-list-sidebar");
   const mapContainer = document.getElementById("map-container");
-  sidebar.style.transition = `all ${zoomDuration}ms`;
-  sidebar.style.width = "25%";
-  mapContainer.style.transition = `all ${zoomDuration}ms`;
-  mapContainer.style.marginLeft = "25%";
+
+  sidebar.classList.add("open");
+
+  if (!isMobile()) {
+    mapContainer.classList.add("sidebar-open");
+  }
+
   sidebarControl
     .selectAll("*")
     .transition()
@@ -469,8 +606,7 @@ function openSidebar() {
 function hideSidebar() {
   const sidebar = document.getElementById("park-list-sidebar");
   const mapContainer = document.getElementById("map-container");
-  sidebar.style.transition = `all ${zoomDuration}ms`;
-  sidebar.style.width = "0";
-  mapContainer.style.transition = `all ${zoomDuration}ms`;
-  mapContainer.style.marginLeft = "0";
+
+  sidebar.classList.remove("open", "expanded");
+  mapContainer.classList.remove("sidebar-open");
 }
