@@ -1,6 +1,6 @@
 {
-  "extends": ["config:base"],
-  "baseBranches": ["main"],
+  "extends": ["config:recommended"],
+  "baseBranchPatterns": ["main"],
   "branchPrefix": "renovate/",
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
