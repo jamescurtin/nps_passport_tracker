@@ -5,6 +5,7 @@
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
   "labels": ["dependencies", "bot"],
+  "minimumReleaseAge": "7 days",
   "packageRules": [
     {
       "matchDatasources": ["npm"],
@@ -16,6 +17,18 @@
       "matchDatasources": ["pip"],
       "groupName": "python-dependencies",
       "groupSlug": "python-dependencies",
+      "separateMinorPatch": false
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions",
+      "groupSlug": "github-actions",
+      "separateMinorPatch": false
+    },
+    {
+      "matchDatasources": ["docker"],
+      "groupName": "docker-dependencies",
+      "groupSlug": "docker-dependencies",
       "separateMinorPatch": false
     }
   ]
