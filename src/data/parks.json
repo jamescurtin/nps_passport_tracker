@@ -7891,14 +7891,14 @@
     "states": ["CO"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/6ABE45FA-F1D1-1264-8EC33E5A01EF6CB1.jpg",
+        "title": "Attend a Program!",
+        "altText": "A park ranger is leading a program in an auditorium"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/95088F70-DF7D-E872-F1F6E8CBCFF660CC.jpg",
         "title": "Cross-Country Skiing in Rocky",
         "altText": "A person is cross-country skiing on a trail in the park"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/95687CBD-09CD-DCF2-1A201107F522BEAA.jpg",
-        "title": "Night Sky Viewing in Winter",
-        "altText": "Stars are in the sky, over mountain peaks, at night"
       }
     ]
   },
