@@ -108,6 +108,9 @@ export class ParkSearch {
   clearLocationFilter() {
     this.filters.location = null;
     this.applyFilters();
+    if (this.onLocationZoom) {
+      this.onLocationZoom(null, null, null);
+    }
   }
 
   clearFilters() {
@@ -499,6 +502,18 @@ export function createSearchUI(container, parkSearch) {
         .append("span")
         .attr("class", "park-distance")
         .text(`${Math.round(park.distance)} mi`);
+
+      // Hover highlight on map marker
+      item.on("mouseenter", () => {
+        if (parkSearch.onHighlightPark) {
+          parkSearch.onHighlightPark(park.parkCode);
+        }
+      });
+      item.on("mouseleave", () => {
+        if (parkSearch.onUnhighlightPark) {
+          parkSearch.onUnhighlightPark(park.parkCode);
+        }
+      });
     });
   }
 

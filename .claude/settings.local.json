@@ -6,7 +6,9 @@
       "Bash(npm run build:*)",
       "Bash(tree:*)",
       "Bash(lsof:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(find:*)",
+      "Bash(npx prettier:*)"
     ]
   }
 }

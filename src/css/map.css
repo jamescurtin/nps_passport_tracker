@@ -1061,6 +1061,19 @@ table th {
   font-size: var(--font-size-sm);
 }
 
+/* Search overlay SVG elements */
+.search-circle {
+  pointer-events: none;
+}
+
+.address-pin {
+  pointer-events: none;
+}
+
+.park-marker {
+  cursor: pointer;
+}
+
 /* Mobile location search adjustments */
 @media screen and (width <= 768px) {
   .address-input {

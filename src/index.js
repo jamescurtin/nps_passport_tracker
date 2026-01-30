@@ -20,6 +20,11 @@ const geoAlbersUsaTerritories = require("geo-albers-usa-territories");
 // Selector for active state when zoomed
 let active = d3.select(null);
 
+// Search overlay elements
+let searchCircle = null;
+let addressPin = null;
+let currentSearchLocation = null;
+
 // SVG container properties - now responsive
 let width = window.innerWidth;
 let height = window.innerHeight;
@@ -87,7 +92,15 @@ const zoom = d3
     // Adjust stroke widths and point sizes based on zoom level
     const k = event.transform.k;
     g.selectAll(".mesh").attr("stroke-width", strokeWidth / k);
-    g.selectAll("circle").attr("r", pointRadius / k);
+    g.selectAll(".park-marker").attr("r", pointRadius / k);
+
+    // Counter-scale search overlay elements
+    if (searchCircle) {
+      searchCircle.attr("stroke-width", 1.5 / k);
+    }
+    if (addressPin) {
+      addressPin.attr("r", 6 / k).attr("stroke-width", 2 / k);
+    }
   });
 
 // Apply zoom to SVG (but filter out click events to allow state clicking)
@@ -252,10 +265,11 @@ d3.json(topoJsonStates).then(function (json) {
         .attr("stroke-width", strokeWidth)
         .attr("d", path);
 
-      g.selectAll(".mark")
+      g.selectAll(".park-marker")
         .data(data)
         .enter()
         .append("circle")
+        .attr("class", "park-marker")
         .attr("cx", function (d) {
           return projection([d.longitude, d.latitude])[0];
         })
@@ -301,6 +315,12 @@ d3.json(topoJsonStates).then(function (json) {
 
       // Function to zoom to a location with a given radius
       const zoomToLocation = (lat, lng, radiusMiles) => {
+        // Clear signal from search panel
+        if (lat === null) {
+          clearSearchOverlay();
+          return;
+        }
+
         // Project the center point
         const center = projection([lng, lat]);
         if (!center) return; // Location outside projection bounds
@@ -336,6 +356,9 @@ d3.json(topoJsonStates).then(function (json) {
           .scale(clampedScale);
 
         svg.transition().duration(zoomDuration).call(zoom.transform, transform);
+
+        // Draw search overlay (pin + circle)
+        drawSearchOverlay(lat, lng, radiusMiles);
       };
 
       // Initialize search functionality
@@ -343,7 +366,7 @@ d3.json(topoJsonStates).then(function (json) {
         data,
         (filteredParks) => {
           // Update map to highlight/dim parks based on filter
-          g.selectAll("circle")
+          g.selectAll(".park-marker")
             .style("opacity", (d) => (filteredParks.includes(d) ? 1 : 0.2))
             .style("pointer-events", (d) =>
               filteredParks.includes(d) ? "auto" : "none",
@@ -352,6 +375,10 @@ d3.json(topoJsonStates).then(function (json) {
         zoomToStateByAbbrev,
         zoomToLocation,
       );
+
+      // Attach highlight callbacks for hover
+      parkSearch.onHighlightPark = highlightParkMarker;
+      parkSearch.onUnhighlightPark = unhighlightParkMarker;
 
       // Create search UI
       createSearchUI(body, parkSearch);
@@ -362,6 +389,99 @@ d3.json(topoJsonStates).then(function (json) {
     });
   });
 });
+
+/**
+ * Draw a search overlay on the map showing address pin and search radius circle.
+ * @param {number} lat - Latitude of the address
+ * @param {number} lng - Longitude of the address
+ * @param {number} radiusMiles - Search radius in miles
+ */
+function drawSearchOverlay(lat, lng, radiusMiles) {
+  clearSearchOverlay();
+  currentSearchLocation = { lat, lng, radiusMiles };
+
+  const center = projection([lng, lat]);
+  if (!center) return;
+
+  // Calculate radius in projected pixels
+  const degreesPerMile = 1 / 69;
+  const edgePoint = projection([lng + radiusMiles * degreesPerMile, lat]);
+  if (!edgePoint) return;
+  const radiusPixels = Math.abs(edgePoint[0] - center[0]);
+
+  // Get current zoom scale
+  const k = d3.zoomTransform(svg.node()).k;
+
+  // Semi-transparent green circle behind park markers
+  searchCircle = g
+    .insert("circle", ".park-marker")
+    .attr("class", "search-circle")
+    .attr("cx", center[0])
+    .attr("cy", center[1])
+    .attr("r", radiusPixels)
+    .attr("fill", "rgba(45, 90, 39, 0.12)")
+    .attr("stroke", "var(--nps-green-forest)")
+    .attr("stroke-width", 1.5 / k);
+
+  // Red pin on top of everything
+  addressPin = g
+    .append("circle")
+    .attr("class", "address-pin")
+    .attr("cx", center[0])
+    .attr("cy", center[1])
+    .attr("r", 6 / k)
+    .attr("fill", "#d32f2f")
+    .attr("stroke", "white")
+    .attr("stroke-width", 2 / k);
+}
+
+/**
+ * Remove search overlay elements from the map.
+ */
+function clearSearchOverlay() {
+  if (searchCircle) {
+    searchCircle.remove();
+    searchCircle = null;
+  }
+  if (addressPin) {
+    addressPin.remove();
+    addressPin = null;
+  }
+  currentSearchLocation = null;
+}
+
+/**
+ * Highlight a park marker on the map by parkCode.
+ * @param {string} parkCode - The park code to highlight
+ */
+function highlightParkMarker(parkCode) {
+  const k = d3.zoomTransform(svg.node()).k;
+  g.selectAll(".park-marker")
+    .filter((d) => d.parkCode === parkCode)
+    .raise()
+    .transition()
+    .duration(150)
+    .attr("r", (pointRadius * 2.5) / k)
+    .style("fill", "#d32f2f")
+    .attr("stroke", "white")
+    .attr("stroke-width", 2 / k);
+}
+
+/**
+ * Remove highlight from a park marker on the map by parkCode.
+ * @param {string} parkCode - The park code to unhighlight
+ */
+function unhighlightParkMarker(parkCode) {
+  const k = d3.zoomTransform(svg.node()).k;
+  g.selectAll(".park-marker")
+    .filter((d) => d.parkCode === parkCode)
+    .transition()
+    .duration(150)
+    .attr("r", pointRadius / k)
+    .style("fill", (d) => color(d.visited))
+    .attr("stroke", null)
+    .attr("stroke-width", null);
+}
 
 /**
  * Update map upon click.
@@ -387,7 +507,7 @@ function clickedMap(_, d) {
     .style("stroke-width", strokeWidth / scale + "px")
     .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 
-  g.selectAll(".mark")
+  g.selectAll(".park-marker")
     .transition()
     .duration(zoomDuration)
     .attr("transform", function () {
@@ -400,10 +520,25 @@ function clickedMap(_, d) {
     .duration(zoomDuration)
     .attr("stroke-width", strokeWidth / scale);
 
-  g.selectAll("circle")
+  g.selectAll(".park-marker")
     .transition()
     .duration(zoomDuration)
     .attr("r", pointRadiusScaled / scale);
+
+  // Counter-scale search overlay elements for state zoom
+  if (searchCircle) {
+    searchCircle
+      .transition()
+      .duration(zoomDuration)
+      .attr("stroke-width", 1.5 / scale);
+  }
+  if (addressPin) {
+    addressPin
+      .transition()
+      .duration(zoomDuration)
+      .attr("r", 6 / scale)
+      .attr("stroke-width", 2 / scale);
+  }
 
   svgHeader
     .selectAll("*")
@@ -481,7 +616,7 @@ function resetMap() {
     .style("stroke-width", strokeWidth)
     .attr("transform", "");
 
-  g.selectAll(".mark").attr("transform", function () {
+  g.selectAll(".park-marker").attr("transform", function () {
     const t = d3.geoTransform(d3.select(this).attr("transform")).translate;
     return "translate(" + t[0] + "," + t[1] + ")scale(" + 1 + ")";
   });
@@ -491,10 +626,22 @@ function resetMap() {
     .duration(zoomDuration)
     .attr("stroke-width", strokeWidth);
 
-  g.selectAll("circle")
+  g.selectAll(".park-marker")
     .transition()
     .duration(zoomDuration)
     .attr("r", pointRadius);
+
+  // Restore search overlay elements to default scale
+  if (searchCircle) {
+    searchCircle.transition().duration(zoomDuration).attr("stroke-width", 1.5);
+  }
+  if (addressPin) {
+    addressPin
+      .transition()
+      .duration(zoomDuration)
+      .attr("r", 6)
+      .attr("stroke-width", 2);
+  }
 
   svgHeader
     .selectAll("*")
@@ -553,9 +700,33 @@ const handleResize = debounce(() => {
   g.selectAll(".mesh").attr("d", path);
 
   // Reposition circles
-  g.selectAll("circle")
+  g.selectAll(".park-marker")
     .attr("cx", (d) => projection([d.longitude, d.latitude])[0])
     .attr("cy", (d) => projection([d.longitude, d.latitude])[1]);
+
+  // Reposition search overlay if active
+  if (currentSearchLocation) {
+    const loc = currentSearchLocation;
+    const center = projection([loc.lng, loc.lat]);
+    if (center) {
+      const degreesPerMile = 1 / 69;
+      const edgePoint = projection([
+        loc.lng + loc.radiusMiles * degreesPerMile,
+        loc.lat,
+      ]);
+      const radiusPixels = edgePoint ? Math.abs(edgePoint[0] - center[0]) : 0;
+
+      if (searchCircle) {
+        searchCircle
+          .attr("cx", center[0])
+          .attr("cy", center[1])
+          .attr("r", radiusPixels);
+      }
+      if (addressPin) {
+        addressPin.attr("cx", center[0]).attr("cy", center[1]);
+      }
+    }
+  }
 
   // Reposition legend (top-right)
   svg
