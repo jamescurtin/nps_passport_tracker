@@ -97,7 +97,7 @@
     "name": "African Burial Ground",
     "fullName": "African Burial Ground National Monument",
     "parkCode": "afbg",
-    "description": "The African Burial Ground is the oldest and largest known excavated burial ground in North America for both free and enslaved Africans. It serves to protect and honor the historic role that slavery played in shaping New York's development.",
+    "description": "The African Burial Ground stands as the oldest and largest known excavated burial site in North America for both free and enslaved Africans. It offers a profound testament to the enduring legacy of African communities whose labor, resilience, and cultural contributions were fundamental in shaping the development of New York.",
     "latitude": 40.71452681,
     "longitude": -74.00447358,
     "states": ["NY"],
@@ -1278,7 +1278,7 @@
     "name": "Canyonlands",
     "fullName": "Canyonlands National Park",
     "parkCode": "cany",
-    "description": "Canyonlands invites you to explore a wilderness of countless canyons and fantastically formed buttes carved by the Colorado River and its tributaries. Rivers divide the park into four districts: Island in the Sky, The Needles, The Maze, and the rivers themselves. These areas share a primitive desert atmosphere, but each offers different opportunities for sightseeing and adventure.",
+    "description": "Canyonlands is a wilderness of canyons, buttes, and spires carved by the Colorado River and Green River. The park is divided into four distinct districts; no roads join them together. The districts share similar desert ecosystems, but each one provides unique opportunities for adventure and discovery.",
     "latitude": 38.24555783,
     "longitude": -109.8801624,
     "states": ["UT"],
@@ -1623,7 +1623,7 @@
     "name": "Castle Clinton",
     "fullName": "Castle Clinton National Monument",
     "parkCode": "cacl",
-    "description": "Located at the southern tip of Manhattan Island, Castle Clinton stands where New York City began, and represents not only the city\u2019s growth, but the growth of a nation. Initially intended to prevent a British invasion in 1812, the fortification has transformed over the years to welcome theatergoers, immigrants, sightseers, and now, millions of visitors to New York Harbor.",
+    "description": "Located at the southern tip of Manhattan, Castle Clinton marks the place where New York City began and reflects the growth of both the city and the nation. Built to defend the harbor during the War of 1812, it has since welcomed theatergoers, immigrants, and sightseers\u2014and today continues to greet millions of visitors to New York Harbor.",
     "latitude": 40.70347795,
     "longitude": -74.01680558,
     "states": ["NY"],
@@ -2855,7 +2855,7 @@
     "name": "Federal Hall",
     "fullName": "Federal Hall National Memorial",
     "parkCode": "feha",
-    "description": "Here on Federal Hall, George Washington took the oath of office as our first President, and this site was home to the first Congress, Supreme Court, and Executive Branch offices. The current structure, a Customs House, later served as part of the US Sub-Treasury. Now, the building serves as a museum and memorial to our first President and the beginnings of the United States of America.",
+    "description": "Here at Federal Hall, George Washington took the oath of office as the first President of the United States, marking the beginning of the American constitutional republic. This historic site served as the nation\u2019s first capitol, home to the inaugural Congress, the first Supreme Court, and the earliest offices of the Executive Branch.",
     "latitude": 40.70731192,
     "longitude": -74.01025636,
     "states": ["NY"],
@@ -4138,7 +4138,7 @@
     "name": "Governors Island",
     "fullName": "Governors Island National Monument",
     "parkCode": "gois",
-    "description": "From 1794 to 1966, the U.S. Army on Governors Island was part of the social, political, and economic tapestry of New York City. It was home to the US Coast Guard from 1966 to 1996. Today, the island is a vibrant venue of art, culture, and performance against the backdrop of two centuries of military heritage and the skyline of one of the great cities of the world. The island is open to the public.",
+    "description": "From 1794 to 1966, the U.S. Army presence on Governors Island played a vital role in the social, political, and economic life of New York City. The island then served as the headquarters of the U.S. Coast Guard from 1966 to 1996, continuing its legacy of national service. Today, Governors Island has transformed into a destination for art, culture, and public programs.",
     "latitude": 40.69164233,
     "longitude": -74.01670765,
     "states": ["NY"],
@@ -4345,7 +4345,7 @@
     "name": "Great Sand Dunes",
     "fullName": "Great Sand Dunes National Park & Preserve",
     "parkCode": "grsa",
-    "description": "Open 24/7 year round! There are no timed entries or reservations to visit. The tallest dunes in North America are the centerpiece in a diverse landscape of grasslands, wetlands, forests, alpine lakes, and tundra. Stay on a moonless night to experience countless stars in this International Dark Sky Park!",
+    "description": "The tallest dunes in North America are the centerpiece in a diverse landscape of grasslands, wetlands, forests, alpine lakes, and tundra. Stay on a moonless night to experience countless stars in this International Dark Sky Park! Open 24 hours a day, 7 days a week year-round. There are no timed entries or reservations to visit.",
     "latitude": 37.79256812,
     "longitude": -105.5919572,
     "states": ["CO"],
@@ -8190,14 +8190,14 @@
     "states": ["TX"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/74D1A662-0F1F-BE6D-E7755A5F9E313CF6.jpg",
-        "title": "Granary at Mission San Jos\u00e9",
-        "altText": "Large room with an arches ceiling"
+        "url": "https://www.nps.gov/common/uploads/structured_data/733A078E-0D7B-DEA6-E52FB53569021F2D.jpg",
+        "title": "Espada Aqueduct",
+        "altText": "stone aqueduct with water filling the channel"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/1D4C640B-AC88-ED51-59AE87D041A0B129.jpg",
-        "title": "Mission Concepcion Convento & Church",
-        "altText": "Mission Concepcion convento with church in background."
+        "url": "https://www.nps.gov/common/uploads/structured_data/733A078E-0D7B-DEA6-E52FB53569021F2D.jpg",
+        "title": "Espada Aqueduct",
+        "altText": "stone aqueduct with water filling the channel"
       }
     ]
   },
