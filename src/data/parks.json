@@ -2424,14 +2424,14 @@
     "states": ["CA", "NV"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/1A18EC97-EB1E-7D32-05BE1B8D08719225.jpg",
-        "title": "A rare superbloom of Desert Gold.",
-        "altText": "a field of yellow flowers with a mountain"
+        "url": "https://www.nps.gov/common/uploads/structured_data/84A6F4EF-9F8D-2784-0B3D03B4C5103EF8.jpg",
+        "title": "Desert Gold in Panamint Valley",
+        "altText": "Snowcapped mountains surrounded by bright blue skies and frames by gold wildflowers on a valley floo"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/DEF5FFF0-0C8A-00A5-F2EA8F279F1DF876.jpg",
-        "title": "Hottest Place on Earth",
-        "altText": "thermometer reading 130 f 54 c"
+        "url": "https://www.nps.gov/common/uploads/structured_data/011D09CC-B05F-EFA0-820E55431CFBE5FE.jpg",
+        "title": "Storm over the Salt Flats",
+        "altText": "white salt flats with dark gray clouds"
       }
     ]
   },
