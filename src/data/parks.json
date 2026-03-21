@@ -4933,7 +4933,7 @@
     "name": "Hovenweep",
     "fullName": "Hovenweep National Monument",
     "parkCode": "hove",
-    "description": "Hovenweep preserves six prehistoric sites built between A.D. 1200 and 1300 which may have served as ceremonial centers. Explore a variety of structures, including multistory towers perched on canyon rims and balanced on boulders. The construction and attention to detail will leave you marveling at the skill and motivation of the builders.",
+    "description": "Hovenweep preserves six prehistoric sites built between 1200 and 1300 CE which may have served as ceremonial centers. Explore a variety of structures, including multistory towers perched on canyon rims and balanced on boulders. The construction and attention to detail will leave you marveling at the skill and motivation of the builders.",
     "latitude": 37.39134092,
     "longitude": -109.0047977,
     "states": ["CO", "UT"],
@@ -7891,14 +7891,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/7677BCE7-9708-B249-CA446A8B9F9B9938.jpg",
-        "title": "Enjoy a ranger-led program",
-        "altText": "A park ranger is leading a program"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8508C870-F18F-A7EF-971BD2D6C86D56E6.jpg",
+        "title": "Attend a Ranger-led Program or Activity",
+        "altText": "A ranger-led program is happening at Beaver Meadows Visitor Center"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/76167D19-94CE-099A-880C02D7295AEE1F.jpg",
-        "title": "Enjoy wildlife in winter",
-        "altText": "Ptarmigan in winter coat"
+        "url": "https://www.nps.gov/common/uploads/structured_data/84E3C876-FF13-8444-4234EAD8566CE1D8.jpg",
+        "title": "Enjoy scenic views",
+        "altText": "Scenic views of Horseshoe Park"
       }
     ]
   },
