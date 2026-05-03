@@ -1485,7 +1485,7 @@
     "name": "Carl Sandburg Home",
     "fullName": "Carl Sandburg Home National Historic Site",
     "parkCode": "carl",
-    "description": "Post Helene Status: Pedestrian detour in place from main parking lot. Grounds / trails open dawn till dusk 7 days a week. Barn open 7 days a week 10-4. Bookstore / Visitor Center open Wed, Thurs, Fri, Sat and Sun 10-4. Interagency passes can be purchased at Visitor Center.",
+    "description": "Current Status: Pedestrian detour in place from main parking lot. Grounds / trails open dawn till dusk 7 days a week. Barn open 7 days a week 10-4. Bookstore / Visitor Center open Tuesday - Sunday 9-5. Interagency passes can be purchased at Visitor Center.",
     "latitude": 35.26815509,
     "longitude": -82.45106258,
     "states": ["NC"],
@@ -1894,7 +1894,7 @@
     "name": "Chickamauga & Chattanooga",
     "fullName": "Chickamauga & Chattanooga National Military Park",
     "parkCode": "chch",
-    "description": "In 1863, Union and Confederate forces fought for control of Chattanooga, known as the \"Gateway to the Deep South.\" The Confederates were victorious at nearby Chickamauga in September. However, renewed fighting in Chattanooga that November provided Union troops victory and control of the city. After the fighting, a Confederate soldier ominously wrote, \"This...is the death-knell of the Confederacy.\"",
+    "description": "In 1863, Union and Confederate forces fought for control of Chattanooga - a gateway to the Confederacy. The Confederates were victorious at nearby Chickamauga in September. However, renewed fighting in Chattanooga that November provided Union troops victory and control of the city. After the fighting, a Confederate soldier ominously wrote, \"This...is the death-knell of the Confederacy.\"",
     "latitude": 34.94317623,
     "longitude": -85.28749537,
     "states": ["GA", "TN"],
@@ -4218,9 +4218,9 @@
         "altText": "Log buildings, stockade fence and dock near Lake."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/242F987D-A5C9-C97D-FA692D01CE985AE4.jpg",
-        "title": "Historic Depot in Snow",
-        "altText": "Historic wooden buildings behind a palisade in a snowy landscape."
+        "url": "https://www.nps.gov/common/uploads/structured_data/7BB4A2E5-EF50-21A2-E590D580DE06718A.jpg",
+        "title": "Historic Depot from Mount Rose",
+        "altText": "Log buildings, stockade fence and dock near a large lake."
       }
     ]
   },
@@ -7379,7 +7379,7 @@
     "name": "Petrified Forest",
     "fullName": "Petrified Forest National Park",
     "parkCode": "pefo",
-    "description": "Park Hours: 8am to 5pm, MST. Don't forget that Arizona does not observe Daylight Savings. Petrified Forest is best known for its Triassic fossils. It's like having two parks in one, an ecosystem over 200 million years old with plants and animals now represented in the surreal landscape of the Painted Desert. There is also a living park with its own denizens adapted to a demanding environment.",
+    "description": "A landscape where deep time lies fully on display, Petrified Forest National Park blends colorful badlands, vast grasslands, and one of the world\u2019s largest and most vivid collections of petrified wood. Spanning more than 200 million years of geologic history, the park protects ancient fossils, ancestral Puebloan sites, habitat for desert animals, and a sweeping stretch of historic Route 66.",
     "latitude": 34.98387664,
     "longitude": -109.7877678,
     "states": ["AZ"],
@@ -7615,7 +7615,7 @@
     "states": ["AR"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C80B417-1DD8-B71B-0B6F982FAD0B0CE9.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/B8E9E920-AE11-F538-2DA5C60CF361FCA5.jpg",
         "title": "Birthplace Home",
         "altText": "The birthplace home of President Bill Clinton illuminated at dusk."
       },
