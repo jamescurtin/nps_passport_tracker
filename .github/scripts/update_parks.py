@@ -13,13 +13,16 @@ from pydantic import (
     field_serializer,
     field_validator,
 )
+from requests.adapters import HTTPAdapter, Retry
 from requests.exceptions import HTTPError, JSONDecodeError
 
 JSONType = dict[str, Any]
 
 BASE_URL: str = "https://developer.nps.gov/api/v1"
-HEADERS: dict[str, str] = {"X-Api-Key": os.environ["NPS_API_KEY"]}
 MAX_PICTURES_PER_SITE: int = 2
+# (connect timeout, read timeout) applied to every request, so a stalled NPS
+# endpoint fails fast instead of hanging until the CI job timeout.
+REQUEST_TIMEOUT: tuple[int, int] = (5, 30)
 # NPS units containing the following designations in their name will be excluded
 # from the list of parks used to populate the map.
 EXCLUDED_DESIGNATIONS: set[str] = {
@@ -116,6 +119,34 @@ def _park_has_excluded_designation(park_name: str) -> bool:
     return any(park_name.endswith(designation) for designation in EXCLUDED_DESIGNATIONS)
 
 
+def _build_session() -> requests.Session:
+    """Create a requests Session with API-key auth and retry/backoff.
+
+    The NPS API key is read here (not at import time) so the module can be
+    imported and unit-tested without the secret present.
+
+    Returns:
+        requests.Session: session configured with the API key header and a
+            retry policy for transient errors and rate limiting.
+    """
+    api_key = os.environ.get("NPS_API_KEY")
+    if not api_key:
+        raise SystemExit("NPS_API_KEY environment variable is not set")
+    session = requests.Session()
+    session.headers.update({"X-Api-Key": api_key})
+    retry = Retry(
+        total=5,
+        backoff_factor=1,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=("GET",),
+        respect_retry_after_header=True,
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+
 def _process_response(response: requests.Response) -> JSONType:
     try:
         response.raise_for_status()
@@ -128,11 +159,12 @@ def _process_response(response: requests.Response) -> JSONType:
     return json_body
 
 
-def get_paginated_json_response(url: str, limit: int) -> Iterator[JSONType]:
-    session = requests.Session()
+def get_paginated_json_response(
+    url: str, limit: int, session: requests.Session
+) -> Iterator[JSONType]:
     start = 0
     first_page = session.get(
-        url, headers=HEADERS, params={"limit": limit, "start": start}
+        url, params={"limit": limit, "start": start}, timeout=REQUEST_TIMEOUT
     )
     first_page_json = _process_response(first_page)
     yield first_page_json
@@ -146,7 +178,7 @@ def get_paginated_json_response(url: str, limit: int) -> Iterator[JSONType]:
     while results_fetched < total_results:
         start += limit
         next_page = session.get(
-            url, headers=HEADERS, params={"limit": limit, "start": start}
+            url, params={"limit": limit, "start": start}, timeout=REQUEST_TIMEOUT
         )
         yield _process_response(next_page)
         results_fetched += limit
@@ -157,8 +189,9 @@ def main() -> None:
     parser.add_argument("file", type=str, help="Path of parks.json")
     args = parser.parse_args()
 
+    session = _build_session()
     raw_data = []
-    for page in get_paginated_json_response(f"{BASE_URL}/parks", 100):
+    for page in get_paginated_json_response(f"{BASE_URL}/parks", 100, session):
         raw_data.extend(page["data"])
 
     park_data = []
