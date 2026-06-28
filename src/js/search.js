@@ -1,5 +1,12 @@
 import * as d3 from "d3";
 
+import stateAbbreviations from "./state_abbreviations";
+
+// Reverse lookup: two-letter abbreviation -> full state/territory name.
+const stateNamesByAbbrev = Object.fromEntries(
+  Object.entries(stateAbbreviations).map(([name, abbrev]) => [abbrev, name]),
+);
+
 /**
  * Calculate distance between two points using Haversine formula
  * @param {number} lat1 - Latitude of first point
@@ -8,7 +15,7 @@ import * as d3 from "d3";
  * @param {number} lon2 - Longitude of second point
  * @returns {number} Distance in miles
  */
-function haversineDistance(lat1, lon1, lat2, lon2) {
+export function haversineDistance(lat1, lon1, lat2, lon2) {
   const R = 3959; // Earth's radius in miles
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
@@ -23,29 +30,54 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
 }
 
 /**
- * Geocode an address using OpenStreetMap Nominatim API
+ * Geocode an address using OpenStreetMap Nominatim API.
+ *
+ * Nominatim identifies browser clients via the Referer header (sent
+ * automatically); the User-Agent request header cannot be set from `fetch`,
+ * so it is not specified here.
+ *
  * @param {string} address - Address to geocode
- * @returns {Promise<{lat: number, lng: number, display_name: string}|null>}
+ * @returns {Promise<{status: string, location?: {lat: number, lng: number,
+ *   display_name: string}}>} Discriminated result: "ok" with a location,
+ *   "not_found", "rate_limited", or "error".
  */
 async function geocodeAddress(address) {
   const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1`;
+  let response;
   try {
-    const response = await fetch(url, {
-      headers: { "User-Agent": "NPS-Passport-Tracker" },
-    });
-    const data = await response.json();
-    if (data.length > 0) {
-      return {
+    response = await fetch(url);
+  } catch (error) {
+    console.error("Geocoding network error:", error);
+    return { status: "error" };
+  }
+
+  if (response.status === 429) {
+    return { status: "rate_limited" };
+  }
+  if (!response.ok) {
+    console.error(`Geocoding failed: HTTP ${response.status}`);
+    return { status: "error" };
+  }
+
+  let data;
+  try {
+    data = await response.json();
+  } catch (error) {
+    console.error("Geocoding parse error:", error);
+    return { status: "error" };
+  }
+
+  if (Array.isArray(data) && data.length > 0) {
+    return {
+      status: "ok",
+      location: {
         lat: parseFloat(data[0].lat),
         lng: parseFloat(data[0].lon),
         display_name: data[0].display_name,
-      };
-    }
-    return null;
-  } catch (error) {
-    console.error("Geocoding error:", error);
-    return null;
+      },
+    };
   }
+  return { status: "not_found" };
 }
 
 /**
@@ -163,6 +195,19 @@ export class ParkSearch {
     }
 
     this.onFilter(filtered);
+    if (this.onResults) {
+      this.onResults(filtered);
+    }
+  }
+
+  /**
+   * Whether any non-location filter (text, visited, or state) is active.
+   * @returns {boolean}
+   */
+  hasActiveListFilter() {
+    return Boolean(
+      this.filters.query || this.filters.visited !== null || this.filters.state,
+    );
   }
 
   getParksInRange() {
@@ -308,8 +353,29 @@ export function createSearchUI(container, parkSearch) {
   stateSelect.append("option").attr("value", "").text("All States");
 
   parkSearch.getUniqueStates().forEach((state) => {
-    stateSelect.append("option").attr("value", state).text(state);
+    stateSelect
+      .append("option")
+      .attr("value", state)
+      .text(stateNamesByAbbrev[state] || state);
   });
+
+  // Results section for text/state/visited filters (hidden until a filter is
+  // active). The separate location section renders its own distance-sorted list.
+  const resultsSection = searchContainer
+    .append("div")
+    .attr("class", "results-section")
+    .attr("id", "results-section")
+    .style("display", "none");
+
+  resultsSection
+    .append("div")
+    .attr("class", "results-count")
+    .attr("id", "results-count");
+
+  resultsSection
+    .append("div")
+    .attr("class", "results-list-container")
+    .attr("id", "results-list-container");
 
   // Location search section
   const locationSection = searchContainer
@@ -363,6 +429,14 @@ export function createSearchUI(container, parkSearch) {
     .attr("aria-label", "Search location")
     .text("Go")
     .on("click", handleGeocodeSearch);
+
+  // "Use my location" geolocation button
+  locationContent
+    .append("button")
+    .attr("type", "button")
+    .attr("class", "geolocate-btn")
+    .text("📍 Use my location")
+    .on("click", handleGeolocate);
 
   // Status display
   locationContent
@@ -427,29 +501,84 @@ export function createSearchUI(container, parkSearch) {
       d3.select("#parks-in-range-container").style("display", "none");
     });
 
+  // Apply a resolved location (from geocoding or geolocation) as the active
+  // distance filter and reveal the radius/list controls.
+  function applyLocation(lat, lng, displayName) {
+    const radiusMiles = parseInt(
+      document.getElementById("radius-slider").value,
+    );
+    parkSearch.setLocationFilter(lat, lng, radiusMiles, displayName);
+    d3.select("#radius-container").style("display", "block");
+    d3.select("#location-clear").style("display", "block");
+    d3.select("#parks-in-range-container").style("display", "block");
+    updateLocationStatus();
+    updateParksList();
+  }
+
+  // Use the browser Geolocation API to filter by the user's current position.
+  function handleGeolocate() {
+    if (!navigator.geolocation) {
+      d3.select("#location-status").text(
+        "Geolocation is not supported by your browser.",
+      );
+      return;
+    }
+    d3.select("#location-status").text("Locating...");
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        applyLocation(
+          position.coords.latitude,
+          position.coords.longitude,
+          "Your location",
+        );
+      },
+      (error) => {
+        d3.select("#location-status").text(
+          error.code === error.PERMISSION_DENIED
+            ? "Location permission denied."
+            : "Could not determine your location.",
+        );
+      },
+    );
+  }
+
+  // Guard against overlapping in-flight geocode requests, which would both
+  // exceed Nominatim's rate limit and risk out-of-order (last-write) results.
+  let isGeocoding = false;
+
   // Helper function for geocode search
   async function handleGeocodeSearch() {
+    if (isGeocoding) return;
     const address = document.getElementById("address-input").value.trim();
     if (!address) return;
 
+    isGeocoding = true;
+    const goButton = searchContainer.select(".address-search-btn");
+    goButton.property("disabled", true);
     d3.select("#location-status").text("Searching...");
 
-    const result = await geocodeAddress(address);
-    if (result) {
-      const radiusMiles = parseInt(
-        document.getElementById("radius-slider").value,
+    let result;
+    try {
+      result = await geocodeAddress(address);
+    } finally {
+      isGeocoding = false;
+      goButton.property("disabled", false);
+    }
+
+    if (result.status === "ok") {
+      applyLocation(
+        result.location.lat,
+        result.location.lng,
+        result.location.display_name,
       );
-      parkSearch.setLocationFilter(
-        result.lat,
-        result.lng,
-        radiusMiles,
-        result.display_name,
+    } else if (result.status === "rate_limited") {
+      d3.select("#location-status").text(
+        "Too many searches. Please wait a moment and try again.",
       );
-      d3.select("#radius-container").style("display", "block");
-      d3.select("#location-clear").style("display", "block");
-      d3.select("#parks-in-range-container").style("display", "block");
-      updateLocationStatus();
-      updateParksList();
+    } else if (result.status === "error") {
+      d3.select("#location-status").text(
+        "Search failed. Check your connection and try again.",
+      );
     } else {
       d3.select("#location-status").text(
         "Location not found. Try a different address.",
@@ -469,41 +598,53 @@ export function createSearchUI(container, parkSearch) {
     }
   }
 
-  // Helper function to update parks list
-  function updateParksList() {
-    const container = d3.select("#parks-in-range-container");
+  // Render a list of parks into a container. Shared by the location
+  // (distance-sorted) list and the text/state/visited results list, which
+  // differ only in the name element, the secondary text, and the empty message.
+  function renderParkList(
+    container,
+    parks,
+    { emptyMessage, secondaryText, onNameClick },
+  ) {
     container.html("");
-
-    const parksInRange = parkSearch.getParksInRange();
-    if (parksInRange.length === 0) {
+    if (parks.length === 0) {
       container
         .append("p")
         .attr("class", "no-parks-message")
-        .text("No parks found within this radius.");
+        .text(emptyMessage);
       return;
     }
 
     const list = container.append("ul").attr("class", "parks-in-range-list");
-
-    parksInRange.forEach((park) => {
+    parks.forEach((park) => {
       const item = list.append("li").attr("class", "park-in-range-item");
       const visitedClass = park.visited === 1 ? "visited" : "not-visited";
       item
         .append("span")
         .attr("class", `park-visited-indicator ${visitedClass}`)
         .attr("title", park.visited === 1 ? "Visited" : "Not Visited");
-      item
-        .append("a")
-        .attr("class", "park-name")
-        .attr("href", park.url)
-        .attr("target", "_blank")
-        .text(park.name);
+
+      if (onNameClick) {
+        item
+          .append("button")
+          .attr("type", "button")
+          .attr("class", "park-name park-name-button")
+          .text(park.name)
+          .on("click", () => onNameClick(park));
+      } else {
+        item
+          .append("a")
+          .attr("class", "park-name")
+          .attr("href", park.url)
+          .attr("target", "_blank")
+          .text(park.name);
+      }
+
       item
         .append("span")
         .attr("class", "park-distance")
-        .text(`${Math.round(park.distance)} mi`);
+        .text(secondaryText(park));
 
-      // Hover highlight on map marker
       item.on("mouseenter", () => {
         if (parkSearch.onHighlightPark) {
           parkSearch.onHighlightPark(park.parkCode);
@@ -516,6 +657,44 @@ export function createSearchUI(container, parkSearch) {
       });
     });
   }
+
+  // Update the location (distance-sorted) parks list.
+  function updateParksList() {
+    renderParkList(
+      d3.select("#parks-in-range-container"),
+      parkSearch.getParksInRange(),
+      {
+        emptyMessage: "No parks found within this radius.",
+        secondaryText: (park) => `${Math.round(park.distance)} mi`,
+      },
+    );
+  }
+
+  // Render the results list for text/state/visited filters.
+  function renderResults(filtered) {
+    const section = d3.select("#results-section");
+    if (!parkSearch.hasActiveListFilter()) {
+      section.style("display", "none");
+      return;
+    }
+    section.style("display", "block");
+
+    d3.select("#results-count").text(
+      `${filtered.length} ${filtered.length === 1 ? "park" : "parks"} match`,
+    );
+
+    renderParkList(d3.select("#results-list-container"), filtered, {
+      emptyMessage: "No parks match these filters.",
+      secondaryText: (park) => park.states.join(", "),
+      onNameClick: (park) => {
+        if (parkSearch.onParkSelect) {
+          parkSearch.onParkSelect(park);
+        }
+      },
+    });
+  }
+
+  parkSearch.onResults = renderResults;
 
   return { searchContainer, searchToggle, updateParksList };
 }

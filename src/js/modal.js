@@ -1,10 +1,12 @@
 import * as d3 from "d3";
-import $ from "jquery";
 
 const modal = d3
   .select("body")
   .append("div")
   .attr("class", "modal")
+  .attr("role", "dialog")
+  .attr("aria-modal", "true")
+  .attr("aria-label", "Park details")
   .on("click", resetPoint);
 
 const modalContent = modal
@@ -14,6 +16,11 @@ const modalContent = modal
     e.stopPropagation();
   });
 
+// Track open state and the element focused before opening so focus can be
+// restored on close.
+let isOpen = false;
+let lastFocused = null;
+
 /**
  * Show park modal when clicking on point.
  * @param {object} _ - The event callback.
@@ -21,15 +28,25 @@ const modalContent = modal
  * @return {undefined}
  */
 export function clickedPoint(_, d) {
+  // Clear any prior content in case a modal is opened over an existing one.
+  modalContent.selectAll("*").remove();
+
   modalContent
-    .append("span")
+    .append("button")
+    .attr("type", "button")
     .attr("class", "close")
+    .attr("aria-label", "Close")
     .text("✖")
     .on("click", resetPoint);
 
   modalContent.append("h2").text(d.fullName);
 
-  modalContent.append("p").text(populateVisitData(d));
+  if (d.visited === 1) {
+    modalContent.append("p").text(populateVisitData(d));
+    if (d.notes) {
+      modalContent.append("p").attr("class", "modal-notes").text(d.notes);
+    }
+  }
 
   modalContent
     .append("a")
@@ -71,7 +88,14 @@ export function clickedPoint(_, d) {
     }
   }
 
-  $(".modal").show();
+  lastFocused = document.activeElement;
+  modal.style("display", "block");
+  isOpen = true;
+  // Move focus into the dialog for keyboard and screen-reader users.
+  const closeButton = modalContent.select(".close").node();
+  if (closeButton) {
+    closeButton.focus();
+  }
 }
 
 /**
@@ -79,6 +103,22 @@ export function clickedPoint(_, d) {
  * @return {undefined}
  */
 function resetPoint() {
-  $(".modal").hide();
+  modal.style("display", "none");
   modalContent.selectAll("*").remove();
+  isOpen = false;
+  // Restore focus to whatever triggered the modal.
+  if (lastFocused && typeof lastFocused.focus === "function") {
+    lastFocused.focus();
+    lastFocused = null;
+  }
+}
+
+/**
+ * Close the modal if it is open (used by the global Escape handler).
+ * @return {boolean} true if the modal was open and is now closed
+ */
+export function closeModal() {
+  if (!isOpen) return false;
+  resetPoint();
+  return true;
 }

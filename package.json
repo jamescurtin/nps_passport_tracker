@@ -13,7 +13,6 @@
     "d3": "7.9.0",
     "d3-array": "3.2.4",
     "geo-albers-usa-territories": "0.1.0",
-    "jquery": "4.0.0",
     "topojson-client": "3.1.0",
     "us-atlas": "3.0.1"
   },
@@ -29,6 +28,7 @@
     "style-loader": "4.0.0",
     "stylelint": "^17.0.0",
     "stylelint-config-standard": "^40.0.0",
+    "vitest": "^4.1.9",
     "webpack": "5.108.1",
     "webpack-cli": "7.1.0",
     "webpack-dev-server": "5.2.5"
@@ -36,6 +36,7 @@
   "scripts": {
     "build": "webpack",
     "server": "webpack serve",
+    "test": "vitest run",
     "eslint-fix": "eslint --fix .",
     "eslint-check": "eslint .",
     "stylelint": "stylelint **/*.css",

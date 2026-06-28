@@ -1,13 +1,12 @@
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
-import $ from "jquery";
 import topoJsonStates from "us-atlas/states-10m";
 
 import parksJSON from "./data/parks";
 import visitsJSON from "./data/visits";
 
 import color from "./js/colorscale";
-import { clickedPoint } from "./js/modal";
+import { clickedPoint, closeModal } from "./js/modal";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
@@ -39,7 +38,10 @@ const borderRadius = 5;
 
 // NPS Site point marker properties
 const pointRadius = 3;
-const pointRadiusScaled = 4;
+
+// Zoom scale bounds, shared by the zoom behavior and programmatic zooms.
+const MIN_SCALE = 1;
+const MAX_SCALE = 16;
 
 // On click properties
 const tooltipOpacity = 0.9;
@@ -85,7 +87,7 @@ const g = svg.append("g");
 // Extended max zoom (16x) to handle small states like DC
 const zoom = d3
   .zoom()
-  .scaleExtent([1, 16])
+  .scaleExtent([MIN_SCALE, MAX_SCALE])
   .on("zoom", (event) => {
     g.attr("transform", event.transform);
 
@@ -113,11 +115,12 @@ const sidebar = body
   .attr("class", "sidebar")
   .attr("id", "park-list-sidebar");
 const closeSidebarButton = sidebar
-  .append("a")
+  .append("button")
+  .attr("type", "button")
   .attr("class", "close-sidebar-button")
-  .attr("href", "#")
+  .attr("aria-label", "Close park list")
   .on("click", prepareSidebar);
-closeSidebarButton.append("text").text("✕");
+closeSidebarButton.text("✕");
 const parkList = sidebar.append("div").attr("class", "park-list");
 
 // Construct the legend (positioned at top-right to avoid stats button overlap)
@@ -177,218 +180,256 @@ sidebarControl
   .attr("fill", "white")
   .on("click", openSidebar);
 
-d3.json(topoJsonStates).then(function (json) {
-  d3.json(parksJSON).then(function (parkData) {
-    d3.json(visitsJSON).then(function (visitData) {
-      const data = mergeNPSData(parkData, visitData);
-      const features = topojson.feature(json, json.objects.states).features;
+const loadingIndicator = body
+  .append("div")
+  .attr("class", "loading-indicator")
+  .attr("id", "loading-indicator")
+  .text("Loading map…");
 
-      const parksVisitedCount = countParksVisited(data);
-      const percentVisited = Math.round(
-        (parksVisitedCount / data.length) * 100,
-      );
+Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
+  .then(function ([json, parkData, visitData]) {
+    loadingIndicator.remove();
+    const data = mergeNPSData(parkData, visitData);
+    const features = topojson.feature(json, json.objects.states).features;
 
-      // Use shorter title on mobile
-      const isMobileView = window.innerWidth <= 768;
-      const titleText = isMobileView
-        ? `${parksVisitedCount} NPS Units Visited (${percentVisited}%)`
-        : `${mapTitle}: Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`;
-      const subtitleText = isMobileView
-        ? "Tap a state to zoom"
-        : "Click on a point for more info, or on a state to zoom";
+    const parksVisitedCount = countParksVisited(data);
+    const percentVisited = Math.round((parksVisitedCount / data.length) * 100);
 
-      svgHeader
-        .append("text")
-        .attr("class", "title")
-        .attr("x", width / 2)
-        .attr("y", 20)
-        .attr("text-anchor", "middle")
-        .text(titleText);
+    // Use shorter title on mobile
+    const isMobileView = window.innerWidth <= 768;
+    const titleText = isMobileView
+      ? `${parksVisitedCount} NPS Units Visited (${percentVisited}%)`
+      : `${mapTitle}: Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`;
+    const subtitleText = isMobileView
+      ? "Tap a state to zoom"
+      : "Click on a point for more info, or on a state to zoom";
 
-      svgHeader
-        .append("text")
-        .attr("class", "subtitle")
-        .attr("x", width / 2)
-        .attr("y", 40)
-        .attr("text-anchor", "middle")
-        .text(subtitleText);
+    svgHeader
+      .append("text")
+      .attr("class", "title")
+      .attr("x", width / 2)
+      .attr("y", 20)
+      .attr("text-anchor", "middle")
+      .text(titleText);
 
-      // Add NPS sites as properties of the states they are located within
-      for (let i = 0; i < features.length; i++) {
-        features[i].properties.parks = [];
-        for (let j = 0; j < data.length; j++) {
-          if (
-            data[j].states.includes(
-              stateAbbreviations[features[i].properties.name],
-            )
-          ) {
-            features[i].properties.parks.push(data[j]);
-          }
+    svgHeader
+      .append("text")
+      .attr("class", "subtitle")
+      .attr("x", width / 2)
+      .attr("y", 40)
+      .attr("text-anchor", "middle")
+      .text(subtitleText);
+
+    // Add NPS sites as properties of the states they are located within
+    for (let i = 0; i < features.length; i++) {
+      features[i].properties.parks = [];
+      for (let j = 0; j < data.length; j++) {
+        if (
+          data[j].states.includes(
+            stateAbbreviations[features[i].properties.name],
+          )
+        ) {
+          features[i].properties.parks.push(data[j]);
         }
       }
+    }
 
-      const mesh = topojson.mesh(json, json.objects.states, function (a, b) {
-        return a !== b;
-      });
+    const mesh = topojson.mesh(json, json.objects.states, function (a, b) {
+      return a !== b;
+    });
 
-      g.selectAll("path")
-        .data(features)
-        .enter()
-        .append("path")
-        .attr("d", path)
-        .attr("class", function (d) {
-          let visit_count = d.properties.parks.reduce(
-            (count, park) => count + parseInt(park.visited),
-            0,
-          );
-          let parks_in_state = d.properties.parks.length;
-          return visit_count === parks_in_state ? "state-complete" : "state";
-        })
-        .on("mouseover", function (event, d) {
-          tooltip
-            .transition()
-            .duration(mouseoverDuration)
-            .style("opacity", tooltipOpacity);
-          tooltip
-            .text(d.properties.name)
-            .style("left", event.pageX + "px")
-            .style("top", event.pageY + "px");
-        })
-        .on("mouseout", function () {
-          tooltip.transition().duration(mouseoverDuration).style("opacity", 0);
-        })
-        .on("click", clickedMap);
-
-      g.append("path")
-        .datum(mesh)
-        .attr("class", "mesh")
-        .attr("stroke-width", strokeWidth)
-        .attr("d", path);
-
-      g.selectAll(".park-marker")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("class", "park-marker")
-        .attr("cx", function (d) {
-          return projection([d.longitude, d.latitude])[0];
-        })
-        .attr("cy", function (d) {
-          return projection([d.longitude, d.latitude])[1];
-        })
-        .attr("r", pointRadius)
-        .style("fill", function (d) {
-          return color(d.visited);
-        })
-        .on("mouseover", function (event, d) {
-          tooltip
-            .transition()
-            .duration(mouseoverDuration)
-            .style("opacity", tooltipOpacity);
-          tooltip
-            .text(d.name)
-            .style("left", event.pageX + "px")
-            .style("top", event.pageY + "px");
-        })
-        .on("mouseout", function () {
-          tooltip.transition().duration(mouseoverDuration).style("opacity", 0);
-        })
-        .on("click", clickedPoint);
-
-      // Function to zoom to a state by abbreviation
-      const zoomToStateByAbbrev = (stateAbbrev) => {
-        // Find the state feature by abbreviation
-        const stateFeature = features.find(
-          (f) => stateAbbreviations[f.properties.name] === stateAbbrev,
+    g.selectAll("path")
+      .data(features)
+      .enter()
+      .append("path")
+      .attr("d", path)
+      .attr("class", function (d) {
+        let visit_count = d.properties.parks.reduce(
+          (count, park) => count + parseInt(park.visited),
+          0,
         );
-        if (stateFeature) {
-          // Find the corresponding DOM element
-          const stateElements = g.selectAll("path:not(.mesh)").nodes();
-          const stateIndex = features.indexOf(stateFeature);
-          if (stateIndex >= 0 && stateElements[stateIndex]) {
-            // Simulate a click on the state
-            const stateElement = stateElements[stateIndex];
-            clickedMap.call(stateElement, null, stateFeature);
-          }
+        let parks_in_state = d.properties.parks.length;
+        // A state with no NPS sites is not "complete" (0 === 0 would
+        // otherwise mark it green).
+        return parks_in_state > 0 && visit_count === parks_in_state
+          ? "state-complete"
+          : "state";
+      })
+      .on("mouseover", function (event, d) {
+        tooltip
+          .transition()
+          .duration(mouseoverDuration)
+          .style("opacity", tooltipOpacity);
+        tooltip
+          .text(d.properties.name)
+          .style("left", event.pageX + "px")
+          .style("top", event.pageY + "px");
+      })
+      .on("mouseout", function () {
+        tooltip.transition().duration(mouseoverDuration).style("opacity", 0);
+      })
+      .on("click", clickedMap);
+
+    g.append("path")
+      .datum(mesh)
+      .attr("class", "mesh")
+      .attr("stroke-width", strokeWidth)
+      .attr("d", path);
+
+    g.selectAll(".park-marker")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("class", "park-marker")
+      .attr("cx", function (d) {
+        return projection([d.longitude, d.latitude])[0];
+      })
+      .attr("cy", function (d) {
+        return projection([d.longitude, d.latitude])[1];
+      })
+      .attr("r", pointRadius)
+      .style("fill", function (d) {
+        return color(d.visited);
+      })
+      .on("mouseover", function (event, d) {
+        tooltip
+          .transition()
+          .duration(mouseoverDuration)
+          .style("opacity", tooltipOpacity);
+        tooltip
+          .text(d.name)
+          .style("left", event.pageX + "px")
+          .style("top", event.pageY + "px");
+      })
+      .on("mouseout", function () {
+        tooltip.transition().duration(mouseoverDuration).style("opacity", 0);
+      })
+      .on("click", clickedPoint);
+
+    // Function to zoom to a state by abbreviation
+    const zoomToStateByAbbrev = (stateAbbrev) => {
+      // Find the state feature by abbreviation
+      const stateFeature = features.find(
+        (f) => stateAbbreviations[f.properties.name] === stateAbbrev,
+      );
+      if (stateFeature) {
+        // Find the corresponding DOM element
+        const stateElements = g.selectAll("path:not(.mesh)").nodes();
+        const stateIndex = features.indexOf(stateFeature);
+        if (stateIndex >= 0 && stateElements[stateIndex]) {
+          // Simulate a click on the state
+          const stateElement = stateElements[stateIndex];
+          clickedMap.call(stateElement, null, stateFeature);
         }
-      };
+      }
+    };
 
-      // Function to zoom to a location with a given radius
-      const zoomToLocation = (lat, lng, radiusMiles) => {
-        // Clear signal from search panel
-        if (lat === null) {
-          clearSearchOverlay();
-          return;
-        }
+    // Function to zoom to a location with a given radius
+    const zoomToLocation = (lat, lng, radiusMiles) => {
+      // Clear signal from search panel
+      if (lat === null) {
+        clearSearchOverlay();
+        return;
+      }
 
-        // Project the center point
-        const center = projection([lng, lat]);
-        if (!center) return; // Location outside projection bounds
+      // Project the center point
+      const center = projection([lng, lat]);
+      if (!center) return; // Location outside projection bounds
 
-        // Calculate scale based on radius
-        // radiusMiles determines how much area we want to show
-        // We want the radius to fit within ~40% of the smaller screen dimension
-        const targetPixels = Math.min(width, height) * 0.4;
-        // Convert miles to approximate pixels at current projection
-        // At scale=1, roughly 1 degree = varies, but we can estimate
-        // Using the haversine-based approach: figure out how many degrees the radius spans
-        const degreesPerMile = 1 / 69; // Roughly 69 miles per degree
-        const radiusDegrees = radiusMiles * degreesPerMile;
+      // Calculate scale based on radius
+      // We want the radius to fit within ~40% of the smaller screen dimension
+      const targetPixels = Math.min(width, height) * 0.4;
+      const radiusPixels = searchRadiusPixels(lat, lng, radiusMiles);
+      if (radiusPixels === 0) return;
 
-        // Project a point at the edge of the radius to calculate pixel distance
-        const edgePoint = projection([lng + radiusDegrees, lat]);
-        if (!edgePoint) return;
-        const radiusPixels = Math.abs(edgePoint[0] - center[0]);
-
-        // Calculate scale so that radius fits in targetPixels
-        const desiredScale = radiusPixels > 0 ? targetPixels / radiusPixels : 1;
-        const clampedScale = Math.max(1, Math.min(16, desiredScale));
-
-        // Calculate translation to center the point
-        const translate = [
-          width / 2 - clampedScale * center[0],
-          height / 2 - clampedScale * center[1],
-        ];
-
-        // Apply the zoom transform
-        const transform = d3.zoomIdentity
-          .translate(translate[0], translate[1])
-          .scale(clampedScale);
-
-        svg.transition().duration(zoomDuration).call(zoom.transform, transform);
-
-        // Draw search overlay (pin + circle)
-        drawSearchOverlay(lat, lng, radiusMiles);
-      };
-
-      // Initialize search functionality
-      const parkSearch = new ParkSearch(
-        data,
-        (filteredParks) => {
-          // Update map to highlight/dim parks based on filter
-          g.selectAll(".park-marker")
-            .style("opacity", (d) => (filteredParks.includes(d) ? 1 : 0.2))
-            .style("pointer-events", (d) =>
-              filteredParks.includes(d) ? "auto" : "none",
-            );
-        },
-        zoomToStateByAbbrev,
-        zoomToLocation,
+      // Calculate scale so that radius fits in targetPixels
+      const desiredScale = targetPixels / radiusPixels;
+      const clampedScale = Math.max(
+        MIN_SCALE,
+        Math.min(MAX_SCALE, desiredScale),
       );
 
-      // Attach highlight callbacks for hover
-      parkSearch.onHighlightPark = highlightParkMarker;
-      parkSearch.onUnhighlightPark = unhighlightParkMarker;
+      // Calculate translation to center the point
+      const translate = [
+        width / 2 - clampedScale * center[0],
+        height / 2 - clampedScale * center[1],
+      ];
 
-      // Create search UI
-      createSearchUI(body, parkSearch);
+      // Apply the zoom transform
+      const transform = d3.zoomIdentity
+        .translate(translate[0], translate[1])
+        .scale(clampedScale);
 
-      // Calculate and create stats button
-      const stats = calculateStats(data, visitData);
-      createStatsButton(body, stats);
-    });
+      svg.transition().duration(zoomDuration).call(zoom.transform, transform);
+
+      // Draw search overlay (pin + circle)
+      drawSearchOverlay(lat, lng, radiusMiles);
+    };
+
+    // Initialize search functionality
+    const parkSearch = new ParkSearch(
+      data,
+      (filteredParks) => {
+        // Update map to highlight/dim parks based on filter
+        g.selectAll(".park-marker")
+          .style("opacity", (d) => (filteredParks.includes(d) ? 1 : 0.2))
+          .style("pointer-events", (d) =>
+            filteredParks.includes(d) ? "auto" : "none",
+          );
+      },
+      zoomToStateByAbbrev,
+      zoomToLocation,
+    );
+
+    // Attach highlight callbacks for hover
+    parkSearch.onHighlightPark = highlightParkMarker;
+    parkSearch.onUnhighlightPark = unhighlightParkMarker;
+
+    // Open the park modal when a search result is clicked
+    parkSearch.onParkSelect = (park) => clickedPoint(null, park);
+
+    // Create search UI
+    createSearchUI(body, parkSearch);
+
+    // Calculate and create stats button
+    const stats = calculateStats(data, visitData);
+    createStatsButton(body, stats);
+  })
+  .catch(function (error) {
+    console.error("Failed to load map data:", error);
+    loadingIndicator.classed("error", true).text("Could not load map data. ");
+    loadingIndicator
+      .append("button")
+      .attr("type", "button")
+      .attr("class", "retry-button")
+      .text("Retry")
+      .on("click", () => window.location.reload());
   });
-});
+
+/**
+ * Compute the on-screen pixel radius for a search circle of the given radius
+ * in miles, centered at (lat, lng), under the current projection.
+ *
+ * Longitude degrees shrink with latitude, so the east/west offset must be
+ * divided by cos(lat); a flat 1/69 deg/mi draws a circle that is too small
+ * away from the equator (badly so for Alaska) and no longer matches the
+ * haversine distance filter used to select parks.
+ *
+ * @param {number} lat - Center latitude
+ * @param {number} lng - Center longitude
+ * @param {number} radiusMiles - Radius in miles
+ * @returns {number} Radius in projected pixels, or 0 if not projectable
+ */
+function searchRadiusPixels(lat, lng, radiusMiles) {
+  const center = projection([lng, lat]);
+  if (!center) return 0;
+  const milesPerDegreeLat = 69;
+  const lngDegrees =
+    radiusMiles / (milesPerDegreeLat * Math.cos((lat * Math.PI) / 180));
+  const edgePoint = projection([lng + lngDegrees, lat]);
+  if (!edgePoint) return 0;
+  return Math.abs(edgePoint[0] - center[0]);
+}
 
 /**
  * Draw a search overlay on the map showing address pin and search radius circle.
@@ -403,11 +444,8 @@ function drawSearchOverlay(lat, lng, radiusMiles) {
   const center = projection([lng, lat]);
   if (!center) return;
 
-  // Calculate radius in projected pixels
-  const degreesPerMile = 1 / 69;
-  const edgePoint = projection([lng + radiusMiles * degreesPerMile, lat]);
-  if (!edgePoint) return;
-  const radiusPixels = Math.abs(edgePoint[0] - center[0]);
+  const radiusPixels = searchRadiusPixels(lat, lng, radiusMiles);
+  if (radiusPixels === 0) return;
 
   // Get current zoom scale
   const k = d3.zoomTransform(svg.node()).k;
@@ -500,45 +538,21 @@ function clickedMap(_, d) {
   const x = (bounds[0][0] + bounds[1][0]) / 2;
   const y = (bounds[0][1] + bounds[1][1]) / 2;
   const scale = 0.9 / Math.max(dx / width, dy / height);
-  const translate = [width / 2 - scale * x, height / 2 - scale * y];
+  // Clamp to the zoom behavior's scale extent and drive the zoom through it so
+  // its stored transform stays in sync. Otherwise a subsequent drag/pan starts
+  // from the stale (identity) transform and snaps the map back to full country.
+  const clampedScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale));
+  const translate = [
+    width / 2 - clampedScale * x,
+    height / 2 - clampedScale * y,
+  ];
+  const transform = d3.zoomIdentity
+    .translate(translate[0], translate[1])
+    .scale(clampedScale);
 
-  g.transition()
-    .duration(zoomDuration)
-    .style("stroke-width", strokeWidth / scale + "px")
-    .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-
-  g.selectAll(".park-marker")
-    .transition()
-    .duration(zoomDuration)
-    .attr("transform", function () {
-      const t = d3.geoTransform(d3.select(this).attr("transform")).translate;
-      return "translate(" + t[0] + "," + t[1] + ")scale(" + 1 / scale + ")";
-    });
-
-  g.selectAll(".mesh")
-    .transition()
-    .duration(zoomDuration)
-    .attr("stroke-width", strokeWidth / scale);
-
-  g.selectAll(".park-marker")
-    .transition()
-    .duration(zoomDuration)
-    .attr("r", pointRadiusScaled / scale);
-
-  // Counter-scale search overlay elements for state zoom
-  if (searchCircle) {
-    searchCircle
-      .transition()
-      .duration(zoomDuration)
-      .attr("stroke-width", 1.5 / scale);
-  }
-  if (addressPin) {
-    addressPin
-      .transition()
-      .duration(zoomDuration)
-      .attr("r", 6 / scale)
-      .attr("stroke-width", 2 / scale);
-  }
+  // The zoom "on('zoom')" handler counter-scales the mesh, markers, and search
+  // overlay for each interpolated transform during this transition.
+  svg.transition().duration(zoomDuration).call(zoom.transform, transform);
 
   svgHeader
     .selectAll("*")
@@ -554,7 +568,7 @@ function clickedMap(_, d) {
 
   prepareSidebar();
 
-  $(".park-list").show();
+  parkList.style("display", "block");
   parkList.selectAll("*").remove();
   const parksVisited = countParksVisited(d.properties.parks);
   const title = `${d.properties.name} (Visited ${parksVisited} of ${d.properties.parks.length} sites)`;
@@ -589,7 +603,10 @@ function clickedMap(_, d) {
     .text(function (d) {
       return d.fullName;
     })
-    .on("click", clickedPoint);
+    .on("click", function (event, d) {
+      event.preventDefault();
+      clickedPoint(event, d);
+    });
 
   rows.append("td").html(function (d) {
     if (d.visited) {
@@ -615,11 +632,6 @@ function resetMap() {
     .duration(zoomDuration)
     .style("stroke-width", strokeWidth)
     .attr("transform", "");
-
-  g.selectAll(".park-marker").attr("transform", function () {
-    const t = d3.geoTransform(d3.select(this).attr("transform")).translate;
-    return "translate(" + t[0] + "," + t[1] + ")scale(" + 1 + ")";
-  });
 
   g.selectAll(".mesh")
     .transition()
@@ -655,7 +667,7 @@ function resetMap() {
     .duration(zoomDuration)
     .attr("visibility", "hidden");
   hideSidebar();
-  $(".park-list").hide();
+  parkList.style("display", "none");
 }
 
 // Debounce helper function
@@ -709,12 +721,11 @@ const handleResize = debounce(() => {
     const loc = currentSearchLocation;
     const center = projection([loc.lng, loc.lat]);
     if (center) {
-      const degreesPerMile = 1 / 69;
-      const edgePoint = projection([
-        loc.lng + loc.radiusMiles * degreesPerMile,
+      const radiusPixels = searchRadiusPixels(
         loc.lat,
-      ]);
-      const radiusPixels = edgePoint ? Math.abs(edgePoint[0] - center[0]) : 0;
+        loc.lng,
+        loc.radiusMiles,
+      );
 
       if (searchCircle) {
         searchCircle
@@ -745,6 +756,30 @@ const handleResize = debounce(() => {
 
 window.addEventListener("resize", handleResize);
 
+// Close whichever overlay is open when Escape is pressed (innermost first).
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+
+  if (closeModal()) return;
+
+  const statsDashboard = document.getElementById("stats-dashboard");
+  if (statsDashboard) {
+    statsDashboard.remove();
+    return;
+  }
+
+  const searchPanel = document.getElementById("search-container");
+  if (searchPanel && searchPanel.style.display !== "none") {
+    searchPanel.style.display = "none";
+    return;
+  }
+
+  const sidebarEl = document.getElementById("park-list-sidebar");
+  if (sidebarEl && sidebarEl.classList.contains("open")) {
+    hideSidebar();
+  }
+});
+
 /**
  * Merge data from parks visited with all parks
  * @param {object} parkData - JSON data for all national parks
@@ -761,6 +796,7 @@ function mergeNPSData(parkData, visitData) {
       if (park.parkCode == visit.parkCode) {
         park.visited = 1;
         park.visitedOn = visit.visitedOn;
+        park.notes = visit.notes;
       }
     }
     data.push(park);
@@ -774,7 +810,7 @@ function mergeNPSData(parkData, visitData) {
  * @return {int} Number of parks visited
  */
 function countParksVisited(parks) {
-  return parks.map((i) => i.visited).reduce((a, b) => a + b);
+  return parks.map((i) => i.visited).reduce((a, b) => a + b, 0);
 }
 
 /**

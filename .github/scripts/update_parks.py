@@ -13,15 +13,22 @@ from pydantic import (
     field_serializer,
     field_validator,
 )
+from requests.adapters import HTTPAdapter, Retry
 from requests.exceptions import HTTPError, JSONDecodeError
 
 JSONType = dict[str, Any]
 
 BASE_URL: str = "https://developer.nps.gov/api/v1"
-HEADERS: dict[str, str] = {"X-Api-Key": os.environ["NPS_API_KEY"]}
 MAX_PICTURES_PER_SITE: int = 2
-# NPS units containing the following designations in their name will be excluded
-# from the list of parks used to populate the map.
+# (connect timeout, read timeout) applied to every request, so a stalled NPS
+# endpoint fails fast instead of hanging until the CI job timeout.
+REQUEST_TIMEOUT: tuple[int, int] = (5, 30)
+# Abort (rather than silently overwrite parks.json) if more than this fraction
+# of fetched records fail validation, which would indicate an upstream schema
+# change rather than a few malformed units.
+MAX_DROP_FRACTION: float = 0.05
+# NPS units whose designation (or, as a fallback, full-name suffix) matches one
+# of the following are excluded from the list of parks used to populate the map.
 EXCLUDED_DESIGNATIONS: set[str] = {
     "Affiliated Area",
     "Bay",
@@ -84,6 +91,9 @@ class NationalPark(CamelModel):
     longitude: float
     states: list[str]
     images: list[Photo]
+    # The NPS API's authoritative designation (e.g. "National Park",
+    # "National Historic Trail"). Optional so records lacking it still validate.
+    designation: str = ""
 
     @field_validator("states", mode="before")
     def split_states(cls, v: str | list[str]) -> list[str]:
@@ -99,6 +109,34 @@ class NationalPark(CamelModel):
             return v.split(",")
         return v
 
+    @field_validator("latitude")
+    def validate_latitude(cls, v: float) -> float:
+        """Ensure latitude is within the valid range.
+
+        Args:
+            v (float): Latitude value
+
+        Returns:
+            float: Validated latitude
+        """
+        if not -90 <= v <= 90:
+            raise ValueError(f"latitude out of range: {v}")
+        return v
+
+    @field_validator("longitude")
+    def validate_longitude(cls, v: float) -> float:
+        """Ensure longitude is within the valid range.
+
+        Args:
+            v (float): Longitude value
+
+        Returns:
+            float: Validated longitude
+        """
+        if not -180 <= v <= 180:
+            raise ValueError(f"longitude out of range: {v}")
+        return v
+
     @field_serializer("url")
     def serialize_url(self, url: HttpUrl) -> str:
         """Serialize URL to string.
@@ -112,8 +150,52 @@ class NationalPark(CamelModel):
         return str(url)
 
 
-def _park_has_excluded_designation(park_name: str) -> bool:
-    return any(park_name.endswith(designation) for designation in EXCLUDED_DESIGNATIONS)
+def _park_has_excluded_designation(park: "NationalPark") -> bool:
+    """Whether a park's designation marks it for exclusion from the map.
+
+    Prefers the API's authoritative ``designation`` field and falls back to the
+    historical full-name suffix check, so existing exclusions are preserved even
+    for records where ``designation`` is empty.
+
+    Args:
+        park (NationalPark): Park to test
+
+    Returns:
+        bool: True if the park should be excluded
+    """
+    if park.designation in EXCLUDED_DESIGNATIONS:
+        return True
+    return any(
+        park.full_name.endswith(designation) for designation in EXCLUDED_DESIGNATIONS
+    )
+
+
+def _build_session() -> requests.Session:
+    """Create a requests Session with API-key auth and retry/backoff.
+
+    The NPS API key is read here (not at import time) so the module can be
+    imported and unit-tested without the secret present.
+
+    Returns:
+        requests.Session: session configured with the API key header and a
+            retry policy for transient errors and rate limiting.
+    """
+    api_key = os.environ.get("NPS_API_KEY")
+    if not api_key:
+        raise SystemExit("NPS_API_KEY environment variable is not set")
+    session = requests.Session()
+    session.headers.update({"X-Api-Key": api_key})
+    retry = Retry(
+        total=5,
+        backoff_factor=1,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=("GET",),
+        respect_retry_after_header=True,
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
 
 
 def _process_response(response: requests.Response) -> JSONType:
@@ -128,11 +210,12 @@ def _process_response(response: requests.Response) -> JSONType:
     return json_body
 
 
-def get_paginated_json_response(url: str, limit: int) -> Iterator[JSONType]:
-    session = requests.Session()
+def get_paginated_json_response(
+    url: str, limit: int, session: requests.Session
+) -> Iterator[JSONType]:
     start = 0
     first_page = session.get(
-        url, headers=HEADERS, params={"limit": limit, "start": start}
+        url, params={"limit": limit, "start": start}, timeout=REQUEST_TIMEOUT
     )
     first_page_json = _process_response(first_page)
     yield first_page_json
@@ -146,7 +229,7 @@ def get_paginated_json_response(url: str, limit: int) -> Iterator[JSONType]:
     while results_fetched < total_results:
         start += limit
         next_page = session.get(
-            url, headers=HEADERS, params={"limit": limit, "start": start}
+            url, params={"limit": limit, "start": start}, timeout=REQUEST_TIMEOUT
         )
         yield _process_response(next_page)
         results_fetched += limit
@@ -157,22 +240,31 @@ def main() -> None:
     parser.add_argument("file", type=str, help="Path of parks.json")
     args = parser.parse_args()
 
+    session = _build_session()
     raw_data = []
-    for page in get_paginated_json_response(f"{BASE_URL}/parks", 100):
+    for page in get_paginated_json_response(f"{BASE_URL}/parks", 100, session):
         raw_data.extend(page["data"])
 
     park_data = []
+    dropped = 0
     for record in raw_data:
         try:
             park_data.append(NationalPark(**record))
         except ValidationError as ex:
+            dropped += 1
             exception_str = (
                 f"Unable to process the following record:\n{pformat(record)}\n\n{ex}"
             )
             print(json.dumps(exception_str))
-    park_data = [
-        park for park in park_data if not _park_has_excluded_designation(park.full_name)
-    ]
+
+    if raw_data and dropped / len(raw_data) > MAX_DROP_FRACTION:
+        raise SystemExit(
+            f"Aborting: {dropped} of {len(raw_data)} records failed validation "
+            f"(more than {MAX_DROP_FRACTION:.0%}); refusing to overwrite "
+            "parks.json. This likely indicates an upstream API change."
+        )
+
+    park_data = [park for park in park_data if not _park_has_excluded_designation(park)]
     for park in park_data:
         park.images.sort(key=lambda x: x.title)
         park.images = park.images[:MAX_PICTURES_PER_SITE]
