@@ -63,13 +63,15 @@ jobs:
           branch: update-parks-json
           push_options: "--force"
       - name: Create Pull Request
+        if: steps.commit_changes.outputs.changes_detected == 'true'
         uses: devops-infra/action-pull-request@v1.3.0
         with:
           github_token: ${{ secrets.PAT }}
           source_branch: update-parks-json
           target_branch: main
           title: Update parks.json
-      - run: sleep 10
+      - if: steps.commit_changes.outputs.changes_detected == 'true'
+        run: sleep 10
       - name: Annotate PR
         if: steps.commit_changes.outputs.changes_detected == 'true' && steps.commit_changes.outputs.commit_hash != ''
         uses: pytorch/add-annotations-github-action@8436d20d95a47566529672c4cb464770a1ec0b49

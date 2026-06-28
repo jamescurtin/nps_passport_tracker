@@ -21,6 +21,7 @@ Add visited NPS sites to `src/data/visits.json`. For each park: resolve its `par
 3. **Get the fun fact.** Always ask the user first whether they have a fact or note they want to use for each park — their own memory of the visit is preferred. Only if they have none to provide, draft one yourself: one `notes` string per park, matching the style of existing entries: 1–3 sentences, factual, specific, no fluff. Draw from the park's `description` in parks.json plus reliable general knowledge, and surface the proposed fact for approval. Prefer concrete, verifiable details (dates, counts, firsts) over generic praise.
 
 4. **Insert sorted entries.** `visits.json` is a JSON array sorted by `parkCode`. Insert each new object in its correct alphabetical position:
+
    ```json
    {
      "parkCode": "jazz",
@@ -28,13 +29,16 @@ Add visited NPS sites to `src/data/visits.json`. For each park: resolve its `par
      "notes": "..."
    }
    ```
+
    Use `_comment: "TODO"` instead of `notes` only if a fact genuinely cannot be sourced.
 
 5. **Format.** Run the canonical pipeline so output matches committed style:
+
    ```sh
    npm run sort-visits          # python sort by parkCode (expands arrays)
    npx prettier --write src/data/visits.json   # collapses to committed compact form
    ```
+
    `npm run sort-visits` alone reformats arrays to multi-line; prettier collapses them back. Always run prettier after.
 
 6. **Verify.** `python3 -c "import json; json.load(open('src/data/visits.json'))"` to confirm valid JSON, and `git diff --stat src/data/visits.json` to confirm the diff is limited to the new entries (a clean add is a small insertion count, not a whole-file reformat).
