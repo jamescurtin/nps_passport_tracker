@@ -507,14 +507,6 @@ function clickedMap(_, d) {
     .style("stroke-width", strokeWidth / scale + "px")
     .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 
-  g.selectAll(".park-marker")
-    .transition()
-    .duration(zoomDuration)
-    .attr("transform", function () {
-      const t = d3.geoTransform(d3.select(this).attr("transform")).translate;
-      return "translate(" + t[0] + "," + t[1] + ")scale(" + 1 / scale + ")";
-    });
-
   g.selectAll(".mesh")
     .transition()
     .duration(zoomDuration)
@@ -615,11 +607,6 @@ function resetMap() {
     .duration(zoomDuration)
     .style("stroke-width", strokeWidth)
     .attr("transform", "");
-
-  g.selectAll(".park-marker").attr("transform", function () {
-    const t = d3.geoTransform(d3.select(this).attr("transform")).translate;
-    return "translate(" + t[0] + "," + t[1] + ")scale(" + 1 + ")";
-  });
 
   g.selectAll(".mesh")
     .transition()
