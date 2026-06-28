@@ -55,6 +55,10 @@ module.exports = {
     warnings: true,
   },
   performance: {
+    // The large assets are the separately-fetched data JSON files, not the JS
+    // entrypoints; raise both budgets so the dev server's HMR chunks don't
+    // surface a misleading entrypoint-size warning.
     maxAssetSize: 2000000,
+    maxEntrypointSize: 512000,
   },
 };
