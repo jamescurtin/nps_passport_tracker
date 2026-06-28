@@ -136,6 +136,41 @@ div.tooltip {
   text-align: center;
 }
 
+.loading-indicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-modal);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+}
+
+.loading-indicator.error {
+  color: var(--nps-brown-dark);
+}
+
+.retry-button {
+  margin-left: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--nps-brown-dark);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: bold;
+}
+
+.retry-button:hover {
+  background: var(--nps-brown);
+}
+
 .modal {
   display: none;
   position: fixed;
