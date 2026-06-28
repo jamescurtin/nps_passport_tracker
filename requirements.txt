@@ -9,4 +9,4 @@ isort==8.0.1
 mypy==2.1.0
 flake8-docstrings==1.7.0
 types-requests==2.33.0.20260518
-pytest==9.0.1
+pytest==9.0.3
