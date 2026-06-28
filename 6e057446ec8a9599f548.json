@@ -20,7 +20,8 @@
         "title": "The Memorial Building",
         "altText": "The first memorial erected to honor Abraham Lincoln"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "6DA17C86-088E-4B4D-B862-7C1BD5CF236B",
@@ -43,7 +44,8 @@
         "title": "Climbing The Precipice",
         "altText": "Two hikers ascend a sheer cliff trail by way of historic iron rung ladders."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "E4C7784E-66A0-4D44-87D0-3E072F5FEF43",
@@ -66,7 +68,8 @@
         "title": "Old House at Peace field",
         "altText": "A view of Old House at Peace field"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "1A47416F-DAA3-4137-9F30-14AF86B4E547",
@@ -89,7 +92,8 @@
         "title": "African American Civil War Memorial",
         "altText": "Bronze statue of African American Civil War soldier."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "E6E1D22A-7A89-47F8-813C-B611059A8CF9",
@@ -112,7 +116,8 @@
         "title": "Exhibits within visitor center.",
         "altText": "Exhibits within visitor center."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "64B9F127-31ED-43C9-882D-D7CD471AF314",
@@ -135,7 +140,8 @@
         "title": "Dinohyus in the Visitor Center Fossil Diorama",
         "altText": "The Dinohyus was a scavenger, nicknamed \"Terrible Pig\""
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "C08AD828-98FF-478E-A63C-614E7534274B",
@@ -158,7 +164,8 @@
         "title": "Alcatraz Island",
         "altText": "View of the Alcatraz Lighthouse and Island from the water"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "94B046DC-2AFD-4ECB-A60D-CE210A8550B1",
@@ -181,7 +188,8 @@
         "title": "Anti-aircraft Gun Artifact",
         "altText": "a rusty, large gun sits on a grassy bank overlooking a coastal bay."
       }
-    ]
+    ],
+    "designation": "National Historic Area"
   },
   {
     "id": "6D82D070-995A-4524-A56E-C1CE182E7D9B",
@@ -204,7 +212,8 @@
         "title": "Alibates Flint Quarries Trail",
         "altText": "Stair steps up the Alibates Flint Quarries Trail."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "3350C18C-8E07-487B-930E-37AD873D31AD",
@@ -227,7 +236,8 @@
         "title": "Boardwalk to the historic area",
         "altText": "Boardwalk"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "D35004EF-5F5A-4DA4-8716-5141BE5C933C",
@@ -250,7 +260,8 @@
         "title": "Gardens at Amache",
         "altText": "black and white image of a Japanese styled garden with a small koi pond."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "A0B4CA5E-608A-4DF2-8EFB-E2E4619EA243",
@@ -273,7 +284,8 @@
         "title": "Lawn at American Memorial Park",
         "altText": "Large lawn in front of the memorial."
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "34CB30BA-8A5F-4563-AA34-6633708DD9DC",
@@ -296,7 +308,8 @@
         "title": "Limestone shoreline along Amistad National Recreation Area",
         "altText": "Limestone shoreline along Amistad National Recreation Area"
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "9463E25C-7342-4A34-9537-4A6DA74B2B06",
@@ -319,7 +332,8 @@
         "title": "Bring your dog to the park!",
         "altText": "A man jogs his two dogs along a paved multi-use trial."
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "00E65872-53F7-4C9B-BD29-B9BC99930D0D",
@@ -342,7 +356,8 @@
         "title": "Historic Site of Camp Sumter Civil War Military Prison at Andersonville",
         "altText": "A cannon sits out in front of a replica of part of the wooden stockade walls once at Andersonville"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "2ED6E071-57AA-4B08-8DDA-5CB09FBB75C8",
@@ -365,7 +380,8 @@
         "title": "Andrew Johnson Monument",
         "altText": "Andrew Johnson Monument"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "7FF37F14-88C8-469E-A447-ACE6D9AF44D2",
@@ -388,7 +404,8 @@
         "title": "Black Nose, Aniakchak Caldera",
         "altText": "Black Nose, Aniakchak Caldera"
       }
-    ]
+    ],
+    "designation": "National Monument & Preserve"
   },
   {
     "id": "8415526C-C932-4236-A634-2D89DF718936",
@@ -411,7 +428,8 @@
         "title": "Antietam Cannons",
         "altText": "A line Civil War cannons and a stone wall at Antietam National Battlefield"
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "D84122DD-1B0E-4D13-927C-5D6D2A0D200E",
@@ -434,7 +452,8 @@
         "title": "Raspberry Island Lighthouse",
         "altText": "A two story white house with a light tower in the middle, reflects the colors of the setting sun."
       }
-    ]
+    ],
+    "designation": "National Lakeshore"
   },
   {
     "id": "16CCCC56-1DC1-47D6-AE91-E939955BFC53",
@@ -457,7 +476,8 @@
         "title": "The McLean House",
         "altText": "This is the home where Gen. Lee surrendered to Gen. Grant on April 9, 1865"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "36240051-018E-4915-B6EA-3F1A7F24FBE4",
@@ -480,7 +500,8 @@
         "title": "Delicate Arch",
         "altText": "a stone arch"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "6876F4F4-9B8F-4648-89EA-C1BBF770C494",
@@ -503,7 +524,8 @@
         "title": "Arkansas Post National Monument",
         "altText": "the Alligator Slough footbridge"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "E84B1E08-CCE8-4FFF-8DB6-B92F40953225",
@@ -526,7 +548,8 @@
         "title": "Arlington House - Interior",
         "altText": "Plates and a kettle on a table."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "307BE169-345D-472C-8128-20F1D59864A7",
@@ -549,7 +572,8 @@
         "title": "Tree Swallows Migrating along Assateague",
         "altText": "Tree Swallows migrating along the beach at Assateague"
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "CD54150B-24F6-4B96-8D6F-B23AF92A70F2",
@@ -572,7 +596,8 @@
         "title": "Great Kiva in Aztec West plaza",
         "altText": "Reconstructed stone kiva amidst stone ruins"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "B170CCF7-7AB9-48FF-950E-31815FD4DBB2",
@@ -595,7 +620,8 @@
         "title": "Badlands Storm",
         "altText": "Layered badlands formations behind fields of green grass under cloudy and billowing clouds."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "A21F01BC-9E47-4DBE-8655-A1651FC2C1B1",
@@ -618,7 +644,8 @@
         "title": "Baltimore Washington Parkway",
         "altText": "Greenbelt-Road overpass on the Baltimore Washington Parkway"
       }
-    ]
+    ],
+    "designation": "Parkway"
   },
   {
     "id": "E28CA30C-2D81-4394-81E9-67677C412115",
@@ -641,7 +668,8 @@
         "title": "Frijoles Canyon",
         "altText": "a view of Frijoles Canyon from the rim"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "E7E4E103-5FA9-45AC-8843-05DE554CDBB7",
@@ -664,7 +692,8 @@
         "title": "Hall of Portraits with Mirror",
         "altText": "Interior photo of the Hall of Portraits lit by sunlight streaming through stained glass"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "87F9EFC7-1951-4250-A367-644EC5C4E6A2",
@@ -687,7 +716,8 @@
         "title": "Bent's Old Fort",
         "altText": "Bent's Old Fort with shortgrass prairie in foreground and blue sky and clouds above"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "EE1F4878-00FB-4760-A77F-EA76DB8DEFD9",
@@ -710,7 +740,8 @@
         "title": "Coastal Moon Rise",
         "altText": "Rolling sand dunes with sparse vegetation with full moon rising above."
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "C9056F71-7162-4208-8AE9-2D0AEFA594FD",
@@ -733,7 +764,8 @@
         "title": "Blooming Cenizo",
         "altText": "Blooming Cenizo"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "E0F4D5E3-3E4A-4345-B86A-1B0CAD7461F1",
@@ -756,7 +788,8 @@
         "title": "Big Cypress Milky Way",
         "altText": "The milky way dominating a starry night sky over palm trees."
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "3262234F-A56A-447D-AE6C-F5C734ABD3A4",
@@ -779,7 +812,8 @@
         "title": "Bear Paw Battlefield",
         "altText": "Three large stone monuments and four interpretive signs overlook a series of low hills."
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "61EC5C9A-1A38-4040-AE38-E62FD2A9A836",
@@ -797,7 +831,8 @@
         "title": "Big South Fork NRRA in Fall",
         "altText": "Big South Fork NRRA in Fall"
       }
-    ]
+    ],
+    "designation": "National River & Recreation Area"
   },
   {
     "id": "3AA12AD8-4FEB-491D-AEB2-CC0F74CD00E0",
@@ -820,7 +855,8 @@
         "title": "Collins Pond, Woodlands Trail",
         "altText": "A calm pond reflecting red, green, and yellow foliage of trees along its shore."
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "7568A0D8-73B1-44E6-82C7-E10BA1872209",
@@ -843,7 +879,8 @@
         "title": "Devil Canyon Overlook from Sullivan's Knob Trail (Lovell, WY District)",
         "altText": "Looking up canyon toward Devil Canyon from the rim at Sullivan's Kob."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "99907F85-7E09-40FE-BF5E-A9AB7F09A7E2",
@@ -866,7 +903,8 @@
         "title": "Kelly Ingram Park foot soldiers statue",
         "altText": "Statue of a boy being grabbed by a policemen who is holding a dog posed to bite on a leash"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "FBF9F793-5114-4B61-A5BA-6F9ADDFDF459",
@@ -889,7 +927,8 @@
         "title": "Coral Reef",
         "altText": "Underwater view of coral reef with a large school of yellow and blue fish"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "BDBD573F-97EF-44E7-A579-471679F2C42A",
@@ -912,7 +951,8 @@
         "title": "Black Canyon near Tomichi Point",
         "altText": "Black Canyon near Tomichi Point"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "A36366E7-5663-4531-B0CE-D58928C6D01B",
@@ -935,7 +975,8 @@
         "title": "Autumn in the Blackstone Valley",
         "altText": "Autumn in the Blackstone Valley"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "4A71FEB9-5968-4A27-9794-F202C96FFA55",
@@ -953,7 +994,8 @@
         "title": "Blackwell School East Exterior",
         "altText": "cream colored building with two windows and a wooden doorway with steps leading up to it."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "712044CE-4C85-48C2-813E-310A9C6C74E1",
@@ -976,7 +1018,8 @@
         "title": "Evening on the Blue Ridge",
         "altText": "A long pine tree stands in front of distant mountain ridges beneath an orange sunset"
       }
-    ]
+    ],
+    "designation": "Parkway"
   },
   {
     "id": "6278FE68-139E-4758-A6DE-9A0437F777B5",
@@ -999,7 +1042,8 @@
         "title": "Booker T. Washington Elementary School (Park Headquarters)",
         "altText": "Booker T. Washington Elementary School (Park Headquarters)"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "81F81EBD-0FE7-4811-88EF-AB071E737D97",
@@ -1022,7 +1066,8 @@
         "title": "Bunker Hill Monument 250",
         "altText": "A tall white obelisk stands amongst leafy trees. Two colonial American flags hang from its windows"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "87F00684-8E1F-4E12-B463-2B5B929A0C74",
@@ -1045,7 +1090,8 @@
         "title": "African Meeting House",
         "altText": "View from the gallery overlooking the"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "65E0DF4A-4082-4B48-93BD-5021987CDD7A",
@@ -1068,7 +1114,8 @@
         "title": "Boston Light",
         "altText": "a white lighthouse and other buildings on Little Brewster Island at sunset. City in the distance."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "F6555AB7-654F-4418-8827-F91F54536C04",
@@ -1086,7 +1133,8 @@
         "title": "Brices Crossroads Monument",
         "altText": "The monument with cannons on each side"
       }
-    ]
+    ],
+    "designation": "National Battlefield Site"
   },
   {
     "id": "E2F59F29-1F3A-43B9-A361-7E74E5FDDEB1",
@@ -1109,7 +1157,8 @@
         "title": "Exterior of Monroe School",
         "altText": "Front entrance to Monroe school"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "6B1D053D-714F-46D1-B410-04BE868F14C1",
@@ -1132,7 +1181,8 @@
         "title": "Bryce Amphitheater from Inspiration Point",
         "altText": "A red rock landscape and plateau forest glows with the morning sun"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "1172F473-8129-42CA-9A47-C9D0AC5CAF66",
@@ -1155,7 +1205,8 @@
         "title": "Buck Island Reef NM Underwater Trail",
         "altText": "Snorkelers in formation departing the concessioner's vessel in route to the underwater trail."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "2DB09FB7-0408-44C9-8083-8F50039BD6DA",
@@ -1178,7 +1229,8 @@
         "title": "Old Point Loma Lighthouse",
         "altText": "Spring flowers in front of Old Point Loma Lighthouse"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "2FB7A664-0F66-49A3-9460-194F4073BA3F",
@@ -1201,7 +1253,8 @@
         "title": "Camp Nelson National Monument's Pastoral Landscape",
         "altText": "Open fields of green grass with trees during a colorful sunrise."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "FFD294C0-8027-42EC-B395-9C3BF2B80F49",
@@ -1224,7 +1277,8 @@
         "title": "Apollo Visitor Center",
         "altText": "On the dock facing the visitor center."
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "55ABA58B-B19E-4851-BDE1-1C0712B2BE2C",
@@ -1247,7 +1301,8 @@
         "title": "Live Oak Trees",
         "altText": "The sunrise shines through Live Oak trees at Oakland Plantation."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "869BAD2B-C46F-4FEB-891B-EBA119B64B48",
@@ -1270,7 +1325,8 @@
         "title": "Canyon Hike",
         "altText": "Hiking in the canyon"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "319E07D8-E176-41F8-98A9-1E3F8099D0AB",
@@ -1293,7 +1349,8 @@
         "title": "Mesa Arch",
         "altText": "a broad stone arch with rock pinnacles in the distance"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "DE0A8012-5324-4F5C-98DA-0EE6589FDFB3",
@@ -1316,7 +1373,8 @@
         "title": "Birds and Beach",
         "altText": "A flock of birds flies along a beach with waves in the background."
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "7B9F59AE-D223-4A99-B6DF-A418D876DD82",
@@ -1339,7 +1397,8 @@
         "title": "Fresnel Lens",
         "altText": "The first-order Fresnel lens is visible in the lantern room of the Bodie Island Lighthouse."
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "3A2AEA7C-8896-4445-9763-932B4A74CF34",
@@ -1362,7 +1421,8 @@
         "title": "Battle of Capes Wayside",
         "altText": "Battle of Capes Wayside"
       }
-    ]
+    ],
+    "designation": "Part of Colonial National Historical Park"
   },
   {
     "id": "77566B98-D9CC-40FB-AA6E-FAA0F56E2059",
@@ -1385,7 +1445,8 @@
         "title": "Fish on a Drying Rack",
         "altText": "fish hanging on rack"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "3BA4ACE6-0FFE-4B56-8C07-B3F05DC304DB",
@@ -1408,7 +1469,8 @@
         "title": "Angler on the Seashore",
         "altText": "A angler sits in a chair, with two fishing poles in the sand. Lighthouse in background."
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "96DC2172-0201-4ABB-BD77-2687F4726C9B",
@@ -1431,7 +1493,8 @@
         "title": "Folger Park",
         "altText": "Folger"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "2F05E2B8-CDA3-434E-9C4C-C7DD828CAC3B",
@@ -1454,7 +1517,8 @@
         "title": "Capitol Reef Visitor Center with \"The Castle\"",
         "altText": "Cliffs known as \"The Castle\" tower above the Capitol Reef Visitor Center"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "93BB79F9-D700-4202-B21C-B2354617A729",
@@ -1477,7 +1541,8 @@
         "title": "Capulin Volcano",
         "altText": "A cloud shrouded volcano rises behind a field of yellow flowers."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "6E9B2F16-4CFE-49B2-A95E-87E4F02E79FF",
@@ -1500,7 +1565,8 @@
         "title": "Carl Sandburg's Study",
         "altText": "A view of Sandburg's study as visitors see it today"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "F67AB14C-AFCF-4BD1-BE62-7BA87DF21DDA",
@@ -1523,7 +1589,8 @@
         "title": "Carlisle Federal Indian Boarding SchoolThe campus of the Carlisle Indian Industrial School, as seen",
         "altText": "Historic black and white image of a large boarding school campus"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "6FDE39B1-AB4A-4C9A-A5CD-4AF67601CD78",
@@ -1546,7 +1613,8 @@
         "title": "Chandelier and Caveman Formations",
         "altText": "Photo of the Chandelier and Caveman formations in the Big Room"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "D040C2B5-BFCD-4DED-AADC-BA28E29CC560",
@@ -1569,7 +1637,8 @@
         "title": "Carter G. Woodson Home exterior",
         "altText": "A red brick townhouse"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "FF6B2CDF-10F5-4A7F-9437-74C1E7104C65",
@@ -1592,7 +1661,8 @@
         "title": "Great House",
         "altText": "eathern building under modern roof structure"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "E455313B-782A-4CDC-A6A5-8B506FA3A4C1",
@@ -1615,7 +1685,8 @@
         "title": "Castillo de San Marcos Aerial View",
         "altText": "Aerial view of the Castillo and the city of St. Augustine"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "061F7BA2-8C57-4471-A31E-302AD99E3F6A",
@@ -1633,7 +1704,8 @@
         "title": "Castle Clinton National Monument",
         "altText": "Castle Clinton NM Entrance"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "872417E6-2F91-4FDA-89A7-865B51B22332",
@@ -1656,7 +1728,8 @@
         "title": "View of Castle Peaks",
         "altText": "Foreground is desert greenery. The isolated spires of the Castle Peaks rise up in the background"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "2977669B-4B2E-4044-B2CC-701D9521E4AC",
@@ -1679,7 +1752,8 @@
         "title": "Blue Ridge Summit",
         "altText": "A rocky outcrop nestled amongst trees overlooking a valley."
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "DFC1B0DB-832E-4C21-9CB9-79FB726B97D5",
@@ -1702,7 +1776,8 @@
         "title": "Bristle-cone Pine Tree",
         "altText": "Ancient Bristle-cone pine with sun shining through the branches."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "387A28F2-022F-4C06-A486-E9E7777B12C2",
@@ -1725,7 +1800,8 @@
         "title": "Kids Program",
         "altText": "Ranger giving kids Program"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "9C730246-CCB2-496F-AD0E-1D31D76C4C45",
@@ -1748,7 +1824,8 @@
         "title": "Chacoan Jars",
         "altText": "A series of 4 Chacoan jars replicated in the same black on white style that was excavated long ago."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "EA328EBD-71CC-49B9-8F64-97C8A188BCA4",
@@ -1771,7 +1848,8 @@
         "title": "Junior Rangers",
         "altText": "a group of children with hand raised in front of park rangers and ground squirrel mascot"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "5595FC7A-F218-4439-8D2E-F47449838820",
@@ -1794,7 +1872,8 @@
         "title": "Inspiration Point by Tim Hauf",
         "altText": "Steep, rugged ocean cliffs extending in an island chain."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "08EFF7E4-0FE4-4402-B23A-124EB8AAC249",
@@ -1817,7 +1896,8 @@
         "title": "Charles Pinckney",
         "altText": "Charles Pinckney portrait"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "22177869-21C7-49A1-961C-3F2114F01007",
@@ -1840,7 +1920,8 @@
         "title": "24th Infantry in Philippine",
         "altText": "A long row of African American soldiers standing at attention"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "021F297B-D672-4794-8C5E-BB58743F252A",
@@ -1863,7 +1944,8 @@
         "title": "Inviting Trail",
         "altText": "Trail heading off under a canopy of trees."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "9192FFEE-4D88-4A03-A054-F47C33F0C3E9",
@@ -1886,7 +1968,8 @@
         "title": "Bike rider along the towpath",
         "altText": "A single bike rider on the towpath next to the widewater section of the canal."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "FD536267-125D-4CEB-8978-2B2767C3B2FF",
@@ -1909,7 +1992,8 @@
         "title": "Illinois Monument at Bragg Reservation on Missionary Ridge",
         "altText": "Illinois Monument"
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "16809469-7649-4DFA-9C76-57F2B9946DDC",
@@ -1932,7 +2016,8 @@
         "title": "Hiking to Buffalo Springs",
         "altText": "Two people hiking over a water feature"
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "E98D419A-A118-49D5-89AF-3C4F9BE7372D",
@@ -1955,7 +2040,8 @@
         "title": "Bonita Canyon",
         "altText": "A narrow road winds between tall oaks and rock cliffs"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "A6290572-1871-4285-90F5-7C313FE2583E",
@@ -1978,7 +2064,8 @@
         "title": "Customs House",
         "altText": "view of the front steps of the Customs House"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "FC72FEF5-362F-4C9B-B6A1-88FA559D84CE",
@@ -2001,7 +2088,8 @@
         "title": "City of Rocks Granite",
         "altText": "Snow dusted granite formations jut up from a mountainous juniper covered landscape."
       }
-    ]
+    ],
+    "designation": "National Reserve"
   },
   {
     "id": "8A6C3A35-C48B-4125-82E1-939A1B3A535C",
@@ -2024,7 +2112,8 @@
         "title": "Civil War Defenses Of Washington",
         "altText": "Historic Fort Davis"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "80B93073-3A9D-4BD8-A8F5-5CB84CD35FE1",
@@ -2047,7 +2136,8 @@
         "title": "Clara Barton National Historic Site West Side",
         "altText": "side view of Clara Barton's house with Red Cross flag and American Flag."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "1FC8F995-C4F2-4553-BDE4-BB43AAB12ED6",
@@ -2070,7 +2160,8 @@
         "title": "Bikers at Entrance to Historic Jamestowne Tour Road",
         "altText": "Bikers at Entrance to Historic Jamestowne Tour Road"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "EC5A2653-4470-46E7-8B57-30B8ADE46445",
@@ -2093,7 +2184,8 @@
         "title": "Colorado National Monument Visitor Center",
         "altText": "Visitor Center with American Flag"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "42E23CFA-4849-43D1-B9C7-77509C0AB85B",
@@ -2116,7 +2208,8 @@
         "title": "Colt Armory Complex",
         "altText": "Blue dome atop a large factory behind a river"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "EEBA7225-7FF5-4B62-B60C-6BBC66351A4E",
@@ -2134,7 +2227,8 @@
         "title": "Congaree River",
         "altText": "View of the Congaree River during the Fall"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "B2F2941A-1BC1-42ED-B02F-541EBC80AEE4",
@@ -2157,7 +2251,8 @@
         "title": "Constitution Garden",
         "altText": "Shot of the Garden Pond with the Washington Monument in the background"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "6ED827FD-EA71-443E-83EE-9367FD14F940",
@@ -2180,7 +2275,8 @@
         "title": "Pink-throated morning glories in the grasslands",
         "altText": "Pink morning glories with mountain and grasslands"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "9F7919AF-7B0B-4FDB-98B7-9D0FB3B9E4F1",
@@ -2203,7 +2299,8 @@
         "title": "Robert Scruggs House",
         "altText": "Robert Scruggs House"
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "7DC1050A-0DDE-4EF9-B777-3C9349BCC4DE",
@@ -2226,7 +2323,8 @@
         "title": "Clouds in the Caldera",
         "altText": "Clouds in the Crater Lake Caldera"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "1388A0C7-D12A-4642-885A-A9C723458BA3",
@@ -2249,7 +2347,8 @@
         "title": "A Weird and Scenic Landscape",
         "altText": "A panoramic view across the Craters landscape, bisected by a winding road."
       }
-    ]
+    ],
+    "designation": "National Monument & Preserve"
   },
   {
     "id": "F341E5A4-959B-4D87-B886-23A884633D33",
@@ -2272,7 +2371,8 @@
         "title": "Hensley Settlement",
         "altText": "Hensley Settlement"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "EF680908-DE76-4336-BD51-F33BEB09B4D7",
@@ -2295,7 +2395,8 @@
         "title": "Historic Main Road",
         "altText": "huge oak trees and palm shrubs line a sand road"
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "80E30980-1B26-4AE7-A039-FA7D8D119070",
@@ -2318,7 +2419,8 @@
         "title": "Crystal Trail View",
         "altText": "The snow-capped San Juan Mountain Range looms in the distance as viewed from the Crystal Trail"
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "F4D44F29-3F67-498F-B05B-0783473D2708",
@@ -2341,7 +2443,8 @@
         "title": "Kayakers on the Cuyahoga River",
         "altText": "People in bright orange kayaks paddle around a bend in a river, past green trees and a rocky shore."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "D1EAA1D1-E855-42FF-9D06-8E983413BDE5",
@@ -2364,7 +2467,8 @@
         "title": "Cesar Chavez Birthday Folklorico Dancing",
         "altText": "A set of folklorico dancers in traditional regalia dance together."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "C62B89CF-F912-46F4-878C-8EEBD843CEC6",
@@ -2387,7 +2491,8 @@
         "title": "Huffman Prairie Flying Field entrance",
         "altText": "A dirt road between tall trees with a stone sign reading Huffman Prairie Flying Field."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "C40BEE20-AF31-4DB5-AC77-D53EC89D1D9F",
@@ -2410,7 +2515,8 @@
         "title": "De Soto and the Junior Ranger",
         "altText": "De Soto Tim Burke greets on of the parks Junior Rangers"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "FFC9F9C4-D79D-4CA7-AB0F-7A2AD30061CD",
@@ -2433,7 +2539,8 @@
         "title": "Storm over the Salt Flats",
         "altText": "white salt flats with dark gray clouds"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "ECCA243E-109D-4D73-8546-B0A2553DD9E5",
@@ -2456,7 +2563,8 @@
         "title": "Dingmans Falls",
         "altText": "A strongly running Dingmans Falls waterfall surrounded by plants."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "C0BF2A42-E353-4FAE-B4C4-AA0676B58100",
@@ -2479,7 +2587,8 @@
         "title": "Caribou Sighting",
         "altText": "a bus on a gravel road behind a large caribou that is trotting on the road"
       }
-    ]
+    ],
+    "designation": "National Park & Preserve"
   },
   {
     "id": "2DC9444C-880F-4738-BA1F-6FB123935A02",
@@ -2502,7 +2611,8 @@
         "title": "Hexagonal Fractures at the top of Devils Postpile",
         "altText": "Hexagonal fractures that make up the columns at the postpile with glacial polish"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "335368E4-B5CE-4370-8324-4A841AFA5025",
@@ -2525,7 +2635,8 @@
         "title": "Devils Tower looming above the trees",
         "altText": "Devils Tower looming above the trees"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "061D9754-B947-48FD-99BE-1FE1AAD1BB90",
@@ -2548,7 +2659,8 @@
         "title": "Camarasaurus Skull",
         "altText": "the fossilized skull of camarasaurus dinosaur"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "167A05D1-5793-49E0-89FE-0A1DDFA9A7F4",
@@ -2571,7 +2683,8 @@
         "title": "Diving at the Dry Tortugas",
         "altText": "Two divers dive the Windjammer Wreck"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "658C035B-119B-4C6F-9720-67872AD6A8A5",
@@ -2594,7 +2707,8 @@
         "title": "Dwight D. Eisenhower Memorial Wide shot",
         "altText": "Dwight D. Eisenhower Memorial Wide shot"
       }
-    ]
+    ],
+    "designation": "Memorial"
   },
   {
     "id": "98C8117C-EDE9-4A7C-9354-5AD0DEFDB848",
@@ -2617,7 +2731,8 @@
         "title": "Mt Baker and the historic Smith Barn",
         "altText": "Mt Baker and the historic Smith Barn"
       }
-    ]
+    ],
+    "designation": "National Historical Reserve"
   },
   {
     "id": "7D06F9D0-1D89-48B5-AFC6-E096C3288C1E",
@@ -2640,7 +2755,8 @@
         "title": "Parlor",
         "altText": "Color photo of the parlor in the Poe House showing illustrations of furniture on the walls."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "0265E5A4-576A-4626-882A-05971DEE9B76",
@@ -2663,7 +2779,8 @@
         "title": "Conical Mounds Leading to Fire Point",
         "altText": "Circular mounds in a single line."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "29621EB6-DFBA-40DD-A880-FE29BE9EE2D7",
@@ -2686,7 +2803,8 @@
         "title": "The Eisenhower dining room decorated for the holidays",
         "altText": "The Eisenhower dining room decorated for the holidays"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "0826F21E-43A2-4675-8D2A-11F676293364",
@@ -2709,7 +2827,8 @@
         "title": "Sandstone Bluffs Overlook",
         "altText": "Yellow sandstone cliff at sunset with dark lava field in background"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "F894BEB4-0058-4FB9-9E5B-68DB9A5BD198",
@@ -2732,7 +2851,8 @@
         "title": "El Morro in snow",
         "altText": "Headland in Snow"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "04CB5DB1-522B-4C2C-BB3F-C36361E391E7",
@@ -2755,7 +2875,8 @@
         "title": "Living Room at Val-Kill",
         "altText": "A paneled room with comfortable furniture and a baby grand piano."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "73A512A3-807A-457C-8A3B-5862C9C28BBD",
@@ -2778,7 +2899,8 @@
         "title": "Ellis Island Museum of Immigration",
         "altText": "Beaux-Arts brick and limestone building with large arched windows and cupola-topped towers."
       }
-    ]
+    ],
+    "designation": "Part of Statue of Liberty National Monument"
   },
   {
     "id": "0776E4B1-036C-4C61-9F5D-F5DB0EFB3220",
@@ -2801,7 +2923,8 @@
         "title": "Emmett Till Interpretive Center 2",
         "altText": "A table sits besides shelves featuring magazines and books in a white room."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "353241CC-4C4A-4F9E-A928-EFDCE2C6E29A",
@@ -2824,7 +2947,8 @@
         "title": "Eugene O'Neill Home in Danville, California",
         "altText": "Eugene O'Neill Home in Danville, California"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "5EA02193-276A-4037-B7DB-5765A56935FD",
@@ -2847,7 +2971,8 @@
         "title": "Camping at Long Pine Key",
         "altText": "Three tents are put up along the Long Pine Key campsite."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "2337D255-2D32-4997-957A-D461EEA03AF8",
@@ -2870,7 +2995,8 @@
         "title": "Federal Hall Interior",
         "altText": "\u201cLarge crowd inside the rotunda of Federal Hall National Memorial\u201d"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "8A31246D-5AB9-4A0E-8FBA-A9780C468935",
@@ -2893,7 +3019,8 @@
         "title": "Old Mastic House at William Floyd Estate",
         "altText": "A view from a meadow of the historic Old Mastic House"
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "35CB040E-765C-47D0-A594-05943E64EF3E",
@@ -2916,7 +3043,8 @@
         "title": "Front Door of the Education Center",
         "altText": "The front of the education center."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "7861C177-A600-4B37-B217-E9E64DC04F34",
@@ -2939,7 +3067,8 @@
         "title": "Fort Christina",
         "altText": "A replica of the original Kalmar Nyckel ship sails by the monument at Fort Christina."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "CA3ABD4B-B2BB-4949-9705-60CADB175FC4",
@@ -2962,7 +3091,8 @@
         "title": "Memorial Gateway Entrance",
         "altText": "The memorial entrance sign with wilflowers."
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "1F38885B-538E-499C-B5A6-30D76267AC7F",
@@ -2985,7 +3115,8 @@
         "title": "Big Stump",
         "altText": "Fossil redwood stump"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "C1D82E29-1291-415B-9834-5A0480D2732C",
@@ -3008,7 +3139,8 @@
         "title": "Ford's Theatre Front",
         "altText": "Picture of the front of Ford's Theatre"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "5AD68231-8681-43F6-89B1-08E5AA4C7FE6",
@@ -3031,7 +3163,8 @@
         "title": "Fort Bowie Ruins",
         "altText": "Ruins of the fort with mountains and valley in the background."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "DE70B987-01A4-4BA5-9662-030BE3329AB3",
@@ -3054,7 +3187,8 @@
         "title": "Cavalry",
         "altText": "Soldier mounted on his horse"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "7DD7A9E8-E1E9-4759-A764-5FF81FC520ED",
@@ -3077,7 +3211,8 @@
         "title": "Artillery at Fort Donelson NB",
         "altText": "cannon overlooking river"
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "3659D57D-BF06-4351-8B14-5F447120A389",
@@ -3100,7 +3235,8 @@
         "title": "Fort DuPont Park",
         "altText": "Fort during fall hike"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "649C339B-35AE-4A4D-96A5-B54E46BA8D71",
@@ -3123,7 +3259,8 @@
         "title": "Drawing of Fort Foote",
         "altText": "Drawing of Fort Foote Park, depicting the fort in 1865."
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "4301F6E9-750B-489D-B8E4-4204165894A1",
@@ -3146,7 +3283,8 @@
         "title": "Artifacts found at Frederica",
         "altText": "Artifacts found at Frederica"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "53C5C818-EB7C-4FEB-B94F-892588205D64",
@@ -3169,7 +3307,8 @@
         "title": "Arial View of Fort Laramie NHS From the South",
         "altText": "Aerial view of Fort Laramie NHS from the South"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "6C6ABAB9-7F52-4172-8009-817612726CFF",
@@ -3192,7 +3331,8 @@
         "title": "Artillery Demonstration",
         "altText": "Men in 19th century U.S. Army uniforms fire a reproduction period cannon."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "31E84ADD-24C1-400B-9D8B-4588D8DC521C",
@@ -3215,7 +3355,8 @@
         "title": "Nature Trail",
         "altText": "A nature trail boardwalk with seating area."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "B0DE766C-E87F-48BE-A94F-C9D774AD52FD",
@@ -3233,7 +3374,8 @@
         "title": "Fort McHenry National Monument and Historic Shrine",
         "altText": "Fort McHenry"
       }
-    ]
+    ],
+    "designation": "National Monument and Historic Shrine"
   },
   {
     "id": "BDE93DB8-0A71-4C18-9F10-489815E742CC",
@@ -3256,7 +3398,8 @@
         "title": "Fort Monroe Aerial View",
         "altText": "Aerial View of Fort Monroe"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "D2E64293-4B46-4F1A-8902-7D0FCAD268C0",
@@ -3279,7 +3422,8 @@
         "title": "Fort Necessity",
         "altText": "Fort Necessity and the Great Meadow with trail and tree in the foreground"
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "7FF57085-3B53-498D-86B5-96F5F1493A06",
@@ -3302,7 +3446,8 @@
         "title": "Civil War Days at Fort Point",
         "altText": "A cannon stands in front of Civil War re-enactors talking to the public."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "3249A652-F901-40F2-A608-635B0F41574B",
@@ -3325,7 +3470,8 @@
         "title": "The Battered Walls of Fort Pulaski",
         "altText": "The red masonry walls of Fort Pulaski still show battle damage over 150 years later."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "C84BCBF8-FC75-48BB-8032-6FF56AB2DCED",
@@ -3348,7 +3494,8 @@
         "title": "First Light of Freedom",
         "altText": "Back of the monument commemorating the Roanoke Island Freedmen's Colony"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "8CA5777A-FFDF-45AE-9705-C4DE268D1BCC",
@@ -3371,7 +3518,8 @@
         "title": "Laundry Day",
         "altText": "Women dressed as laundresses with laundry buckets and scrub boards stand on a stone porch."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "54DC5EA0-2635-4154-BBD0-AF0F38D76933",
@@ -3394,7 +3542,8 @@
         "title": "Entrance sign",
         "altText": "Entrance sign in snow"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "D57C8F0D-71E9-46D7-B00B-001BC7E39096",
@@ -3417,7 +3566,8 @@
         "title": "Celebrate the Park! Fort Stanwix at 40 & the NPS Centennial!",
         "altText": "Children dance, jump, and skip on the parade ground of reconstructed Fort Stanwix."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "372AF558-26C8-461F-B011-AF359276398D",
@@ -3440,7 +3590,8 @@
         "title": "Fort Sumter",
         "altText": "Fort Sumter with a US flag flying above the fort with dock in the foreground"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "FB1AE18D-522F-434B-9983-3D0194CE1995",
@@ -3463,7 +3614,8 @@
         "title": "Fort Union NM Visitor Center",
         "altText": "Fort Union Visitor Center Sign"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "60B1534B-5C3A-402A-ABC6-700B756F69A2",
@@ -3486,7 +3638,8 @@
         "title": "Fort Union and the Missouri River Valley",
         "altText": "View of Fort Union and the Missouri River looking south"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "B13AB831-6806-4CBA-A93D-4E2FCC39F6F7",
@@ -3509,7 +3662,8 @@
         "title": "Fort Vancouver",
         "altText": "Fort Vancouver"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "E49B3D75-8676-4417-BFAD-8B3E23B1418B",
@@ -3532,7 +3686,8 @@
         "title": "Entrance to Fort Washington",
         "altText": "Entrance way into historic Fort Washington"
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "57CCF213-6285-408F-AD58-CC2DB9D5B6C1",
@@ -3555,7 +3710,8 @@
         "title": "Fossils on the Ridge",
         "altText": "Fish fossils, Knightia eocaena, exposed near cliff"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "32BA62F5-5678-4202-9E68-6EC5ED9FA0CC",
@@ -3578,7 +3734,8 @@
         "title": "Approach to the Frances Perkins Homestead",
         "altText": "A sandy brown driveway curves through green grass towards the two story-red brick homestead and grey"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "8F8CC788-D1BB-42BC-A41E-B442E2B001C8",
@@ -3601,7 +3758,8 @@
         "title": "Cascade at Franklin Delano Roosevelt",
         "altText": "A four tier cascade of water flows"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "F6831504-A456-45C8-B87B-0FCE1D849A12",
@@ -3624,7 +3782,8 @@
         "title": "Cedar Hill",
         "altText": "Visitors take photos in front of a historic house"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "CDC0FE7F-C249-466C-88B2-B81FC5279B91",
@@ -3647,7 +3806,8 @@
         "title": "Drafting Table",
         "altText": "Dark wood box with four shallow drawers on large wooden table with blueprint"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "52430E36-3361-4BB8-BE6F-0F2834E50CB3",
@@ -3670,7 +3830,8 @@
         "title": "Chatham in the Fall",
         "altText": "Trees with fall colors in front of large brick manor house"
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "FFEB6894-949B-4C17-924D-646B63966718",
@@ -3693,7 +3854,8 @@
         "title": "Greyhound Mural",
         "altText": "Colored Greyhound mural with historical information about the Freedom Riders"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "F6D0ABED-2C07-4194-8CB7-09476271EDB9",
@@ -3716,7 +3878,8 @@
         "title": "Gallatin House in Winter",
         "altText": "Gallatin House - Stone House and South Wing in snow with blue sky"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "BC195D18-71C8-4A99-BF8E-10BFAB849679",
@@ -3739,7 +3902,8 @@
         "title": "Arrigetch Peaks",
         "altText": "Alpenglow on the granite cliffs of mountains"
       }
-    ]
+    ],
+    "designation": "National Park & Preserve"
   },
   {
     "id": "BBC5BE3F-E921-40B5-A850-F259D9FAF88C",
@@ -3762,7 +3926,8 @@
         "title": "Enjoying a summer's day at Jacob Riis Park",
         "altText": "Visitors enjoying the sun and sand at Jacob Riis Park"
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "BD588493-EC77-4B97-B73E-3BA444864DC5",
@@ -3785,7 +3950,8 @@
         "title": "Gateway Arch",
         "altText": "Gateway Arch"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "A1994071-1BCB-4C14-9C21-108348882067",
@@ -3808,7 +3974,8 @@
         "title": "Guiding on the Gauley River",
         "altText": "Guiding through a rapid on the Gauley River"
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "99F1F4ED-5B14-4756-B0EB-FF251B1A12BD",
@@ -3831,7 +3998,8 @@
         "title": "Site of the Temporary Tomb",
         "altText": "A black wrought-iron fence surrounds two trees. The enclosure is located directly behind the tomb."
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "48C4BDA1-98A3-441A-87FF-BAAB3AA043AE",
@@ -3854,7 +4022,8 @@
         "title": "Father Gibault",
         "altText": "Statue of a man wearing a cloak with trees in background"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "E6D5BB41-3251-469F-ABDA-7B43B966F0CF",
@@ -3877,7 +4046,8 @@
         "title": "George Washington Memorial Parkway Stone Bridge",
         "altText": "Stone Bridge Along the George Washington Memorial Parkway"
       }
-    ]
+    ],
+    "designation": "Memorial Parkway"
   },
   {
     "id": "542D7CC3-B948-4891-9811-829661F30686",
@@ -3900,7 +4070,8 @@
         "title": "George Washington Birthplace National Monument in Winter",
         "altText": "A large monument sits in the middle of a roundabout with snow on the ground"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "56A5A3B1-4F49-4517-86B8-AE2F272D0C42",
@@ -3923,7 +4094,8 @@
         "title": "George Washington Carver NM Entrance",
         "altText": "An entrance sign to George Washington Carver National Monument with wildflower and plants."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "8C330DA3-6194-4034-8948-C6B6772B82A0",
@@ -3946,7 +4118,8 @@
         "title": "A ranger-led interpretive program",
         "altText": "A ranger-led interpretive program"
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "1BB1F955-A830-4E85-A80F-5E940A143CE5",
@@ -3969,7 +4142,8 @@
         "title": "Eroded Cliffs Along the Gila River",
         "altText": "Eroded cliffs reflecting off a river"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "2B5178C6-2446-488C-AC31-47E3CEBF7159",
@@ -3992,7 +4166,8 @@
         "title": "East Side Sunset",
         "altText": "Jagged peaks rise out of a forested valley and an empty road curves off into the distance."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "3682DBDE-6746-4979-86CC-2358C5B72661",
@@ -4015,7 +4190,8 @@
         "title": "Camping in the Glacier Bay backcountry",
         "altText": "Camping in the Glacier Bay backcountry"
       }
-    ]
+    ],
+    "designation": "National Park & Preserve"
   },
   {
     "id": "F7EB51F0-240D-49BC-968C-792756A3B1A0",
@@ -4038,7 +4214,8 @@
         "title": "Glen Canyon Dam",
         "altText": "A concrete dam plugs high canyon walls. Buildings and wires on the sides."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "3FBC6D2D-C61B-4399-BC35-1B00C92C406A",
@@ -4061,7 +4238,8 @@
         "title": "Dancing in the Bumper Car Pavilion",
         "altText": "outdoor scene of open dance pavilion illuminated and evening dance crowd inside."
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "4A2954A3-F00F-46E4-8FC7-BB2766350518",
@@ -4084,7 +4262,8 @@
         "title": "Interior of the Gloria Dei Church",
         "altText": "A color photo of the interior of Gloria Dei Church showing the pulpit and a stained glass window."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "0E797FA8-6E31-418B-A68F-13CEE37A2AF5",
@@ -4107,7 +4286,8 @@
         "title": "Golden Gate Bridge from Battery",
         "altText": "Person jogging along a path with golden gate bridge in the background."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "8F858FBE-8E28-491A-BCBD-67E23D535EEA",
@@ -4130,7 +4310,8 @@
         "title": "Golden Spike Park Entrance Sign",
         "altText": "Winter View of Golden Spike Entrance Sign"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "F7DA09B4-41C4-4372-9EBB-15AD1526B391",
@@ -4153,7 +4334,8 @@
         "title": "Fort Jay gate house and moat.",
         "altText": "Bridge over dry moat leading into a gated fort."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "B7FF43E5-3A95-4C8E-8DBE-72D8608D6588",
@@ -4176,7 +4358,8 @@
         "title": "Grand Canyon National Park: Desert View Watchtower (South Rim)",
         "altText": "The Desert View Watchtower looms 70 feet into the air over a vast and dramatic view of the canyon."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "F614E6C5-1283-431A-AF44-15FC849D65FE",
@@ -4199,7 +4382,8 @@
         "title": "Driving the sage flat",
         "altText": "A UTV drives down a road surrounded on both sides by sage"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "E463E13F-FCD4-41B3-AEF3-BA3199E04399",
@@ -4222,7 +4406,8 @@
         "title": "Historic Depot from Mount Rose",
         "altText": "Log buildings, stockade fence and dock near a large lake."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "FF73E2AA-E274-44E1-A8F5-9DD998B0F579",
@@ -4245,7 +4430,8 @@
         "title": "Arrowleaf Balsamroot",
         "altText": "yellow arrowleaf balsamroot blooms with Teewinot Peak towering beyond"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "72A30002-12FA-4738-BCA7-1FA8062214CB",
@@ -4268,7 +4454,8 @@
         "title": "Cowboy on Horseback with Cattle",
         "altText": "Historic buildings surround fenced pasture, cattle being moved by cowboy on horseback toward viewer."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "4C1A549B-080F-4522-9CA7-67BB5A0845CA",
@@ -4291,7 +4478,8 @@
         "title": "Bristlecone at night",
         "altText": "Bristlecone pine tree with a dark blue sky behind it with a bright Jupiter shining"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "5B1021C9-5F48-4747-B0E4-6F508FDF96AE",
@@ -4314,7 +4502,8 @@
         "title": "Gibson Creek",
         "altText": "Sun setting over the river."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "4DC6F018-E87E-46AE-8F05-BA30D3B82FF9",
@@ -4337,7 +4526,8 @@
         "title": "Great Falls",
         "altText": "Water pouring down rocks at Great Falls"
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "461D40CC-4379-4C1B-ADB8-3563147F61A1",
@@ -4360,7 +4550,8 @@
         "title": "Elk, Grasslands, Dunes, and Sangre de Cristo Mountains",
         "altText": "Elk, Grasslands, Dunes, and Sangre de Cristo Mountains"
       }
-    ]
+    ],
+    "designation": "National Park & Preserve"
   },
   {
     "id": "D9819727-18DF-4A84-BDDE-D4F2696DE340",
@@ -4383,7 +4574,8 @@
         "title": "A Foggy Morning at Cades Cove Methodist Church",
         "altText": "Tombstones stand in front of a white, wooden church on a foggy morning."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "67B6A06A-1B09-44DE-BCA4-C013EE30DDD0",
@@ -4406,7 +4598,8 @@
         "title": "Green Springs",
         "altText": "Historic church"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "8CEE28AB-50AE-4AC6-ACEF-B209A5346743",
@@ -4429,7 +4622,8 @@
         "title": "Father and son relaxing in the Greenbelt Park campground",
         "altText": "Father and son sitting in chairs reading in the Greenbelt Park campground"
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "6510001B-685D-4688-A963-4ECE7AB609DB",
@@ -4452,7 +4646,8 @@
         "title": "El Capitan",
         "altText": "El Capitan with blooming claret cup cacti"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "D1417003-3F9E-4FE0-9C6B-8ECE50855C7B",
@@ -4475,7 +4670,8 @@
         "title": "6 pounder cannons",
         "altText": "Two cannons on grey carriages (wheels) sit in a forest"
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "ACA78E27-3C26-4C8B-8CCB-9F0B5BED247F",
@@ -4498,7 +4694,8 @@
         "title": "Fort Barrancas and Spanish Water Battery",
         "altText": "A white building and a fort"
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "BEE3E4AA-D61B-4197-A2A0-567D15734766",
@@ -4521,7 +4718,8 @@
         "title": "Hagerman Fossil Beds National Monument in Southern Idaho",
         "altText": "Steep, rocky bluffs line a river, awash in warm sunset colors"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "4930BAEB-A3BF-4825-9796-DCD0FD1C3BD5",
@@ -4544,7 +4742,8 @@
         "title": "Sunset Over the Crater",
         "altText": "Sun setting over the volcano crater and horizon"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "4E169088-14AC-41DB-A6B2-BB3925B1CF0A",
@@ -4567,7 +4766,8 @@
         "title": "Hamilton Grange National Memorial, Entrance",
         "altText": "Hamilton Grange National Memorial, Entrance"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "5FD56750-4A13-4615-B987-793AC356B320",
@@ -4585,7 +4785,8 @@
         "title": "Hampton Mansion Historic Site",
         "altText": "Hampton Mansion in the fall"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "211E9758-FA5F-4BAA-AABF-D939B7C07A79",
@@ -4608,7 +4809,8 @@
         "title": "Harmony Hall",
         "altText": "Flowers on a tree with a large brick house in the background."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "2828F5DF-F4E9-48DE-9D4D-2EC39E0276B2",
@@ -4631,7 +4833,8 @@
         "title": "Artillery at Murphy-Chambers Farm",
         "altText": "Artillery at Murphy-Chambers Farm"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "067468EC-25DB-447C-91A8-068C167EEF32",
@@ -4654,7 +4857,8 @@
         "title": "Thompsom A.M.E. Zion Church",
         "altText": "A tall, green and orange painted church steeple, against a blue sky, with a tree in the foreground."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "380E7DFB-6F37-499F-8996-356EC5F0DDE5",
@@ -4672,7 +4876,8 @@
         "title": "Harriet Tubman Underground Railroad Site",
         "altText": "Girl stands on a bridge overlooking the marshlands."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "76F393BA-D39F-43E9-B0A3-F746E2FEAD85",
@@ -4695,7 +4900,8 @@
         "title": "The Frank Wallace Home",
         "altText": "The Frank Wallace home where Bess Truman's brother lived."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "D9BF4288-9AC3-4526-9598-BE8920839ACC",
@@ -4718,7 +4924,8 @@
         "title": "Halema\u02bbuma\u02bbu Crater",
         "altText": "A tree stands on the edge of a misty caldera"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "43AC146A-0903-4E4A-BD7D-7169655009C7",
@@ -4741,7 +4948,8 @@
         "title": "Friends Meetinghouse",
         "altText": "Two doorways, one on either side, of a broad white wood frame building divides the sexes."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "9CFF594A-8DB1-4377-BE2A-10CC2B0C47E1",
@@ -4764,7 +4972,8 @@
         "title": "Children In Nature Program at Historic Jamestowne",
         "altText": "Children In Nature Program at Historic Jamestowne"
       }
-    ]
+    ],
+    "designation": "Part of Colonial National Historical Park"
   },
   {
     "id": "BBA0A580-E05B-42DD-A64F-7C6F958091C5",
@@ -4787,7 +4996,8 @@
         "title": "Springwood",
         "altText": "A stucco and fieldstone house with white trim and circular portico."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "3E1E316B-2F1A-4F08-8BD0-AE64761D68C2",
@@ -4810,7 +5020,8 @@
         "title": "Grounds",
         "altText": "The tallgrass prairie is yellow with goldenrod in full bloom."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "88F37F00-EAD0-44C4-88D1-F42D52BF661B",
@@ -4833,7 +5044,8 @@
         "title": "Honouliuli Aqueduct",
         "altText": "View down the aqueduct at Honouliuli Gulch"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "BE344FC9-4366-493D-B881-4E5AD4973CF5",
@@ -4856,7 +5068,8 @@
         "title": "Hopeton Earthworks",
         "altText": "A green, grassy field with taller areas of uncut grass in geometric shapes under a partly cloudy sky"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "D709F8AB-E094-4C58-8B9E-2E4958AA2BF2",
@@ -4879,7 +5092,8 @@
         "title": "Charcoal Pile",
         "altText": "Demonstration charcoal pile smoldering."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "7565F317-EA13-4E07-9059-D6831CA7E4A9",
@@ -4902,7 +5116,8 @@
         "title": "Horseshoe Bend",
         "altText": "Aerial view of the horseshoe-shaped bend of the Tallapoosa River"
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "ED9C0322-68FB-4DE1-A884-61C623281C9D",
@@ -4925,7 +5140,8 @@
         "title": "Bathhouse Row",
         "altText": "Stone entrance pillars in front of a row of four bathouses"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "BA84404E-743C-4841-9F83-87CEDA164E5B",
@@ -4948,7 +5164,8 @@
         "title": "Claretcup Cactus",
         "altText": "a bright red cactus flower"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "E2A4E070-D68B-42D6-8353-4438ED2F43AB",
@@ -4971,7 +5188,8 @@
         "title": "Hubbell Family Home",
         "altText": "Inside the Hubbell Family home, looking south."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "CF35CC35-12CE-473D-9E4C-703916105B78",
@@ -4994,7 +5212,8 @@
         "title": "Independence Visitor Center",
         "altText": "A color photo of the Independence Visitor Center showing a brick building with tall windows."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "473EFACE-EE15-4A4F-AA6C-666810A9E27D",
@@ -5017,7 +5236,8 @@
         "title": "Central Beach",
         "altText": "Central Beach"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "0F6893CF-FC15-4AC5-8C95-E70FC9C21B1A",
@@ -5040,7 +5260,8 @@
         "title": "Aurora Borealis Over Isle Royale National Park",
         "altText": "Diverse colored Aurora Borealis in the night sky"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "622B7696-B7D8-41D8-A3C9-C82A60D0CD12",
@@ -5063,7 +5284,8 @@
         "title": "Inupiaq whalers",
         "altText": "Five people in heavy clothing paddle a skin canoe in icy waters"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "DE848801-6FFA-4961-901A-CBE120F569F5",
@@ -5086,7 +5308,8 @@
         "title": "James A. Garfield National Historic Site",
         "altText": "a large gray house with a red roof"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "ED57A2B1-2560-471C-82A7-7EF6BC3486F8",
@@ -5109,7 +5332,8 @@
         "title": "Barataria Preserve of Jean Lafitte National Historical Park and Preserve",
         "altText": "Spanish moss hangs from live oak tree"
       }
-    ]
+    ],
+    "designation": "National Historical Park and Preserve"
   },
   {
     "id": "A71EF659-5A33-4CCC-93CE-340F23A88E3E",
@@ -5132,7 +5356,8 @@
         "title": "Canyons Trail Descending toward the Historic Entrance",
         "altText": "A paved path with steps heads down a hillside, with rock overhangs and pine trees nearby."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "F63CFF21-C861-422D-A725-B8F3ECFF6EAE",
@@ -5155,7 +5380,8 @@
         "title": "Jimmy Carter's Boyhood Home",
         "altText": "A picture of the front of the home Jimmy Carter lived in as a young boy."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "B2577D2A-A33E-4DCF-B6F8-C299E1DFEC19",
@@ -5178,7 +5404,8 @@
         "title": "Historic James Cant Ranch Homestead",
         "altText": "White house surrounded by green with concrete path leading to the front"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "13E32BB8-D80B-45FA-ABF7-9C0CA5417ADC",
@@ -5201,7 +5428,8 @@
         "title": "Kennedy Dining Room",
         "altText": "Dining room with oval dining table with six place settings of silver and fine china."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "F339067B-A588-4BF3-9D90-1C1BA1249203",
@@ -5224,7 +5452,8 @@
         "title": "John Muir National Historic Site",
         "altText": "A old copper sprayer sits against a tree-line background."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "A8C04CA4-FEFF-4FDD-99C4-5BA801AA2DB5",
@@ -5247,7 +5476,8 @@
         "title": "Lake View House",
         "altText": "Farm house"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "F5CD58FB-05DC-4074-99DA-F327A537F1BC",
@@ -5270,7 +5500,8 @@
         "title": "Historic Keys Ranch",
         "altText": "an historic wood house seen through the missing windshield of an old, rusty vehicle"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "3C869976-DF2E-4D99-9918-366DFE637846",
@@ -5293,7 +5524,8 @@
         "title": "Black Sand Beach",
         "altText": "View of Black Sand Beach and Awahua Bay"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "C8B7FCAD-0176-4ABC-8774-90A264E646F1",
@@ -5316,7 +5548,8 @@
         "title": "Entrance to Petroglyph Boardwalk",
         "altText": "Modern version of Ki'i Pohaku (Petroglyphs)!"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "406F7D87-F34F-41C9-9CCE-9FD53ABBA9A7",
@@ -5339,7 +5572,8 @@
         "title": "East Branch of the Penobscot River",
         "altText": "Mirror reflection of Lunksoos Mountain and trees within the water of the river."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "B712CB0C-B3DD-48A6-AA4F-CCD72C87F48B",
@@ -5362,7 +5596,8 @@
         "title": "Bear family walks near sleeping bear",
         "altText": "Three bears walk near a sleeping bear"
       }
-    ]
+    ],
+    "designation": "National Park & Preserve"
   },
   {
     "id": "11E73438-0CCC-4441-A76A-1995F67F2D89",
@@ -5385,7 +5620,8 @@
         "title": "Aialik Bay Kayakers",
         "altText": "kayakers in front of a tidewater glacier"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "A1901BAE-94DB-44E4-96D4-1E07422EDF6E",
@@ -5408,7 +5644,8 @@
         "title": "Fall Colors",
         "altText": "Aquatic ponds during the fall with trees displaying orange and yellow colors."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "AA1E3B48-8B98-4F47-A642-C266A92AB523",
@@ -5431,7 +5668,8 @@
         "title": "Illinois Monument at Kennesaw Mountain",
         "altText": "Illinois Monument at Kennesaw Mountain."
       }
-    ]
+    ],
+    "designation": "National Battlefield Park"
   },
   {
     "id": "E25D6277-11D8-425F-8498-718C98B13854",
@@ -5454,7 +5692,8 @@
         "title": "Keweenaw History Center",
         "altText": "Two story stone and brick building. a ranger leads a group of visitors in front or the steps"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "C7C40543-5879-48FC-8E55-C26F3E0B4CCD",
@@ -5477,7 +5716,8 @@
         "title": "Ferguson's Grave",
         "altText": "An oval gravestone for Maj Patrick Ferguson is in front of his stone covered grave."
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "5D4AA834-B601-44A8-B786-FF3306BA8A39",
@@ -5500,7 +5740,8 @@
         "title": "Gateway to the gold rush",
         "altText": "Aerial view of town in a valley with cruise ships in port"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "0529BC85-CD42-4DA9-AC60-CAD7C40C3525",
@@ -5523,7 +5764,8 @@
         "title": "Cadillac Hotel",
         "altText": "Large brick wall with glass windows."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "0103833B-8114-4483-9754-11B5171BCB20",
@@ -5546,7 +5788,8 @@
         "title": "Garden",
         "altText": "Garden"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "691831BF-F280-4E02-BF4A-FF476BC66B23",
@@ -5569,7 +5812,8 @@
         "title": "Canoe on the Kobuk River",
         "altText": "A green pack canoe sits on the bank of the Kobuk River. Clouds are mirrored on the water's surface."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "0DEA542F-01B7-4631-8AAD-124161D7B7E6",
@@ -5592,7 +5836,8 @@
         "title": "Freedom Is Not Free",
         "altText": "Nineteen stainless steel statues reflect on a black granite wall"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "D50B95B0-11C7-4F0A-8B3A-9BAC66E8F1A7",
@@ -5615,7 +5860,8 @@
         "title": "Daffodils near the LBJ Memorial",
         "altText": "View from the the LBJ memorial of numerous daffodils and the Potomac River."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "5F76F85B-23F4-4616-AA0B-A26E8DE76593",
@@ -5638,7 +5884,8 @@
         "title": "Lake Clark",
         "altText": "Photo of blue sky with fluffy white clouds reflect in calm lake with mountains in the background."
       }
-    ]
+    ],
+    "designation": "National Park & Preserve"
   },
   {
     "id": "7B43EA5B-298C-4BAB-B22D-860B852B40A5",
@@ -5661,7 +5908,8 @@
         "title": "Black Canyon at Lake Mead NRA",
         "altText": "sun rising on Black Canyon"
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "AC3B46AA-B4C2-4555-A82A-D4CF790DF81D",
@@ -5684,7 +5932,8 @@
         "title": "Camping with a View",
         "altText": "Picnic shelter at a campsite overlooking Lake Meredith.  The sky is blue with no clouds."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "B548FF88-8155-4E56-8E77-FB140D06E1EC",
@@ -5707,7 +5956,8 @@
         "title": "Lake Roosevelt 2",
         "altText": "People canoeing down Lake Roosevelt on a day with blue skies."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "9AA4A53C-0331-43CC-99F5-379BC929FFB2",
@@ -5730,7 +5980,8 @@
         "title": "Brokeoff Panorama",
         "altText": "Two hikers sit on a mountain top with a view of multiple peaks, dotted with patches of snow"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "10AEFADA-AFA0-4998-A9E5-3F504F351AAB",
@@ -5753,7 +6004,8 @@
         "title": "Schonchin Butte & Skull Cave",
         "altText": "Schonchin Butte & Skull Cave"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "2666104A-6685-4F93-9412-8091007BEF6C",
@@ -5776,7 +6028,8 @@
         "title": "Fort Clatsop",
         "altText": "A fifty foot square wooden fort surrounded by tall trees in a forest."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "E9A0608F-46D6-4072-939F-C81E27AAB236",
@@ -5799,7 +6052,8 @@
         "title": "Cabin at Living Historical Farm",
         "altText": "Park ranger is period dress standing near fireplace, cooking in the cabin."
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "FF52F034-53E3-4F36-AA31-4BEBCC5F007A",
@@ -5822,7 +6076,8 @@
         "title": "Harriet Dean House",
         "altText": "2 story brown house with dark green shutters and white fence."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "1EAEF5FA-8CD4-40D7-8B09-07F20E3E5AA5",
@@ -5845,7 +6100,8 @@
         "title": "Lincoln Memorial Statue at Night",
         "altText": "Marble statue of Abraham Lincoln sitting inside the Chamber of the Lincoln Memorial"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "415AA3E1-CE8A-4A24-BD69-451C87107AA4",
@@ -5868,7 +6124,8 @@
         "title": "Indian Memorial",
         "altText": "The sun sets behind the Indian Memorial."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "C03CF86E-BFB5-470E-AFF3-C1798A61FFE5",
@@ -5891,7 +6148,8 @@
         "title": "Canyon Mouth Park",
         "altText": "a river with rock and green trees and blue sky"
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "5C51E54A-BCDA-4186-96C3-1B896C3CDFCB",
@@ -5914,7 +6172,8 @@
         "title": "Elizabeth Eckford Bench",
         "altText": "a replica of a 1950s bus bench with Central High School in the background"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "CE9470A1-A8D7-49DE-A555-1A32FBBAB0FF",
@@ -5937,7 +6196,8 @@
         "title": "Front Hall",
         "altText": "A staircase with white balusters and green carpet. A bust of Washington sits at the turn of stairs."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "FA6450A4-D2F1-4B35-9817-EA01918597A6",
@@ -5960,7 +6220,8 @@
         "title": "Boott Mills Weave Room",
         "altText": "Two young visitors look over the rail at a room full of working looms"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "3725FD28-4693-481E-888C-855484E73800",
@@ -5983,7 +6244,8 @@
         "title": "Interior of Rogarshevsky Kitchen",
         "altText": "A tenement kitchen with cast iron posts, old stove, and a bed next to the stove"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "ECDFABE2-6448-46EA-886E-FE79ACBBF16E",
@@ -6006,7 +6268,8 @@
         "title": "Cyclists in the LBJ 100",
         "altText": "Luci Johnson (center in gray jersey) leads a bike tour"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "70090004-4DA3-4E20-8F70-9DE064C2AA69",
@@ -6029,7 +6292,8 @@
         "title": "The Back Parlor of the Historic Walker Home",
         "altText": "The back parlor with piano, couch, floor lamp and fireplace"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "A609887A-BB48-47AA-A6F6-4C7F77346FC6",
@@ -6052,7 +6316,8 @@
         "title": "Bangor/Aroostook Caboose & Green Water Tank",
         "altText": "This site preserves one of a few surviving train water tanks in the United States and a 1940s era ca"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "6A1737A1-6848-4087-AAF7-68A427247357",
@@ -6075,7 +6340,8 @@
         "title": "Good Spring Baptist Church",
         "altText": "A small white church building with yellow flowers in the foreground."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "75E4B06E-24C5-4F04-AAB3-F41CF0F55B7A",
@@ -6098,7 +6364,8 @@
         "title": "Bull Run Monument",
         "altText": "Red sandstone obelisk surrounded by post and rail fence."
       }
-    ]
+    ],
+    "designation": "National Battlefield Park"
   },
   {
     "id": "E777590D-C086-4A88-B5A2-AAE47DBD6A6F",
@@ -6121,7 +6388,8 @@
         "title": "Hanford Hike Through Time",
         "altText": "Uniformed park ranger talks animatedly to visitors on a hillside overlooking a sprawling urban area."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "249AF67F-BB6C-4D0A-B632-07BEE855D24B",
@@ -6144,7 +6412,8 @@
         "title": "Barracks in 1942, Manzanar",
         "altText": "People walk to barracks framed by mountain peaks."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "AB289D4C-AC48-4C83-8643-45E1FCAAAEB1",
@@ -6167,7 +6436,8 @@
         "title": "Fun in the Forest camp",
         "altText": "Park Ranger points to a trail sign and talks to a group of young children"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "59636FCE-DE81-4D98-890C-585BD48F9AD0",
@@ -6190,7 +6460,8 @@
         "title": "Fire Station No. 6",
         "altText": "Fire Station No. 6"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "855C9CDC-89B3-4143-9496-D9E6AE292CA1",
@@ -6213,7 +6484,8 @@
         "title": "Cherry Blossoms at the Martin Luther King Jr. Memorial",
         "altText": "Cherry Blossoms surround the Martin Luther King Jr. Memorial"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "C1713EAF-0437-4CE1-8CFB-04147E1318F3",
@@ -6236,7 +6508,8 @@
         "title": "Le paysage \u00e0 chasses - Zuber wallpaper",
         "altText": "Le paysage \u00e0 chasses, a scenic wallpaper of a hunting scene that is hung in Van Buren's dining room"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "1D530576-5363-4264-9A26-1C0809DB0B6A",
@@ -6259,7 +6532,8 @@
         "title": "Mary McLeod Bethune Council House National Historic Site",
         "altText": "MAMC"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "01DE3F7C-354D-4468-AC36-2CF5274AB68E",
@@ -6282,7 +6556,8 @@
         "title": "Medgar and Myrlie Evers Home",
         "altText": "A small ranch-style home, aqua in color with light brown brick accents, sits on a shaded lot."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "BE3A981E-BB55-474D-8A0E-D711408682DC",
@@ -6305,7 +6580,8 @@
         "title": "Cliff Palace",
         "altText": "Large cliff dwelling in cliff alcove"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "0260D050-761A-4446-AB05-641986F9FDFB",
@@ -6323,7 +6599,8 @@
         "title": "Sunset on the National Cemetery",
         "altText": "A orange sunset over the white granite headstones in the national cemetery with silhouetted cannon."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "FE52067B-EBB9-4FD2-B613-FE778985BAD9",
@@ -6346,7 +6623,8 @@
         "title": "Looking at the northside Canal",
         "altText": "A view of the Northside Canal and reconstructed barbed wire fence."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "3AB31FA9-E174-4A03-952D-397944D3A3C8",
@@ -6369,7 +6647,8 @@
         "title": "British Soldiers on the Old North Bridge",
         "altText": "British soldiers marching together over the a wooden bridge. A stone monument towers behind."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "5DE19B04-85AD-4C3A-93BF-A0D484B1AD91",
@@ -6392,7 +6671,8 @@
         "title": "A winter visit to Delta-09",
         "altText": "Two people are visible at the missile silo through a chain link fence"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "913100E9-987E-4659-8124-DFCEE3158FCB",
@@ -6415,7 +6695,8 @@
         "title": "Canoeing Past Gulls",
         "altText": "Gulls stand on a floating log while a canoe passes in the background."
       }
-    ]
+    ],
+    "designation": "National River & Recreation Area"
   },
   {
     "id": "D509DC08-53AD-4661-A2EA-FC69BE456E50",
@@ -6438,7 +6719,8 @@
         "title": "Desert Wildlife",
         "altText": "A desert tortoise rest in the shade of a bush near some hikers"
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "8F17B3D6-BFA2-49F2-B553-C10B2B3A3EED",
@@ -6461,7 +6743,8 @@
         "title": "Artillery Firing",
         "altText": "Smoke and fire erupt from an artillery piece as it is fired by Union soldiers."
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "D87E3D6F-8007-46F0-971A-B3BC191CC888",
@@ -6484,7 +6767,8 @@
         "title": "Montezuma Well",
         "altText": "Two cliff dwellings and a tree with yellow leaves above a pond."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "617A3B73-D7CD-449D-8E27-41DE3BF149A6",
@@ -6507,7 +6791,8 @@
         "title": "Bridge at Moore's Creek",
         "altText": "Bridge at Moore's Creek."
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "D68D9424-CD32-434F-88BF-3069ADFB2744",
@@ -6530,7 +6815,8 @@
         "title": "Ford Mansion",
         "altText": "A white colonial building with snow in the foreground and a blue sky and trees in the background"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "07229CB8-8533-4669-B614-2B884779DD93",
@@ -6553,7 +6839,8 @@
         "title": "Giants of the Old-Growth Forest",
         "altText": "Towering cedars and douglas-firs reach skyward while a beam of sun breaks through the canopy."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "5590468F-2446-4B46-A8C1-42505177C298",
@@ -6576,7 +6863,8 @@
         "title": "Mount Rushmore At Night",
         "altText": "Mount Rushmore illuminated under a darkening evening sky."
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "126A6227-E39F-44F4-A279-B1EA257CBCDA",
@@ -6599,7 +6887,8 @@
         "title": "Bohemian Grove",
         "altText": "Sun rays shine down on a visitor among very tall redwood trees"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "259CE799-32C4-4CA9-BBDF-2F305018289C",
@@ -6622,7 +6911,8 @@
         "title": "Inside the William Johnson House",
         "altText": "room with tall windows and fireplace, round table containing lamp and surrounded by chairs"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "E8A0F0B6-983F-4B9A-9A67-BFF6F9E4204A",
@@ -6645,7 +6935,8 @@
         "title": "Mount Locust Historic House (milepost 15.5) on the Natchez Trace Parkway",
         "altText": "Mount Locust Historic House"
       }
-    ]
+    ],
+    "designation": "Parkway"
   },
   {
     "id": "BA3C1A1D-AA6A-49EB-9237-0222CEEE2670",
@@ -6668,7 +6959,8 @@
         "title": "Baltimore-Washington Parkway",
         "altText": "Cars driving on the Baltimore0Washington Parkway"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "1E521374-B73C-41CD-B524-89E4AC6495F5",
@@ -6691,7 +6983,8 @@
         "title": "National Mall Center",
         "altText": "Aerial View of the Washington Monument and sites north"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "6E71B72E-4F2F-495D-9225-A6634E6C2EB1",
@@ -6714,7 +7007,8 @@
         "title": "King Fisher bird",
         "altText": "King Fisher bird"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "186BF51D-FA34-4DD7-A967-233CB32547B8",
@@ -6737,7 +7031,8 @@
         "title": "Battery Weed, Fort Wadsworth, Staten Island",
         "altText": "Battery Weed, Fort Wadsworth, Staten Island"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "5A4DD23B-8B4F-4212-957E-C59FE4165457",
@@ -6760,7 +7055,8 @@
         "title": "Hiker at Kachina Bridge",
         "altText": "a hiker standing below a massive natural bridge"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "C4F477D4-D34A-486B-BC6C-94FB2FAA8D67",
@@ -6778,7 +7074,8 @@
         "title": "Betatakin Cliff dwelling and Alcove",
         "altText": "view from inside the Betatakin Cliff Dwelling looking out."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "848DFACA-B486-4BC4-AD71-C834F7713793",
@@ -6801,7 +7098,8 @@
         "title": "Seamen's Bethel and the Mariners' Home",
         "altText": "Semen's Bethel and the Mariners' Home on a sunny day"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "D0F897A0-9545-4901-A1B8-7128E11A51FA",
@@ -6819,7 +7117,8 @@
         "title": "Batona Trail in the NJ Pinelands",
         "altText": "Tall pine trees surround a thin unpaved trail"
       }
-    ]
+    ],
+    "designation": "National Reserve"
   },
   {
     "id": "CB014DE3-3483-4E36-BC35-3CC7E9F60529",
@@ -6842,7 +7141,8 @@
         "title": "US Mint Concert by New Orleans Jazz National Historical Park",
         "altText": "Singer with jazz band, including park rangers"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "62389727-B407-49A8-8EE9-FE6A6491B395",
@@ -6865,7 +7165,8 @@
         "title": "Lucy McWorter",
         "altText": "Historic black and white photo of an African American woman seated looking past the camera."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "28F155F2-5116-4E4F-9E21-E8CBCFA5FF49",
@@ -6888,7 +7189,8 @@
         "title": "Horseshoe Bend from Grandview",
         "altText": "bend in the river"
       }
-    ]
+    ],
+    "designation": "National Park & Preserve"
   },
   {
     "id": "05F2A0A7-317D-4C4F-95D6-F046BE96310C",
@@ -6911,7 +7213,8 @@
         "title": "Buffalo Eddy",
         "altText": "Petroglyph carvings on the bank of the Snake River."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "C8E59368-4CCA-4513-B2C5-D055BC0DA491",
@@ -6934,7 +7237,8 @@
         "title": "Nicodemus A.M.E. (African Methodist Episcopal) Church",
         "altText": "White stucco church with white double doors and text above the doors that reads \"A.M.E. CHURCH 1885\""
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "1291920D-2428-4FEA-9670-7EBC45284A59",
@@ -6957,7 +7261,8 @@
         "title": "Birmingham Monument",
         "altText": "A monument to James Birmingham, the first South Carolinian to die in the American Revolution"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "C9AA17CC-3152-464A-A9E2-494368086045",
@@ -6980,7 +7285,8 @@
         "title": "Grizzly on the Noatak River",
         "altText": "bear walking along river"
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "80EB184D-4B6D-4AD2-B6E2-CAAD6312B27D",
@@ -7003,7 +7309,8 @@
         "title": "Camping on Ross Lake",
         "altText": "Tents set up in a wooded area."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "81AFEB37-7119-4BF1-B65B-806BAB973FFD",
@@ -7026,7 +7333,8 @@
         "title": "Earth Lodge",
         "altText": "earth lodge"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "5837B4BA-86B4-4162-803C-E9DF325D5FC6",
@@ -7049,7 +7357,8 @@
         "title": "Memorial Fence",
         "altText": "Fencing with pictures, stuffed animals and other tokens left on it."
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "81CFE898-AD06-4C0D-8A9B-C8D356273F0D",
@@ -7072,7 +7381,8 @@
         "title": "Mountain Sunset",
         "altText": "Hikers sit and watch the sun set behind snow-capped mountains."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "480702B9-E8B5-45A1-ACB4-7B044C13F7A2",
@@ -7095,7 +7405,8 @@
         "title": "Milller's Chapel",
         "altText": "Miller's Chapel at Oregon Caves"
       }
-    ]
+    ],
+    "designation": "National Monument & Preserve"
   },
   {
     "id": "8A4FA0D4-A3BE-4AE2-8303-1936D9BA1E29",
@@ -7118,7 +7429,8 @@
         "title": "Organ Pipe Cactus",
         "altText": "sun setting on a green organ pipe cactus"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "5536A389-5457-4E3F-84E2-D67861BB34D9",
@@ -7141,7 +7453,8 @@
         "title": "Farm Sunrise",
         "altText": "Sunrise at the Farm"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "CEC2A157-CDDC-4F11-BBE5-0AA2CEA35ADB",
@@ -7164,7 +7477,8 @@
         "title": "Big Spring",
         "altText": "A sunrise photo with blue turbulent water and a algae colored rock with trees overhanging"
       }
-    ]
+    ],
+    "designation": "National Scenic Riverways"
   },
   {
     "id": "7F7E12D2-E295-41D2-8446-BBF5EEF2F8F2",
@@ -7187,7 +7501,8 @@
         "title": "Crested Caracara",
         "altText": "A hawk like bird with an orange beak stands on a fence post."
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "3E8C5A4D-6302-4E50-9FCC-A9EC7BFBF1D6",
@@ -7210,7 +7525,8 @@
         "title": "Mexican 8-pounder",
         "altText": "Mexican 8-pounder cannon on the battlefield."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "9604169F-6A23-4E70-937B-3BE7315590F2",
@@ -7233,7 +7549,8 @@
         "title": "Find Your Park at Paterson Great Falls!",
         "altText": "Sunny day and waterfall view"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "58BCDB2B-5A91-4892-8470-76D802313884",
@@ -7256,7 +7573,8 @@
         "title": "Park Ranger and Cannon Crew",
         "altText": "Photo of Park Ranger talking about cannon and Cannon Crew."
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "0B61230F-375C-4392-BDF0-BB3FC43D2CFE",
@@ -7279,7 +7597,8 @@
         "title": "The USS Arizona and Memorial",
         "altText": "The USS Arizona Memorial"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "8CBA3879-59AB-4EFE-8523-1DC6F77FB212",
@@ -7302,7 +7621,8 @@
         "title": "Feast Day at Pecos Pueblo",
         "altText": "A line of people walk past adobe bricks, trees, and the road."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "6282ABFA-00EF-413D-BE91-48D993A356F4",
@@ -7325,7 +7645,8 @@
         "title": "Major General Winfield Scott Hancock Monument",
         "altText": "A bronze statue of a man on horse atop a stone plinth."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "29329926-4215-4E10-83B8-5CF162A0E3F1",
@@ -7348,7 +7669,8 @@
         "title": "International flags at Memorial",
         "altText": "9-3'x5' international flags line sidewalk that leads to a white building with green roof. Tall stone"
       }
-    ]
+    ],
+    "designation": "Memorial"
   },
   {
     "id": "16B99840-35CB-4D14-BB83-136C371EFD2E",
@@ -7371,7 +7693,8 @@
         "title": "Eastern Front Visitor Center",
         "altText": "Pictured is the front of the brick visitor center under a cloudless blue sky."
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "1ABD0EFF-AC09-4EA1-8CC1-2351A3E160D0",
@@ -7394,7 +7717,8 @@
         "title": "Blue Mesa Trail",
         "altText": "Two visitors walk the Blue Mesa Trail between blue, purple, and grey badlands."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "47CBA521-0A8A-4728-8BDA-85D269455A7A",
@@ -7417,7 +7741,8 @@
         "title": "Bird and Footprint Petroglyphs",
         "altText": "Petroglyphs of a bird and a footprint on a dark boulder."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "8D803E2F-FB28-4DC3-9EDC-7FDAE185C092",
@@ -7440,7 +7765,8 @@
         "title": "Backcountry Camping - Benchmark Site",
         "altText": "Backcountry camping at Benchmark site showing tent surrounded by ferns and trees."
       }
-    ]
+    ],
+    "designation": "National Lakeshore"
   },
   {
     "id": "9B266961-3364-43D2-9A08-82BB5EF5643F",
@@ -7463,7 +7789,8 @@
         "title": "High Peaks with Condors Above",
         "altText": "A massive rock spire with California condors flying above the peak."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "97145E4E-3909-4669-8102-9559F3C405D1",
@@ -7486,7 +7813,8 @@
         "title": "Longhorn Cattle",
         "altText": "A large longhorn cattle steer shows off his 6-foot span horns inside a corral."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "932C699A-5680-4EA3-8C62-69A6A7D286C5",
@@ -7509,7 +7837,8 @@
         "title": "Breaking Through",
         "altText": "A man in a quarry pit swings a hammer as a woman watches"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "0477F67A-A350-449F-B001-848F867F2CA2",
@@ -7532,7 +7861,8 @@
         "title": "Accokeek Creek Site Boardwalk",
         "altText": "Boardwalk over Accokeek Creek located in Piscataway Park"
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "B87424A7-92C3-49BA-BF16-A2EB16882376",
@@ -7555,7 +7885,8 @@
         "title": "Herd of Tule Elk on Tomales Point",
         "altText": "Herd of Tule Elk on Tomales Point"
       }
-    ]
+    ],
+    "designation": "National Seashore"
   },
   {
     "id": "F26E7620-3284-4F39-AB1B-98100B4AC6A7",
@@ -7578,7 +7909,8 @@
         "title": "Port Chicago Naval Magazine National Memorial",
         "altText": "Park signs sitting in rock bed. Trees and bay in background."
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "DC9185D6-CCA9-4F40-AE53-5D77DE35E202",
@@ -7601,7 +7933,8 @@
         "title": "Bird Mound",
         "altText": "Bird Mound - a grassy green mound."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "E7C945ED-4224-4539-B2AE-97A5B229FA74",
@@ -7624,7 +7957,8 @@
         "title": "Memorial Garden",
         "altText": "Memorial garden for his mother, Virginia"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "75DD7A23-4BCF-4D11-A407-E282C2417DA4",
@@ -7647,7 +7981,8 @@
         "title": "Crissy Field",
         "altText": "White building with red roofs on Crissy Field with blue bay and orange bridge with fog behind."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "28ECD546-FD68-4640-8A31-773F7F7A5211",
@@ -7670,7 +8005,8 @@
         "title": "Fall Foliage",
         "altText": "A tree with orange leaves against the blue sky"
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "36223C80-D2F3-45E3-9C44-BEA58A072985",
@@ -7693,7 +8029,8 @@
         "title": "Clock Tower and Administration Building",
         "altText": "Clock Tower and Administration Building"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "632CA28B-F67C-4BDB-A209-42A8332EE6D0",
@@ -7716,7 +8053,8 @@
         "title": "Hale o Keawe & Keone\u02bbele Cove",
         "altText": "A double-hulled canoe sits in Keone\u02bbele Cove with Hale o Keawe in the background."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "9C680E81-C4DC-46DD-BF33-8189828FF887",
@@ -7739,7 +8077,8 @@
         "title": "Pu'ukohol\u0101 Heiau National Historic Site Banner",
         "altText": "A Lele (offering tower) set below Pu'ukohol\u0101 Heiau NHS"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "CF02A7E7-147F-4F1C-966B-FE3F2AE28DDC",
@@ -7762,7 +8101,8 @@
         "title": "Aerial View of Rainbow Bridge",
         "altText": "A view of Rainbow Bridge from the air."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "31B7A1C7-104D-4D35-BC85-FEFAC3FECEB0",
@@ -7785,7 +8125,8 @@
         "title": "Brick Baptist Church",
         "altText": "A two story brick building flanked by large live oak trees"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "041B325C-A34F-4027-8E41-1DF3F9A1D799",
@@ -7808,7 +8149,8 @@
         "title": "A New Junior Ranger",
         "altText": "A ranger helps a father and son learn about being a junior ranger."
       }
-    ]
+    ],
+    "designation": "National and State Parks"
   },
   {
     "id": "3D026091-7EFB-405D-A8F2-D9109DE9740A",
@@ -7831,7 +8173,8 @@
         "title": "Cold Harbor Battlefield Visitor Center",
         "altText": "A small brick visitor center building beside a flagpole."
       }
-    ]
+    ],
+    "designation": "National Battlefield Park"
   },
   {
     "id": "0AEC82D5-0D49-492A-9936-DBE44AF69F09",
@@ -7854,7 +8197,8 @@
         "title": "British Sled Cannon",
         "altText": "a sled cannon in the snow"
       }
-    ]
+    ],
+    "designation": "National Battlefield Park"
   },
   {
     "id": "D06293DF-25C4-4065-B0C7-BA5A225D3BF3",
@@ -7877,7 +8221,8 @@
         "title": "Peirce Mill",
         "altText": "A stone mill house"
       }
-    ]
+    ],
+    "designation": "Park"
   },
   {
     "id": "67A56B17-F533-4A56-B2DA-26091C6AD295",
@@ -7900,7 +8245,8 @@
         "title": "Go Camping",
         "altText": "A trailer is set up in a campsite"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "0419867F-20D9-49CF-BC42-88F5A70AD32D",
@@ -7923,7 +8269,8 @@
         "title": "National Memorial Grounds",
         "altText": "Shady lawn along a brick pathway"
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "05106DE8-D6F2-4088-9834-79462FBDDA21",
@@ -7946,7 +8293,8 @@
         "title": "Liberty Point",
         "altText": "Liberty Point"
       }
-    ]
+    ],
+    "designation": "International Park"
   },
   {
     "id": "69F87C0F-AABE-4C34-97D3-F6DF33ACD772",
@@ -7969,7 +8317,8 @@
         "title": "Rosie the Riveter Memorial",
         "altText": "Modern art memorial structure with historic photos. Sits in park."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "FDD929A5-1D56-41DD-8A04-5FF77023340C",
@@ -7992,7 +8341,8 @@
         "title": "Looking out of the cave shelter",
         "altText": "Looking out of the cave shelter"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "BA5A0D58-E05F-44AE-94F1-10A88A4AF143",
@@ -8015,7 +8365,8 @@
         "title": "Library and Office",
         "altText": "A view of President Roosevelt's library and office at Sagamore Hill."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "A6F169CF-B830-499C-A5EB-A35138C77589",
@@ -8038,7 +8389,8 @@
         "title": "Flowering Fishhook Pincushion Cactus",
         "altText": "A flowering fishhook pincushion cactus"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "57B2D95A-6D3E-49D6-BF73-623D6BD33D06",
@@ -8061,7 +8413,8 @@
         "title": "Interpretive Trail",
         "altText": "A wayside discussing the history of the island along the interpretive trail."
       }
-    ]
+    ],
+    "designation": "International Historic Site"
   },
   {
     "id": "7E946FDE-C454-4361-98A5-F60158B42770",
@@ -8084,7 +8437,8 @@
         "title": "Local students gather inside Saint Paul's Church",
         "altText": "Local students gather inside Saint Paul's Church"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "0FC25325-87AA-4325-A6B7-C404D94B16DB",
@@ -8107,7 +8461,8 @@
         "title": "Formal Gardens",
         "altText": "View of the Formal Gardens"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "3C5998C3-F130-4E4C-8BA4-C1B25E728CE0",
@@ -8130,7 +8485,8 @@
         "title": "Derby House",
         "altText": "Three story red brick building with white windows and a brick pathway through grasses and trees."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "4E7F8D4B-68EC-4A1B-BB71-0A295EB08557",
@@ -8153,7 +8509,8 @@
         "title": "Annular Eclipse Seen From Gran Quivira",
         "altText": "An solar eclipse outlines an old stone structure at Salinas Pueblo Missions."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "E84CCC52-A22F-42D6-86F1-198D818C25DD",
@@ -8176,7 +8533,8 @@
         "title": "Kayak Salt River",
         "altText": "Kayak on the beach at Salt River"
       }
-    ]
+    ],
+    "designation": "National Historical Park and Ecological Preserve"
   },
   {
     "id": "CCE1AD17-9B13-4D74-9CAC-0278D5477316",
@@ -8199,7 +8557,8 @@
         "title": "Granary at Mission San Jos\u00e9",
         "altText": "Large room with an arches ceiling"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "C75450D2-9223-4D5F-9BA4-28DBB92CD507",
@@ -8222,7 +8581,8 @@
         "title": "A Rainbow Adorns Hyde Street Pier",
         "altText": "A group of vessels moored at a pier with a rainbow."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "2E4D4918-95DF-4D99-9DEC-C6ADEB330281",
@@ -8245,7 +8605,8 @@
         "title": "Castillo San Felipe del Morro Aereal View",
         "altText": "Castillo San Felipe del Morro Aereal View"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "63A8DCC0-0A62-4164-BF0B-51F6369B9E8B",
@@ -8268,7 +8629,8 @@
         "title": "English Camp Barracks",
         "altText": "people visiting a historic building"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "13E255FA-F68C-491C-828C-59E5B4FA2600",
@@ -8291,7 +8653,8 @@
         "title": "Remembering the Past",
         "altText": "A lone tipi frame and two wayside signs stand in a snow-covered landscape"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "6E020F5D-3F97-4A43-88E6-C68254B55F2C",
@@ -8314,7 +8677,8 @@
         "title": "Leo Carrillo Beach",
         "altText": "Rocks emerging from ocean."
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "3D0F91B3-E847-4F75-9028-D26D269438F5",
@@ -8337,7 +8701,8 @@
         "title": "John Neilson House",
         "altText": "A man wearing 18th-century clothing carrying a musket and a farmhouse are silhouetted by sunrise."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "A83EFD38-9FCF-4996-A957-FE416A8C6B6D",
@@ -8360,7 +8725,8 @@
         "title": "Iron Forge",
         "altText": "Approximately 15' by 15' spoked wooden wheel beside river and under blue sky."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "48ED0744-7B8A-4FFD-BEFC-C4AC22A7D649",
@@ -8383,7 +8749,8 @@
         "title": "Eagle Rock with Conestoga Wagon",
         "altText": "Conestoga wagon in front of Eagle Rock"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "7E5A693C-2F63-44FD-B791-31FC8B8B6285",
@@ -8406,7 +8773,8 @@
         "title": "Giant Sequoia in Winter",
         "altText": "A giant sequoia's reddish bark contrasts with the snow around it"
       }
-    ]
+    ],
+    "designation": "National Parks"
   },
   {
     "id": "E991C8BC-C203-4A09-AFD5-87380CF5C387",
@@ -8429,7 +8797,8 @@
         "title": "Driving on Skyline Drive",
         "altText": "A road surrounded by fall foliage turns a curve around a small waterfall."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "B6E3A992-3217-4BC0-AC64-A699B45971CA",
@@ -8452,7 +8821,8 @@
         "title": "Display in the Corinth Civil War Interpretive Center",
         "altText": "Boxes of muskets as part of a museum display"
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "6258CAD9-1932-4A40-8FA1-891C51978345",
@@ -8475,7 +8845,8 @@
         "title": "Russian Bishop's House",
         "altText": "Russian Bishop's house from the front."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "739AFEBE-BF00-4A3E-A369-85E74F6E6739",
@@ -8498,7 +8869,8 @@
         "title": "Dunes",
         "altText": "Grass covered sand dunes"
       }
-    ]
+    ],
+    "designation": "National Lakeshore"
   },
   {
     "id": "8E5D875F-418A-40FD-B8C4-DBE8026A5CC5",
@@ -8521,7 +8893,8 @@
         "title": "Illinois State Militia",
         "altText": "Historic photo of militia members standing in the remains of a burned building."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "E01A7425-C74B-4E71-853D-681AD2FB948A",
@@ -8544,7 +8917,8 @@
         "title": "Organ of Muskets",
         "altText": "A double musket rack holding 645 Springfield US Model 1861 rifle muskets."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "6E3608BE-63AA-4379-A543-97D2FCBF12F1",
@@ -8567,7 +8941,8 @@
         "title": "Statue of Liberty from Flagpole Plaza on Liberty Island",
         "altText": "Shoulders, head, and raised right arm of the Statue of Liberty from behind the statue."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "EDD278F5-E9A8-4A40-BA41-9809ED8E025D",
@@ -8590,7 +8965,8 @@
         "title": "Green Tree Tavern",
         "altText": "A large raised building with a covered porch and vertical log construction visible."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "3BF9BCEE-F6AE-4DEC-8F80-9CD23C0767BE",
@@ -8613,7 +8989,8 @@
         "title": "Aerial view of Steamtown NHS",
         "altText": "An aerial view of Steamtown which falls within the boundaries of a mid-size city."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "89157226-8474-4BAE-B471-F1730993A468",
@@ -8636,7 +9013,8 @@
         "title": "Stones River National Cemetery",
         "altText": "A ray of sunlight shines on the ground at Stones River National Cemetery."
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "E65E7D88-D280-4B41-B700-BF1DC219BA38",
@@ -8654,7 +9032,8 @@
         "title": "Tulips in Christopher Park",
         "altText": "Pink and purple tulips in bloom with the Pride flag waving above a statue in the background."
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "52911672-4464-4569-984C-DC6DE1EE208F",
@@ -8677,7 +9056,8 @@
         "title": "Lone Ponderosa",
         "altText": "a small ponderosa pine tree in a field of rolling cinder hills"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "76F87FF4-4BAD-453E-8013-2DA8924A5D94",
@@ -8700,7 +9080,8 @@
         "title": "Hike among the tall grasses in the fall",
         "altText": "tallgrass hiking trails"
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "2CA10B86-DCA3-456F-8C9A-A3A6C9288573",
@@ -8723,7 +9104,8 @@
         "title": "Kosciuszko House - exhibit area",
         "altText": "Photo of exhibit area with exhibit panels showing images, text, and a map of the eastern U.S."
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "C59FE971-54EE-447C-9DCE-CB781949B0B8",
@@ -8746,7 +9128,8 @@
         "title": "First Division Monument",
         "altText": "A tall stone column with a golden, winged figure on top."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "B5FE5682-7981-47DD-AC96-13F4B33A466E",
@@ -8769,7 +9152,8 @@
         "title": "Bison Trail",
         "altText": "a string of bison are silhouetted against the backdrop of hazy blue and yellow badlands"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "B32A4A36-E7CC-4A93-97DB-3F48565D2DA4",
@@ -8787,7 +9171,8 @@
         "title": "Theodore Roosevelt Birthplace Exterior",
         "altText": "Theodore Roosevelt Birthplace Exterior"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "B4AEC074-8652-4B0A-8963-4CD60ECA2349",
@@ -8805,7 +9190,8 @@
         "title": "Theodore Roosevelt Inaugural Site",
         "altText": "Theodore Roosevelt Inaugural Site"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "42D7081F-2B9B-449C-9BF2-785850AE4865",
@@ -8828,7 +9214,8 @@
         "title": "Ranger answers Question",
         "altText": "Three people with Park Ranger at Theodore Roosevelt Memorial."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "FE5E320D-BFCC-41EE-8113-BFEA9D6CA8CD",
@@ -8851,7 +9238,8 @@
         "title": "Thomas Cole Site Campus",
         "altText": "A bird's eye view of several buildings nested among trees and lawn."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "BFE248C8-40CD-4DC8-AC07-AE61A0D81FF3",
@@ -8874,7 +9262,8 @@
         "title": "Glenmont Garage",
         "altText": "Cream colored, two story cement building surrounded by large trees"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "2D0C31DF-BE78-42A8-812E-1A44602B3D40",
@@ -8897,7 +9286,8 @@
         "title": "Statue of Thomas Jefferson",
         "altText": "Close up of Thomas Jefferson Statue"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "DD9075B8-4AC2-4FA4-83F4-A08DFD705C25",
@@ -8920,7 +9310,8 @@
         "title": "Nature Trail System",
         "altText": "Leaf covered nature trail"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "26FBF456-94A2-413C-87D9-DDBCD96815FA",
@@ -8943,7 +9334,8 @@
         "title": "Hansen Cave-Introduction to Caving Tour",
         "altText": "Two cavers look at large formations in Hansen Cave"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "A1C5A868-68A9-4403-B762-531EBA300E3C",
@@ -8966,7 +9358,8 @@
         "title": "Fort Caroline",
         "altText": "fort gate"
       }
-    ]
+    ],
+    "designation": "Ecological & Historic Preserve"
   },
   {
     "id": "69C5BC24-3065-401D-86C2-3FAC411E1327",
@@ -8989,7 +9382,8 @@
         "title": "Saguaro Cactus",
         "altText": "Hillside with Saguaro Cactus"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "5216C131-B847-4A97-ACF1-4864714007FF",
@@ -9012,7 +9406,8 @@
         "title": "Touro Synagogue Park",
         "altText": "Image of Touro Synagogue"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "C315119F-1597-4C44-A8FA-60D707730FF0",
@@ -9035,7 +9430,8 @@
         "title": "Camp Tulelake as a CCC Camp in 1936",
         "altText": "Camp Tulelake as a CCC Camp in 1936"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "A576B9F9-5C0A-453C-8DB0-939883FFA57A",
@@ -9053,7 +9449,8 @@
         "title": "Tule Springs Fossil Beds National Monument",
         "altText": "Tule Springs during winter"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "59E30CB1-C2C3-4444-BCA9-29B0FE16DCCD",
@@ -9076,7 +9473,8 @@
         "title": "Tumac\u00e1cori on a Summer Day",
         "altText": "panorama of mission church with green grass and clouds"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "0C7D40DF-85BC-439E-BE58-34E11C1D4095",
@@ -9094,7 +9492,8 @@
         "title": "Tupelo National Battlefield Monument",
         "altText": "The monument with a cannon"
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "5AAB8CB5-2F62-4BD7-82D1-E19963FA94C1",
@@ -9117,7 +9516,8 @@
         "title": "First Flight - Eleanor Roosevelt was the first First Lady to fly with a Negro Pilot.",
         "altText": "Small Yellow training plane used in the Civilian Pilot Training Prograj - J3 Piper Cub"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "3A9B0972-7F97-4F8C-9B44-A5FA8DEB1AC1",
@@ -9140,7 +9540,8 @@
         "title": "Carver's Peanut Oil",
         "altText": "Bottle of Peanut Oil with green label - one of Dr. Carver's many uses for the peanut"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "64B7871C-C058-45BA-BB7C-D3EAD50B23E8",
@@ -9163,7 +9564,8 @@
         "title": "Tuzigoot Pueblo",
         "altText": "A sunny day at Tuzigoot"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "89303609-703C-43CB-BA65-5BB96C3698C2",
@@ -9186,7 +9588,8 @@
         "title": "Outbuildings",
         "altText": "To the left is the ice house and to right is chicken house."
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "8908E0CA-3603-4578-B957-837F9813E6D5",
@@ -9209,7 +9612,8 @@
         "title": "East Fork",
         "altText": "A narrow stream meanders through a montane grassland."
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "41813A9C-A947-4078-9DAA-4CE952F4E512",
@@ -9232,7 +9636,8 @@
         "title": "Muhlenberg's Brigade at Sunset",
         "altText": "outdoors, log huts, gravel path, sunset, clouds"
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "C200ADA5-F162-4D77-A820-950E13925129",
@@ -9255,7 +9660,8 @@
         "title": "Summer Concert Series",
         "altText": "West Point Band performs at the Vanderbilt Mansion"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "45408368-12DB-4950-92A8-E26AC85E3724",
@@ -9278,7 +9684,8 @@
         "title": "Ranger Programs",
         "altText": "Park Ranger in Civil War Uniform Talks to Crowd"
       }
-    ]
+    ],
+    "designation": "National Military Park"
   },
   {
     "id": "DFCBAD2C-0B0A-47E8-9C3C-BF55BB3409B2",
@@ -9301,7 +9708,8 @@
         "title": "Vietnam Veterans Memorial",
         "altText": "Notes and flags set at the base of the Vietnam Veterans Memorial, a black wall inscribed with names."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "C65070FE-942C-4E00-8C2B-64CA33C85B4A",
@@ -9324,7 +9732,8 @@
         "title": "Queen Angel Fish",
         "altText": "Queen Angel Fish"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "B2178CA4-35DE-4827-9B7A-B25FAAE1E69B",
@@ -9342,7 +9751,8 @@
         "title": "Parrot Fish",
         "altText": "Parrot Fish posing for the camera over several corals"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "859727CB-2812-40DF-B8DB-D4AE9EA00089",
@@ -9365,7 +9775,8 @@
         "title": "Fall Colors",
         "altText": "orange, yellow, and green colors are showing in the fall foliage"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "46CA5FAF-2AEE-4795-B609-8CB81F9FBBEC",
@@ -9388,7 +9799,8 @@
         "title": "Interior of Dig Shelter",
         "altText": "Visitors view fossils from walkway"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "8DFC9C19-FF0A-4B48-A34F-FD3D02BFE100",
@@ -9411,7 +9823,8 @@
         "title": "Cliff Dwellings",
         "altText": "sunlight illuminates stone walls in a canyon cliff dwelling"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "D44FE5CB-71B4-4B7C-A52A-41BE9D9211B3",
@@ -9434,7 +9847,8 @@
         "title": "Asan Beach Overlook",
         "altText": "Mountain view down toward beach."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "37E34290-2E37-4A67-8C95-7A3442F354B1",
@@ -9457,7 +9871,8 @@
         "title": "Washington Monument",
         "altText": "The Washington Monument, a white marble obelisk, towers above a ring of US Flags."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "BE27CCA2-1ECA-4A6A-90E7-8EB38029FEF3",
@@ -9480,7 +9895,8 @@
         "title": "Cheyenne Dog Soldier Telling Stories",
         "altText": "A Cheyenne Dog Soldier tells stories inside his tipi"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "EA86FED8-2E03-467A-A8BD-4F032A647F35",
@@ -9503,7 +9919,8 @@
         "title": "Plein Air Painting of Weir Studio",
         "altText": "A painting of a red building with the same building in the background."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "89730CB2-BB7D-400B-AF35-5F95A574D97D",
@@ -9526,7 +9943,8 @@
         "title": "A View from the Top",
         "altText": "Being on the Top of Shasta Bally"
       }
-    ]
+    ],
+    "designation": "National Recreation Area"
   },
   {
     "id": "32D2B528-193E-43FA-BF38-32493D9E317D",
@@ -9549,7 +9967,8 @@
         "title": "Fall Colors",
         "altText": "Cottonwood trees with orange leaves."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "10505DA0-A627-47EA-8533-5C67C3B2AF15",
@@ -9572,7 +9991,8 @@
         "title": "Cultural Items",
         "altText": "An array of animal furs, beaded bags, and woven baskets"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "8CB65BC9-2A9D-4AA0-A5E2-B64E9CDA1575",
@@ -9595,7 +10015,8 @@
         "title": "Bookstore Area",
         "altText": "Several books and gift items arranged in rows on slotted walls"
       }
-    ]
+    ],
+    "designation": "National Historic Site"
   },
   {
     "id": "2067FAB2-41D4-43DF-8142-9B1FC40AFDFC",
@@ -9618,7 +10039,8 @@
         "title": "Henry Rifle",
         "altText": "The receiver of an 1864 rifle shows decorative engraving with the original owner's name"
       }
-    ]
+    ],
+    "designation": "National Battlefield"
   },
   {
     "id": "37C48EE0-2881-4D22-8F91-A249AE3B0CD0",
@@ -9641,7 +10063,8 @@
         "title": "Boxwork",
         "altText": "criss-cross-patterned calcite fins of the cave feature boxwork"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "72F41D84-A8ED-47FC-935A-2FD28C3C582E",
@@ -9664,7 +10087,8 @@
         "title": "Children's Theatre-in-the-Woods Performances",
         "altText": "Sold out show at Theatre-in-the-Woods"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "09689FA5-2147-4BF2-935C-AE92AB85A2E5",
@@ -9687,7 +10111,8 @@
         "title": "First Wave Statue",
         "altText": "A bronze statue group of people wearing 19th-century clothing."
       }
-    ]
+    ],
+    "designation": "National Historical Park"
   },
   {
     "id": "3B4879C9-E8D3-4B0C-9F6D-8345FAA298A6",
@@ -9710,7 +10135,8 @@
         "title": "Peace Fountain",
         "altText": "Peace Fountain"
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "F85AF8D0-1B85-4B2C-9356-840A4AF6A354",
@@ -9733,7 +10159,8 @@
         "title": "Aerial view of World War II Memorial",
         "altText": "Aerial view of stone columns around an oval-shaped pool at the World War II Memorial."
       }
-    ]
+    ],
+    "designation": ""
   },
   {
     "id": "B7944940-3FE5-4F9B-80AB-2FD78A4CDD48",
@@ -9756,7 +10183,8 @@
         "title": "Chitina Ranger Station",
         "altText": "Chitina Ranger Station"
       }
-    ]
+    ],
+    "designation": "National Park & Preserve"
   },
   {
     "id": "E2AE772D-7A2B-49CC-9AFA-E8F068506B22",
@@ -9779,7 +10207,8 @@
         "title": "First Flight",
         "altText": "Orville takes to the air in the flyer for the first time as Wilbur assists."
       }
-    ]
+    ],
+    "designation": "National Memorial"
   },
   {
     "id": "686C8EC8-5487-43B9-B5E8-FCABD56227F0",
@@ -9802,7 +10231,8 @@
         "title": "Dark Skies over the Desert",
         "altText": "stars and the Milky Way galaxy over a desert juniper tree"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "F58C6D24-8D10-4573-9826-65D42B8B83AD",
@@ -9825,7 +10255,8 @@
         "title": "Beehive Geyser",
         "altText": "People on a wooden boardwalk watch a geyser erupt."
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "D09FF0F8-B16E-4D2B-9C37-03202D6B8176",
@@ -9848,7 +10279,8 @@
         "title": "Lamb's Artillery Fire 18 pounder Cannon Yorktown Battlefield",
         "altText": "Lamb's Artillery Fire 18 pounder Cannon Yorktown Battlefield"
       }
-    ]
+    ],
+    "designation": "Part of Colonial National Historical Park"
   },
   {
     "id": "4324B2B4-D1A3-497F-8E6B-27171FAE4DB2",
@@ -9871,7 +10303,8 @@
         "title": "El Capitan",
         "altText": "El Capitan and reflection in Merced River with some low clouds"
       }
-    ]
+    ],
+    "designation": "National Park"
   },
   {
     "id": "9854D136-AFC0-4966-BB40-FE9323B56A49",
@@ -9894,7 +10327,8 @@
         "title": "View of Mesa Verde from Yucca House",
         "altText": "View of Mesa Verde landform"
       }
-    ]
+    ],
+    "designation": "National Monument"
   },
   {
     "id": "6F550E4D-AE26-4250-A674-397E2DF88092",
@@ -9917,7 +10351,8 @@
         "title": "Calico Bluff and the Yukon River",
         "altText": "Calico Bluff rising above the Yukon River that also winds into the distance behind the bluff"
       }
-    ]
+    ],
+    "designation": "National Preserve"
   },
   {
     "id": "41BAB8ED-C95F-447D-9DA1-FCC4E4D808B2",
@@ -9940,6 +10375,7 @@
         "title": "The Narrows",
         "altText": "Tall, red, sandstone walls enclose a narrow river."
       }
-    ]
+    ],
+    "designation": "National Park"
   }
 ]
