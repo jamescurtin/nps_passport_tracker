@@ -1,5 +1,12 @@
 import * as d3 from "d3";
 
+import stateAbbreviations from "./state_abbreviations";
+
+// Reverse lookup: two-letter abbreviation -> full state/territory name.
+const stateNamesByAbbrev = Object.fromEntries(
+  Object.entries(stateAbbreviations).map(([name, abbrev]) => [abbrev, name]),
+);
+
 /**
  * Calculate distance between two points using Haversine formula
  * @param {number} lat1 - Latitude of first point
@@ -346,7 +353,10 @@ export function createSearchUI(container, parkSearch) {
   stateSelect.append("option").attr("value", "").text("All States");
 
   parkSearch.getUniqueStates().forEach((state) => {
-    stateSelect.append("option").attr("value", state).text(state);
+    stateSelect
+      .append("option")
+      .attr("value", state)
+      .text(stateNamesByAbbrev[state] || state);
   });
 
   // Results section for text/state/visited filters (hidden until a filter is
