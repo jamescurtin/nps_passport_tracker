@@ -214,9 +214,19 @@
     "notes": "We started out along lake Michigan and hiked across the dunes. The area was particularly busy at that time of year because of the beach."
   },
   {
+    "parkCode": "jazz",
+    "visitedOn": ["2026-06-27"],
+    "notes": "New Orleans Jazz is one of the few national parks dedicated to a musical art form. Its live performances are held at the Old U.S. Mint, the only U.S. Mint to have struck coinage under three governments: the United States, the State of Louisiana, and the Confederacy."
+  },
+  {
     "parkCode": "jeff",
     "visitedOn": ["2022-10-16"],
     "notes": "Favorite Feature: The entrance to each tram car is only 4.5 feet tall! Such small trams are necessary due to the arch narrowing to less than 7 feet at the top. The tram cars also rotate 155 degrees over the course of the ride in order to keep passengers upright."
+  },
+  {
+    "parkCode": "jela",
+    "visitedOn": ["2026-06-27"],
+    "notes": "Jean Lafitte is not a single park but six separate sites spread across southern Louisiana. Its namesake, the pirate and privateer Jean Lafitte, helped General Andrew Jackson defend the city at the 1815 Battle of New Orleans in exchange for pardons for himself and his men."
   },
   {
     "parkCode": "jofi",
