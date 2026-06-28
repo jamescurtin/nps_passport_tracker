@@ -27,8 +27,8 @@ REQUEST_TIMEOUT: tuple[int, int] = (5, 30)
 # of fetched records fail validation, which would indicate an upstream schema
 # change rather than a few malformed units.
 MAX_DROP_FRACTION: float = 0.05
-# NPS units containing the following designations in their name will be excluded
-# from the list of parks used to populate the map.
+# NPS units whose designation (or, as a fallback, full-name suffix) matches one
+# of the following are excluded from the list of parks used to populate the map.
 EXCLUDED_DESIGNATIONS: set[str] = {
     "Affiliated Area",
     "Bay",
@@ -91,6 +91,9 @@ class NationalPark(CamelModel):
     longitude: float
     states: list[str]
     images: list[Photo]
+    # The NPS API's authoritative designation (e.g. "National Park",
+    # "National Historic Trail"). Optional so records lacking it still validate.
+    designation: str = ""
 
     @field_validator("states", mode="before")
     def split_states(cls, v: str | list[str]) -> list[str]:
@@ -147,8 +150,24 @@ class NationalPark(CamelModel):
         return str(url)
 
 
-def _park_has_excluded_designation(park_name: str) -> bool:
-    return any(park_name.endswith(designation) for designation in EXCLUDED_DESIGNATIONS)
+def _park_has_excluded_designation(park: "NationalPark") -> bool:
+    """Whether a park's designation marks it for exclusion from the map.
+
+    Prefers the API's authoritative ``designation`` field and falls back to the
+    historical full-name suffix check, so existing exclusions are preserved even
+    for records where ``designation`` is empty.
+
+    Args:
+        park (NationalPark): Park to test
+
+    Returns:
+        bool: True if the park should be excluded
+    """
+    if park.designation in EXCLUDED_DESIGNATIONS:
+        return True
+    return any(
+        park.full_name.endswith(designation) for designation in EXCLUDED_DESIGNATIONS
+    )
 
 
 def _build_session() -> requests.Session:
@@ -245,9 +264,7 @@ def main() -> None:
             "parks.json. This likely indicates an upstream API change."
         )
 
-    park_data = [
-        park for park in park_data if not _park_has_excluded_designation(park.full_name)
-    ]
+    park_data = [park for park in park_data if not _park_has_excluded_designation(park)]
     for park in park_data:
         park.images.sort(key=lambda x: x.title)
         park.images = park.images[:MAX_PICTURES_PER_SITE]
