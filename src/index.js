@@ -39,7 +39,6 @@ const borderRadius = 5;
 
 // NPS Site point marker properties
 const pointRadius = 3;
-const pointRadiusScaled = 4;
 
 // On click properties
 const tooltipOpacity = 0.9;
@@ -533,37 +532,21 @@ function clickedMap(_, d) {
   const x = (bounds[0][0] + bounds[1][0]) / 2;
   const y = (bounds[0][1] + bounds[1][1]) / 2;
   const scale = 0.9 / Math.max(dx / width, dy / height);
-  const translate = [width / 2 - scale * x, height / 2 - scale * y];
+  // Clamp to the zoom behavior's scale extent and drive the zoom through it so
+  // its stored transform stays in sync. Otherwise a subsequent drag/pan starts
+  // from the stale (identity) transform and snaps the map back to full country.
+  const clampedScale = Math.max(1, Math.min(16, scale));
+  const translate = [
+    width / 2 - clampedScale * x,
+    height / 2 - clampedScale * y,
+  ];
+  const transform = d3.zoomIdentity
+    .translate(translate[0], translate[1])
+    .scale(clampedScale);
 
-  g.transition()
-    .duration(zoomDuration)
-    .style("stroke-width", strokeWidth / scale + "px")
-    .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-
-  g.selectAll(".mesh")
-    .transition()
-    .duration(zoomDuration)
-    .attr("stroke-width", strokeWidth / scale);
-
-  g.selectAll(".park-marker")
-    .transition()
-    .duration(zoomDuration)
-    .attr("r", pointRadiusScaled / scale);
-
-  // Counter-scale search overlay elements for state zoom
-  if (searchCircle) {
-    searchCircle
-      .transition()
-      .duration(zoomDuration)
-      .attr("stroke-width", 1.5 / scale);
-  }
-  if (addressPin) {
-    addressPin
-      .transition()
-      .duration(zoomDuration)
-      .attr("r", 6 / scale)
-      .attr("stroke-width", 2 / scale);
-  }
+  // The zoom "on('zoom')" handler counter-scales the mesh, markers, and search
+  // overlay for each interpolated transform during this transition.
+  svg.transition().duration(zoomDuration).call(zoom.transform, transform);
 
   svgHeader
     .selectAll("*")
