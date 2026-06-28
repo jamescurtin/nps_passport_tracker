@@ -23,29 +23,54 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
 }
 
 /**
- * Geocode an address using OpenStreetMap Nominatim API
+ * Geocode an address using OpenStreetMap Nominatim API.
+ *
+ * Nominatim identifies browser clients via the Referer header (sent
+ * automatically); the User-Agent request header cannot be set from `fetch`,
+ * so it is not specified here.
+ *
  * @param {string} address - Address to geocode
- * @returns {Promise<{lat: number, lng: number, display_name: string}|null>}
+ * @returns {Promise<{status: string, location?: {lat: number, lng: number,
+ *   display_name: string}}>} Discriminated result: "ok" with a location,
+ *   "not_found", "rate_limited", or "error".
  */
 async function geocodeAddress(address) {
   const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1`;
+  let response;
   try {
-    const response = await fetch(url, {
-      headers: { "User-Agent": "NPS-Passport-Tracker" },
-    });
-    const data = await response.json();
-    if (data.length > 0) {
-      return {
+    response = await fetch(url);
+  } catch (error) {
+    console.error("Geocoding network error:", error);
+    return { status: "error" };
+  }
+
+  if (response.status === 429) {
+    return { status: "rate_limited" };
+  }
+  if (!response.ok) {
+    console.error(`Geocoding failed: HTTP ${response.status}`);
+    return { status: "error" };
+  }
+
+  let data;
+  try {
+    data = await response.json();
+  } catch (error) {
+    console.error("Geocoding parse error:", error);
+    return { status: "error" };
+  }
+
+  if (Array.isArray(data) && data.length > 0) {
+    return {
+      status: "ok",
+      location: {
         lat: parseFloat(data[0].lat),
         lng: parseFloat(data[0].lon),
         display_name: data[0].display_name,
-      };
-    }
-    return null;
-  } catch (error) {
-    console.error("Geocoding error:", error);
-    return null;
+      },
+    };
   }
+  return { status: "not_found" };
 }
 
 /**
@@ -427,29 +452,52 @@ export function createSearchUI(container, parkSearch) {
       d3.select("#parks-in-range-container").style("display", "none");
     });
 
+  // Guard against overlapping in-flight geocode requests, which would both
+  // exceed Nominatim's rate limit and risk out-of-order (last-write) results.
+  let isGeocoding = false;
+
   // Helper function for geocode search
   async function handleGeocodeSearch() {
+    if (isGeocoding) return;
     const address = document.getElementById("address-input").value.trim();
     if (!address) return;
 
+    isGeocoding = true;
+    const goButton = searchContainer.select(".address-search-btn");
+    goButton.property("disabled", true);
     d3.select("#location-status").text("Searching...");
 
-    const result = await geocodeAddress(address);
-    if (result) {
+    let result;
+    try {
+      result = await geocodeAddress(address);
+    } finally {
+      isGeocoding = false;
+      goButton.property("disabled", false);
+    }
+
+    if (result.status === "ok") {
       const radiusMiles = parseInt(
         document.getElementById("radius-slider").value,
       );
       parkSearch.setLocationFilter(
-        result.lat,
-        result.lng,
+        result.location.lat,
+        result.location.lng,
         radiusMiles,
-        result.display_name,
+        result.location.display_name,
       );
       d3.select("#radius-container").style("display", "block");
       d3.select("#location-clear").style("display", "block");
       d3.select("#parks-in-range-container").style("display", "block");
       updateLocationStatus();
       updateParksList();
+    } else if (result.status === "rate_limited") {
+      d3.select("#location-status").text(
+        "Too many searches. Please wait a moment and try again.",
+      );
+    } else if (result.status === "error") {
+      d3.select("#location-status").text(
+        "Search failed. Check your connection and try again.",
+      );
     } else {
       d3.select("#location-status").text(
         "Location not found. Try a different address.",
