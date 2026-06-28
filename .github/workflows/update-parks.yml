@@ -27,11 +27,17 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: |
-          set -euo pipefail
+          set -uo pipefail
           outfile="${{ runner.temp }}/output.txt"
 
-          # Run updater; capture stdout/stderr but don't abort the whole job if the script exits non-zero
-          output=$(python .github/scripts/update_parks.py src/data/parks.json 2>&1) || true
+          # Run updater; capture stdout/stderr and the exit code separately so we
+          # can still emit per-record annotations but fail the job if the script
+          # itself crashed (which previously left parks.json silently stale).
+          if output=$(python .github/scripts/update_parks.py src/data/parks.json 2>&1); then
+            exit_code=0
+          else
+            exit_code=$?
+          fi
 
           if [ -n "$output" ]; then
             # Use jq to construct valid JSON and escape any special characters/newlines from $output
@@ -47,6 +53,13 @@ jobs:
           else
             # No errors -> write an empty JSON array so jq . will succeed later
             echo '[]' > "$outfile"
+          fi
+
+          # Abort the job if the updater crashed, rather than proceeding to commit.
+          if [ "$exit_code" -ne 0 ]; then
+            echo "update_parks.py failed with exit code $exit_code" >&2
+            echo "$output" >&2
+            exit "$exit_code"
           fi
         env:
           NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
