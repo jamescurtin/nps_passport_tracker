@@ -242,7 +242,11 @@ d3.json(topoJsonStates).then(function (json) {
             0,
           );
           let parks_in_state = d.properties.parks.length;
-          return visit_count === parks_in_state ? "state-complete" : "state";
+          // A state with no NPS sites is not "complete" (0 === 0 would
+          // otherwise mark it green).
+          return parks_in_state > 0 && visit_count === parks_in_state
+            ? "state-complete"
+            : "state";
         })
         .on("mouseover", function (event, d) {
           tooltip
@@ -761,7 +765,7 @@ function mergeNPSData(parkData, visitData) {
  * @return {int} Number of parks visited
  */
 function countParksVisited(parks) {
-  return parks.map((i) => i.visited).reduce((a, b) => a + b);
+  return parks.map((i) => i.visited).reduce((a, b) => a + b, 0);
 }
 
 /**
