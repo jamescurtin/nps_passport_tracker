@@ -201,6 +201,9 @@ div.tooltip {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
   transition: background-color var(--transition-fast);
 }
 

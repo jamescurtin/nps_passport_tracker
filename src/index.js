@@ -7,7 +7,7 @@ import parksJSON from "./data/parks";
 import visitsJSON from "./data/visits";
 
 import color from "./js/colorscale";
-import { clickedPoint } from "./js/modal";
+import { clickedPoint, closeModal } from "./js/modal";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
@@ -113,11 +113,12 @@ const sidebar = body
   .attr("class", "sidebar")
   .attr("id", "park-list-sidebar");
 const closeSidebarButton = sidebar
-  .append("a")
+  .append("button")
+  .attr("type", "button")
   .attr("class", "close-sidebar-button")
-  .attr("href", "#")
+  .attr("aria-label", "Close park list")
   .on("click", prepareSidebar);
-closeSidebarButton.append("text").text("✕");
+closeSidebarButton.text("✕");
 const parkList = sidebar.append("div").attr("class", "park-list");
 
 // Construct the legend (positioned at top-right to avoid stats button overlap)
@@ -601,7 +602,10 @@ function clickedMap(_, d) {
     .text(function (d) {
       return d.fullName;
     })
-    .on("click", clickedPoint);
+    .on("click", function (event, d) {
+      event.preventDefault();
+      clickedPoint(event, d);
+    });
 
   rows.append("td").html(function (d) {
     if (d.visited) {
@@ -750,6 +754,30 @@ const handleResize = debounce(() => {
 }, 150);
 
 window.addEventListener("resize", handleResize);
+
+// Close whichever overlay is open when Escape is pressed (innermost first).
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+
+  if (closeModal()) return;
+
+  const statsDashboard = document.getElementById("stats-dashboard");
+  if (statsDashboard) {
+    statsDashboard.remove();
+    return;
+  }
+
+  const searchPanel = document.getElementById("search-container");
+  if (searchPanel && searchPanel.style.display !== "none") {
+    searchPanel.style.display = "none";
+    return;
+  }
+
+  const sidebarEl = document.getElementById("park-list-sidebar");
+  if (sidebarEl && sidebarEl.classList.contains("open")) {
+    hideSidebar();
+  }
+});
 
 /**
  * Merge data from parks visited with all parks
