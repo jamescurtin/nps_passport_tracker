@@ -60,6 +60,11 @@
     "notes": "Visited and transmitted from the Marconi wireless station. Collected a good amount of driftwood, which was boiled and is now in aquariums."
   },
   {
+    "parkCode": "cana",
+    "visitedOn": ["2026-02-03"],
+    "notes": "Protects 24 miles of undeveloped barrier-island beach, the longest stretch of wild Atlantic coast in Florida. Home to Turtle Mound, a roughly 50-foot Timucua shell midden built up over centuries of discarded oyster shells."
+  },
+  {
     "parkCode": "choh",
     "visitedOn": ["2025-03-28"],
     "notes": "The canal runs 184.5 miles from Georgetown to Cumberland, using 74 lift locks to overcome the 605-foot elevation change along the route."
