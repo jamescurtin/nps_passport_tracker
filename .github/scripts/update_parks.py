@@ -23,6 +23,10 @@ MAX_PICTURES_PER_SITE: int = 2
 # (connect timeout, read timeout) applied to every request, so a stalled NPS
 # endpoint fails fast instead of hanging until the CI job timeout.
 REQUEST_TIMEOUT: tuple[int, int] = (5, 30)
+# Abort (rather than silently overwrite parks.json) if more than this fraction
+# of fetched records fail validation, which would indicate an upstream schema
+# change rather than a few malformed units.
+MAX_DROP_FRACTION: float = 0.05
 # NPS units containing the following designations in their name will be excluded
 # from the list of parks used to populate the map.
 EXCLUDED_DESIGNATIONS: set[str] = {
@@ -100,6 +104,34 @@ class NationalPark(CamelModel):
         """
         if isinstance(v, str):
             return v.split(",")
+        return v
+
+    @field_validator("latitude")
+    def validate_latitude(cls, v: float) -> float:
+        """Ensure latitude is within the valid range.
+
+        Args:
+            v (float): Latitude value
+
+        Returns:
+            float: Validated latitude
+        """
+        if not -90 <= v <= 90:
+            raise ValueError(f"latitude out of range: {v}")
+        return v
+
+    @field_validator("longitude")
+    def validate_longitude(cls, v: float) -> float:
+        """Ensure longitude is within the valid range.
+
+        Args:
+            v (float): Longitude value
+
+        Returns:
+            float: Validated longitude
+        """
+        if not -180 <= v <= 180:
+            raise ValueError(f"longitude out of range: {v}")
         return v
 
     @field_serializer("url")
@@ -195,14 +227,24 @@ def main() -> None:
         raw_data.extend(page["data"])
 
     park_data = []
+    dropped = 0
     for record in raw_data:
         try:
             park_data.append(NationalPark(**record))
         except ValidationError as ex:
+            dropped += 1
             exception_str = (
                 f"Unable to process the following record:\n{pformat(record)}\n\n{ex}"
             )
             print(json.dumps(exception_str))
+
+    if raw_data and dropped / len(raw_data) > MAX_DROP_FRACTION:
+        raise SystemExit(
+            f"Aborting: {dropped} of {len(raw_data)} records failed validation "
+            f"(more than {MAX_DROP_FRACTION:.0%}); refusing to overwrite "
+            "parks.json. This likely indicates an upstream API change."
+        )
+
     park_data = [
         park for park in park_data if not _park_has_excluded_designation(park.full_name)
     ]
