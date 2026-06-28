@@ -25,6 +25,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run lint-check
+      - run: npm test
   pyLint:
     name: Python Script Linting
     runs-on: ubuntu-latest
@@ -37,6 +38,7 @@ jobs:
           cache: "pip"
       - run: pip install -r requirements.txt
       - run: ./.github/scripts/python_lint.sh --check
+      - run: python -m pytest .github/scripts
   # A noop job used to add arbitrary annotations to PRs by the updateParks job
   parkMetadataUpdater:
     name: Park Metadata Updater

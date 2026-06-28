@@ -15,7 +15,7 @@ const stateNamesByAbbrev = Object.fromEntries(
  * @param {number} lon2 - Longitude of second point
  * @returns {number} Distance in miles
  */
-function haversineDistance(lat1, lon1, lat2, lon2) {
+export function haversineDistance(lat1, lon1, lat2, lon2) {
   const R = 3959; // Earth's radius in miles
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
