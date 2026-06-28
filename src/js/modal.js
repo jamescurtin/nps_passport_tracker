@@ -1,5 +1,4 @@
 import * as d3 from "d3";
-import $ from "jquery";
 
 const modal = d3
   .select("body")
@@ -90,7 +89,7 @@ export function clickedPoint(_, d) {
   }
 
   lastFocused = document.activeElement;
-  $(".modal").show();
+  modal.style("display", "block");
   isOpen = true;
   // Move focus into the dialog for keyboard and screen-reader users.
   const closeButton = modalContent.select(".close").node();
@@ -104,7 +103,7 @@ export function clickedPoint(_, d) {
  * @return {undefined}
  */
 function resetPoint() {
-  $(".modal").hide();
+  modal.style("display", "none");
   modalContent.selectAll("*").remove();
   isOpen = false;
   // Restore focus to whatever triggered the modal.

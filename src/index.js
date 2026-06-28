@@ -1,6 +1,5 @@
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
-import $ from "jquery";
 import topoJsonStates from "us-atlas/states-10m";
 
 import parksJSON from "./data/parks";
@@ -562,7 +561,7 @@ function clickedMap(_, d) {
 
   prepareSidebar();
 
-  $(".park-list").show();
+  parkList.style("display", "block");
   parkList.selectAll("*").remove();
   const parksVisited = countParksVisited(d.properties.parks);
   const title = `${d.properties.name} (Visited ${parksVisited} of ${d.properties.parks.length} sites)`;
@@ -661,7 +660,7 @@ function resetMap() {
     .duration(zoomDuration)
     .attr("visibility", "hidden");
   hideSidebar();
-  $(".park-list").hide();
+  parkList.style("display", "none");
 }
 
 // Debounce helper function
