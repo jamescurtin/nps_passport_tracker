@@ -598,41 +598,53 @@ export function createSearchUI(container, parkSearch) {
     }
   }
 
-  // Helper function to update parks list
-  function updateParksList() {
-    const container = d3.select("#parks-in-range-container");
+  // Render a list of parks into a container. Shared by the location
+  // (distance-sorted) list and the text/state/visited results list, which
+  // differ only in the name element, the secondary text, and the empty message.
+  function renderParkList(
+    container,
+    parks,
+    { emptyMessage, secondaryText, onNameClick },
+  ) {
     container.html("");
-
-    const parksInRange = parkSearch.getParksInRange();
-    if (parksInRange.length === 0) {
+    if (parks.length === 0) {
       container
         .append("p")
         .attr("class", "no-parks-message")
-        .text("No parks found within this radius.");
+        .text(emptyMessage);
       return;
     }
 
     const list = container.append("ul").attr("class", "parks-in-range-list");
-
-    parksInRange.forEach((park) => {
+    parks.forEach((park) => {
       const item = list.append("li").attr("class", "park-in-range-item");
       const visitedClass = park.visited === 1 ? "visited" : "not-visited";
       item
         .append("span")
         .attr("class", `park-visited-indicator ${visitedClass}`)
         .attr("title", park.visited === 1 ? "Visited" : "Not Visited");
-      item
-        .append("a")
-        .attr("class", "park-name")
-        .attr("href", park.url)
-        .attr("target", "_blank")
-        .text(park.name);
+
+      if (onNameClick) {
+        item
+          .append("button")
+          .attr("type", "button")
+          .attr("class", "park-name park-name-button")
+          .text(park.name)
+          .on("click", () => onNameClick(park));
+      } else {
+        item
+          .append("a")
+          .attr("class", "park-name")
+          .attr("href", park.url)
+          .attr("target", "_blank")
+          .text(park.name);
+      }
+
       item
         .append("span")
         .attr("class", "park-distance")
-        .text(`${Math.round(park.distance)} mi`);
+        .text(secondaryText(park));
 
-      // Hover highlight on map marker
       item.on("mouseenter", () => {
         if (parkSearch.onHighlightPark) {
           parkSearch.onHighlightPark(park.parkCode);
@@ -644,6 +656,18 @@ export function createSearchUI(container, parkSearch) {
         }
       });
     });
+  }
+
+  // Update the location (distance-sorted) parks list.
+  function updateParksList() {
+    renderParkList(
+      d3.select("#parks-in-range-container"),
+      parkSearch.getParksInRange(),
+      {
+        emptyMessage: "No parks found within this radius.",
+        secondaryText: (park) => `${Math.round(park.distance)} mi`,
+      },
+    );
   }
 
   // Render the results list for text/state/visited filters.
@@ -659,49 +683,14 @@ export function createSearchUI(container, parkSearch) {
       `${filtered.length} ${filtered.length === 1 ? "park" : "parks"} match`,
     );
 
-    const container = d3.select("#results-list-container");
-    container.html("");
-    if (filtered.length === 0) {
-      container
-        .append("p")
-        .attr("class", "no-parks-message")
-        .text("No parks match these filters.");
-      return;
-    }
-
-    const list = container.append("ul").attr("class", "parks-in-range-list");
-    filtered.forEach((park) => {
-      const item = list.append("li").attr("class", "park-in-range-item");
-      const visitedClass = park.visited === 1 ? "visited" : "not-visited";
-      item
-        .append("span")
-        .attr("class", `park-visited-indicator ${visitedClass}`)
-        .attr("title", park.visited === 1 ? "Visited" : "Not Visited");
-      item
-        .append("button")
-        .attr("type", "button")
-        .attr("class", "park-name park-name-button")
-        .text(park.name)
-        .on("click", () => {
-          if (parkSearch.onParkSelect) {
-            parkSearch.onParkSelect(park);
-          }
-        });
-      item
-        .append("span")
-        .attr("class", "park-distance")
-        .text(park.states.join(", "));
-
-      item.on("mouseenter", () => {
-        if (parkSearch.onHighlightPark) {
-          parkSearch.onHighlightPark(park.parkCode);
+    renderParkList(d3.select("#results-list-container"), filtered, {
+      emptyMessage: "No parks match these filters.",
+      secondaryText: (park) => park.states.join(", "),
+      onNameClick: (park) => {
+        if (parkSearch.onParkSelect) {
+          parkSearch.onParkSelect(park);
         }
-      });
-      item.on("mouseleave", () => {
-        if (parkSearch.onUnhighlightPark) {
-          parkSearch.onUnhighlightPark(park.parkCode);
-        }
-      });
+      },
     });
   }
 

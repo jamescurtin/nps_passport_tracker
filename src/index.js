@@ -39,6 +39,10 @@ const borderRadius = 5;
 // NPS Site point marker properties
 const pointRadius = 3;
 
+// Zoom scale bounds, shared by the zoom behavior and programmatic zooms.
+const MIN_SCALE = 1;
+const MAX_SCALE = 16;
+
 // On click properties
 const tooltipOpacity = 0.9;
 const zoomDuration = 750;
@@ -83,7 +87,7 @@ const g = svg.append("g");
 // Extended max zoom (16x) to handle small states like DC
 const zoom = d3
   .zoom()
-  .scaleExtent([1, 16])
+  .scaleExtent([MIN_SCALE, MAX_SCALE])
   .on("zoom", (event) => {
     g.attr("transform", event.transform);
 
@@ -339,8 +343,11 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
       if (radiusPixels === 0) return;
 
       // Calculate scale so that radius fits in targetPixels
-      const desiredScale = radiusPixels > 0 ? targetPixels / radiusPixels : 1;
-      const clampedScale = Math.max(1, Math.min(16, desiredScale));
+      const desiredScale = targetPixels / radiusPixels;
+      const clampedScale = Math.max(
+        MIN_SCALE,
+        Math.min(MAX_SCALE, desiredScale),
+      );
 
       // Calculate translation to center the point
       const translate = [
@@ -534,7 +541,7 @@ function clickedMap(_, d) {
   // Clamp to the zoom behavior's scale extent and drive the zoom through it so
   // its stored transform stays in sync. Otherwise a subsequent drag/pan starts
   // from the stale (identity) transform and snaps the map back to full country.
-  const clampedScale = Math.max(1, Math.min(16, scale));
+  const clampedScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale));
   const translate = [
     width / 2 - clampedScale * x,
     height / 2 - clampedScale * y,
