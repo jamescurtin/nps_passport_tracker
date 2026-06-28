@@ -330,19 +330,10 @@ d3.json(topoJsonStates).then(function (json) {
         if (!center) return; // Location outside projection bounds
 
         // Calculate scale based on radius
-        // radiusMiles determines how much area we want to show
         // We want the radius to fit within ~40% of the smaller screen dimension
         const targetPixels = Math.min(width, height) * 0.4;
-        // Convert miles to approximate pixels at current projection
-        // At scale=1, roughly 1 degree = varies, but we can estimate
-        // Using the haversine-based approach: figure out how many degrees the radius spans
-        const degreesPerMile = 1 / 69; // Roughly 69 miles per degree
-        const radiusDegrees = radiusMiles * degreesPerMile;
-
-        // Project a point at the edge of the radius to calculate pixel distance
-        const edgePoint = projection([lng + radiusDegrees, lat]);
-        if (!edgePoint) return;
-        const radiusPixels = Math.abs(edgePoint[0] - center[0]);
+        const radiusPixels = searchRadiusPixels(lat, lng, radiusMiles);
+        if (radiusPixels === 0) return;
 
         // Calculate scale so that radius fits in targetPixels
         const desiredScale = radiusPixels > 0 ? targetPixels / radiusPixels : 1;
@@ -395,6 +386,31 @@ d3.json(topoJsonStates).then(function (json) {
 });
 
 /**
+ * Compute the on-screen pixel radius for a search circle of the given radius
+ * in miles, centered at (lat, lng), under the current projection.
+ *
+ * Longitude degrees shrink with latitude, so the east/west offset must be
+ * divided by cos(lat); a flat 1/69 deg/mi draws a circle that is too small
+ * away from the equator (badly so for Alaska) and no longer matches the
+ * haversine distance filter used to select parks.
+ *
+ * @param {number} lat - Center latitude
+ * @param {number} lng - Center longitude
+ * @param {number} radiusMiles - Radius in miles
+ * @returns {number} Radius in projected pixels, or 0 if not projectable
+ */
+function searchRadiusPixels(lat, lng, radiusMiles) {
+  const center = projection([lng, lat]);
+  if (!center) return 0;
+  const milesPerDegreeLat = 69;
+  const lngDegrees =
+    radiusMiles / (milesPerDegreeLat * Math.cos((lat * Math.PI) / 180));
+  const edgePoint = projection([lng + lngDegrees, lat]);
+  if (!edgePoint) return 0;
+  return Math.abs(edgePoint[0] - center[0]);
+}
+
+/**
  * Draw a search overlay on the map showing address pin and search radius circle.
  * @param {number} lat - Latitude of the address
  * @param {number} lng - Longitude of the address
@@ -407,11 +423,8 @@ function drawSearchOverlay(lat, lng, radiusMiles) {
   const center = projection([lng, lat]);
   if (!center) return;
 
-  // Calculate radius in projected pixels
-  const degreesPerMile = 1 / 69;
-  const edgePoint = projection([lng + radiusMiles * degreesPerMile, lat]);
-  if (!edgePoint) return;
-  const radiusPixels = Math.abs(edgePoint[0] - center[0]);
+  const radiusPixels = searchRadiusPixels(lat, lng, radiusMiles);
+  if (radiusPixels === 0) return;
 
   // Get current zoom scale
   const k = d3.zoomTransform(svg.node()).k;
@@ -700,12 +713,11 @@ const handleResize = debounce(() => {
     const loc = currentSearchLocation;
     const center = projection([loc.lng, loc.lat]);
     if (center) {
-      const degreesPerMile = 1 / 69;
-      const edgePoint = projection([
-        loc.lng + loc.radiusMiles * degreesPerMile,
+      const radiusPixels = searchRadiusPixels(
         loc.lat,
-      ]);
-      const radiusPixels = edgePoint ? Math.abs(edgePoint[0] - center[0]) : 0;
+        loc.lng,
+        loc.radiusMiles,
+      );
 
       if (searchCircle) {
         searchCircle
