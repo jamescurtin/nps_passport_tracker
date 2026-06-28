@@ -1013,14 +1013,14 @@
     "states": ["MA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/96C1990B-1DD8-B71B-0B8920EBAE88BC49.jpg",
-        "title": "Colonial Town Meeting",
-        "altText": "View of the Colonial Town Meeting program from the desk"
+        "url": "https://www.nps.gov/common/uploads/structured_data/34611790-9F54-D8D9-58168DF7586C7396.jpg",
+        "title": "Bunker Hill Lodge",
+        "altText": "A white granite building next to the Bunker Hill Monument"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/9698669F-1DD8-B71B-0BAF19BCD480270D.jpg",
-        "title": "Commandant's House",
-        "altText": "Commandant's House in Spring"
+        "url": "https://www.nps.gov/common/uploads/structured_data/340E7169-C461-1667-96D73043CD75B185.jpg",
+        "title": "Bunker Hill Monument 250",
+        "altText": "A tall white obelisk stands amongst leafy trees. Two colonial American flags hang from its windows"
       }
     ]
   },
@@ -1036,14 +1036,14 @@
     "states": ["MA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/68301D98-A14F-2A1E-EA8839FFA6B0CD72.jpg",
-        "title": "Faneuil Hall in Spring",
-        "altText": "A four-story federal-style brick building with rows of arched windows on each floor."
+        "url": "https://www.nps.gov/common/uploads/structured_data/5C6018D3-B2BA-C431-0C4332F98D76923D.jpg",
+        "title": "Abiel Smith School",
+        "altText": "A two-story brick building on the corner of a street."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C79121E-1DD8-B71B-0BCA364A0C215DA4.jpg",
-        "title": "Flowers at the Shaw Memorial",
-        "altText": "A close up image of flowers laid at the feet of the soldiers on the Shaw Memorial"
+        "url": "https://www.nps.gov/common/uploads/structured_data/5B3F9740-AE69-4A78-0DF379F10D96E01C.jpg",
+        "title": "African Meeting House",
+        "altText": "View from the gallery overlooking the"
       }
     ]
   },
@@ -1064,9 +1064,9 @@
         "altText": "A child dancing on the beach at dusk"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C858F6B-1DD8-B71B-0B9C8D905FF4A7E9.jpg",
-        "title": "Come Explore The Islands",
-        "altText": "Children looking out at Boston from the Harbor Islands"
+        "url": "https://www.nps.gov/common/uploads/structured_data/633BF399-A03A-85F6-EE3D9CBD81D30B4D.jpg",
+        "title": "Boston Light",
+        "altText": "a white lighthouse and other buildings on Little Brewster Island at sunset. City in the distance."
       }
     ]
   },
@@ -1485,7 +1485,7 @@
     "name": "Carl Sandburg Home",
     "fullName": "Carl Sandburg Home National Historic Site",
     "parkCode": "carl",
-    "description": "Post Helene Status: Pedestrian detour in place from main parking lot. Grounds / trails open dawn till dusk 7 days a week. Barn open 7 days a week 10-4. Bookstore / Visitor Center open Wed, Thurs, Fri, Sat and Sun 10-4. Interagency passes can be purchased at Visitor Center.",
+    "description": "Current Status: Pedestrian detour in place from main parking lot. Grounds / trails open dawn till dusk 7 days a week. Barn open 7 days a week 10-4. Bookstore / Visitor Center open Tuesday - Sunday 9-5. Interagency passes can be purchased at Visitor Center.",
     "latitude": 35.26815509,
     "longitude": -82.45106258,
     "states": ["NC"],
@@ -1894,7 +1894,7 @@
     "name": "Chickamauga & Chattanooga",
     "fullName": "Chickamauga & Chattanooga National Military Park",
     "parkCode": "chch",
-    "description": "In 1863, Union and Confederate forces fought for control of Chattanooga, known as the \"Gateway to the Deep South.\" The Confederates were victorious at nearby Chickamauga in September. However, renewed fighting in Chattanooga that November provided Union troops victory and control of the city. After the fighting, a Confederate soldier ominously wrote, \"This...is the death-knell of the Confederacy.\"",
+    "description": "In 1863, Union and Confederate forces fought for control of Chattanooga - a gateway to the Confederacy. The Confederates were victorious at nearby Chickamauga in September. However, renewed fighting in Chattanooga that November provided Union troops victory and control of the city. After the fighting, a Confederate soldier ominously wrote, \"This...is the death-knell of the Confederacy.\"",
     "latitude": 34.94317623,
     "longitude": -85.28749537,
     "states": ["GA", "TN"],
@@ -1946,12 +1946,12 @@
     "states": ["AZ"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/7FE6F9B0-D4CD-1197-71F96888A81D16D3.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/3B5D3231-05C6-7AC9-6B5F41333C40B966.jpg",
         "title": "Big Balanced Rock",
-        "altText": "Large rock balanced on a small point"
+        "altText": "Large rock balanced on a small point with a hiker to the right"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8306C0-1DD8-B71B-0B5B64EB999EEF53.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/3B451434-9A88-EB48-5CE248F3253C564F.jpg",
         "title": "Bonita Canyon",
         "altText": "A narrow road winds between tall oaks and rock cliffs"
       }
@@ -3678,7 +3678,7 @@
     "name": "Freedom Riders",
     "fullName": "Freedom Riders National Monument",
     "parkCode": "frri",
-    "description": "In 1961, a small interracial band of \u201cFreedom Riders\u201d challenged discriminatory laws requiring separation of the races in interstate travel. They were attacked by white segregationists, who firebombed the bus. Images of the attack appeared in hundreds of newspapers, shocking the American public and spurring the Federal Government to issue regulations banning segregation in interstate travel.",
+    "description": "",
     "latitude": 33.635269165,
     "longitude": -85.9064331055,
     "states": ["AL"],
@@ -4218,9 +4218,9 @@
         "altText": "Log buildings, stockade fence and dock near Lake."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/242F987D-A5C9-C97D-FA692D01CE985AE4.jpg",
-        "title": "Historic Depot in Snow",
-        "altText": "Historic wooden buildings behind a palisade in a snowy landscape."
+        "url": "https://www.nps.gov/common/uploads/structured_data/7BB4A2E5-EF50-21A2-E590D580DE06718A.jpg",
+        "title": "Historic Depot from Mount Rose",
+        "altText": "Log buildings, stockade fence and dock near a large lake."
       }
     ]
   },
@@ -5882,14 +5882,14 @@
     "states": ["AL"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C871B98-1DD8-B71B-0B9503B9A40341DA.jpg",
-        "title": "DeSoto Scout Trail Bridge",
-        "altText": "DeSoto Scout Trail Bridge located in the Backcountry Area"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8C9F8630-C9B1-0B2B-371B9F53171962A7.jpg",
+        "title": "Bridge Trail overlooking Little River",
+        "altText": "Little River above waterfall"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C870F95-1DD8-B71B-0B1A89976F5B3292.jpg",
-        "title": "Little River Canyon in the Fall",
-        "altText": "Fall Season in the Canyon"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8C58A4FA-05FF-876E-05DD3F27CD0A3CB3.jpg",
+        "title": "Canyon Mouth Park",
+        "altText": "a river with rock and green trees and blue sky"
       }
     ]
   },
@@ -7379,7 +7379,7 @@
     "name": "Petrified Forest",
     "fullName": "Petrified Forest National Park",
     "parkCode": "pefo",
-    "description": "Park Hours: 8am to 5pm, MST. Don't forget that Arizona does not observe Daylight Savings. Petrified Forest is best known for its Triassic fossils. It's like having two parks in one, an ecosystem over 200 million years old with plants and animals now represented in the surreal landscape of the Painted Desert. There is also a living park with its own denizens adapted to a demanding environment.",
+    "description": "A landscape where deep time lies fully on display, Petrified Forest National Park blends colorful badlands, vast grasslands, and one of the world\u2019s largest and most vivid collections of petrified wood. Spanning more than 200 million years of geologic history, the park protects ancient fossils, ancestral Puebloan sites, habitat for desert animals, and a sweeping stretch of historic Route 66.",
     "latitude": 34.98387664,
     "longitude": -109.7877678,
     "states": ["AZ"],
@@ -7615,7 +7615,7 @@
     "states": ["AR"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C80B417-1DD8-B71B-0B6F982FAD0B0CE9.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/B8E9E920-AE11-F538-2DA5C60CF361FCA5.jpg",
         "title": "Birthplace Home",
         "altText": "The birthplace home of President Bill Clinton illuminated at dusk."
       },
@@ -7891,14 +7891,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8508C870-F18F-A7EF-971BD2D6C86D56E6.jpg",
-        "title": "Attend a Ranger-led Program or Activity",
-        "altText": "A ranger-led program is happening at Beaver Meadows Visitor Center"
+        "url": "https://www.nps.gov/common/uploads/structured_data/25B4B9D7-953A-9999-788210BBBD93CC77.jpg",
+        "title": "Explore Hidden Valley",
+        "altText": "A park ranger is at Hidden Valley"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/84E3C876-FF13-8444-4234EAD8566CE1D8.jpg",
-        "title": "Enjoy scenic views",
-        "altText": "Scenic views of Horseshoe Park"
+        "url": "https://www.nps.gov/common/uploads/structured_data/260D64BE-DFA9-63E5-3464E4E466DD5217.jpg",
+        "title": "Go Camping",
+        "altText": "A trailer is set up in a campsite"
       }
     ]
   },
@@ -8195,9 +8195,9 @@
         "altText": "stone aqueduct with water filling the channel"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/733A078E-0D7B-DEA6-E52FB53569021F2D.jpg",
-        "title": "Espada Aqueduct",
-        "altText": "stone aqueduct with water filling the channel"
+        "url": "https://www.nps.gov/common/uploads/structured_data/74D1A662-0F1F-BE6D-E7755A5F9E313CF6.jpg",
+        "title": "Granary at Mission San Jos\u00e9",
+        "altText": "Large room with an arches ceiling"
       }
     ]
   },
