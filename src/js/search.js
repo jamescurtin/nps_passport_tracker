@@ -420,6 +420,14 @@ export function createSearchUI(container, parkSearch) {
     .text("Go")
     .on("click", handleGeocodeSearch);
 
+  // "Use my location" geolocation button
+  locationContent
+    .append("button")
+    .attr("type", "button")
+    .attr("class", "geolocate-btn")
+    .text("📍 Use my location")
+    .on("click", handleGeolocate);
+
   // Status display
   locationContent
     .append("div")
@@ -483,6 +491,47 @@ export function createSearchUI(container, parkSearch) {
       d3.select("#parks-in-range-container").style("display", "none");
     });
 
+  // Apply a resolved location (from geocoding or geolocation) as the active
+  // distance filter and reveal the radius/list controls.
+  function applyLocation(lat, lng, displayName) {
+    const radiusMiles = parseInt(
+      document.getElementById("radius-slider").value,
+    );
+    parkSearch.setLocationFilter(lat, lng, radiusMiles, displayName);
+    d3.select("#radius-container").style("display", "block");
+    d3.select("#location-clear").style("display", "block");
+    d3.select("#parks-in-range-container").style("display", "block");
+    updateLocationStatus();
+    updateParksList();
+  }
+
+  // Use the browser Geolocation API to filter by the user's current position.
+  function handleGeolocate() {
+    if (!navigator.geolocation) {
+      d3.select("#location-status").text(
+        "Geolocation is not supported by your browser.",
+      );
+      return;
+    }
+    d3.select("#location-status").text("Locating...");
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        applyLocation(
+          position.coords.latitude,
+          position.coords.longitude,
+          "Your location",
+        );
+      },
+      (error) => {
+        d3.select("#location-status").text(
+          error.code === error.PERMISSION_DENIED
+            ? "Location permission denied."
+            : "Could not determine your location.",
+        );
+      },
+    );
+  }
+
   // Guard against overlapping in-flight geocode requests, which would both
   // exceed Nominatim's rate limit and risk out-of-order (last-write) results.
   let isGeocoding = false;
@@ -507,20 +556,11 @@ export function createSearchUI(container, parkSearch) {
     }
 
     if (result.status === "ok") {
-      const radiusMiles = parseInt(
-        document.getElementById("radius-slider").value,
-      );
-      parkSearch.setLocationFilter(
+      applyLocation(
         result.location.lat,
         result.location.lng,
-        radiusMiles,
         result.location.display_name,
       );
-      d3.select("#radius-container").style("display", "block");
-      d3.select("#location-clear").style("display", "block");
-      d3.select("#parks-in-range-container").style("display", "block");
-      updateLocationStatus();
-      updateParksList();
     } else if (result.status === "rate_limited") {
       d3.select("#location-status").text(
         "Too many searches. Please wait a moment and try again.",

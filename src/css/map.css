@@ -898,6 +898,30 @@ table th {
   background: var(--nps-brown);
 }
 
+.address-search-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.geolocate-btn {
+  width: 100%;
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--nps-green-forest);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  font-weight: bold;
+  transition: background-color var(--transition-fast);
+}
+
+.geolocate-btn:hover {
+  background: var(--nps-green-sage);
+}
+
 .location-status {
   margin-top: var(--spacing-sm);
   padding: var(--spacing-sm);
