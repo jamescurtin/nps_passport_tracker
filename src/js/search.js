@@ -188,6 +188,19 @@ export class ParkSearch {
     }
 
     this.onFilter(filtered);
+    if (this.onResults) {
+      this.onResults(filtered);
+    }
+  }
+
+  /**
+   * Whether any non-location filter (text, visited, or state) is active.
+   * @returns {boolean}
+   */
+  hasActiveListFilter() {
+    return Boolean(
+      this.filters.query || this.filters.visited !== null || this.filters.state,
+    );
   }
 
   getParksInRange() {
@@ -335,6 +348,24 @@ export function createSearchUI(container, parkSearch) {
   parkSearch.getUniqueStates().forEach((state) => {
     stateSelect.append("option").attr("value", state).text(state);
   });
+
+  // Results section for text/state/visited filters (hidden until a filter is
+  // active). The separate location section renders its own distance-sorted list.
+  const resultsSection = searchContainer
+    .append("div")
+    .attr("class", "results-section")
+    .attr("id", "results-section")
+    .style("display", "none");
+
+  resultsSection
+    .append("div")
+    .attr("class", "results-count")
+    .attr("id", "results-count");
+
+  resultsSection
+    .append("div")
+    .attr("class", "results-list-container")
+    .attr("id", "results-list-container");
 
   // Location search section
   const locationSection = searchContainer
@@ -564,6 +595,67 @@ export function createSearchUI(container, parkSearch) {
       });
     });
   }
+
+  // Render the results list for text/state/visited filters.
+  function renderResults(filtered) {
+    const section = d3.select("#results-section");
+    if (!parkSearch.hasActiveListFilter()) {
+      section.style("display", "none");
+      return;
+    }
+    section.style("display", "block");
+
+    d3.select("#results-count").text(
+      `${filtered.length} ${filtered.length === 1 ? "park" : "parks"} match`,
+    );
+
+    const container = d3.select("#results-list-container");
+    container.html("");
+    if (filtered.length === 0) {
+      container
+        .append("p")
+        .attr("class", "no-parks-message")
+        .text("No parks match these filters.");
+      return;
+    }
+
+    const list = container.append("ul").attr("class", "parks-in-range-list");
+    filtered.forEach((park) => {
+      const item = list.append("li").attr("class", "park-in-range-item");
+      const visitedClass = park.visited === 1 ? "visited" : "not-visited";
+      item
+        .append("span")
+        .attr("class", `park-visited-indicator ${visitedClass}`)
+        .attr("title", park.visited === 1 ? "Visited" : "Not Visited");
+      item
+        .append("button")
+        .attr("type", "button")
+        .attr("class", "park-name park-name-button")
+        .text(park.name)
+        .on("click", () => {
+          if (parkSearch.onParkSelect) {
+            parkSearch.onParkSelect(park);
+          }
+        });
+      item
+        .append("span")
+        .attr("class", "park-distance")
+        .text(park.states.join(", "));
+
+      item.on("mouseenter", () => {
+        if (parkSearch.onHighlightPark) {
+          parkSearch.onHighlightPark(park.parkCode);
+        }
+      });
+      item.on("mouseleave", () => {
+        if (parkSearch.onUnhighlightPark) {
+          parkSearch.onUnhighlightPark(park.parkCode);
+        }
+      });
+    });
+  }
+
+  parkSearch.onResults = renderResults;
 
   return { searchContainer, searchToggle, updateParksList };
 }

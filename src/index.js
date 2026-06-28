@@ -375,6 +375,9 @@ d3.json(topoJsonStates).then(function (json) {
       parkSearch.onHighlightPark = highlightParkMarker;
       parkSearch.onUnhighlightPark = unhighlightParkMarker;
 
+      // Open the park modal when a search result is clicked
+      parkSearch.onParkSelect = (park) => clickedPoint(null, park);
+
       // Create search UI
       createSearchUI(body, parkSearch);
 
