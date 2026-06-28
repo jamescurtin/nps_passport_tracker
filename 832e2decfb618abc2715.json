@@ -22,12 +22,12 @@
   {
     "parkCode": "anti",
     "visitedOn": ["2024-06-17"],
-    "_comment": "TODO"
+    "notes": "The Battle of Antietam on September 17, 1862 remains the bloodiest single day in American history, with about 23,000 killed, wounded, or missing in roughly 12 hours, and it led Lincoln to issue the preliminary Emancipation Proclamation five days later."
   },
   {
     "parkCode": "bawa",
     "visitedOn": ["2025-03-27"],
-    "_comment": "TODO"
+    "notes": "The parkway opened in October 1954; on the ~19-mile section the NPS administers, commercial trucks and vehicles over 10,000 pounds are banned."
   },
   {
     "parkCode": "blrv",
@@ -36,7 +36,8 @@
   },
   {
     "parkCode": "boaf",
-    "visitedOn": ["2022-09-03"]
+    "visitedOn": ["2022-09-03"],
+    "notes": "The site's African Meeting House, built in 1806, is the oldest surviving Black church building in the U.S.; it hosted abolitionists like Frederick Douglass and William Lloyd Garrison and was nicknamed the \"Black Faneuil Hall.\""
   },
   {
     "parkCode": "boha",
@@ -61,22 +62,22 @@
   {
     "parkCode": "choh",
     "visitedOn": ["2025-03-28"],
-    "_comment": "TODO"
+    "notes": "The canal runs 184.5 miles from Georgetown to Cumberland, using 74 lift locks to overcome the 605-foot elevation change along the route."
   },
   {
     "parkCode": "clba",
     "visitedOn": ["2025-03-28"],
-    "_comment": "TODO"
+    "notes": "Established in 1974, this was the first NPS site dedicated to a woman; the Glen Echo house served as an American Red Cross warehouse from 1891 and as its national headquarters from 1897 to 1904, as well as Barton's home until her death in 1912."
   },
   {
     "parkCode": "coga",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "On a small island reached by a wooden footbridge, 56 granite blocks carry the signature, hometown, and occupation of each signer of the Declaration of Independence; dedicated July 2, 1984."
   },
   {
     "parkCode": "ddem",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "Designed by Frank Gehry and dedicated in 2020, it features a 447-foot-long stainless steel tapestry, the largest ever attempted, depicting the Pointe du Hoc cliffs of Normandy in peacetime."
   },
   {
     "parkCode": "edal",
@@ -111,7 +112,7 @@
   {
     "parkCode": "fomc",
     "visitedOn": ["2025-03-30"],
-    "_comment": "TODO"
+    "notes": "The fort's defense during the Battle of Baltimore on September 13–14, 1814 inspired Francis Scott Key to write \"The Star-Spangled Banner\"; it is the only place designated both a National Monument and a Historic Shrine."
   },
   {
     "parkCode": "fopo",
@@ -121,7 +122,7 @@
   {
     "parkCode": "frde",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "Spread over 7.5 acres, the memorial is laid out as four open-air \"rooms,\" one for each of FDR's four terms, with 21 of his quotations carved in granite."
   },
   {
     "parkCode": "frla",
@@ -131,7 +132,7 @@
   {
     "parkCode": "frst",
     "visitedOn": ["2024-06-21"],
-    "_comment": "TODO"
+    "notes": "Delaware ratified the Constitution by a unanimous 30–0 vote on December 7, 1787, making it the first state; established in 2014, this was the first National Park System unit located within Delaware."
   },
   {
     "parkCode": "gegr",
@@ -141,7 +142,7 @@
   {
     "parkCode": "gett",
     "visitedOn": ["2024-06-17"],
-    "_comment": "TODO"
+    "notes": "Fought July 1–3, 1863, it was the Civil War's bloodiest battle with about 51,000 casualties; the repulse of Pickett's Charge at the \"High Water Mark\" marked the farthest Confederate advance into the North."
   },
   {
     "parkCode": "glde",
@@ -151,7 +152,7 @@
   {
     "parkCode": "glec",
     "visitedOn": ["2025-03-28"],
-    "_comment": "TODO"
+    "notes": "Opened in 1891 as a National Chautauqua Assembly before becoming the area's premier amusement park; its 1921 Dentzel carousel, with 39 horses plus hand-carved menagerie animals, still operates seasonally."
   },
   {
     "parkCode": "goga",
@@ -166,17 +167,17 @@
   {
     "parkCode": "grfa",
     "visitedOn": ["2024-06-19"],
-    "_comment": "TODO"
+    "notes": "The Patowmack Canal here, built 1785–1802 under the leadership of George Washington as first president of the Patowmack Company, was among the first canal systems in the U.S. and let boats skirt the Great Falls of the Potomac."
   },
   {
     "parkCode": "gwmp",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "Its southern section began as the Mount Vernon Memorial Highway, which opened in 1932 for the bicentennial of Washington's birth and was the first portion of what became the parkway."
   },
   {
     "parkCode": "hafe",
     "visitedOn": ["2024-06-17"],
-    "_comment": "TODO"
+    "notes": "At the confluence of the Shenandoah and Potomac, it was the target of abolitionist John Brown's 1859 raid on the federal armory. Storer College, founded here in 1867, was among the first integrated schools in the U.S. and hosted the Niagara Movement's first American meeting in 1906."
   },
   {
     "parkCode": "hagr",
@@ -186,12 +187,12 @@
   {
     "parkCode": "hamp",
     "visitedOn": ["2025-03-30"],
-    "_comment": "TODO"
+    "notes": "When completed around 1790, the ~24,000-square-foot Hampton Mansion was believed to be the largest private home in the U.S.; in 1948 it became the first site named a National Historic Site for its architectural significance."
   },
   {
     "parkCode": "hocu",
     "visitedOn": ["2025-11-07"],
-    "_comment": "TODO"
+    "notes": "These geometric earthworks were built by Native Americans of the Hopewell culture roughly 1,600 to 2,000 years ago; in September 2023 the Hopewell Ceremonial Earthworks became the nation's 25th UNESCO World Heritage Site."
   },
   {
     "parkCode": "hofr",
@@ -241,11 +242,12 @@
   {
     "parkCode": "kowa",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "The 19 stainless steel soldier statues are doubled by their reflection in the granite wall to form 38 figures, referencing both the 38th Parallel and the war's 38 months."
   },
   {
     "parkCode": "lecl",
-    "visitedOn": ["2022-10-16"]
+    "visitedOn": ["2022-10-16"],
+    "notes": "The trail follows roughly 4,900 miles of the Corps of Discovery's 1804–1806 route across 16 states, winding through the homelands of more than 60 Tribal nations."
   },
   {
     "parkCode": "liho",
@@ -255,7 +257,7 @@
   {
     "parkCode": "linc",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "The seated marble Lincoln stands 19 feet tall and was carved from 28 interlocking blocks of Georgia white marble by the Piccirilli Brothers."
   },
   {
     "parkCode": "loea",
@@ -275,7 +277,7 @@
   {
     "parkCode": "mana",
     "visitedOn": ["2024-06-20"],
-    "_comment": "TODO"
+    "notes": "The First Battle of Bull Run on July 21, 1861 was the first major land battle of the Civil War; Thomas J. Jackson earned the nickname \"Stonewall\" here when General Bee rallied his men by shouting that Jackson stood \"like a stone wall.\""
   },
   {
     "parkCode": "mima",
@@ -285,7 +287,7 @@
   {
     "parkCode": "mlkm",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "Opened in 2011, it was the first Mall memorial to honor an African American and the first to honor a citizen activist rather than a president or war hero; visitors pass through the split \"Mountain of Despair\" to reach the \"Stone of Hope.\""
   },
   {
     "parkCode": "morr",
@@ -300,7 +302,7 @@
   {
     "parkCode": "nama",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "Designated by Congress in 1965, it preserves over 1,000 acres, dating to George Washington's 1790 selection of the site along the Potomac."
   },
   {
     "parkCode": "nebe",
@@ -309,12 +311,13 @@
   },
   {
     "parkCode": "npnh",
-    "visitedOn": ["2022-11-18"]
+    "visitedOn": ["2022-11-18"],
+    "notes": "Not a single park but an administrative office overseeing 10+ NPS sites around the harbor, including the Statue of Liberty, Ellis Island, and Governors Island."
   },
   {
     "parkCode": "paav",
     "visitedOn": ["2018-08-13"],
-    "_comment": "TODO"
+    "notes": "\"America's Main Street\" was laid out by Pierre L'Enfant to physically connect the White House and the U.S. Capitol, linking the executive and legislative branches."
   },
   {
     "parkCode": "pinn",
@@ -339,7 +342,7 @@
   {
     "parkCode": "rocr",
     "visitedOn": ["2025-03-28"],
-    "_comment": "TODO"
+    "notes": "Authorized by Congress and signed by President Benjamin Harrison in 1890, it was the third national park established by the federal government, after Yellowstone and Mackinac (the latter is no longer a national park)."
   },
   {
     "parkCode": "rori",
@@ -379,7 +382,7 @@
   {
     "parkCode": "sapa",
     "visitedOn": ["2025-03-27"],
-    "_comment": "TODO"
+    "notes": "The contested 1733 Eastchester election held on the village green here was reported in the first issue of John Peter Zenger's New-York Weekly Journal, the paper whose 1735 libel acquittal helped establish freedom of the press in America."
   },
   {
     "parkCode": "spar",
@@ -398,16 +401,18 @@
   },
   {
     "parkCode": "ston",
-    "visitedOn": ["2022-11-14"]
+    "visitedOn": ["2022-11-14"],
+    "notes": "Designated by President Obama in 2016, it was the first national monument dedicated to LGBTQ history and rights; it preserves the site of the uprising that began June 28, 1969."
   },
   {
     "parkCode": "this",
-    "visitedOn": ["2018-08-13"]
+    "visitedOn": ["2018-08-13"],
+    "notes": "In the 1930s landscape architects transformed the former Mason's Island into a \"real forest\" mimicking the native woodland; its memorial centers on a 17-foot bronze statue of Roosevelt by Paul Manship."
   },
   {
     "parkCode": "thje",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "The 19-foot statue of Jefferson was originally installed in 1943 as a plaster cast due to wartime metal restrictions, and was not replaced with the bronze version until 1947."
   },
   {
     "parkCode": "thko",
@@ -422,7 +427,7 @@
   {
     "parkCode": "tosy",
     "visitedOn": ["2024-08-23"],
-    "_comment": "TODO"
+    "notes": "Dedicated in 1763, it is the oldest surviving synagogue building in the U.S. and the recipient of George Washington's 1790 letter affirming religious liberty, pledging that the government \"gives to bigotry no sanction, to persecution no assistance.\""
   },
   {
     "parkCode": "ulsg",
@@ -432,7 +437,7 @@
   {
     "parkCode": "vafo",
     "visitedOn": ["2025-03-27"],
-    "_comment": "TODO"
+    "notes": "No battle was fought here, yet roughly 2,000 of the 12,000 Continental soldiers who wintered in 1777–1778 died of disease; Baron von Steuben arrived in February 1778 and drilled the army into a disciplined fighting force."
   },
   {
     "parkCode": "vama",
@@ -442,12 +447,12 @@
   {
     "parkCode": "vive",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "Designed by Maya Lin, a 21-year-old Yale undergraduate, whose entry beat more than 1,400 others in a blind competition; the design had earned only a B in her architecture class."
   },
   {
     "parkCode": "wamo",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "The obelisk is visibly two-toned because construction stalled for over 20 years; when work resumed in the 1870s the marble came from different quarries and has weathered to noticeably different colors."
   },
   {
     "parkCode": "wefa",
@@ -457,22 +462,22 @@
   {
     "parkCode": "whho",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "The White House contains 132 rooms, 35 bathrooms, and 8 staircases across 6 levels, plus 412 doors, 147 windows, and 28 fireplaces."
   },
   {
     "parkCode": "wotr",
     "visitedOn": ["2024-06-20"],
-    "_comment": "TODO"
+    "notes": "Established by Congress in 1966 on land donated by Catherine Filene Shouse, Wolf Trap is the only national park dedicated to the performing arts; its Filene Center amphitheater seats roughly 7,000 under cover and on the lawn."
   },
   {
     "parkCode": "wwii",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "The Freedom Wall holds 4,048 gold stars, each representing roughly 100 Americans who died in the war."
   },
   {
     "parkCode": "wwim",
     "visitedOn": ["2024-06-18"],
-    "_comment": "TODO"
+    "notes": "Opened in 2021 at Pershing Park, it is Washington's newest war memorial; its centerpiece, Sabin Howard's 58-foot bronze relief \"A Soldier's Journey,\" was installed in September 2024."
   },
   {
     "parkCode": "yose",
