@@ -764,6 +764,7 @@ function mergeNPSData(parkData, visitData) {
       if (park.parkCode == visit.parkCode) {
         park.visited = 1;
         park.visitedOn = visit.visitedOn;
+        park.notes = visit.notes;
       }
     }
     data.push(park);

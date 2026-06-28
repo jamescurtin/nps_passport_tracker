@@ -21,6 +21,9 @@ const modalContent = modal
  * @return {undefined}
  */
 export function clickedPoint(_, d) {
+  // Clear any prior content in case a modal is opened over an existing one.
+  modalContent.selectAll("*").remove();
+
   modalContent
     .append("span")
     .attr("class", "close")
@@ -29,7 +32,12 @@ export function clickedPoint(_, d) {
 
   modalContent.append("h2").text(d.fullName);
 
-  modalContent.append("p").text(populateVisitData(d));
+  if (d.visited === 1) {
+    modalContent.append("p").text(populateVisitData(d));
+    if (d.notes) {
+      modalContent.append("p").attr("class", "modal-notes").text(d.notes);
+    }
+  }
 
   modalContent
     .append("a")

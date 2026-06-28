@@ -173,6 +173,14 @@ div.tooltip {
   line-height: 1.6;
 }
 
+.modal-content p.modal-notes {
+  font-style: italic;
+  padding: var(--spacing-sm);
+  border-left: 3px solid var(--nps-green-forest);
+  background: var(--nps-green-light);
+  border-radius: 4px;
+}
+
 .modal-images {
   display: flex;
   flex-wrap: wrap;
