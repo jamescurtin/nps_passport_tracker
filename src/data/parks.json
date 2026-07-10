@@ -35,14 +35,14 @@
     "states": ["ME"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B45AE-1DD8-B71B-0B7EE131C7DFC2F5.jpg",
-        "title": "Acadia's rocky coastline",
-        "altText": "Large puffy clouds dot a brilliant blue sky as wave crash against the rocky coastline of Acadia."
+        "url": "https://www.nps.gov/common/uploads/structured_data/D44C463F-A561-74ED-C78695D3E0D31FF3.jpg",
+        "title": "Carriage Road Bike Tour",
+        "altText": "A group of people riding bicycles travels under the arch of a large stone bridge"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B48F9-1DD8-B71B-0BD3B413E58978F8.jpg",
-        "title": "Climbing The Precipice",
-        "altText": "Two hikers ascend a sheer cliff trail by way of historic iron rung ladders."
+        "url": "https://www.nps.gov/common/uploads/structured_data/D5BAF46D-B0C2-5F87-F118CEDD80CF1774.jpg",
+        "title": "Carroll Homestead",
+        "altText": "Landscape photo with a small historic farmhouse in the distance and an interpretive wayside in the f"
       }
     ],
     "designation": "National Park"
@@ -443,14 +443,14 @@
     "states": ["WI"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D6BDB844-0A16-7B50-439459D6ECDF195F.jpg",
-        "title": "Julian Bay",
-        "altText": "Sunrise illuminates a long beach near calm water."
+        "url": "https://www.nps.gov/common/uploads/structured_data/2F1C950B-C5AF-097D-71693A8260754C0E.jpg",
+        "title": "Old Michigan Island Lighthouse",
+        "altText": "Photograph of historic lighthouse from above with Lake Superior in the background."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D67F5EC0-90F7-B996-F946329AAB8DF781.jpg",
-        "title": "Raspberry Island Lighthouse",
-        "altText": "A two story white house with a light tower in the middle, reflects the colors of the setting sun."
+        "url": "https://www.nps.gov/common/uploads/structured_data/2F266113-B885-CCC5-FE97FEC5F1467F64.jpg",
+        "title": "Outer Island Sandspit",
+        "altText": "Photograph of sandy shoreline."
       }
     ],
     "designation": "National Lakeshore"
@@ -1436,14 +1436,14 @@
     "states": ["AK"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/36A8D54C-A4FF-8755-ABCD1186BF160DF0.jpg",
+        "title": "Backpacker in the Igishuk Hills",
+        "altText": "Backpacker hikes across green tundra."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C7A22E8-1DD8-B71B-0B2389DB9F76E3B9.jpg",
         "title": "Beach Ridges on the Shore of Cape Krusenstern",
         "altText": "aerial view of beach ridges"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A26FE-1DD8-B71B-0B19AD3D540ED878.jpg",
-        "title": "Fish on a Drying Rack",
-        "altText": "fish hanging on rack"
       }
     ],
     "designation": "National Monument"
@@ -1791,14 +1791,14 @@
     "states": ["VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F76C6-1DD8-B71B-0B8B820C99AECC0D.jpg",
-        "title": "Cedar Creek and Belle Grove in a Box",
-        "altText": "Visitors watching a ranger program at Belle Grove"
+        "url": "https://www.nps.gov/common/uploads/structured_data/6AED221A-9ECA-B8D8-06C5E5DA37D24E25.jpg",
+        "title": "8th Vermont Monument",
+        "altText": "A rough marble monument in an iron-fenced enclosure commemorates Civil War combat."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7F7324-1DD8-B71B-0BB8708508EDE0C8.jpg",
-        "title": "Kids Program",
-        "altText": "Ranger giving kids Program"
+        "url": "https://www.nps.gov/common/uploads/structured_data/68FB2EF6-E6C0-7996-60940AFF61292B5E.jpg",
+        "title": "Belle Grove Manor House",
+        "altText": "American flag bunting hangs from the porch on a limestone building with a white portico."
       }
     ],
     "designation": "National Historical Park"
@@ -1935,14 +1935,14 @@
     "states": ["GA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C8083BD1-1DD8-B71B-0BB3FE7205EBC05D.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/296AB18F-BF25-9DC3-07F43C4EDF2507F1.jpg",
         "title": "Family Time",
         "altText": "Two adult Great Blue Herons stand watch over their 3 young chicks in the nest."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C9265B1A-1DD8-B71B-0B8D232058D0E4C9.jpg",
-        "title": "Inviting Trail",
-        "altText": "Trail heading off under a canopy of trees."
+        "url": "https://www.nps.gov/common/uploads/structured_data/2989A002-0CC4-B184-9FF66F6F15B6EEB9.jpg",
+        "title": "Fishing",
+        "altText": "Angler in waders holding a fishing rod in the middle of a shallow river"
       }
     ],
     "designation": "National Recreation Area"
@@ -2103,14 +2103,14 @@
     "states": ["DC", "MD", "VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/E6977351-AC07-1344-3202DF3CFAF7E1F7.jpg",
-        "title": "Battleground National Cemetery",
-        "altText": "Luminaries light a cemetery with a monument and homes in the background."
+        "url": "https://www.nps.gov/common/uploads/structured_data/E6C02E26-E3F6-9D3B-898FA345B581B896.jpg",
+        "title": "History at Sunset",
+        "altText": "Park Ranger delivering a program to visitors."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C82F2B8-1DD8-B71B-0BEE3AC8B175885F.jpg",
-        "title": "Civil War Defenses Of Washington",
-        "altText": "Historic Fort Davis"
+        "url": "https://www.nps.gov/common/uploads/structured_data/E709D662-E09B-D2CA-0D845DB9F7470E58.jpg",
+        "title": "The Civil War Defenses Then & Now",
+        "altText": "Historic image of Fort Totten on layered on modern image."
       }
     ],
     "designation": ""
@@ -2410,14 +2410,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/A13FCF8E-B148-1559-DB2D0175CA3237F3.jpg",
-        "title": "Blue Mesa Nights",
-        "altText": "An arm of the Milky Way galaxy glows over Blue Mesa."
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E152D-CC3F-9EF8-51DC6B875AB94324.jpg",
+        "title": "Blue Mesa Reservoir",
+        "altText": "A single boat floating out in a reservoir. Mesas surrounding the area are reflected on the water."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/A1496038-AF15-BB3A-3FD6DD366CE0BA4C.jpg",
-        "title": "Crystal Trail View",
-        "altText": "The snow-capped San Juan Mountain Range looms in the distance as viewed from the Crystal Trail"
+        "url": "https://www.nps.gov/common/uploads/structured_data/3CDF1153-ED4C-9E1A-B87030A6095D35E1.jpg",
+        "title": "Blue Mesa Reservoir",
+        "altText": "Underexposed shot of waves coming off a reservoir. Mesas in the background."
       }
     ],
     "designation": "National Recreation Area"
@@ -2914,14 +2914,14 @@
     "states": ["IL", "MS"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C6ADB63A-E12D-F371-C70C1BB91D90A937.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/C87C9135-D01F-E0B0-30657C718C6FBE2A.jpg",
         "title": "Emmett Till Interpretive Center",
-        "altText": "A one story store-like front along a street containing two doors and several windows."
+        "altText": "exterior of a store front with the nps logo on the building"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C7387047-FA5D-EA46-34C39AE23445B364.jpg",
-        "title": "Emmett Till Interpretive Center 2",
-        "altText": "A table sits besides shelves featuring magazines and books in a white room."
+        "url": "https://www.nps.gov/common/uploads/structured_data/904FA468-C327-634B-B5BD07007C927FAD.jpg",
+        "title": "Emmett Till and Mamie Till-Mobley",
+        "altText": "Two African Americans sitting in a room and smiling toward the camera."
       }
     ],
     "designation": "National Monument"
@@ -2938,12 +2938,12 @@
     "states": ["CA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F78E744F-0391-68F7-BAA5B9D3EE9569E4.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/2BA43872-B6A5-FEBE-D72234A2117453E3.jpg",
         "title": "Eugene O'Neill",
         "altText": "Eugene O'Neill, and older man, poses outside against a hilly background."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7A0334-1DD8-B71B-0B8C905A1ABBFE6A.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/2B947680-0561-D2E2-4EFC886609D1759E.jpg",
         "title": "Eugene O'Neill Home in Danville, California",
         "altText": "Eugene O'Neill Home in Danville, California"
       }
@@ -2967,9 +2967,9 @@
         "altText": "An American Alligator high walks the Anhinga Trail."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C85F532-1DD8-B71B-0BFC5BB51D8AB675.jpg",
-        "title": "Camping at Long Pine Key",
-        "altText": "Three tents are put up along the Long Pine Key campsite."
+        "url": "https://www.nps.gov/common/uploads/structured_data/17EC840E-9926-2E09-F2DD47A282915BBB.jpg",
+        "title": "Cypress Tree Sunrise",
+        "altText": "A sunset creates a silhouette of a cypress tree with needle-like leaves that is shaped like an 'N'."
       }
     ],
     "designation": "National Park"
@@ -3226,14 +3226,14 @@
     "states": ["DC"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/E8C028DC-DB46-3F6F-825907BEB6A34CC6.jpg",
-        "title": "Biking at Fort Dupont",
-        "altText": "A park ranger leads a bike tour of Fort Dupont"
+        "url": "https://www.nps.gov/common/uploads/structured_data/2C90DA58-EB11-AACB-C807E4FF0956F67B.jpg",
+        "title": "2022 Fort Dupont Summer Event Series",
+        "altText": "Large crowd sitting on blankets and in folding chairs in front of an outdoor stage"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C82FB0D-1DD8-B71B-0B3FA003572FE8B6.jpg",
-        "title": "Fort DuPont Park",
-        "altText": "Fort during fall hike"
+        "url": "https://www.nps.gov/common/uploads/structured_data/E8D70618-DA13-305F-098B026489769AA4.jpg",
+        "title": "Fort Dupont Community Gardens",
+        "altText": "Children plant vegetables at the community gardens"
       }
     ],
     "designation": ""
@@ -3255,9 +3255,9 @@
         "altText": "A cannon in front of fall leaves"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C796010-1DD8-B71B-0BB8DB26C7FF2283.jpg",
-        "title": "Drawing of Fort Foote",
-        "altText": "Drawing of Fort Foote Park, depicting the fort in 1865."
+        "url": "https://www.nps.gov/common/uploads/structured_data/29881978-D1B9-0ACF-BD47BAFA79E77803.jpg",
+        "title": "Fort Foote",
+        "altText": "A cannon in front of fall leaves."
       }
     ],
     "designation": "Park"
@@ -3279,9 +3279,9 @@
         "altText": "A large grapevine draped among the Live Oaks"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DD81D-1DD8-B71B-0BD41D04DF8DB390.jpg",
-        "title": "Artifacts found at Frederica",
-        "altText": "Artifacts found at Frederica"
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DDE1A-1DD8-B71B-0B341050E0F95288.jpg",
+        "title": "Fort Frederica at Sunset",
+        "altText": "The shadow of the ruin of Fort Frederica highlighted by a sunset along the Frederica River."
       }
     ],
     "designation": "National Monument"
@@ -3303,9 +3303,9 @@
         "altText": "A group of mounted individuals ride hors near a concrete historic structure."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C81F6C0-1DD8-B71B-0B7A2395384F119E.jpg",
-        "title": "Arial View of Fort Laramie NHS From the South",
-        "altText": "Aerial view of Fort Laramie NHS from the South"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8F1A76F6-AA51-C2D5-7A5ACA069FACF260.jpg",
+        "title": "Fall colors on the Parade Ground",
+        "altText": "Ash and cottonwood trees show their fall colors next to an open grass field."
       }
     ],
     "designation": "National Historic Site"
@@ -3370,9 +3370,14 @@
     "states": ["MD"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8F45A684-F00A-CB5C-85186E42923EFBC1.jpg",
-        "title": "Fort McHenry National Monument and Historic Shrine",
-        "altText": "Fort McHenry"
+        "url": "https://www.nps.gov/common/uploads/structured_data/6FC9D02A-B577-932F-CB9B22D8D89811CF.jpg",
+        "title": "Bike Around Fort McHenry",
+        "altText": "Man in brought yellow shirt with a blue bicycle standing in front of a Fort McHenry identifier sign."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/6E09E90C-A4A3-ED7B-B2417FCC266325FB.jpg",
+        "title": "Cannon Demonstration",
+        "altText": "Men in War of 1812 era uniforms pull a cannon over grass outside of a brick fort."
       }
     ],
     "designation": "National Monument and Historic Shrine"
@@ -3461,9 +3466,9 @@
     "states": ["GA"],
     "images": [
       {
-        "url": "https://www.nps.gov/customcf/structured_data/upload/Cannon2.jpg",
-        "title": "Night Cannon Firing at Fort Pulaski",
-        "altText": "The night sky is illuminated as a cannon fires at Fort Pulaski"
+        "url": "https://www.nps.gov/common/uploads/structured_data/D3F2A014-9250-5625-95DA66EC945A4206.jpg",
+        "title": "Cannon Firing Inside Fort Pulaski",
+        "altText": "A cannon, surrounded by volunteers in federal uniforms, fires and releases smoke at Fort Pulaski"
       },
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C870DCA-1DD8-B71B-0B2574219E50694B.jpg",
@@ -3509,14 +3514,14 @@
     "states": ["KS"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/731A97DA-F862-30D3-2E949B0B97D8C57A.jpg",
+        "title": "Artillery Demonstration",
+        "altText": "6 reenactors dressed in white are firing a 6lbs field cannon."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C8383F1-1DD8-B71B-0B3AA4D574749439.jpg",
         "title": "Dragoons on the Prairie",
         "altText": "Four soldiers on horseback in a line riding through prairie grass."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C838A0F-1DD8-B71B-0B0A1C3D2CE08AEF.jpg",
-        "title": "Laundry Day",
-        "altText": "Women dressed as laundresses with laundry buckets and scrub boards stand on a stone porch."
       }
     ],
     "designation": "National Historic Site"
@@ -3701,14 +3706,14 @@
     "states": ["WY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DE1CA-1DD8-B71B-0BFF5560ADF72FCB.jpg",
-        "title": "A view of Fossil Butte from Cundick Ridge",
-        "altText": "A green valley with distant tan and red ridges. The foreground is a cliff's edge."
+        "url": "https://www.nps.gov/common/uploads/structured_data/6200C1A0-927C-E2CD-5BFE26747056626D.jpg",
+        "title": "Aerugoamnis paulus",
+        "altText": "A fossil frog facing left with its back legs splayed out."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DC9FB-1DD8-B71B-0BA584C7C85866DD.jpg",
-        "title": "Cockerellites liops, a Common Fossil Fish",
-        "altText": "Four fossil football-shaped fossil fish with upright dorsal spines and a fan-shaped tail."
+        "url": "https://www.nps.gov/common/uploads/structured_data/61BEF069-FA75-032B-0BEB6DFEF0E0B08C.jpg",
+        "title": "Cockerellites liops",
+        "altText": "A dark brown, football-shaped fossil fish with a fan-shaped tail and spines standing up on its back."
       }
     ],
     "designation": "National Monument"
@@ -4349,14 +4354,14 @@
     "states": ["AZ"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B12D1-1DD8-B71B-0BCE0712F9CEA155.jpg",
-        "title": "Grand Canyon Mather Point Sunset on the South Rim",
-        "altText": "The canyon glows orange as people visit Mather Point, a rock outcropping that juts into Grand Canyon"
+        "url": "https://www.nps.gov/common/uploads/structured_data/6D21F1C3-FC94-9597-A861557ED5AD2BC2.jpg",
+        "title": "Ancestral granary at Nankoweap",
+        "altText": "a small ancestral masonry storage room in a cliff above a muddy river."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7B15A4-1DD8-B71B-0BFADECB506765CC.jpg",
-        "title": "Grand Canyon National Park: Desert View Watchtower (South Rim)",
-        "altText": "The Desert View Watchtower looms 70 feet into the air over a vast and dramatic view of the canyon."
+        "url": "https://www.nps.gov/common/uploads/structured_data/D098D5FD-0DF4-C3F4-083C06DBAAB173CD.jpg",
+        "title": "Desert View Watchtower",
+        "altText": "A cylindrical, stone tower, 70 feet (21 m) is on the edge of a vast, mile-deep canyon"
       }
     ],
     "designation": "National Park"
@@ -4661,14 +4666,14 @@
     "states": ["NC"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D099B945-1DD8-B71B-0B0BD8F54CD1E8BD.png",
-        "title": "18th Century Field Drum",
-        "altText": "18th Century Field Drum at Guilford Courthouse National Military Park"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/F833B7C2-D107-5AA8-B4CA3F93767D54B6.jpg",
         "title": "6 pounder cannons",
         "altText": "Two cannons on grey carriages (wheels) sit in a forest"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/F649327B-9F59-A88D-E8A82709DC7B2970.jpg",
+        "title": "General Nathanael Greene Monument",
+        "altText": "Bronze and granite monument of General Nathanael Greene on horseback"
       }
     ],
     "designation": "National Military Park"
@@ -4762,9 +4767,9 @@
         "altText": "Hamilton Grange National Memorial"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C80DD5F-1DD8-B71B-0B5992963B1A030F.jpg",
-        "title": "Hamilton Grange National Memorial, Entrance",
-        "altText": "Hamilton Grange National Memorial, Entrance"
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C80E018-1DD8-B71B-0B6AA1EDE3500733.jpg",
+        "title": "Hamilton Grange National Memorial, Foyer",
+        "altText": "Hamilton Grange National Memorial, Foyer"
       }
     ],
     "designation": "National Memorial"
@@ -4963,14 +4968,14 @@
     "states": ["VA"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/309430BC-E1AB-4AEE-EB6A72F00AD3D81E.jpg",
+        "title": "Anthony Johnson Living History Program",
+        "altText": "A man in period clothing holding a handful of dried tobacco leaves speaks to seated visitors"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C79E91E-1DD8-B71B-0B7E88EBB138AD97.jpg",
         "title": "Bacon's Rebellion",
         "altText": "Bacon's Rebellion"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C79E67E-1DD8-B71B-0B2D4A6D3D48D7A7.jpg",
-        "title": "Children In Nature Program at Historic Jamestowne",
-        "altText": "Children In Nature Program at Historic Jamestowne"
       }
     ],
     "designation": "Part of Colonial National Historical Park"
@@ -5011,14 +5016,14 @@
     "states": ["NE"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/701656E0-E86B-799D-2412AA3C654BB061.jpg",
+        "title": "Education Center at Homestead National Historical Park",
+        "altText": "Image of a building taken from the parking lot at Homestead National Historical Park."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/C13D0BC9-FBA8-3B59-8789B20F08B3AE68.jpg",
         "title": "Freeman One-Room Schoolhouse",
         "altText": "A historic one room schoolhouse"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/F0BD1E3B-9EFE-D2CC-EF3F29C143C3FF05.jpg",
-        "title": "Grounds",
-        "altText": "The tallgrass prairie is yellow with goldenrod in full bloom."
       }
     ],
     "designation": "National Historical Park"
@@ -5033,18 +5038,7 @@
     "latitude": 21.38817536,
     "longitude": -158.0574991,
     "states": ["HI"],
-    "images": [
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/AA65F395-1DD8-B71B-0BCD32366BBDA5A2.jpg",
-        "title": "Compound 5",
-        "altText": "A view of daily life at Honouliuli Internment Camp"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C86C1A2-1DD8-B71B-0BACB6449A996407.jpg",
-        "title": "Honouliuli Aqueduct",
-        "altText": "View down the aqueduct at Honouliuli Gulch"
-      }
-    ],
+    "images": [],
     "designation": "National Historic Site"
   },
   {
@@ -5395,14 +5389,14 @@
     "states": ["OR"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/36CBD01D-D6DA-164D-F767964B009FF642.jpg",
+        "title": "Cathedral Rock",
+        "altText": "Tall sandy cliff face overlooking a small, shallow river"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3C8488CD-1DD8-B71B-0B29E5280AE3C784.jpg",
         "title": "Clarno",
         "altText": "Clarno"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/6593D65B-C84F-49D1-833D0F4F38BF288D.jpg",
-        "title": "Historic James Cant Ranch Homestead",
-        "altText": "White house surrounded by green with concrete path leading to the front"
       }
     ],
     "designation": "National Monument"
@@ -5443,9 +5437,9 @@
     "states": ["CA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C79DF6A-1DD8-B71B-0B64749528CB4952.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/36F1F1AD-A1DF-6E92-9B5D30285665C780.jpg",
         "title": "John Muir Home at the John Muir National Historic Site",
-        "altText": "John Muir Home at the John Muir National Historic Site"
+        "altText": "White two story house capped by a bell tower and ringed with palm trees"
       },
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/F7F8B4FB-0333-BE92-58C6A8113FA7D70E.jpg",
@@ -5539,14 +5533,14 @@
     "states": ["HI"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C821D90-1DD8-B71B-0B2216061891B7D4.jpg",
-        "title": "Ai'opio fishtrap",
-        "altText": "Honu (sea turtles) are common on the beach in this area of the park"
+        "url": "https://www.nps.gov/common/uploads/structured_data/6B1995A0-A297-5AEF-0F5FD7C7039DE137.jpg",
+        "title": "Kaloko-Honok\u014dhau National Historical Park",
+        "altText": "Sun rises over Hual\u0101lai volcano as seen from the Kaloko fishpond wall"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D73C7A3F-EDB7-A199-6982FFEAB0E95E13.jpg",
-        "title": "Entrance to Petroglyph Boardwalk",
-        "altText": "Modern version of Ki'i Pohaku (Petroglyphs)!"
+        "url": "https://www.nps.gov/common/uploads/structured_data/6BC27DEB-B36A-8C1A-B085AE8A9DD275D7.jpg",
+        "title": "Kaloko-Honok\u014dhau National Historical Park",
+        "altText": "Aerial view of fishpond"
       }
     ],
     "designation": "National Historical Park"
@@ -5611,14 +5605,14 @@
     "states": ["AK"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DE88C-1DD8-B71B-0B3F02FD7F30F1AF.jpg",
-        "title": "Above Bear Glacier",
-        "altText": "aerial view of Bear Glacier from Harding Icefield"
+        "url": "https://www.nps.gov/common/uploads/structured_data/70C5E42F-E888-1B22-ADFAF31C1B0AD95C.jpg",
+        "title": "Bubble Net Feeding",
+        "altText": "Several humpback whales open their mouth above water"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DE352-1DD8-B71B-0B35831ADF254DE0.jpg",
-        "title": "Aialik Bay Kayakers",
-        "altText": "kayakers in front of a tidewater glacier"
+        "url": "https://www.nps.gov/common/uploads/structured_data/70518281-E69D-4850-5FDF4F3BF3074C6B.jpg",
+        "title": "Exit Glacier Park Ranger",
+        "altText": "A park ranger talks with a child with Exit Glacier in the background"
       }
     ],
     "designation": "National Park"
@@ -6830,14 +6824,14 @@
     "states": ["WA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7CEEF2-1DD8-B71B-0B9F3B666327E5D1.jpg",
-        "title": "Climbing Mount Rainier",
-        "altText": "Climber on glacier steps downward with icy crags in background."
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7CECB5-1DD8-B71B-0B54548D95910CF4.jpg",
+        "title": "Kids Hiking Through Wildflower Meadow",
+        "altText": "Two children hike on trail through wildflower meadow with Mount Rainier above them."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C6C47-1DD8-B71B-0BFF9108D08A7FD3.jpg",
-        "title": "Giants of the Old-Growth Forest",
-        "altText": "Towering cedars and douglas-firs reach skyward while a beam of sun breaks through the canopy."
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C6D8C-1DD8-B71B-0BA69E7F583E25A5.jpg",
+        "title": "Marmot in Morning Dew",
+        "altText": "A hoary marmot with white frosted fur rests on a rock beside white flowers in a meadow."
       }
     ],
     "designation": "National Park"
@@ -7612,14 +7606,14 @@
     "states": ["NM"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8D91E761-FEC7-6849-802334D2BA65071C.jpg",
-        "title": "Feast Day at Pecos Pueblo",
-        "altText": "A line of people walk past adobe bricks, trees, and the road."
+        "url": "https://www.nps.gov/common/uploads/structured_data/9DEC764A-E225-C9F5-17FAFCF20C349AD3.jpg",
+        "title": "Church in Spring",
+        "altText": "Large brown adobe mission church with low brick walls and kiva ladder in front"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/0457F740-1DD8-B71B-0B9462AD0E72A834.jpg",
-        "title": "Mission Church and Kiva",
-        "altText": "Church and preservation workers in distance, kiva in foreground.jpg (943 kb)"
+        "url": "https://www.nps.gov/common/uploads/structured_data/A0423347-D1C1-FA6E-CCABCA2A7D67CA0F.jpg",
+        "title": "Feast Day Procession",
+        "altText": "A line of people walk past adobe bricks and trees on a path"
       }
     ],
     "designation": "National Historical Park"
@@ -7996,14 +7990,14 @@
     "states": ["VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C82646F-1DD8-B71B-0BBBC3BB74314991.jpg",
-        "title": "Carter Pond",
-        "altText": "Carter Pond on a sunny day in summer"
+        "url": "https://www.nps.gov/common/uploads/structured_data/2C6E9306-A162-3470-716D9C443F9427D1.jpg",
+        "title": "Bridge along the South Valley Trail in Fall",
+        "altText": "An arched wooden bridge above a creek surround by a yellow and orange fall forest"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C826EFC-1DD8-B71B-0B4CFE1C6964BEFC.jpg",
-        "title": "Fall Foliage",
-        "altText": "A tree with orange leaves against the blue sky"
+        "url": "https://www.nps.gov/common/uploads/structured_data/2CC4CB95-9AAB-3605-2B4310626DFC55C3.jpg",
+        "title": "Cabin Camp 3 in Spring",
+        "altText": "Wooden cabin with a porch and nearby picnic table and grill shaded by a green forest"
       }
     ],
     "designation": "Park"
@@ -8044,14 +8038,14 @@
     "states": ["HI"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/9794DBEA-C86C-03F5-51F3177CA76DCCCE.jpg",
-        "title": "Canoe Hale in the Royal Grounds",
-        "altText": "An a-frame canoe hale (house) in the Royal Grounds"
+        "url": "https://www.nps.gov/common/uploads/structured_data/6CE82489-D587-C5DF-A30BD917F1D7270B.jpg",
+        "title": "Pu\u02bbuhonua o H\u014dnaunau National Historical Park",
+        "altText": "Carved wooden ki\u02bbi"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/97C45226-99E5-D456-023418F7F2D6AA06.jpg",
-        "title": "Hale o Keawe & Keone\u02bbele Cove",
-        "altText": "A double-hulled canoe sits in Keone\u02bbele Cove with Hale o Keawe in the background."
+        "url": "https://www.nps.gov/common/uploads/structured_data/B9D5C440-9B40-6C05-5FCF4EFB33F1FD16.jpg",
+        "title": "Pu\u02bbuhonua o H\u014dnaunau National Historical Park",
+        "altText": "A stone papam\u016b (K\u014dnane playing surface) with Hale o Keawe and H\u014dnaunau Bay in the background."
       }
     ],
     "designation": "National Historical Park"
@@ -8068,14 +8062,14 @@
     "states": ["HI"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D11CAB09-06A5-5489-AF13C42BD2DCAB45.jpg",
-        "title": "Ho'oku'ikahi Ceremony",
-        "altText": "Ho'okupu offerings placed on Lele"
+        "url": "https://www.nps.gov/common/uploads/structured_data/46C8006D-B528-C45C-00A2A572EF94584A.jpg",
+        "title": "Pu\u02bbukohol\u0101\u00a0Heiau National Historic Site",
+        "altText": "Painting of historic ceremony at Pu\u02bbukohol\u0101\u00a0Heiau"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/EB3BCC7A-CB39-FD44-4E6392881F5CC412.jpg",
-        "title": "Pu'ukohol\u0101 Heiau National Historic Site Banner",
-        "altText": "A Lele (offering tower) set below Pu'ukohol\u0101 Heiau NHS"
+        "url": "https://www.nps.gov/common/uploads/structured_data/6C8CAFF8-B20F-15CD-2D763D6F40D9D26C.jpg",
+        "title": "Pu\u02bbukohol\u0101\u00a0Heiau National Historic Site",
+        "altText": "Heiau standing high above Pelekane Bay, as seen at sunset."
       }
     ],
     "designation": "National Historic Site"
@@ -8121,7 +8115,7 @@
         "altText": "A park ranger holds a sign while talking to young people."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C1E96A3D-D248-AD79-ABDA8E7BE3A38597.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/2A8CF9EB-A066-BE3E-4A92FA4D6FA029CE.jpg",
         "title": "Brick Baptist Church",
         "altText": "A two story brick building flanked by large live oak trees"
       }
@@ -8164,14 +8158,14 @@
     "states": ["VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/816EE112-9C5D-2560-D10FE798B013A447.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/CF298A1F-D9B6-66CF-D2FB7953724156D4.jpg",
         "title": "Chimborazo Visitor Center",
         "altText": "A two story gray brick building and a wooden sign reading \"Chimborazo Visitor Center\""
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/81593210-FD14-5769-C6EB06FEAD84C0AA.jpg",
-        "title": "Cold Harbor Battlefield Visitor Center",
-        "altText": "A small brick visitor center building beside a flagpole."
+        "url": "https://www.nps.gov/common/uploads/structured_data/93B9809F-9451-4BF3-655139E821CF9EAD.jpg",
+        "title": "Cold Harbor Battlefield",
+        "altText": "Earthen trenches running through a wooded area of bare trees and fallen autumn leaves."
       }
     ],
     "designation": "National Battlefield Park"
@@ -8476,9 +8470,9 @@
     "states": ["MA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/81A1A135-D07F-2401-575D27AEB50757EA.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/60837181-D14D-94CB-4174CFF79BFE59AF.jpg",
         "title": "Custom House",
-        "altText": "Three story red brick building with white columns has a wide staircase and golden eagle on top."
+        "altText": "A group of people walk in front of a large brick Custom House"
       },
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/81E50923-C71A-94BD-7BAFD64C112DB4CE.jpg",
@@ -8860,14 +8854,14 @@
     "states": ["MI"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/6039A7C7-076A-897E-9E33B512C1067A09.jpg",
-        "title": "Beach pebbles",
-        "altText": "Sand and pebbles in foreground with turquoise water in background"
+        "url": "https://www.nps.gov/common/uploads/structured_data/9BB040D4-E074-CD3B-7103FDA0A03A8113.jpg",
+        "title": "Blacksmith Shop",
+        "altText": "A red barn-like building with two open doors"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/00D893AA-0DF6-0628-D91892B25263BF5F.jpg",
-        "title": "Dunes",
-        "altText": "Grass covered sand dunes"
+        "url": "https://www.nps.gov/common/uploads/structured_data/FE0D1CEF-9466-CDC6-A6A653182170C3EC.jpg",
+        "title": "Empire Bluffs at Sunset",
+        "altText": "A trail overlooking a large lake at sunset"
       }
     ],
     "designation": "National Lakeshore"
@@ -9579,14 +9573,14 @@
     "states": ["MO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C827A43-1DD8-B71B-0B4504B65B107615.jpg",
-        "title": "Museum Exhibits",
-        "altText": "boy looking at touchscreen in museum"
+        "url": "https://www.nps.gov/common/uploads/structured_data/63BEC04A-F6A2-7093-3BE80584418749FD.jpg",
+        "title": "West wing of White Haven",
+        "altText": "Green sided, two story house with green trees"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C8277AE-1DD8-B71B-0B99AAADE2FBE255.jpg",
-        "title": "Outbuildings",
-        "altText": "To the left is the ice house and to right is chicken house."
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C827360-1DD8-B71B-0BF9ADC1F4742F80.jpg",
+        "title": "White Haven in Autumn",
+        "altText": "View of house with fence. Autumn colored leaves on trees"
       }
     ],
     "designation": "National Historic Site"
@@ -9766,14 +9760,14 @@
     "states": ["MN"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C840875-1DD8-B71B-0B2416D8B710421E.jpg",
-        "title": "Anderson Bay",
-        "altText": "rock cliffs along the lake"
+        "url": "https://www.nps.gov/common/uploads/structured_data/31FEBCCF-A01E-F585-A3C320EC62281F40.jpg",
+        "title": "Ellsworth Rock Gardens",
+        "altText": "Photograph of landscape with large boulders and rock sculptures."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C840A23-1DD8-B71B-0B19E7CC6CCDF7C7.jpg",
-        "title": "Fall Colors",
-        "altText": "orange, yellow, and green colors are showing in the fall foliage"
+        "url": "https://www.nps.gov/common/uploads/structured_data/325E7D4A-919F-7E79-851567904D618FBF.jpg",
+        "title": "Grassy Bay Cliffs",
+        "altText": "Photograph of granite cliffs topped with trees alongside a blue lake."
       }
     ],
     "designation": "National Park"
