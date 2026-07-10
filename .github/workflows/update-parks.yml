@@ -28,7 +28,10 @@ jobs:
       - run: npm ci
       - run: |
           set -uo pipefail
-          outfile="${{ runner.temp }}/output.txt"
+          # Must live inside the workspace: add-annotations-github-action reads
+          # "$GITHUB_WORKSPACE/$linter_output_path", so the path it is given has
+          # to be workspace-relative. Gitignored so it is never committed.
+          outfile="${{ github.workspace }}/parks-annotations.json"
 
           # Run updater; capture stdout/stderr and the exit code separately so we
           # can still emit per-record annotations but fail the job if the script
@@ -63,8 +66,8 @@ jobs:
           fi
         env:
           NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
-      - run: cat "${{ runner.temp }}/output.txt"
-      - run: jq . "${{ runner.temp }}/output.txt"
+      - run: cat "${{ github.workspace }}/parks-annotations.json"
+      - run: jq . "${{ github.workspace }}/parks-annotations.json"
       - run: npm run lint-fix
       - name: Commit changes
         id: commit_changes
@@ -91,7 +94,7 @@ jobs:
         with:
           mode: json
           check_name: Park Metadata Updater
-          linter_output_path: ${{ runner.temp }}/output.txt
+          linter_output_path: parks-annotations.json
           commit_sha: ${{ steps.commit_changes.outputs.commit_hash }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
