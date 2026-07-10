@@ -24,14 +24,14 @@
     "eslint-config-prettier": "10.1.8",
     "globals": "^17.4.0",
     "html-webpack-plugin": "5.6.7",
-    "prettier": "3.9.1",
+    "prettier": "3.9.4",
     "style-loader": "4.0.0",
     "stylelint": "^17.0.0",
     "stylelint-config-standard": "^40.0.0",
     "vitest": "^4.1.9",
-    "webpack": "5.108.1",
+    "webpack": "5.108.3",
     "webpack-cli": "7.1.0",
-    "webpack-dev-server": "5.2.5"
+    "webpack-dev-server": "5.2.6"
   },
   "scripts": {
     "build": "webpack",
