@@ -8937,14 +8937,14 @@
     "states": ["NY"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/E032BF81-E8D6-85A4-71BB271B79CCB47D.jpg",
+        "title": "Below the left hand and tablet of the Statue of Liberty",
+        "altText": "The folds of the Statue of Liberty's dress are seen with the left hand holding the tablet."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/3E4F24B9-086C-7405-9DD0DC6C3B89AD8F.jpg",
         "title": "Close-up of Statue of Liberty's Head - Profile",
         "altText": "A close-up of the Statue of Liberty's face and crown."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C85515D-1DD8-B71B-0B14434081BC0EC1.jpg",
-        "title": "Statue of Liberty from Flagpole Plaza on Liberty Island",
-        "altText": "Shoulders, head, and raised right arm of the Statue of Liberty from behind the statue."
       }
     ],
     "designation": "National Monument"
@@ -9570,9 +9570,9 @@
         "altText": "The inside of a masonry room with wood posts supporting the roof."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/0086821C-008A-00AB-CAECB7A6780B16B8.jpg",
-        "title": "Tuzigoot Pueblo",
-        "altText": "A sunny day at Tuzigoot"
+        "url": "https://www.nps.gov/common/uploads/structured_data/1BF4A1B3-CB1F-BED5-CB8E3244024DC5CB.jpg",
+        "title": "Tavasci Marsh View",
+        "altText": "a green, vibrant wetland with a ridge with an adobe dwelling and mountains in the distance"
       }
     ],
     "designation": "National Monument"
