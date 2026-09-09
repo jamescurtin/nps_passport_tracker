@@ -8793,14 +8793,14 @@
     "states": ["VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C80B539-1DD8-B71B-0BEAAA4AC31E7D5B.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/187E49E6-C473-3B6C-32A5429B5516C17B.jpg",
         "title": "Adventure Awaits",
-        "altText": "A man stands on a rocky outcrop overlooking the receding mountains."
+        "altText": "Visitors stand on a rocky outcrop overlooking the receding mountains."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/5C8BA50F-F5D8-9363-B224C3BF44BA320A.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/183B110E-E008-CDD3-EC95F668F6CC3657.jpg",
         "title": "Animal Crossing",
-        "altText": "American Black Bear"
+        "altText": "White-tailed bucks sparring in Big Meadows"
       }
     ],
     "designation": "National Park"
@@ -9177,9 +9177,14 @@
     "states": ["NY"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C855E63-1DD8-B71B-0B4BD6B7AEC50FF4.jpg",
-        "title": "Theodore Roosevelt Birthplace Exterior",
-        "altText": "Theodore Roosevelt Birthplace Exterior"
+        "url": "https://www.nps.gov/common/uploads/structured_data/B000E202-94E3-8B9B-6E51DA6E6B808AA2.jpg",
+        "title": "The Dining Room",
+        "altText": "A Victorian-era dining room with a large wooden table."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/AFF6F2D0-B77A-ADE4-31E492A977252221.jpg",
+        "title": "The Library",
+        "altText": "A room with red wallpaper, red carpeting, and wooden Victorian-era furniture."
       }
     ],
     "designation": "National Historic Site"
