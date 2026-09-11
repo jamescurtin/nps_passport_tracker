@@ -2194,8 +2194,8 @@
     "fullName": "Coltsville National Historical Park",
     "parkCode": "colt",
     "description": "When Samuel Colt started his Hartford factory on the banks of the Connecticut River in 1847, it followed years of mismanagement and failure. Soon, demand for Colt's revolver would change his fortunes and the Colt empire was born. Following Colt's untimely death in 1862, his wife, Elizabeth Colt, would lead the company to its legendary status, and influence Hartford for over 40 years.",
-    "latitude": 42.4677505493,
-    "longitude": -73.203666687,
+    "latitude": 41.756169,
+    "longitude": -72.663338,
     "states": ["CT"],
     "images": [
       {
@@ -2914,14 +2914,14 @@
     "states": ["IL", "MS"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/C87C9135-D01F-E0B0-30657C718C6FBE2A.jpg",
-        "title": "Emmett Till Interpretive Center",
-        "altText": "exterior of a store front with the nps logo on the building"
-      },
-      {
         "url": "https://www.nps.gov/common/uploads/structured_data/904FA468-C327-634B-B5BD07007C927FAD.jpg",
         "title": "Emmett Till and Mamie Till-Mobley",
         "altText": "Two African Americans sitting in a room and smiling toward the camera."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/C854297D-E86E-4E84-7A17564E6440A06D.jpg",
+        "title": "Graball Landing",
+        "altText": "a muddy river with trees on both sides of the riverbank"
       }
     ],
     "designation": "National Monument"
