@@ -2908,7 +2908,7 @@
     "name": "Emmett Till and Mamie Till-Mobley",
     "fullName": "Emmett Till and Mamie Till-Mobley National Monument",
     "parkCode": "till",
-    "description": "In 1955, 14-year-old Emmett Till traveled to Money, Mississippi, to visit relatives. He was kidnapped, tortured, and murdered after reportedly whistling at a white woman. His mother, Mamie Till-Mobley, insisted on an open-casket funeral near their hometown of Chicago. Her brave decision let the world see the racist violence inflicted upon her son and set the Civil Rights Movement into motion.",
+    "description": "",
     "latitude": 33.9711,
     "longitude": -90.3698,
     "states": ["IL", "MS"],
@@ -7881,14 +7881,14 @@
     "states": ["CA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/4A4DFFB7-AE90-C860-C30B232D2D8843C2.jpg",
-        "title": "Drakes Beach on July 27, 2019",
-        "altText": "A few dozens of visitors walk along or sit on towels at a sandy beach on a sunny day."
+        "url": "https://www.nps.gov/common/uploads/structured_data/8C41E82B-A9C2-A597-713FCA31BF28872E.jpg",
+        "title": "Elephant Seals at Point Reyes National Seashore",
+        "altText": "Two northern elephant seals confronting each other in the wet sand on a cliff-backed beach."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C7DC3A6-1DD8-B71B-0BA4EB0B2A5FD3E9.jpg",
-        "title": "Herd of Tule Elk on Tomales Point",
-        "altText": "Herd of Tule Elk on Tomales Point"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8CFECCE5-0AEE-97CC-A7DBD18D3D3FBA8D.jpg",
+        "title": "Point Reyes Beach North",
+        "altText": "A split rail fence and vegetation along a long sandy ocean beach."
       }
     ],
     "designation": "National Seashore"
@@ -8241,14 +8241,14 @@
     "states": ["CO"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/080D43CE-AB4C-2A2E-20AB8794B08E1E06.jpg",
-        "title": "Backpacking",
-        "altText": "Two wilderness campers are carrying big backpacks on the East Inlet Trail"
+        "url": "https://www.nps.gov/common/uploads/structured_data/88694C6C-F54C-6FCD-32E5B740E0F322C8.jpg",
+        "title": "Camping",
+        "altText": "A green tent is set up on a tent pad in a campsite"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/07DE657C-B40B-AA09-210DE610291E1DAC.jpg",
-        "title": "Bear Lake",
-        "altText": "Bear Lake with clouds on a sunny summer day"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8824D3C2-F84D-A622-C2DE87AC4B9A8BC9.jpg",
+        "title": "Cub Lake in fall",
+        "altText": "Cub Lake with reflections. Yellow and brown grasses line the edge of the lake."
       }
     ],
     "designation": "National Park"
