@@ -30,6 +30,19 @@
       "groupName": "docker-dependencies",
       "groupSlug": "docker-dependencies",
       "separateMinorPatch": false
+    },
+    {
+      "description": "Automerge non-major updates once required CI checks pass. minimumReleaseAge + branch protection are the safety net.",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "description": "Major updates always need a human. Keep this rule last: within a grouped branch, automerge=false on any single upgrade wins, so a group that contains a major is not automerged either.",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
     }
-  ]
+  ],
+  "automergeType": "pr",
+  "automergeStrategy": "merge-commit",
+  "platformAutomerge": true
 }
