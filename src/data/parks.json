@@ -448,9 +448,9 @@
         "altText": "Photograph of historic lighthouse from above with Lake Superior in the background."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/2F266113-B885-CCC5-FE97FEC5F1467F64.jpg",
-        "title": "Outer Island Sandspit",
-        "altText": "Photograph of sandy shoreline."
+        "url": "https://www.nps.gov/common/uploads/structured_data/5405A96A-AE89-B2B4-29F5BE7AC095296A.jpg",
+        "title": "Outer Island Lighthouse",
+        "altText": "White lighthouse rising above colorful fall trees along a rocky shoreline under a blue sky."
       }
     ],
     "designation": "National Lakeshore"
@@ -1024,8 +1024,8 @@
   {
     "id": "6278FE68-139E-4758-A6DE-9A0437F777B5",
     "url": "https://www.nps.gov/bowa/index.htm",
-    "name": "Booker T Washington",
-    "fullName": "Booker T Washington National Monument",
+    "name": "Booker T. Washington",
+    "fullName": "Booker T. Washington National Monument",
     "parkCode": "bowa",
     "description": "Booker T. Washington was born a slave in April 1856 on the 207-acre farm of James Burroughs. After the Civil War, Washington became the first principal of Tuskegee Normal and Industrial School. Later as an adviser, author and orator, his past would influence his philosophies as the most influential African American of his era. Come explore his birthplace.",
     "latitude": 37.11520539,
@@ -2223,9 +2223,14 @@
     "states": ["SC"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C862C60-1DD8-B71B-0BB65F7B652BA840.jpg",
-        "title": "Congaree River",
-        "altText": "View of the Congaree River during the Fall"
+        "url": "https://www.nps.gov/common/uploads/structured_data/54922A45-987E-B325-F2FB1725D5303BBA.jpg",
+        "title": "Barred Owl on Harry Hampton Visitor Center Roof",
+        "altText": "An owl perched on a wooden building"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/54E0D8B1-B893-2056-1DEEF741AEAC3F52.jpg",
+        "title": "Canoeing Cedar Creek",
+        "altText": "Two people in a canoe on a narrow creek surrounded by forest"
       }
     ],
     "designation": "National Park"
@@ -3927,9 +3932,9 @@
         "altText": "Battery Weed is the fort under the Verrazano Narrows Bridge in Staten Island."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/67B5B4F4-0681-087B-712BCF66C0C4DBAF.jpg",
-        "title": "Enjoying a summer's day at Jacob Riis Park",
-        "altText": "Visitors enjoying the sun and sand at Jacob Riis Park"
+        "url": "https://www.nps.gov/common/uploads/structured_data/8197BDB9-BA62-3132-801ED5ED419C324C.jpg",
+        "title": "Fall Bridge at Fort Wadsworth",
+        "altText": "Trees with multicolored leaves over road with bridge in background"
       }
     ],
     "designation": "National Recreation Area"
@@ -4162,14 +4167,14 @@
     "states": ["MT"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/395CAD64-0AB6-F903-CCA1AF9999561FB8.jpg",
-        "title": "A Mountain Goat and a Snow Patch",
-        "altText": "a mountain goat laying on snow bank"
+        "url": "https://www.nps.gov/common/uploads/structured_data/52D95F47-BA47-85AF-A6109B9EE49C7B17.jpg",
+        "title": "Grinnell Glacier from Grinnell Ridge in 2025",
+        "altText": "Grinnell Glacier from Grinnell Ridge in 2025"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/35C21C03-0338-DEDF-929F8655BF0CBEC4.jpg",
-        "title": "Boulder Glacier in 1932",
-        "altText": "black and white picture of people standing near an ice cave in a glacier"
+        "url": "https://www.nps.gov/common/uploads/structured_data/52AA1BF2-F8F7-F07B-0B0DA9EBED705589.jpg",
+        "title": "Grinnell Glacier from Lower Grinnell Ridge in 2016",
+        "altText": "Grinnell Glacier from Lower Grinnell Ridge in 2016"
       }
     ],
     "designation": "National Park"
@@ -4402,14 +4407,14 @@
     "states": ["MN"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/B21C0D39-BDAA-E34E-753556BB80A20DDD.jpg",
+        "title": "Great Hall in Autumn",
+        "altText": "Historic buildings with a lawn in the foreground and hill in fall colors behind."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/7BB4A2E5-EF50-21A2-E590D580DE06718A.jpg",
         "title": "Historic Depot from Mount Rose",
         "altText": "Log buildings, stockade fence and dock near a large lake."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/242F987D-A5C9-C97D-FA692D01CE985AE4.jpg",
-        "title": "Historic Depot in Snow",
-        "altText": "Historic wooden buildings behind a palisade in a snowy landscape."
       }
     ],
     "designation": "National Monument"
@@ -6336,14 +6341,14 @@
     "states": ["KY"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/145F1ECE-0B89-0D9E-48F101A0B0F88BEC.jpg",
+        "title": "Autumn at Sloans Pond",
+        "altText": "Trees with colorful autumn leaves surround a large pond and reflect off of its surface."
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/94A76787-FA1B-8DC8-71277FDFA5E7CC79.jpg",
         "title": "Cleaveland Avenue",
         "altText": "A long cave passage with an oval shape."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/94F61E66-ACE7-ED8C-FC411F6BFDD80490.jpg",
-        "title": "Good Spring Baptist Church",
-        "altText": "A small white church building with yellow flowers in the foreground."
       }
     ],
     "designation": "National Park"
