@@ -58,9 +58,6 @@
   --font-size-input: 16px;
 
   /* Component-specific */
-  --sidebar-width-desktop: 320px;
-  --modal-width-desktop: 80%;
-  --modal-width-mobile: 95%;
   --border-radius: 8px;
   --border-radius-lg: 16px;
   --radius-sheet: 24px;
