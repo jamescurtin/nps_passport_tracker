@@ -8486,14 +8486,14 @@
     "states": ["NH"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/ED2BF809-AEA8-9786-E08DB6D579A5C09D.jpg",
+        "title": "\"Standing Lincoln\" in winter",
+        "altText": "sculpture of Abraham Lincoln"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/96FCFEF6-F861-5A8F-9005DFFA53E00BE8.jpg",
         "title": "Amor Caritas",
         "altText": "gilded statue of angel with plants and reflecting pool"
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/96ECF261-04A2-DBA7-95C4B7D871246C31.jpg",
-        "title": "Aspet from Formal Garden",
-        "altText": "historic white brick house with flower gardens"
       }
     ],
     "designation": "National Historical Park"
