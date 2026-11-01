@@ -1,0 +1,51 @@
+html {
+  color-scheme: light dark;
+}
+
+body {
+  font: var(--font-size-base) var(--font-family);
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100dvh;
+  overscroll-behavior: none;
+  background-color: var(--color-ocean);
+  color: var(--color-text-primary);
+  -webkit-overflow-scrolling: touch;
+}
+
+@supports not (height: 100dvh) {
+  body {
+    height: 100vh;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+a,
+a:visited {
+  color: var(--nps-brown-dark);
+}
+
+a:hover {
+  color: var(--nps-green-forest);
+}
+
+input,
+select,
+textarea {
+  font-size: var(--font-size-input);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

@@ -5,13 +5,13 @@ import topoJsonStates from "us-atlas/states-10m";
 import parksJSON from "./data/parks";
 import visitsJSON from "./data/visits";
 
-import color from "./js/colorscale";
 import { clickedPoint, closeModal } from "./js/modal";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
+import { markerColor, onThemeChange, themeColor } from "./js/theme";
 
-import "./css/map.css";
+import "./css/index.css";
 
 // Modified version of geo-albers-usa that includes projections for all US territories
 const geoAlbersUsaTerritories = require("geo-albers-usa-territories");
@@ -57,18 +57,21 @@ let projection = geoAlbersUsaTerritories
   .translate([width / 2, height / 2]);
 let path = d3.geoPath(projection);
 
-// Legend properties
-const legendBoxSize = 18;
-const legendText = ["Visited", "Not Visited"];
+// Legend rows: [css class, label]
+const legendItems = [
+  ["visited", "Visited"],
+  ["not-visited", "Not Visited"],
+];
 
-// Construct the body of the page
+// Page shell lives in src/index.html
 const body = d3.select("body");
+const header = d3.select(".app-bar");
+const toolbar = d3.select(".toolbar");
+const sheets = d3.select("#sheets");
 
 const tooltip = body.append("div").attr("class", "tooltip").style("opacity", 0);
-const svg = body
-  .append("div")
-  .attr("class", "map-container")
-  .attr("id", "map-container")
+const svg = d3
+  .select("#map-container")
   .append("svg")
   .classed("svg-content-responsive", true)
   .attr("width", width)
@@ -107,10 +110,15 @@ const zoom = d3
 
 // Apply zoom to SVG (but filter out click events to allow state clicking)
 svg.call(zoom).on("dblclick.zoom", null);
-const svgHeader = svg.append("g");
 
-const sidebarControl = svg.append("g").attr("visibility", "hidden");
-const sidebar = body
+const parksButton = toolbar
+  .append("button")
+  .attr("type", "button")
+  .attr("class", "parks-in-state-toggle")
+  .attr("hidden", "")
+  .text("☰ Parks in State")
+  .on("click", openSidebar);
+const sidebar = sheets
   .append("div")
   .attr("class", "sidebar")
   .attr("id", "park-list-sidebar");
@@ -122,63 +130,6 @@ const closeSidebarButton = sidebar
   .on("click", prepareSidebar);
 closeSidebarButton.text("✕");
 const parkList = sidebar.append("div").attr("class", "park-list");
-
-// Construct the legend (positioned at top-right to avoid stats button overlap)
-const legend = svg
-  .append("svg")
-  .attr("class", "legend")
-  .attr("x", width - 110)
-  .attr("y", 60)
-  .selectAll("g")
-  .data(color.domain().slice().reverse())
-  .enter()
-  .append("g")
-  .attr("transform", function (_, i) {
-    return "translate(0," + i * (legendBoxSize + 2) + ")";
-  });
-
-legend
-  .append("rect")
-  .attr("width", legendBoxSize)
-  .attr("height", legendBoxSize)
-  .style("fill", color);
-legend
-  .append("text")
-  .data(legendText)
-  .attr("x", 24)
-  .attr("y", 9)
-  .attr("dy", ".35em")
-  .text(function (d) {
-    return d;
-  });
-
-const sidebarX = 20;
-const sidebarY = 20;
-const sidebarWidth = 125;
-const sidebarHeight = 50;
-const sidebarRadius = 10;
-sidebarControl
-  .append("rect")
-  .attr("class", "openbtn")
-  .attr("x", sidebarX)
-  .attr("y", sidebarY)
-  .attr("rx", sidebarRadius)
-  .attr("ry", sidebarRadius)
-  .attr("width", sidebarWidth)
-  .attr("height", sidebarHeight)
-  .style("fill", "#3d2314")
-  .on("click", openSidebar);
-
-sidebarControl
-  .append("text")
-  .text("☰ Parks in State")
-  .attr("class", "openbtn")
-  .attr("x", sidebarX + sidebarWidth / 2)
-  .attr("y", sidebarY + sidebarHeight / 2)
-  .attr("text-anchor", "middle")
-  .attr("dominant-baseline", "central")
-  .attr("fill", "white")
-  .on("click", openSidebar);
 
 const loadingIndicator = body
   .append("div")
@@ -195,30 +146,19 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
     const parksVisitedCount = countParksVisited(data);
     const percentVisited = Math.round((parksVisitedCount / data.length) * 100);
 
-    // Use shorter title on mobile
-    const isMobileView = window.innerWidth <= 768;
-    const titleText = isMobileView
-      ? `${parksVisitedCount} NPS Units Visited (${percentVisited}%)`
-      : `${mapTitle}: Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`;
-    const subtitleText = isMobileView
-      ? "Tap a state to zoom"
-      : "Click on a point for more info, or on a state to zoom";
+    header.append("h1").text(mapTitle);
+    header
+      .append("span")
+      .attr("class", "count-pill")
+      .text(`Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`);
 
-    svgHeader
-      .append("text")
-      .attr("class", "title")
-      .attr("x", width / 2)
-      .attr("y", 20)
-      .attr("text-anchor", "middle")
-      .text(titleText);
-
-    svgHeader
-      .append("text")
-      .attr("class", "subtitle")
-      .attr("x", width / 2)
-      .attr("y", 40)
-      .attr("text-anchor", "middle")
-      .text(subtitleText);
+    const legend = header.append("ul").attr("class", "legend");
+    const legendRows = legend.selectAll("li").data(legendItems).join("li");
+    legendRows
+      .append("span")
+      .attr("class", ([cls]) => `legend-swatch ${cls}`)
+      .attr("aria-hidden", "true");
+    legendRows.append("span").text(([, label]) => label);
 
     // Add NPS sites as properties of the states they are located within
     for (let i = 0; i < features.length; i++) {
@@ -288,9 +228,7 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
         return projection([d.longitude, d.latitude])[1];
       })
       .attr("r", pointRadius)
-      .style("fill", function (d) {
-        return color(d.visited);
-      })
+      .style("fill", (d) => markerColor(d.visited))
       .on("mouseover", function (event, d) {
         tooltip
           .transition()
@@ -389,11 +327,17 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
     parkSearch.onParkSelect = (park) => clickedPoint(null, park);
 
     // Create search UI
-    createSearchUI(body, parkSearch);
+    createSearchUI(sheets, parkSearch, toolbar);
 
     // Calculate and create stats button
     const stats = calculateStats(data, visitData);
-    createStatsButton(body, stats);
+    createStatsButton(sheets, stats, toolbar);
+
+    // Re-apply JS-set colors when the OS color scheme changes
+    onThemeChange(() => {
+      g.selectAll(".park-marker").style("fill", (d) => markerColor(d.visited));
+      applyOverlayColors();
+    });
   })
   .catch(function (error) {
     console.error("Failed to load map data:", error);
@@ -457,8 +401,6 @@ function drawSearchOverlay(lat, lng, radiusMiles) {
     .attr("cx", center[0])
     .attr("cy", center[1])
     .attr("r", radiusPixels)
-    .attr("fill", "rgba(45, 90, 39, 0.12)")
-    .attr("stroke", "var(--nps-green-forest)")
     .attr("stroke-width", 1.5 / k);
 
   // Red pin on top of everything
@@ -468,9 +410,27 @@ function drawSearchOverlay(lat, lng, radiusMiles) {
     .attr("cx", center[0])
     .attr("cy", center[1])
     .attr("r", 6 / k)
-    .attr("fill", "#d32f2f")
     .attr("stroke", "white")
     .attr("stroke-width", 2 / k);
+
+  applyOverlayColors();
+}
+
+/**
+ * Apply theme colors to the search overlay (circle and address pin).
+ */
+function applyOverlayColors() {
+  if (searchCircle) {
+    searchCircle
+      .style(
+        "fill",
+        `color-mix(in srgb, ${themeColor("visited")} 12%, transparent)`,
+      )
+      .style("stroke", themeColor("visited"));
+  }
+  if (addressPin) {
+    addressPin.style("fill", themeColor("danger"));
+  }
 }
 
 /**
@@ -500,7 +460,7 @@ function highlightParkMarker(parkCode) {
     .transition()
     .duration(150)
     .attr("r", (pointRadius * 2.5) / k)
-    .style("fill", "#d32f2f")
+    .style("fill", themeColor("danger"))
     .attr("stroke", "white")
     .attr("stroke-width", 2 / k);
 }
@@ -516,7 +476,7 @@ function unhighlightParkMarker(parkCode) {
     .transition()
     .duration(150)
     .attr("r", pointRadius / k)
-    .style("fill", (d) => color(d.visited))
+    .style("fill", (d) => markerColor(d.visited))
     .attr("stroke", null)
     .attr("stroke-width", null);
 }
@@ -554,12 +514,6 @@ function clickedMap(_, d) {
   // overlay for each interpolated transform during this transition.
   svg.transition().duration(zoomDuration).call(zoom.transform, transform);
 
-  svgHeader
-    .selectAll("*")
-    .transition()
-    .duration(zoomDuration)
-    .attr("visibility", "hidden");
-
   // Close search panel when zooming (but keep toggle visible)
   const searchContainer = document.getElementById("search-container");
   if (searchContainer) {
@@ -579,7 +533,7 @@ function clickedMap(_, d) {
     .attr("class", "park-list-table")
     .append("table");
   const columns = ["Name", "Visited On"];
-  const head = table.append("thead").style("background-color", color(2));
+  const head = table.append("thead");
   head
     .append("tr")
     .selectAll("th")
@@ -655,17 +609,7 @@ function resetMap() {
       .attr("stroke-width", 2);
   }
 
-  svgHeader
-    .selectAll("*")
-    .transition()
-    .duration(zoomDuration)
-    .attr("visibility", "visible");
-
-  sidebarControl
-    .selectAll("*")
-    .transition()
-    .duration(zoomDuration)
-    .attr("visibility", "hidden");
+  parksButton.attr("hidden", "");
   hideSidebar();
   parkList.style("display", "none");
 }
@@ -739,15 +683,6 @@ const handleResize = debounce(() => {
     }
   }
 
-  // Reposition legend (top-right)
-  svg
-    .select(".legend")
-    .attr("x", width - 110)
-    .attr("y", 60);
-
-  // Reposition title
-  svgHeader.selectAll("text").attr("x", width / 2);
-
   // Reset map view if zoomed
   if (active.node()) {
     resetMap();
@@ -818,11 +753,7 @@ function countParksVisited(parks) {
  */
 function prepareSidebar() {
   hideSidebar();
-  sidebarControl
-    .selectAll("*")
-    .transition()
-    .duration(zoomDuration)
-    .attr("visibility", "visible");
+  parksButton.attr("hidden", null);
 }
 
 /**
@@ -840,11 +771,7 @@ function openSidebar() {
     mapContainer.classList.add("sidebar-open");
   }
 
-  sidebarControl
-    .selectAll("*")
-    .transition()
-    .duration(zoomDuration)
-    .attr("visibility", "hidden");
+  parksButton.attr("hidden", "");
 }
 
 /**

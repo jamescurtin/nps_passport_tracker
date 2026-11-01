@@ -1,0 +1,90 @@
+:root {
+  /* Theme tokens (light) */
+  --ocean: #dbe7ee;
+  --land: #f3efe4;
+  --land-complete: #8fb57a;
+  --border-map: #9a8b78;
+  --visited: #2f6b2a;
+  --not-visited: #b08a5a;
+  --surface: #fffdf8;
+  --surface-2: #f4efe6;
+  --ink: #2b1f16;
+  --ink-2: #6b5a4b;
+  --accent: #3d2314;
+  --on-accent: #fff;
+  --danger: #c62828;
+
+  /* Safe area */
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Legacy names, mapped onto the theme tokens */
+  --nps-brown-dark: var(--accent);
+  --nps-brown: var(--ink-2);
+  --nps-tan: var(--surface-2);
+  --nps-tan-dark: color-mix(in srgb, var(--ink) 10%, var(--surface));
+  --nps-green-forest: var(--visited);
+  --nps-green-sage: var(--land-complete);
+  --nps-green-light: var(--land);
+  --color-visited: var(--visited);
+  --color-not-visited: var(--not-visited);
+  --color-background: var(--surface);
+  --color-ocean: var(--ocean);
+  --color-text-primary: var(--ink);
+  --color-text-secondary: var(--ink-2);
+  --color-border: var(--ink-2);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Typography */
+  --font-family:
+    -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
+  --font-size-base: 14px;
+  --font-size-sm: 12px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+
+  /* Minimum for form fields; smaller sizes make iOS Safari zoom on focus. */
+  --font-size-input: 16px;
+
+  /* Component-specific */
+  --sidebar-width-desktop: 320px;
+  --modal-width-desktop: 80%;
+  --modal-width-mobile: 95%;
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Z-index layers */
+  --z-map: 0;
+  --z-sidebar: 10;
+  --z-tooltip: 50;
+  --z-overlay: 90;
+  --z-modal: 100;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ocean: #1b2229;
+    --land: #2a2d2a;
+    --land-complete: #3f6b38;
+    --border-map: #5a5248;
+    --visited: #7fc272;
+    --not-visited: #c9a97a;
+    --surface: #1e1b18;
+    --surface-2: #2a2622;
+    --ink: #f1ebe2;
+    --ink-2: #b4a898;
+    --accent: #d9c3a5;
+    --on-accent: #1e1b18;
+    --danger: #ef5350;
+  }
+}
