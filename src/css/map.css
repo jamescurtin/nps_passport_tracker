@@ -131,3 +131,19 @@ div.tooltip {
 .park-marker.filtered-out .park-hit {
   pointer-events: none;
 }
+
+/* Keyboard focus: states get a drawn ring path, markers get the hover
+   highlight (set from JS). SVG outlines are unreliable, so turn them off. */
+.state:focus,
+.state-complete:focus,
+.park-marker:focus {
+  outline: none;
+}
+
+.focus-ring {
+  fill: none;
+  stroke: var(--visited);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}

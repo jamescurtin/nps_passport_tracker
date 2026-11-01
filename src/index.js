@@ -7,6 +7,12 @@ import visitsJSON from "./data/visits";
 
 import { list as listIcon, chevron } from "./js/icons";
 import { createLegend } from "./js/legend";
+import {
+  activateOnKey,
+  markerLabel,
+  stateLabel,
+  syncMarkerTabindex,
+} from "./js/keyboard";
 import { announce } from "./js/live";
 import { clickedPoint } from "./js/modal";
 import { renderParkRows } from "./js/park_row";
@@ -25,6 +31,9 @@ let active = d3.select(null);
 
 // Name of the zoomed state, for the toolbar label and announcements.
 let activeStateName = "";
+
+// Dedicated keyboard focus ring path for states (created once data loads).
+let focusRing = null;
 
 // Search UI handle (set once data loads); its sheet closes on state zoom.
 let searchUI = null;
@@ -97,11 +106,15 @@ const tooltip = body
   .attr("class", "tooltip")
   .attr("role", "tooltip")
   .attr("aria-hidden", "true")
+  // Map elements carry their own aria-labels, so the tooltip must not repeat.
+  .attr("aria-live", "off")
   .style("opacity", 0);
 const svg = d3
   .select("#map-container")
   .append("svg")
   .classed("svg-content-responsive", true)
+  .attr("role", "group")
+  .attr("aria-label", "Map of National Park Service sites")
   .attr("width", width)
   .attr("height", height)
   .style("border-radius", `${borderRadius}px`);
@@ -234,9 +247,29 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
           ? "state-complete"
           : "state";
       })
+      .attr("tabindex", 0)
+      .attr("role", "button")
+      .attr("aria-pressed", "false")
+      .attr("aria-label", (d) => {
+        const parks = d.properties.parks;
+        return stateLabel(
+          d.properties.name,
+          countParksVisited(parks),
+          parks.length,
+        );
+      })
       .on("mouseover", (event, d) => showTooltip(event, d.properties.name))
       .on("mouseout", hideTooltip)
-      .on("click", clickedMap);
+      .on("click", clickedMap)
+      .on("keydown", activateOnKey(activateStateFromKey))
+      .on("focus", (event, d) => {
+        showFocusRing(d);
+        showTooltipForFocus(event, d.properties.name);
+      })
+      .on("blur", () => {
+        hideFocusRing();
+        hideTooltip();
+      });
 
     g.append("path")
       .datum(mesh)
@@ -252,6 +285,15 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
       .attr("stroke-width", outlineWidth)
       .attr("d", path);
 
+    // Keyboard focus ring for states. A stroke on the state path itself would
+    // be half-covered by later-painted neighbours, and raising the path would
+    // reorder the DOM (and the tab order), so a dedicated path is drawn on top.
+    focusRing = g
+      .append("path")
+      .attr("class", "focus-ring")
+      .attr("stroke-width", 2)
+      .attr("display", "none");
+
     const markers = g
       .selectAll(".park-marker")
       .data(data)
@@ -259,9 +301,29 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
       .append("g")
       .attr("class", "park-marker")
       .attr("transform", markerTransform)
+      .attr("data-park-code", (d) => d.parkCode)
+      // Not a tab stop until its state is active (see syncActiveState).
+      .attr("tabindex", -1)
+      .attr("role", "button")
+      .attr("aria-label", (d) => markerLabel(d.fullName, d.visited))
       .on("mouseover", (event, d) => showTooltip(event, d.name))
       .on("mouseout", hideTooltip)
-      .on("click", clickedPoint);
+      .on("click", clickedPoint)
+      .on(
+        "keydown",
+        activateOnKey((event) =>
+          clickedPoint(event, d3.select(event.currentTarget).datum()),
+        ),
+      )
+      .on("focus", (event, d) => {
+        // No raise: moving the node in the DOM would drop keyboard focus.
+        highlightParkMarker(d.parkCode, { raise: false });
+        showTooltipForFocus(event, d.name);
+      })
+      .on("blur", (event, d) => {
+        unhighlightParkMarker(d.parkCode);
+        hideTooltip();
+      });
     markers
       .append("circle")
       .attr("class", (d) => (d.visited ? "park-dot" : "park-dot not-visited"))
@@ -339,6 +401,7 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
         g.selectAll(".park-marker")
           .style("opacity", (d) => (filteredParks.includes(d) ? 1 : 0.2))
           .classed("filtered-out", (d) => !filteredParks.includes(d));
+        syncActiveState();
         announceResults(filteredParks.length, data.length);
       },
       zoomToStateByAbbrev,
@@ -490,14 +553,16 @@ function isHighlightedDot(dot) {
 /**
  * Highlight a park marker on the map by parkCode.
  * @param {string} parkCode - The park code to highlight
+ * @param {object} [options]
+ * @param {boolean} [options.raise=true] - Paint the marker on top
  */
-function highlightParkMarker(parkCode) {
+function highlightParkMarker(parkCode, { raise = true } = {}) {
   const k = d3.zoomTransform(svg.node()).k;
   const marker = g
     .selectAll(".park-marker")
     .filter((d) => d.parkCode === parkCode)
-    .classed("highlighted", true)
-    .raise();
+    .classed("highlighted", true);
+  if (raise) marker.raise();
   marker
     .select(".park-dot")
     .transition()
@@ -537,6 +602,7 @@ function clickedMap(_, d) {
     "dimmed",
     (_d, i, nodes) => nodes[i] !== this,
   );
+  syncActiveState();
 
   const bounds = path.bounds(d);
   const dx = bounds[1][0] - bounds[0][0];
@@ -628,6 +694,7 @@ function resetMap() {
   active.classed("active", false);
   active = d3.select(null);
   g.selectAll(".dimmed").classed("dimmed", false);
+  syncActiveState();
 
   // Reset d3 zoom transform
   svg.transition().duration(zoomDuration).call(zoom.transform, d3.zoomIdentity);
@@ -705,6 +772,36 @@ function markerTransform(d) {
  */
 function showTooltip(event, text) {
   if (hoverNoneQuery.matches) return;
+  placeTooltip(
+    text,
+    event.clientX + TOOLTIP_OFFSET,
+    event.clientY + TOOLTIP_OFFSET,
+  );
+}
+
+/**
+ * Show the tooltip under the focused element's bounding box. Only for
+ * keyboard focus: a pointer click also focuses the element, and the hover
+ * tooltip already covers that.
+ * @param {FocusEvent} event - The focus event
+ * @param {string} text - Tooltip text
+ */
+function showTooltipForFocus(event, text) {
+  const el = event.currentTarget;
+  if (!el.matches(":focus-visible")) return;
+  // A marker's own box includes the transparent touch circle; use the dot.
+  const target = el.querySelector(".park-dot") || el;
+  const rect = target.getBoundingClientRect();
+  placeTooltip(text, rect.left + rect.width / 2, rect.bottom + TOOLTIP_OFFSET);
+}
+
+/**
+ * Position and reveal the tooltip, clamped inside the viewport.
+ * @param {string} text - Tooltip text
+ * @param {number} x - Preferred left edge in viewport px
+ * @param {number} y - Preferred top edge in viewport px
+ */
+function placeTooltip(text, x, y) {
   // Reset position first so a previous near-edge position cannot wrap the text.
   tooltip
     .text(text)
@@ -714,14 +811,8 @@ function showTooltip(event, text) {
   const rect = tooltip.node().getBoundingClientRect();
   const maxLeft = document.documentElement.clientWidth - rect.width;
   const maxTop = document.documentElement.clientHeight - rect.height;
-  const left = Math.max(
-    TOOLTIP_MARGIN,
-    Math.min(event.clientX + TOOLTIP_OFFSET, maxLeft - TOOLTIP_MARGIN),
-  );
-  const top = Math.max(
-    TOOLTIP_MARGIN,
-    Math.min(event.clientY + TOOLTIP_OFFSET, maxTop - TOOLTIP_MARGIN),
-  );
+  const left = Math.max(TOOLTIP_MARGIN, Math.min(x, maxLeft - TOOLTIP_MARGIN));
+  const top = Math.max(TOOLTIP_MARGIN, Math.min(y, maxTop - TOOLTIP_MARGIN));
   tooltip.style("left", `${left}px`).style("top", `${top}px`);
   tooltip
     .transition()
@@ -804,6 +895,70 @@ document.addEventListener("keydown", (event) => {
   ) {
     event.preventDefault();
   }
+});
+
+/**
+ * Draw the keyboard focus ring around a state.
+ * @param {object} d - State feature
+ */
+function showFocusRing(d) {
+  if (focusRing) focusRing.datum(d).attr("d", path).attr("display", null);
+}
+
+/**
+ * Hide the state keyboard focus ring.
+ */
+function hideFocusRing() {
+  if (focusRing) focusRing.attr("display", "none");
+}
+
+/**
+ * Mirror the active state into accessibility state: `aria-pressed` on the
+ * state buttons, and tab stops on markers. Only the active state's markers are
+ * tabbable (437 global tab stops would be unusable); with no active state,
+ * none are. Plan deviation: the plan puts tabindex 0 on every marker.
+ */
+function syncActiveState() {
+  const activeNode = active.node();
+  g.selectAll(".state, .state-complete").attr("aria-pressed", (_d, i, nodes) =>
+    String(nodes[i] === activeNode),
+  );
+  const codes = activeNode
+    ? new Set(active.datum().properties.parks.map((p) => p.parkCode))
+    : null;
+  syncMarkerTabindex(g.selectAll(".park-marker").nodes(), codes);
+}
+
+/**
+ * Enter/Space on a state. Same code path as a click. When that zooms in,
+ * move focus to the "Parks in <State>" toolbar button: the state's markers
+ * come before the toolbar in tab order, so leaving focus on the state would
+ * force a long Tab through the other states. Shift+Tab from the button
+ * reaches the active state's markers.
+ * @param {KeyboardEvent} event - The keydown event
+ */
+function activateStateFromKey(event) {
+  const node = event.currentTarget;
+  const d = d3.select(node).datum();
+  clickedMap.call(node, event, d);
+  if (active.node() !== node) return; // toggled off; focus stays on the state
+  const parks = d.properties.parks;
+  announce(
+    `${d.properties.name}, ${countParksVisited(parks)} of ${parks.length} sites visited`,
+  );
+  parksButton.node().focus();
+}
+
+// Escape on the map resets the zoom and returns focus to the state that was
+// active (focus may be on one of its markers). It only acts while a state is
+// active, so a plain Escape elsewhere is untouched. Sheets are modal and make
+// the map inert, so this never competes with the sheet Escape handler below.
+svg.on("keydown", (event) => {
+  if (event.key !== "Escape" || !active.node()) return;
+  const stateNode = active.node();
+  event.preventDefault();
+  resetMap();
+  stateNode.focus();
 });
 
 /**
