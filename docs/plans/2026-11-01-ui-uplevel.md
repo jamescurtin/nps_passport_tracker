@@ -81,8 +81,8 @@ Desktop (>= 768px)                      Mobile (< 768px)
   state is active, instead of the SVG rect at top-left.
 - One `Sheet` primitive for all four overlays. Desktop: floating card
   (search) or centered `<dialog>` (park, stats, state list). Mobile: bottom
-  sheet with drag handle, `max-height: 85dvh`, scroll inside, snap to
-  half/full by drag.
+  sheet with drag handle, `max-height: 85dvh`, scroll inside, drag the
+  handle down to dismiss (no snap points).
 - Legend becomes an HTML popover from the header count pill. Rows are tappable
   and toggle the visited / not-visited filter (replaces the filter buttons'
   duplicate role for the simple case; the search panel keeps its own).
@@ -175,7 +175,7 @@ Files: create `src/js/sheet.js`, `src/css/sheets.css`; modify `modal.js`,
     trap, Escape, `::backdrop` for free).
   - Desktop + `modal: false` → floating card (`position: fixed`).
   - Mobile → bottom sheet with drag handle; translateY transition; pointer
-    events for drag-to-dismiss; `inert` applied to the map when modal.
+    events for drag-to-dismiss (no snap points); `inert` applied to the map when modal.
   - One shared close button with the `close` icon.
   - Registry so `closeTopSheet()` replaces the hand-rolled Escape chain in
     `index.js:760-781`.
@@ -185,8 +185,7 @@ Files: create `src/js/sheet.js`, `src/css/sheets.css`; modify `modal.js`,
   thumbnail grid `repeat(auto-fill, minmax(120px, 1fr))`, NPS link button
   (V8).
 - `statistics.js`: dashboard renders into a sheet. Stat cards use
-  `tabular-nums`. Year chart uses a `ResizeObserver` and `currentColor` /
-  CSS variables (M8, V4). Top states as horizontal bars, not a list.
+  `tabular-nums`. Year chart uses a `ResizeObserver` and CSS variables (M8, V4). Top states as horizontal bars, not a list.
 - `search.js`: panel renders into a non-modal sheet. Filter buttons become a
   segmented control (`role="radiogroup"`). Results list rows get the
   visited dot, name, states, and distance in one consistent row component

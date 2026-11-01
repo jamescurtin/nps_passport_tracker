@@ -20,20 +20,31 @@
   opacity: 0;
   transition:
     opacity 200ms ease-out,
-    transform 200ms ease-out;
+    transform 200ms ease-out,
+    display 200ms allow-discrete,
+    overlay 200ms allow-discrete;
 }
 
-.sheet[data-visible] {
+/*
+ * Enter and exit animate off the native `open` attribute. JS closes the
+ * <dialog> immediately, so the backdrop never blocks clicks; the discrete
+ * `display` and `overlay` transitions keep it painted while it fades out.
+ * Browsers without `allow-discrete` skip the exit animation.
+ */
+.sheet[open] {
   opacity: 1;
   transform: none;
 }
 
 .sheet::backdrop {
   background: transparent;
-  transition: background-color 200ms ease-out;
+  transition:
+    background-color 200ms ease-out,
+    display 200ms allow-discrete,
+    overlay 200ms allow-discrete;
 }
 
-.sheet[data-visible]::backdrop {
+.sheet[open]::backdrop {
   background: var(--scrim);
 }
 
@@ -148,6 +159,10 @@
   transform: translateY(8px) scale(0.98);
 }
 
+.sheet[data-mode="dialog"][open] {
+  transform: none;
+}
+
 .sheet[data-mode="dialog"] .sheet-panel {
   max-height: min(var(--sheet-max-h), 820px);
 }
@@ -164,6 +179,10 @@
     max(var(--spacing-lg), env(safe-area-inset-left));
   width: 340px;
   transform: translateY(8px);
+}
+
+.sheet[data-mode="card"][open] {
+  transform: none;
 }
 
 .sheet[data-mode="card"][data-anchor="center"] {
@@ -187,7 +206,7 @@
   transform: translateY(100%);
 }
 
-.sheet[data-mode="sheet"][data-visible] {
+.sheet[data-mode="sheet"][open] {
   transform: none;
 }
 
@@ -226,6 +245,29 @@
   border-bottom: 1px solid var(--surface-2);
   border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
   border-radius: var(--radius-sheet);
+}
+
+/* Entry state. Must follow the per-mode rules above to win the cascade. */
+@starting-style {
+  .sheet[open] {
+    opacity: 0;
+  }
+
+  .sheet[open]::backdrop {
+    background: transparent;
+  }
+
+  .sheet[data-mode="dialog"][open] {
+    transform: translateY(8px) scale(0.98);
+  }
+
+  .sheet[data-mode="card"][open] {
+    transform: translateY(8px);
+  }
+
+  .sheet[data-mode="sheet"][open] {
+    transform: translateY(100%);
+  }
 }
 
 /* While dragging, the sheet follows the pointer with no easing. */

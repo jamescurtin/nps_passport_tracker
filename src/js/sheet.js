@@ -22,8 +22,6 @@ const INERT_SELECTORS = ["#map-container", ".app-bar", ".toolbar"];
 const DISMISS_DISTANCE_RATIO = 0.25;
 const DISMISS_VELOCITY = 0.5; // px per ms
 const DISMISS_MIN_FLICK = 24; // px
-// Extra wait past the CSS transition before the close is forced.
-const TRANSITION_GRACE_MS = 50;
 
 // Open sheets, oldest first. The last entry is the innermost.
 const registry = [];
@@ -67,20 +65,25 @@ function syncInert() {
 }
 
 /**
- * Longest transition on an element, in ms (0 when none or reduced motion).
- * @param {Element} el - Element to inspect
- * @return {number} Duration plus delay in milliseconds
+ * Move focus back after a sheet closes. A live opener gets focus (if it
+ * cannot take focus, e.g. an SVG marker, focus is left alone). A removed
+ * opener falls back to the parent sheet's close button, else the toolbar's
+ * first button.
+ * @param {Element|null} target - Element focused before the sheet opened
  */
-function transitionMs(el) {
-  const style = window.getComputedStyle(el);
-  const toMs = (value) =>
-    (value || "0s").split(",").map((part) => parseFloat(part) * 1000 || 0);
-  const durations = toMs(style.transitionDuration);
-  const delays = toMs(style.transitionDelay);
-  return durations.reduce(
-    (max, d, i) => Math.max(max, d + (delays[i % delays.length] || 0)),
-    0,
-  );
+function restoreFocusTo(target) {
+  if (!target || target === document.body) return;
+  if (target.isConnected) {
+    if (typeof target.focus === "function") target.focus();
+    return;
+  }
+  const parent = registry[registry.length - 1];
+  if (parent) {
+    parent.focusClose();
+    return;
+  }
+  const fallback = document.querySelector(".toolbar button");
+  if (fallback) fallback.focus();
 }
 
 /**
@@ -172,7 +175,6 @@ export function createSheet({
 
   let openState = false;
   let lastFocused = null;
-  let pendingClose = null; // cancels an in-flight close animation
 
   const sheet = {
     el,
@@ -186,6 +188,7 @@ export function createSheet({
       titleEl.textContent = text;
     },
     applyMode,
+    focusClose: () => closeButton.focus(),
   };
 
   function applyMode() {
@@ -200,7 +203,6 @@ export function createSheet({
    */
   function open({ opener } = {}) {
     if (openState) return;
-    if (pendingClose) pendingClose();
     lastFocused = opener || document.activeElement;
     openState = true;
     registry.push(sheet);
@@ -210,15 +212,15 @@ export function createSheet({
       else el.show();
     }
     syncInert();
-    // Commit the hidden starting style so the open transition runs.
-    el.getBoundingClientRect();
-    el.dataset.visible = "";
+    // The entry animation comes from `@starting-style` on `[open]`.
     closeButton.focus();
   }
 
   /**
-   * Close the sheet. Registry, isOpen() and onClose update at once; the
-   * <dialog> closes and focus is restored after the exit transition.
+   * Close the sheet. Everything happens synchronously: registry, isOpen(),
+   * onClose, the <dialog> (so its ::backdrop stops blocking clicks), inert
+   * and focus. The exit animation is pure CSS (`transition-behavior:
+   * allow-discrete` keeps the closed dialog painted while it fades out).
    * @param {object} [options]
    * @param {string} [options.reason="user"] - Passed to onClose
    * @param {boolean} [options.restoreFocus=true] - Refocus the opener
@@ -229,42 +231,13 @@ export function createSheet({
     openState = false;
     const index = registry.indexOf(sheet);
     if (index !== -1) registry.splice(index, 1);
-    delete el.dataset.visible;
     if (onClose) onClose(reason);
 
     const focusTarget = restoreFocus ? lastFocused : null;
     lastFocused = null;
-    let timer = null;
-    const onEnd = (event) => {
-      if (event.target === el) finish();
-    };
-    const cleanup = () => {
-      clearTimeout(timer);
-      el.removeEventListener("transitionend", onEnd);
-      pendingClose = null;
-    };
-    function finish() {
-      cleanup();
-      if (el.open) el.close();
-      syncInert();
-      if (
-        focusTarget &&
-        focusTarget.isConnected &&
-        focusTarget !== document.body &&
-        typeof focusTarget.focus === "function"
-      ) {
-        focusTarget.focus();
-      }
-    }
-
-    const wait = transitionMs(el);
-    if (wait === 0) {
-      finish();
-    } else {
-      pendingClose = cleanup;
-      el.addEventListener("transitionend", onEnd);
-      timer = setTimeout(finish, wait + TRANSITION_GRACE_MS);
-    }
+    if (el.open) el.close();
+    syncInert();
+    restoreFocusTo(focusTarget);
     return true;
   }
 
@@ -336,13 +309,22 @@ function attachDrag(sheet, header, closeButton) {
     drag = null;
     header.releasePointerCapture?.(event.pointerId);
     delete el.dataset.dragging;
+    let dismiss = false;
+    if (event.type === "pointerup") {
+      const velocity = dy / Math.max(1, event.timeStamp - startT);
+      const far =
+        dy > el.getBoundingClientRect().height * DISMISS_DISTANCE_RATIO;
+      const flick = velocity > DISMISS_VELOCITY && dy > DISMISS_MIN_FLICK;
+      dismiss = far || flick;
+    }
+    // Close before clearing the inline transform, so the exit animation
+    // starts from the dragged position instead of jumping back first.
+    if (dismiss) sheet.close({ reason: "drag" });
     el.style.transform = "";
-    if (event.type !== "pointerup") return;
-    const velocity = dy / Math.max(1, event.timeStamp - startT);
-    const far = dy > el.getBoundingClientRect().height * DISMISS_DISTANCE_RATIO;
-    const flick = velocity > DISMISS_VELOCITY && dy > DISMISS_MIN_FLICK;
-    if (far || flick) sheet.close({ reason: "drag" });
   };
   header.addEventListener("pointerup", end);
   header.addEventListener("pointercancel", end);
+  // Capture can be lost without pointerup/pointercancel (e.g. element
+  // removal); never leave `data-dragging` set.
+  header.addEventListener("lostpointercapture", end);
 }

@@ -172,7 +172,7 @@ const MIN_LABEL_BAND = 32;
  * Bar chart of visits per year, sized to its container. A ResizeObserver
  * redraws it on width changes (and on first show: the sheet is closed, and
  * so 0px wide, when the dashboard is first rendered).
- * Colors come from CSS: bars use `currentColor`, axes inherit `color`.
+ * Colors come from CSS: bars use `var(--visited)`, axes inherit `color`.
  * @param {object} container - d3 selection that holds the chart
  * @param {object} visitsByYear - { year: count }
  */

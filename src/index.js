@@ -615,7 +615,7 @@ function renderStateList(d) {
     secondaryText: (park) =>
       park.visited ? park.visitedOn.join(", ") : "Not visited",
     emptyMessage: "No NPS sites in this state.",
-    onSelect: (park) => clickedPoint(null, park),
+    onSelect: (park, event) => clickedPoint(event, park),
   });
   stateSheet.body.scrollTop = 0;
 }
