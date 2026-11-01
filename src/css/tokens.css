@@ -50,7 +50,7 @@
   /* Typography */
   --font-family:
     -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
-  --font-size-base: 14px;
+  --font-size-base: clamp(15px, 0.9rem + 0.2vw, 17px);
   --font-size-sm: 12px;
   --font-size-md: 16px;
   --font-size-lg: 18px;
@@ -64,6 +64,10 @@
   --border-radius-lg: 16px;
   --radius-sheet: 24px;
   --radius-pill: 999px;
+
+  /* Elevation: one layer for small elements, two for pills and popovers */
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 14%);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 14px rgb(0 0 0 / 16%);
 
   /* Surfaces (sheets, dialogs, cards) */
   --shadow-sheet: 0 1px 3px rgb(0 0 0 / 8%), 0 12px 32px rgb(0 0 0 / 14%);
