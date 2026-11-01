@@ -118,3 +118,47 @@ describe("ParkSearch location filter", () => {
     expect(inRange).toEqual(["zion"]);
   });
 });
+
+describe("ParkSearch visited-filter change callback", () => {
+  it("notifies every subscriber when the visited filter changes", () => {
+    const { search } = makeSearch();
+    const a = [];
+    const b = [];
+    search.onVisitedChange((v) => a.push(v));
+    search.onVisitedChange((v) => b.push(v));
+    search.setVisitedFilter(true);
+    search.setVisitedFilter(false);
+    search.setVisitedFilter(null);
+    expect(a).toEqual([true, false, null]);
+    expect(b).toEqual([true, false, null]);
+  });
+
+  it("does not notify when the value is unchanged", () => {
+    const { search } = makeSearch();
+    const seen = [];
+    search.onVisitedChange((v) => seen.push(v));
+    search.setVisitedFilter(null);
+    search.setVisitedFilter(true);
+    search.setVisitedFilter(true);
+    expect(seen).toEqual([true]);
+  });
+
+  it("notifies null when clearFilters resets an active filter", () => {
+    const { search } = makeSearch();
+    const seen = [];
+    search.setVisitedFilter(false);
+    search.onVisitedChange((v) => seen.push(v));
+    search.clearFilters();
+    search.clearFilters();
+    expect(seen).toEqual([null]);
+  });
+
+  it("stops notifying after unsubscribe", () => {
+    const { search } = makeSearch();
+    const seen = [];
+    const off = search.onVisitedChange((v) => seen.push(v));
+    off();
+    search.setVisitedFilter(true);
+    expect(seen).toEqual([]);
+  });
+});

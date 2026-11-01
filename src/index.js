@@ -5,6 +5,9 @@ import topoJsonStates from "us-atlas/states-10m";
 import parksJSON from "./data/parks";
 import visitsJSON from "./data/visits";
 
+import { list as listIcon, chevron } from "./js/icons";
+import { createLegend } from "./js/legend";
+import { announce } from "./js/live";
 import { clickedPoint } from "./js/modal";
 import { renderParkRows } from "./js/park_row";
 import { createSheet, closeTopSheet } from "./js/sheet";
@@ -19,6 +22,9 @@ const geoAlbersUsaTerritories = require("geo-albers-usa-territories");
 
 // Selector for active state when zoomed
 let active = d3.select(null);
+
+// Name of the zoomed state, for the toolbar label and announcements.
+let activeStateName = "";
 
 // Search UI handle (set once data loads); its sheet closes on state zoom.
 let searchUI = null;
@@ -80,12 +86,6 @@ let projection = geoAlbersUsaTerritories
   .scale(scale)
   .translate([width / 2, height / 2]);
 let path = d3.geoPath(projection);
-
-// Legend rows: [css class, label]
-const legendItems = [
-  ["visited", "Visited"],
-  ["not-visited", "Not Visited"],
-];
 
 // Page shell lives in src/index.html
 const body = d3.select("body");
@@ -154,9 +154,9 @@ const parksButton = d3
   .select("#slot-parks")
   .append("button")
   .attr("type", "button")
-  .attr("class", "parks-in-state-toggle")
+  .attr("class", "toolbar-btn parks-in-state-toggle")
   .attr("hidden", "")
-  .text("☰ Parks in State")
+  .html(`${listIcon}<span class="btn-label">Parks in State</span>`)
   .on("click", openStateList);
 
 // Park list for the active state. Content is filled by clickedMap; the
@@ -189,18 +189,15 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
     const percentVisited = Math.round((parksVisitedCount / data.length) * 100);
 
     header.append("h1").text(mapTitle);
-    header
-      .append("span")
+    const countPill = header
+      .append("button")
+      .attr("type", "button")
       .attr("class", "count-pill")
-      .text(`Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`);
-
-    const legend = header.append("ul").attr("class", "legend");
-    const legendRows = legend.selectAll("li").data(legendItems).join("li");
-    legendRows
+      .attr("popovertarget", "legend-popover");
+    countPill
       .append("span")
-      .attr("class", ([cls]) => `legend-swatch ${cls}`)
-      .attr("aria-hidden", "true");
-    legendRows.append("span").text(([, label]) => label);
+      .text(`Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`);
+    countPill.append("span").attr("class", "count-pill-chevron").html(chevron);
 
     // Add NPS sites as properties of the states they are located within
     for (let i = 0; i < features.length; i++) {
@@ -342,6 +339,7 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
         g.selectAll(".park-marker")
           .style("opacity", (d) => (filteredParks.includes(d) ? 1 : 0.2))
           .classed("filtered-out", (d) => !filteredParks.includes(d));
+        announceResults(filteredParks.length, data.length);
       },
       zoomToStateByAbbrev,
       zoomToLocation,
@@ -356,6 +354,17 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
 
     // Create search UI
     searchUI = createSearchUI(sheets, parkSearch, d3.select("#slot-search"));
+
+    // Legend popover: rows toggle the visited filter, kept in sync with the
+    // search sheet's segmented control through the ParkSearch change callback.
+    const legend = createLegend({
+      trigger: countPill.node(),
+      popover: document.getElementById("legend-popover"),
+      visited: parksVisitedCount,
+      total: data.length,
+      onSelect: (value) => parkSearch.setVisitedFilter(value),
+    });
+    parkSearch.onVisitedChange(legend.setActive);
 
     // Calculate and create stats button
     const stats = calculateStats(data, visitData);
@@ -555,8 +564,23 @@ function clickedMap(_, d) {
   if (searchUI) searchUI.sheet.close({ restoreFocus: false });
 
   closeStateList({ restoreFocus: false });
+  activeStateName = d.properties.name;
+  parksButton.select(".btn-label").text(`Parks in ${activeStateName}`);
   parksButton.attr("hidden", null);
   renderStateList(d);
+}
+
+/**
+ * Announce the number of parks that match the current filters.
+ * @param {number} matching - Parks passing every filter
+ * @param {number} total - All parks
+ */
+function announceResults(matching, total) {
+  announce(
+    matching === total
+      ? `All ${total} parks shown`
+      : `${matching} ${matching === 1 ? "park matches" : "parks match"}`,
+  );
 }
 
 /**
@@ -772,7 +796,14 @@ mobileQuery.addEventListener("change", handleResize);
 // Escape closes the innermost open sheet. preventDefault stops the native
 // <dialog> close request from also closing the next modal sheet down.
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && closeTopSheet()) event.preventDefault();
+  // An open popover takes Escape first (native light dismiss).
+  if (
+    event.key === "Escape" &&
+    !document.querySelector(":popover-open") &&
+    closeTopSheet()
+  ) {
+    event.preventDefault();
+  }
 });
 
 /**
@@ -812,6 +843,7 @@ function countParksVisited(parks) {
  * Open the state park list and hide the toolbar button that opened it.
  */
 function openStateList() {
+  announce(`Parks in ${activeStateName}`, 100);
   parksButton.attr("hidden", "");
   stateSheet.open({ opener: parksButton.node() });
 }

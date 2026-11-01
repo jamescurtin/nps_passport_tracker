@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 
+import { chart } from "./icons";
 import { createSheet } from "./sheet";
 
 /**
@@ -322,9 +323,8 @@ export function createStatsButton(container, stats, toolbar = container) {
   const statsButton = toolbar
     .append("button")
     .attr("type", "button")
-    .attr("class", "stats-toggle")
-    .attr("aria-label", "View Statistics")
-    .text("Stats")
+    .attr("class", "toolbar-btn stats-toggle")
+    .html(`${chart}<span class="btn-label">Stats</span>`)
     .on("click", () => {
       if (!sheet) {
         sheet = createSheet({

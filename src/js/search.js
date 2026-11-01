@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 
+import { chevron, locate, search as searchIcon } from "./icons";
 import { renderParkRows } from "./park_row";
 import { createSheet } from "./sheet";
 import stateAbbreviations from "./state_abbreviations";
@@ -97,6 +98,23 @@ export class ParkSearch {
       state: null,
       location: null, // { lat, lng, radiusMiles, displayName }
     };
+    this.visitedListeners = new Set();
+  }
+
+  /**
+   * Subscribe to changes of the visited filter, from any UI.
+   * @param {Function} listener - Called with true, false, or null
+   * @return {Function} Unsubscribe function
+   */
+  onVisitedChange(listener) {
+    this.visitedListeners.add(listener);
+    return () => this.visitedListeners.delete(listener);
+  }
+
+  notifyVisitedChange() {
+    for (const listener of this.visitedListeners) {
+      listener(this.filters.visited);
+    }
   }
 
   setQuery(query) {
@@ -105,8 +123,10 @@ export class ParkSearch {
   }
 
   setVisitedFilter(visited) {
+    const changed = this.filters.visited !== visited;
     this.filters.visited = visited;
     this.applyFilters();
+    if (changed) this.notifyVisitedChange();
   }
 
   setStateFilter(state, triggerZoom = false) {
@@ -148,8 +168,10 @@ export class ParkSearch {
   }
 
   clearFilters() {
+    const visitedChanged = this.filters.visited !== null;
     this.filters = { query: "", visited: null, state: null, location: null };
     this.applyFilters();
+    if (visitedChanged) this.notifyVisitedChange();
   }
 
   applyFilters() {
@@ -285,10 +307,9 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
   const searchToggle = toolbar
     .append("button")
     .attr("type", "button")
-    .attr("class", "search-toggle")
+    .attr("class", "toolbar-btn search-toggle")
     .attr("id", "search-toggle")
-    .attr("aria-label", "Search and filter parks")
-    .text("Search")
+    .html(`${searchIcon}<span class="btn-label">Search</span>`)
     .on("click", () => {
       if (sheet.isOpen()) sheet.close();
       else sheet.open({ opener: searchToggle.node() });
@@ -354,6 +375,11 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
     parkSearch.setVisitedFilter(option[2]);
   }
 
+  // Keep the control in step with the legend popover (and any other UI).
+  parkSearch.onVisitedChange((value) => {
+    markSegment(VISITED_OPTIONS.find((option) => option[2] === value));
+  });
+
   markSegment(VISITED_OPTIONS[0]);
 
   // State dropdown
@@ -407,13 +433,11 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
       const isExpanded = this.getAttribute("aria-expanded") === "true";
       this.setAttribute("aria-expanded", !isExpanded);
       content.style.display = isExpanded ? "none" : "block";
-      d3.select(this)
-        .select(".chevron")
-        .text(isExpanded ? "+" : "-");
     });
 
-  locationHeader.append("span").attr("class", "chevron").text("+");
-  locationHeader.append("span").text(" Find Parks Near Location");
+  // The chevron rotates via CSS from aria-expanded.
+  locationHeader.append("span").attr("class", "chevron").html(chevron);
+  locationHeader.append("span").text("Find Parks Near Location");
 
   // Location content (hidden by default)
   const locationContent = locationSection
@@ -441,8 +465,9 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
   addressRow
     .append("button")
     .attr("class", "address-search-btn")
+    .attr("type", "button")
     .attr("aria-label", "Search location")
-    .text("Go")
+    .html(searchIcon)
     .on("click", handleGeocodeSearch);
 
   // "Use my location" geolocation button
@@ -450,7 +475,7 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
     .append("button")
     .attr("type", "button")
     .attr("class", "geolocate-btn")
-    .text("📍 Use my location")
+    .html(`${locate}<span>Use my location</span>`)
     .on("click", handleGeolocate);
 
   // Status display

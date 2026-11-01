@@ -17,8 +17,9 @@
 div.tooltip {
   background: var(--color-background);
   border-radius: var(--border-radius);
-  border: 2px solid var(--nps-brown);
-  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  border: 1px solid var(--surface-2);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  box-shadow: var(--shadow-sm);
   padding: var(--spacing-sm) var(--spacing-md);
   pointer-events: none;
   position: absolute;
