@@ -1,124 +1,110 @@
 import * as d3 from "d3";
 
-const modal = d3
-  .select("body")
-  .append("div")
-  .attr("class", "modal")
-  .attr("role", "dialog")
-  .attr("aria-modal", "true")
-  .attr("aria-label", "Park details")
-  .on("click", resetPoint);
+import { createSheet } from "./sheet";
 
-const modalContent = modal
-  .append("div")
-  .attr("class", "modal-content")
-  .on("click", function (e) {
-    e.stopPropagation();
-  });
-
-// Track open state and the element focused before opening so focus can be
-// restored on close.
-let isOpen = false;
-let lastFocused = null;
+// Created on first use so importing this module touches no DOM.
+let sheet = null;
 
 /**
- * Show park modal when clicking on point.
+ * @return {object} The park details sheet (created lazily)
+ */
+function getSheet() {
+  if (!sheet) {
+    sheet = createSheet({
+      id: "park-sheet",
+      title: "Park details",
+      hideTitle: true,
+      className: "park-sheet",
+    });
+  }
+  return sheet;
+}
+
+/**
+ * Show the park details sheet when clicking on a point.
  * @param {object} _ - The event callback.
- * @param {object} d - The object clicked.
+ * @param {object} d - The park clicked.
  * @return {undefined}
  */
 export function clickedPoint(_, d) {
-  // Clear any prior content in case a modal is opened over an existing one.
-  modalContent.selectAll("*").remove();
+  const parkSheet = getSheet();
+  parkSheet.setTitle(d.fullName);
+  renderPark(d3.select(parkSheet.body), d);
+  parkSheet.body.scrollTop = 0;
+  parkSheet.open();
+}
 
-  modalContent
-    .append("button")
-    .attr("type", "button")
-    .attr("class", "close")
-    .attr("aria-label", "Close")
-    .text("✖")
-    .on("click", resetPoint);
+/**
+ * Render a park into the sheet body.
+ * @param {object} body - d3 selection of the sheet body
+ * @param {object} d - Park datum
+ */
+function renderPark(body, d) {
+  body.selectAll("*").remove();
+  const images = d.images || [];
+  const [hero, ...thumbs] = images;
 
-  modalContent.append("h2").text(d.fullName);
-
-  if (d.visited === 1) {
-    modalContent.append("p").text(populateVisitData(d));
-    if (d.notes) {
-      modalContent.append("p").attr("class", "modal-notes").text(d.notes);
-    }
+  if (hero) {
+    body
+      .append("img")
+      .attr("class", "park-hero")
+      .attr("loading", "lazy")
+      .attr("src", hero.url)
+      .attr("alt", hero.altText || "");
   }
 
-  modalContent
+  if (d.designation) {
+    body.append("span").attr("class", "badge").text(d.designation);
+  }
+
+  body.append("h2").attr("class", "park-name-heading").text(d.fullName);
+
+  const chips = body
+    .append("ul")
+    .attr("class", "chips")
+    .attr("aria-label", "Visits");
+  if (d.visited === 1) {
+    chips
+      .selectAll("li")
+      .data(d.visitedOn || [])
+      .join("li")
+      .attr("class", "chip chip-visited")
+      .text((date) => `Visited ${date}`);
+  } else {
+    chips.append("li").attr("class", "chip").text("Not visited yet");
+  }
+
+  if (d.visited === 1 && d.notes) {
+    body.append("p").attr("class", "park-notes").text(d.notes);
+  }
+
+  body.append("p").attr("class", "park-description").text(d.description);
+
+  if (thumbs.length > 0) {
+    body
+      .append("div")
+      .attr("class", "park-thumbs")
+      .selectAll("img")
+      .data(thumbs)
+      .join("img")
+      .attr("loading", "lazy")
+      .attr("src", (img) => img.url)
+      .attr("alt", (img) => img.altText || "");
+  }
+
+  body
     .append("a")
+    .attr("class", "button park-link")
     .attr("href", d.url)
     .attr("target", "_blank")
-    .attr("class", "button")
-    .text("NPS Park Site");
-
-  modalContent.append("p").text(d.description);
-
-  // Image gallery with lazy loading
-  const imageContainer = modalContent
-    .append("div")
-    .attr("class", "modal-images");
-
-  imageContainer
-    .selectAll("img")
-    .data(d.images)
-    .enter()
-    .append("img")
-    .attr("loading", "lazy")
-    .attr("src", function (d) {
-      return d.url;
-    })
-    .attr("alt", function (d) {
-      return d.altText;
-    });
-
-  /**
-   * Reset map when clicking off main projection.
-   * @param {object} d - The event callback.
-   * @return {string} The in-focus park
-   */
-  function populateVisitData(d) {
-    if (d.visited === 1) {
-      return `Visited on: ${d.visitedOn.join(", ")}`;
-    } else {
-      return "";
-    }
-  }
-
-  lastFocused = document.activeElement;
-  modal.style("display", "block");
-  isOpen = true;
-  // Move focus into the dialog for keyboard and screen-reader users.
-  const closeButton = modalContent.select(".close").node();
-  if (closeButton) {
-    closeButton.focus();
-  }
+    .attr("rel", "noopener")
+    .text("NPS park site");
 }
 
 /**
- * Reset modal when clicking off.
- * @return {undefined}
- */
-function resetPoint() {
-  modal.style("display", "none");
-  modalContent.selectAll("*").remove();
-  isOpen = false;
-  // Restore focus to whatever triggered the modal.
-  if (lastFocused && typeof lastFocused.focus === "function") {
-    lastFocused.focus();
-    lastFocused = null;
-  }
-}
-
-/**
- * Close the modal if it is open (used by the global Escape handler).
- * @return {boolean} true if the modal was open and is now closed
+ * Close the park sheet if it is open.
+ * @return {boolean} true if the sheet was open and is now closed
  */
 export function closeModal() {
-  if (!isOpen) return false;
-  resetPoint();
-  return true;
+  return sheet ? sheet.close() : false;
 }

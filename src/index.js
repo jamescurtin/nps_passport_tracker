@@ -5,7 +5,9 @@ import topoJsonStates from "us-atlas/states-10m";
 import parksJSON from "./data/parks";
 import visitsJSON from "./data/visits";
 
-import { clickedPoint, closeModal } from "./js/modal";
+import { clickedPoint } from "./js/modal";
+import { renderParkRows } from "./js/park_row";
+import { createSheet, closeTopSheet } from "./js/sheet";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
@@ -17,6 +19,9 @@ const geoAlbersUsaTerritories = require("geo-albers-usa-territories");
 
 // Selector for active state when zoomed
 let active = d3.select(null);
+
+// Search UI handle (set once data loads); its sheet closes on state zoom.
+let searchUI = null;
 
 // Search overlay elements
 let searchCircle = null;
@@ -152,19 +157,21 @@ const parksButton = d3
   .attr("class", "parks-in-state-toggle")
   .attr("hidden", "")
   .text("☰ Parks in State")
-  .on("click", openSidebar);
-const sidebar = sheets
-  .append("div")
-  .attr("class", "sidebar")
-  .attr("id", "park-list-sidebar");
-const closeSidebarButton = sidebar
-  .append("button")
-  .attr("type", "button")
-  .attr("class", "close-sidebar-button")
-  .attr("aria-label", "Close park list")
-  .on("click", () => prepareSidebar(true));
-closeSidebarButton.text("✕");
-const parkList = sidebar.append("div").attr("class", "park-list");
+  .on("click", openStateList);
+
+// Park list for the active state. Content is filled by clickedMap; the
+// toolbar "Parks in State" button opens it.
+const stateSheet = createSheet({
+  id: "state-park-list",
+  title: "Parks in State",
+  className: "state-sheet",
+  parent: sheets.node(),
+  // A user close (button, Escape, backdrop, drag) brings the Parks button
+  // back while a state is still active, before the sheet restores focus to it.
+  onClose: () => {
+    if (active.node()) parksButton.attr("hidden", null);
+  },
+});
 
 const loadingIndicator = body
   .append("div")
@@ -348,7 +355,7 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
     parkSearch.onParkSelect = (park) => clickedPoint(null, park);
 
     // Create search UI
-    createSearchUI(sheets, parkSearch, d3.select("#slot-search"));
+    searchUI = createSearchUI(sheets, parkSearch, d3.select("#slot-search"));
 
     // Calculate and create stats button
     const stats = calculateStats(data, visitData);
@@ -545,60 +552,48 @@ function clickedMap(_, d) {
   svg.transition().duration(zoomDuration).call(zoom.transform, transform);
 
   // Close search panel when zooming (but keep toggle visible)
-  const searchContainer = document.getElementById("search-container");
-  if (searchContainer) {
-    searchContainer.style.display = "none";
-  }
+  if (searchUI) searchUI.sheet.close({ restoreFocus: false });
 
-  prepareSidebar();
+  closeStateList({ restoreFocus: false });
+  parksButton.attr("hidden", null);
+  renderStateList(d);
+}
 
-  parkList.style("display", "block");
-  parkList.selectAll("*").remove();
-  const parksVisited = countParksVisited(d.properties.parks);
-  const title = `${d.properties.name} (Visited ${parksVisited} of ${d.properties.parks.length} sites)`;
-  parkList.append("div").append("h2").style("text-align", "center").text(title);
+/**
+ * Fill the state park list sheet for a state feature.
+ * @param {object} d - State feature with `properties.parks`
+ */
+function renderStateList(d) {
+  const parks = d.properties.parks;
+  const visited = countParksVisited(parks);
+  stateSheet.setTitle(d.properties.name);
 
-  const table = parkList
+  const summary = d3.select(stateSheet.header);
+  summary.selectAll("*").remove();
+  summary
+    .append("p")
+    .attr("class", "progress-label")
+    .text(`${visited} of ${parks.length} visited`);
+  summary
     .append("div")
-    .attr("class", "park-list-table")
-    .append("table");
-  const columns = ["Name", "Visited On"];
-  const head = table.append("thead");
-  head
-    .append("tr")
-    .selectAll("th")
-    .data(columns)
-    .enter()
-    .append("th")
-    .text(function (column) {
-      return column;
-    });
-  const body = table.append("tbody");
-  const rows = body
-    .selectAll("tr")
-    .data(d.properties.parks)
-    .enter()
-    .append("tr");
+    .attr("class", "progress")
+    .attr("role", "progressbar")
+    .attr("aria-label", "Parks visited")
+    .attr("aria-valuemin", 0)
+    .attr("aria-valuemax", parks.length)
+    .attr("aria-valuenow", visited)
+    .append("div")
+    .attr("class", "progress-fill")
+    .style("width", `${parks.length ? (visited / parks.length) * 100 : 0}%`);
 
-  rows
-    .append("td")
-    .append("a")
-    .attr("href", "#/")
-    .text(function (d) {
-      return d.fullName;
-    })
-    .on("click", function (event, d) {
-      event.preventDefault();
-      clickedPoint(event, d);
-    });
-
-  rows.append("td").html(function (d) {
-    if (d.visited) {
-      return d.visitedOn.join(", ");
-    } else {
-      return "";
-    }
+  renderParkRows(d3.select(stateSheet.body), parks, {
+    name: (park) => park.fullName,
+    secondaryText: (park) =>
+      park.visited ? park.visitedOn.join(", ") : "Not visited",
+    emptyMessage: "No NPS sites in this state.",
+    onSelect: (park) => clickedPoint(null, park),
   });
+  stateSheet.body.scrollTop = 0;
 }
 
 /**
@@ -652,8 +647,7 @@ function resetMap() {
   }
 
   parksButton.attr("hidden", "");
-  hideSidebar();
-  parkList.style("display", "none");
+  closeStateList({ restoreFocus: false });
 }
 
 // Debounce helper function
@@ -775,28 +769,10 @@ const handleResize = debounce(() => {
 window.addEventListener("resize", handleResize);
 mobileQuery.addEventListener("change", handleResize);
 
-// Close whichever overlay is open when Escape is pressed (innermost first).
+// Escape closes the innermost open sheet. preventDefault stops the native
+// <dialog> close request from also closing the next modal sheet down.
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") return;
-
-  if (closeModal()) return;
-
-  const statsDashboard = document.getElementById("stats-dashboard");
-  if (statsDashboard) {
-    statsDashboard.remove();
-    return;
-  }
-
-  const searchPanel = document.getElementById("search-container");
-  if (searchPanel && searchPanel.style.display !== "none") {
-    searchPanel.style.display = "none";
-    return;
-  }
-
-  const sidebarEl = document.getElementById("park-list-sidebar");
-  if (sidebarEl && sidebarEl.classList.contains("open")) {
-    prepareSidebar(true);
-  }
+  if (event.key === "Escape" && closeTopSheet()) event.preventDefault();
 });
 
 /**
@@ -833,41 +809,19 @@ function countParksVisited(parks) {
 }
 
 /**
- * Prepare sidebar by hiding sidebar content and showing controls.
- * @param {boolean} [restoreFocus] - Return focus to the Parks button (close/Escape only).
+ * Open the state park list and hide the toolbar button that opened it.
  */
-function prepareSidebar(restoreFocus = false) {
-  const wasOpen = sidebar.classed("open");
-  hideSidebar();
-  parksButton.attr("hidden", null);
-  // Focus was inside the list; hand it back to the button that opened it.
-  if (wasOpen && restoreFocus) parksButton.node().focus();
-}
-
-/**
- * Open the park list sidebar and move all content to accommodate.
- * On mobile, uses CSS classes for bottom sheet behavior.
- * On desktop, uses CSS classes for left sidebar.
- */
-function openSidebar() {
-  const sidebar = document.getElementById("park-list-sidebar");
-
-  sidebar.classList.add("open");
-
-  if (!mobileQuery.matches) {
-    mapContainer.classList.add("sidebar-open");
-  }
-
+function openStateList() {
   parksButton.attr("hidden", "");
-  closeSidebarButton.node().focus();
+  stateSheet.open({ opener: parksButton.node() });
 }
 
 /**
- * Close the park list sidebar and move all content back to fill the screen.
+ * Close the state park list without user intent (zoom change, reset).
+ * The Parks button visibility is the caller's decision.
+ * @param {object} [options]
+ * @param {boolean} [options.restoreFocus=false] - Refocus the Parks button
  */
-function hideSidebar() {
-  const sidebar = document.getElementById("park-list-sidebar");
-
-  sidebar.classList.remove("open", "expanded");
-  mapContainer.classList.remove("sidebar-open");
+function closeStateList({ restoreFocus = false } = {}) {
+  stateSheet.close({ reason: "program", restoreFocus });
 }

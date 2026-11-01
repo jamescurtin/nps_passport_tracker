@@ -9,6 +9,9 @@
 
 .map-container svg {
   display: block;
+
+  /* D3 zoom owns every touch gesture on the map (sheets use pan-y). */
+  touch-action: none;
 }
 
 div.tooltip {

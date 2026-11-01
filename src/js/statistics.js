@@ -1,5 +1,7 @@
 import * as d3 from "d3";
 
+import { createSheet } from "./sheet";
+
 /**
  * Calculate statistics from park and visit data
  */
@@ -91,34 +93,16 @@ function findLastVisit(visits) {
 }
 
 /**
- * Render statistics dashboard
+ * Render the statistics dashboard into a container (the sheet body).
+ * @param {object} container - d3 selection to render into
+ * @param {object} stats - Result of calculateStats
+ * @return {object} The container
  */
 export function renderStatsDashboard(container, stats) {
-  // Remove existing dashboard if present
-  const existing = document.getElementById("stats-dashboard");
-  if (existing) {
-    existing.remove();
-    return null;
-  }
-
-  const dashboard = container
-    .append("div")
-    .attr("class", "stats-dashboard")
-    .attr("id", "stats-dashboard");
-
-  // Close button
-  dashboard
-    .append("button")
-    .attr("class", "stats-close")
-    .attr("aria-label", "Close statistics")
-    .text("×")
-    .on("click", () => dashboard.remove());
-
-  // Title
-  dashboard.append("h2").text("Visit Statistics");
+  container.selectAll("*").remove();
 
   // Summary cards
-  const summaryRow = dashboard.append("div").attr("class", "stats-summary");
+  const summaryRow = container.append("div").attr("class", "stats-summary");
 
   createStatCard(
     summaryRow,
@@ -137,24 +121,26 @@ export function renderStatsDashboard(container, stats) {
 
   // Visits by year chart
   if (Object.keys(stats.visitsByYear).length > 0) {
-    const chartContainer = dashboard.append("div").attr("class", "stats-chart");
+    const chartContainer = container
+      .append("section")
+      .attr("class", "stats-chart");
     chartContainer.append("h3").text("Visits by Year");
     renderYearChart(chartContainer, stats.visitsByYear);
   }
 
   // Top states
   if (Object.keys(stats.visitsByState).length > 0) {
-    const statesContainer = dashboard
-      .append("div")
+    const statesContainer = container
+      .append("section")
       .attr("class", "stats-states");
     statesContainer.append("h3").text("Top States");
-    renderStatesList(statesContainer, stats.visitsByState);
+    renderStateBars(statesContainer, stats.visitsByState);
   }
 
   // Complete states
   if (stats.completeStates.length > 0) {
-    const completeContainer = dashboard
-      .append("div")
+    const completeContainer = container
+      .append("section")
       .attr("class", "stats-complete");
     completeContainer.append("h3").text("Fully Explored States");
     completeContainer
@@ -163,7 +149,7 @@ export function renderStatsDashboard(container, stats) {
       .text(stats.completeStates.join(", "));
   }
 
-  return dashboard;
+  return container;
 }
 
 function createStatCard(container, value, subvalue, label) {
@@ -175,104 +161,182 @@ function createStatCard(container, value, subvalue, label) {
   card.append("div").attr("class", "stat-label").text(label);
 }
 
+// Year chart geometry (px). Width comes from the container.
+const CHART_HEIGHT = 180;
+const CHART_MARGIN = { top: 20, right: 8, bottom: 28, left: 32 };
+// Below this band width, only every Nth year gets an axis label.
+const MIN_LABEL_BAND = 32;
+
+/**
+ * Bar chart of visits per year, sized to its container. A ResizeObserver
+ * redraws it on width changes (and on first show: the sheet is closed, and
+ * so 0px wide, when the dashboard is first rendered).
+ * Colors come from CSS: bars use `currentColor`, axes inherit `color`.
+ * @param {object} container - d3 selection that holds the chart
+ * @param {object} visitsByYear - { year: count }
+ */
 function renderYearChart(container, visitsByYear) {
   const years = Object.keys(visitsByYear).sort();
   const data = years.map((year) => ({ year, count: visitsByYear[year] }));
+  const wrap = container.append("div").attr("class", "year-chart-wrap");
 
-  const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-  const containerWidth = 350;
-  const width = containerWidth - margin.left - margin.right;
-  const height = 150 - margin.top - margin.bottom;
+  const draw = (containerWidth) => {
+    wrap.selectAll("*").remove();
+    if (!containerWidth) return;
+    const width = containerWidth - CHART_MARGIN.left - CHART_MARGIN.right;
+    const height = CHART_HEIGHT - CHART_MARGIN.top - CHART_MARGIN.bottom;
 
-  const svg = container
-    .append("svg")
-    .attr(
-      "viewBox",
-      `0 0 ${containerWidth} ${height + margin.top + margin.bottom}`,
-    )
-    .attr("class", "year-chart")
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
+    const svg = wrap
+      .append("svg")
+      .attr("class", "year-chart")
+      .attr("width", containerWidth)
+      .attr("height", CHART_HEIGHT)
+      .attr("viewBox", `0 0 ${containerWidth} ${CHART_HEIGHT}`)
+      .attr("role", "img")
+      .attr(
+        "aria-label",
+        `Visits by year: ${data.map((d) => `${d.year}: ${d.count}`).join(", ")}`,
+      )
+      .append("g")
+      .attr("transform", `translate(${CHART_MARGIN.left},${CHART_MARGIN.top})`);
 
-  const x = d3
-    .scaleBand()
-    .domain(data.map((d) => d.year))
-    .range([0, width])
-    .padding(0.2);
+    const x = d3
+      .scaleBand()
+      .domain(data.map((d) => d.year))
+      .range([0, width])
+      .padding(0.2);
 
-  const y = d3
-    .scaleLinear()
-    .domain([0, d3.max(data, (d) => d.count)])
-    .nice()
-    .range([height, 0]);
+    const y = d3
+      .scaleLinear()
+      .domain([0, d3.max(data, (d) => d.count)])
+      .nice()
+      .range([height, 0]);
 
-  svg
-    .selectAll(".bar")
-    .data(data)
-    .enter()
-    .append("rect")
-    .attr("class", "bar")
-    .attr("x", (d) => x(d.year))
-    .attr("y", (d) => y(d.count))
-    .attr("width", x.bandwidth())
-    .attr("height", (d) => height - y(d.count))
-    .style("fill", "var(--visited)");
+    svg
+      .selectAll(".bar")
+      .data(data)
+      .join("rect")
+      .attr("class", "bar")
+      .attr("x", (d) => x(d.year))
+      .attr("y", (d) => y(d.count))
+      .attr("width", x.bandwidth())
+      .attr("height", (d) => height - y(d.count));
 
-  // Add value labels on bars
-  svg
-    .selectAll(".bar-label")
-    .data(data)
-    .enter()
-    .append("text")
-    .attr("class", "bar-label")
-    .attr("x", (d) => x(d.year) + x.bandwidth() / 2)
-    .attr("y", (d) => y(d.count) - 5)
-    .attr("text-anchor", "middle")
-    .attr("font-size", "10px")
-    .style("fill", "var(--ink)")
-    .text((d) => d.count);
+    // Value labels above bars, skipped when the bars are too thin to read.
+    if (x.bandwidth() >= 14) {
+      svg
+        .selectAll(".bar-label")
+        .data(data)
+        .join("text")
+        .attr("class", "bar-label")
+        .attr("x", (d) => x(d.year) + x.bandwidth() / 2)
+        .attr("y", (d) => y(d.count) - 4)
+        .attr("text-anchor", "middle")
+        .text((d) => d.count);
+    }
 
-  svg
-    .append("g")
-    .attr("transform", `translate(0,${height})`)
-    .call(d3.axisBottom(x))
-    .selectAll("text")
-    .attr("font-size", "10px");
-
-  svg
-    .append("g")
-    .call(d3.axisLeft(y).ticks(5))
-    .selectAll("text")
-    .attr("font-size", "10px");
-}
-
-function renderStatesList(container, visitsByState) {
-  const sorted = Object.entries(visitsByState)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 10);
-
-  const list = container.append("ul").attr("class", "states-list");
-
-  sorted.forEach(([state, count]) => {
-    list
-      .append("li")
-      .html(
-        `<span class="state-name">${state}</span><span class="state-count">${count}</span>`,
+    const step = Math.max(1, Math.ceil(MIN_LABEL_BAND / x.step()));
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(0,${height})`)
+      .call(
+        d3
+          .axisBottom(x)
+          .tickValues(x.domain().filter((_d, i) => i % step === 0))
+          .tickSizeOuter(0),
       );
-  });
+
+    svg
+      .append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y).ticks(4).tickFormat(d3.format("d")));
+  };
+
+  if (typeof ResizeObserver === "undefined") {
+    draw(wrap.node().clientWidth || 350);
+    return;
+  }
+  // Draw in the next frame, not inside the observer callback: redrawing
+  // inside it triggers "ResizeObserver loop completed with undelivered
+  // notifications". The wrap also has a fixed CSS height, so a redraw never
+  // changes the observed size.
+  let lastWidth = -1;
+  let frame = 0;
+  new ResizeObserver(([entry]) => {
+    const w = Math.floor(entry.contentRect.width);
+    if (w === lastWidth) return;
+    lastWidth = w;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => draw(w));
+  }).observe(wrap.node());
 }
 
 /**
- * Create stats toggle button
+ * Top 10 states as horizontal bars: state code, bar, count.
+ * @param {object} container - d3 selection
+ * @param {object} visitsByState - { stateCode: count }
+ */
+function renderStateBars(container, visitsByState) {
+  const sorted = Object.entries(visitsByState)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10);
+  const max = sorted.length ? sorted[0][1] : 1;
+
+  const rows = container
+    .append("ol")
+    .attr("class", "state-bars")
+    .selectAll("li")
+    .data(sorted)
+    .join("li")
+    .attr("aria-label", ([state, count]) => `${state}: ${count} parks`);
+
+  rows
+    .append("span")
+    .attr("class", "state-bar-code")
+    .attr("aria-hidden", "true")
+    .text(([state]) => state);
+  rows
+    .append("span")
+    .attr("class", "state-bar-track")
+    .attr("aria-hidden", "true")
+    .append("span")
+    .attr("class", "state-bar-fill")
+    .style("width", ([, count]) => `${(count / max) * 100}%`);
+  rows
+    .append("span")
+    .attr("class", "state-bar-count")
+    .attr("aria-hidden", "true")
+    .text(([, count]) => count);
+}
+
+/**
+ * Create the stats toggle button and its modal sheet.
+ * @param {object} container - d3 selection the sheet is appended to
+ * @param {object} stats - Result of calculateStats
+ * @param {object} [toolbar=container] - d3 selection for the button
+ * @return {object} The button selection
  */
 export function createStatsButton(container, stats, toolbar = container) {
+  let sheet = null;
   const statsButton = toolbar
     .append("button")
+    .attr("type", "button")
     .attr("class", "stats-toggle")
     .attr("aria-label", "View Statistics")
     .text("Stats")
     .on("click", () => {
-      renderStatsDashboard(container, stats);
+      if (!sheet) {
+        sheet = createSheet({
+          id: "stats-dashboard",
+          title: "Visit Statistics",
+          className: "stats-sheet",
+          parent: container.node(),
+        });
+        renderStatsDashboard(d3.select(sheet.body), stats);
+      }
+      if (sheet.isOpen()) sheet.close();
+      else sheet.open({ opener: statsButton.node() });
     });
 
   return statsButton;
