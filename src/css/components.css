@@ -7,9 +7,15 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-md);
-  padding: var(--spacing-sm) var(--spacing-md);
+  box-sizing: border-box;
+  height: var(--header-h);
+  padding-block: 0;
+  padding-inline: max(var(--spacing-md), env(safe-area-inset-left))
+    max(var(--spacing-md), env(safe-area-inset-right));
+  background: var(--surface);
   background: color-mix(in srgb, var(--surface) 80%, transparent);
   backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--surface-2);
   border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
 }
 
@@ -38,6 +44,7 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   list-style: none;
   border-radius: var(--border-radius);
+  background: var(--surface);
   background: color-mix(in srgb, var(--surface) 80%, transparent);
   font-size: var(--font-size-sm);
   color: var(--ink);
@@ -73,17 +80,23 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-md)
-    calc(var(--spacing-md) + var(--safe-bottom));
+  box-sizing: border-box;
+  height: var(--toolbar-h);
+  padding-block: 0 var(--safe-bottom);
+  padding-inline: max(var(--spacing-md), env(safe-area-inset-left))
+    max(var(--spacing-md), env(safe-area-inset-right));
   pointer-events: none;
 }
 
-.toolbar > * {
+.toolbar-slot {
+  display: contents;
+}
+
+.toolbar button {
   pointer-events: auto;
 }
 
 .parks-in-state-toggle {
-  order: 2;
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--accent);
   color: var(--on-accent);
@@ -112,10 +125,6 @@
 
   .app-bar {
     justify-content: center;
-  }
-
-  .toolbar {
-    padding-inline: var(--spacing-md);
   }
 
   .parks-in-state-toggle {
@@ -464,7 +473,6 @@ table th {
 
 /* Search Toggle Button */
 .search-toggle {
-  order: 1;
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--nps-brown-dark);
   color: var(--on-accent);
@@ -597,8 +605,8 @@ table th {
 
   .search-container {
     bottom: calc(70px + var(--safe-bottom));
-    left: var(--spacing-md);
-    right: var(--spacing-md);
+    left: max(var(--spacing-md), env(safe-area-inset-left));
+    right: max(var(--spacing-md), env(safe-area-inset-right));
     width: auto;
     padding: var(--spacing-md);
   }
@@ -616,7 +624,6 @@ table th {
 
 /* Statistics Toggle Button */
 .stats-toggle {
-  order: 3;
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--nps-brown-dark);
   color: var(--on-accent);
@@ -892,7 +899,7 @@ table th {
 }
 
 .geolocate-btn:hover {
-  background: var(--nps-green-sage);
+  background: var(--accent);
 }
 
 .location-status {

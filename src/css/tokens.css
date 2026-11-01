@@ -4,6 +4,7 @@
   --land: #f3efe4;
   --land-complete: #8fb57a;
   --border-map: #9a8b78;
+  --outline-map: var(--ink-2);
   --visited: #2f6b2a;
   --not-visited: #b08a5a;
   --surface: #fffdf8;
@@ -16,6 +17,10 @@
 
   /* Safe area */
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Fixed chrome heights; #map-container reserves this space. */
+  --header-h: 48px;
+  --toolbar-h: calc(64px + var(--safe-bottom));
 
   /* Legacy names, mapped onto the theme tokens */
   --nps-brown-dark: var(--accent);
@@ -45,6 +50,7 @@
     -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
   --font-size-base: 14px;
   --font-size-sm: 12px;
+  --font-size-md: 16px;
   --font-size-lg: 18px;
   --font-size-xl: 24px;
 
@@ -86,5 +92,18 @@
     --accent: #d9c3a5;
     --on-accent: #1e1b18;
     --danger: #ef5350;
+  }
+}
+
+/* Plain-color fallbacks for browsers without color-mix(). */
+@supports not (color: color-mix(in srgb, red, red)) {
+  :root {
+    --nps-tan-dark: #eae7e1;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --nps-tan-dark: #33302c;
+    }
   }
 }

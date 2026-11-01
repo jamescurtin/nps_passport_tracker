@@ -1,7 +1,5 @@
 import * as d3 from "d3";
 
-import { themeColor } from "./theme";
-
 /**
  * Calculate statistics from park and visit data
  */
@@ -218,7 +216,7 @@ function renderYearChart(container, visitsByYear) {
     .attr("y", (d) => y(d.count))
     .attr("width", x.bandwidth())
     .attr("height", (d) => height - y(d.count))
-    .attr("fill", themeColor("visited"));
+    .style("fill", "var(--visited)");
 
   // Add value labels on bars
   svg
@@ -231,7 +229,7 @@ function renderYearChart(container, visitsByYear) {
     .attr("y", (d) => y(d.count) - 5)
     .attr("text-anchor", "middle")
     .attr("font-size", "10px")
-    .attr("fill", themeColor("ink"))
+    .style("fill", "var(--ink)")
     .text((d) => d.count);
 
   svg
