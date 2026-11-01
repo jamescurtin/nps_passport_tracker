@@ -25,16 +25,11 @@ module.exports = {
     strictExportPresence: true,
   },
   entry: {
-    index: {
-      import: "./src/index.js",
-      dependOn: "colorscale",
-    },
-    colorscale: {
-      import: "./src/js/colorscale.js",
-    },
+    index: "./src/index.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
+      template: "./src/index.html",
       favicon: "./src/img/favicon.ico",
       title: "NPS Passport to your National Parks",
     }),

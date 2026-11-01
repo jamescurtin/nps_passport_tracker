@@ -257,9 +257,9 @@ export class ParkSearch {
 /**
  * Create search UI as a modal (hidden by default, toggled via button)
  */
-export function createSearchUI(container, parkSearch) {
-  // Create toggle button (positioned next to Stats button)
-  const searchToggle = container
+export function createSearchUI(container, parkSearch, toolbar = container) {
+  // Create toggle button (lives in the toolbar)
+  const searchToggle = toolbar
     .append("button")
     .attr("class", "search-toggle")
     .attr("id", "search-toggle")
