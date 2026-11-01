@@ -27,16 +27,16 @@ and a visit to the live site at 1440x900.
 
 ### Mobile defects
 
-| #   | Problem                                                                                                                                    | Where                                              |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
-| M1  | Search and address inputs render below 16px on mobile. iOS Safari auto-zooms the page on focus.                                            | `map.css:666-668`, `1173-1176`                     |
-| M2  | `100vh` on `.map-container` and `height: 100%` on body. iOS Safari toolbars overlap the bottom buttons. Needs `100dvh`.                    | `map.css:55-64`, `75-80`                           |
-| M3  | Fixed bottom buttons use `bottom: 24px`/`16px` with no `env(safe-area-inset-bottom)`. They sit under the home indicator on notched phones. | `map.css:521-525`, `678-682`, `652-656`, `836-840` |
-| M4  | Park markers are `r=3` (6px tap target). No enlarged hit area on coarse pointers.                                                          | `src/index.js:40`, `279-307`                       |
-| M5  | `:hover` fills on states are sticky on touch. Not wrapped in `@media (hover: hover)`.                                                      | `map.css:118-121`                                  |
-| M6  | State name tooltip is `mouseover`-only, positioned at raw `pageX/pageY`, can overflow the right/bottom edge.                               | `src/index.js:258-270`, `294-306`                  |
-| M7  | Centered "modal" for the state park list on a phone. Wide `<table>` with 16px cell padding and two columns. Visit dates wrap badly.        | `map.css:430-480`, `src/index.js:577-617`          |
-| M8  | Stats bar chart is a fixed 350px `viewBox` with 10px labels; fine on desktop, small on phones.                                             | `src/js/statistics.js:182-185`                     |
+| #   | Problem                                                                                                                                               | Where                                              |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| M1  | Search and address inputs render below 16px on mobile. iOS Safari auto-zooms the page on focus.                                                       | `map.css:666-668`, `1173-1176`                     |
+| M2  | `100vh` on `.map-container` and `height: 100%` on body. iOS Safari toolbars overlap the bottom buttons. Needs `100dvh`.                               | `map.css:55-64`, `75-80`                           |
+| M3  | Fixed bottom buttons use `bottom: 24px`/`16px` with no `env(safe-area-inset-bottom)`. They sit under the home indicator on notched phones.            | `map.css:521-525`, `678-682`, `652-656`, `836-840` |
+| M4  | Park markers are `r=3` (6px tap target). No enlarged hit area on coarse pointers. The coarse-pointer hit circle is enabled only when zoomed (k >= 2). | `src/index.js:40`, `279-307`                       |
+| M5  | `:hover` fills on states are sticky on touch. Not wrapped in `@media (hover: hover)`.                                                                 | `map.css:118-121`                                  |
+| M6  | State name tooltip is `mouseover`-only, positioned at raw `pageX/pageY`, can overflow the right/bottom edge.                                          | `src/index.js:258-270`, `294-306`                  |
+| M7  | Centered "modal" for the state park list on a phone. Wide `<table>` with 16px cell padding and two columns. Visit dates wrap badly.                   | `map.css:430-480`, `src/index.js:577-617`          |
+| M8  | Stats bar chart is a fixed 350px `viewBox` with 10px labels; fine on desktop, small on phones.                                                        | `src/js/statistics.js:182-185`                     |
 
 ### Visual / polish defects
 
@@ -147,7 +147,7 @@ Files: `src/index.js`, `src/css/map.css`.
   only border (V2). Add an outer country outline path with slightly heavier
   stroke for definition.
 - Markers: render as `<g class="park-marker">` with a visible circle plus a
-  transparent `r=12/k` hit circle on `(pointer: coarse)` (M4). Not-visited
+  transparent `r=12/k` hit circle on `(pointer: coarse)` (M4); the coarse-pointer hit circle is enabled only when zoomed (k >= 2), because at k=1 it covers most land and blocks state taps. Not-visited
   markers get a 1px white stroke (V3).
 - Hover states wrapped in `@media (hover: hover)` (M5).
 - Tooltip: clamp to viewport, offset 12px from pointer, `role="tooltip"`,

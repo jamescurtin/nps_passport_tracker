@@ -29,7 +29,7 @@ D3.js interactive map visualization of National Park Service sites, deployed as 
 ### Source layout
 
 - `src/index.js` — Main map application entry point
-- `src/js/` — Modules: modal, search, statistics, theme, state abbreviations
+- `src/js/` — Modules: modal, search, statistics, state abbreviations
 - `src/css/map.css` — Responsive styling with CSS variables (NPS color palette)
 - `src/data/parks.json` — NPS park metadata (auto-updated weekly via GitHub Actions)
 - `src/data/visits.json` — Manually curated visited parks with dates and notes
