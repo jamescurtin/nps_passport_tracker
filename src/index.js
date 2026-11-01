@@ -9,7 +9,6 @@ import { clickedPoint, closeModal } from "./js/modal";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
-import { markerColor, onThemeChange, themeColor } from "./js/theme";
 
 import "./css/index.css";
 
@@ -86,7 +85,6 @@ const legendItems = [
 // Page shell lives in src/index.html
 const body = d3.select("body");
 const header = d3.select(".app-bar");
-const toolbar = d3.select(".toolbar");
 const sheets = d3.select("#sheets");
 
 const tooltip = body
@@ -140,7 +138,8 @@ const zoom = d3
 // Apply zoom to SVG (but filter out click events to allow state clicking)
 svg.call(zoom).on("dblclick.zoom", null);
 
-const parksButton = toolbar
+const parksButton = d3
+  .select("#slot-parks")
   .append("button")
   .attr("type", "button")
   .attr("class", "parks-in-state-toggle")
@@ -256,8 +255,7 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
       .append("circle")
       .attr("class", (d) => (d.visited ? "park-dot" : "park-dot not-visited"))
       .attr("r", pointRadius)
-      .attr("stroke-width", dotStrokeWidth)
-      .style("fill", (d) => markerColor(d.visited));
+      .attr("stroke-width", dotStrokeWidth);
     // Transparent touch target; CSS enables it only on coarse pointers.
     markers.append("circle").attr("class", "park-hit").attr("r", hitRadius);
 
@@ -343,17 +341,11 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
     parkSearch.onParkSelect = (park) => clickedPoint(null, park);
 
     // Create search UI
-    createSearchUI(sheets, parkSearch, toolbar);
+    createSearchUI(sheets, parkSearch, d3.select("#slot-search"));
 
     // Calculate and create stats button
     const stats = calculateStats(data, visitData);
-    createStatsButton(sheets, stats, toolbar);
-
-    // Re-apply JS-set colors when the OS color scheme changes
-    onThemeChange(() => {
-      g.selectAll(".park-dot").style("fill", (d) => markerColor(d.visited));
-      applyOverlayColors();
-    });
+    createStatsButton(sheets, stats, d3.select("#slot-stats"));
   })
   .catch(function (error) {
     console.error("Failed to load map data:", error);
@@ -434,18 +426,17 @@ function drawSearchOverlay(lat, lng, radiusMiles) {
 
 /**
  * Apply theme colors to the search overlay (circle and address pin).
+ * Uses CSS variables so the theme switch needs no JS repaint.
  */
 function applyOverlayColors() {
   if (searchCircle) {
     searchCircle
-      .style(
-        "fill",
-        `color-mix(in srgb, ${themeColor("visited")} 12%, transparent)`,
-      )
-      .style("stroke", themeColor("visited"));
+      .style("fill", "var(--visited)")
+      .style("fill-opacity", 0.12)
+      .style("stroke", "var(--visited)");
   }
   if (addressPin) {
-    addressPin.style("fill", themeColor("danger"));
+    addressPin.style("fill", "var(--danger)");
   }
 }
 
@@ -473,14 +464,13 @@ function highlightParkMarker(parkCode) {
   const marker = g
     .selectAll(".park-marker")
     .filter((d) => d.parkCode === parkCode)
+    .classed("highlighted", true)
     .raise();
   marker
     .select(".park-dot")
     .transition()
     .duration(highlightDuration)
     .attr("r", (pointRadius * 2.5) / k)
-    .style("fill", themeColor("danger"))
-    .style("stroke", themeColor("surface"))
     .attr("stroke-width", 2 / k);
 }
 
@@ -492,12 +482,11 @@ function unhighlightParkMarker(parkCode) {
   const k = d3.zoomTransform(svg.node()).k;
   g.selectAll(".park-marker")
     .filter((d) => d.parkCode === parkCode)
+    .classed("highlighted", false)
     .select(".park-dot")
     .transition()
     .duration(highlightDuration)
     .attr("r", pointRadius / k)
-    .style("fill", (d) => markerColor(d.visited))
-    .style("stroke", null)
     .attr("stroke-width", dotStrokeWidth / k);
 }
 
@@ -785,7 +774,7 @@ document.addEventListener("keydown", (event) => {
 
   const sidebarEl = document.getElementById("park-list-sidebar");
   if (sidebarEl && sidebarEl.classList.contains("open")) {
-    hideSidebar();
+    prepareSidebar();
   }
 });
 
@@ -826,8 +815,11 @@ function countParksVisited(parks) {
  * Prepare sidebar by hiding sidebar content and showing controls.
  */
 function prepareSidebar() {
+  const wasOpen = sidebar.classed("open");
   hideSidebar();
   parksButton.attr("hidden", null);
+  // Focus was inside the list; hand it back to the button that opened it.
+  if (wasOpen) parksButton.node().focus();
 }
 
 /**
@@ -845,6 +837,7 @@ function openSidebar() {
   }
 
   parksButton.attr("hidden", "");
+  closeSidebarButton.node().focus();
 }
 
 /**

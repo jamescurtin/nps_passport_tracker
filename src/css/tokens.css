@@ -50,6 +50,7 @@
     -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
   --font-size-base: 14px;
   --font-size-sm: 12px;
+  --font-size-md: 16px;
   --font-size-lg: 18px;
   --font-size-xl: 24px;
 
@@ -91,5 +92,18 @@
     --accent: #d9c3a5;
     --on-accent: #1e1b18;
     --danger: #ef5350;
+  }
+}
+
+/* Plain-color fallbacks for browsers without color-mix(). */
+@supports not (color: color-mix(in srgb, red, red)) {
+  :root {
+    --nps-tan-dark: #eae7e1;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --nps-tan-dark: #33302c;
+    }
   }
 }

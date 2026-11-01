@@ -96,7 +96,12 @@ div.tooltip {
   cursor: pointer;
 }
 
+.park-dot {
+  fill: var(--visited);
+}
+
 .park-dot.not-visited {
+  fill: var(--not-visited);
   stroke: var(--surface);
 }
 
@@ -116,6 +121,12 @@ div.tooltip {
   .park-marker:hover .park-dot {
     stroke: var(--ink);
   }
+}
+
+/* Search-result hover highlight (set from JS) */
+.park-marker.highlighted .park-dot {
+  fill: var(--danger);
+  stroke: var(--surface);
 }
 
 /* Search-filtered markers: dimmed inline, and not interactive. */
