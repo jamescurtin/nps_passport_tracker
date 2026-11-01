@@ -121,10 +121,17 @@ const zoom = d3
     const k = event.transform.k;
     g.selectAll(".mesh").attr("stroke-width", strokeWidth / k);
     g.selectAll(".outline").attr("stroke-width", outlineWidth / k);
+    // Highlighted markers keep their enlarged radius and 2px ring.
     g.selectAll(".park-dot")
-      .attr("r", pointRadius / k)
-      .attr("stroke-width", dotStrokeWidth / k);
+      .attr("r", function () {
+        return (isHighlightedDot(this) ? pointRadius * 2.5 : pointRadius) / k;
+      })
+      .attr("stroke-width", function () {
+        return (isHighlightedDot(this) ? 2 : dotStrokeWidth) / k;
+      });
     g.selectAll(".park-hit").attr("r", hitRadius / k);
+    // Touch hit circles are only active when zoomed (pinch does not set `active`).
+    svg.classed("zoomed", k >= 2);
 
     // Counter-scale search overlay elements
     if (searchCircle) {
@@ -155,7 +162,7 @@ const closeSidebarButton = sidebar
   .attr("type", "button")
   .attr("class", "close-sidebar-button")
   .attr("aria-label", "Close park list")
-  .on("click", prepareSidebar);
+  .on("click", () => prepareSidebar(true));
 closeSidebarButton.text("✕");
 const parkList = sidebar.append("div").attr("class", "park-list");
 
@@ -456,6 +463,15 @@ function clearSearchOverlay() {
 }
 
 /**
+ * Whether a park-dot belongs to a highlighted marker.
+ * @param {Element} dot - The .park-dot element
+ * @return {boolean} true if highlighted
+ */
+function isHighlightedDot(dot) {
+  return dot.parentNode.classList.contains("highlighted");
+}
+
+/**
  * Highlight a park marker on the map by parkCode.
  * @param {string} parkCode - The park code to highlight
  */
@@ -671,7 +687,12 @@ function markerTransform(d) {
  */
 function showTooltip(event, text) {
   if (hoverNoneQuery.matches) return;
-  tooltip.text(text).attr("aria-hidden", "false");
+  // Reset position first so a previous near-edge position cannot wrap the text.
+  tooltip
+    .text(text)
+    .attr("aria-hidden", "false")
+    .style("left", "0px")
+    .style("top", "0px");
   const rect = tooltip.node().getBoundingClientRect();
   const maxLeft = document.documentElement.clientWidth - rect.width;
   const maxTop = document.documentElement.clientHeight - rect.height;
@@ -774,7 +795,7 @@ document.addEventListener("keydown", (event) => {
 
   const sidebarEl = document.getElementById("park-list-sidebar");
   if (sidebarEl && sidebarEl.classList.contains("open")) {
-    prepareSidebar();
+    prepareSidebar(true);
   }
 });
 
@@ -813,13 +834,14 @@ function countParksVisited(parks) {
 
 /**
  * Prepare sidebar by hiding sidebar content and showing controls.
+ * @param {boolean} [restoreFocus] - Return focus to the Parks button (close/Escape only).
  */
-function prepareSidebar() {
+function prepareSidebar(restoreFocus = false) {
   const wasOpen = sidebar.classed("open");
   hideSidebar();
   parksButton.attr("hidden", null);
   // Focus was inside the list; hand it back to the button that opened it.
-  if (wasOpen) parksButton.node().focus();
+  if (wasOpen && restoreFocus) parksButton.node().focus();
 }
 
 /**

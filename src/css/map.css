@@ -1,18 +1,10 @@
 .map-container {
-  /* Reserve room for the fixed header and toolbar so they never overlap the map. */
+  /* Fixed between the header and toolbar; avoids margin collapse through body. */
+  position: fixed;
+  inset: var(--header-h) 0 var(--toolbar-h);
   box-sizing: border-box;
-  margin-top: var(--header-h);
-  margin-bottom: var(--toolbar-h);
   text-align: center;
-  width: 100%;
-  height: calc(100dvh - var(--header-h) - var(--toolbar-h));
   overflow: hidden;
-}
-
-@supports not (height: 100dvh) {
-  .map-container {
-    height: calc(100vh - var(--header-h) - var(--toolbar-h));
-  }
 }
 
 .map-container svg {
@@ -111,8 +103,9 @@ div.tooltip {
   pointer-events: none;
 }
 
+/* Only when zoomed (k >= 2); at k=1 the circles would cover most land. */
 @media (pointer: coarse) {
-  .park-hit {
+  svg.zoomed .park-hit {
     pointer-events: all;
   }
 }
