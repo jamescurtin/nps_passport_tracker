@@ -7,7 +7,8 @@
  * @param {object} container - d3 selection to render into
  * @param {object[]} parks - Park objects (`name`, `visited`, `parkCode`)
  * @param {object} options
- * @param {Function} options.onSelect - Called with the park on name click
+ * @param {Function} options.onSelect - Called with the park and the click event
+ *   on name click
  * @param {Function} [options.secondaryText] - park -> secondary line text
  * @param {Function} [options.trailingText] - park -> right-aligned text
  * @param {Function} [options.name] - park -> name text (default `park.name`)
@@ -54,7 +55,7 @@ export function renderParkRows(
       .attr("type", "button")
       .attr("class", "park-row-name")
       .text(name(park))
-      .on("click", () => onSelect(park));
+      .on("click", (event) => onSelect(park, event));
     const secondary = secondaryText ? secondaryText(park) : "";
     if (secondary) {
       text.append("span").attr("class", "park-row-secondary").text(secondary);

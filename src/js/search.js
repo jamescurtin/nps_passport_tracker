@@ -640,8 +640,8 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
 
   // Row options shared by both result lists.
   const rowOptions = {
-    onSelect: (park) => {
-      if (parkSearch.onParkSelect) parkSearch.onParkSelect(park);
+    onSelect: (park, event) => {
+      if (parkSearch.onParkSelect) parkSearch.onParkSelect(park, event);
     },
     secondaryText: (park) => park.states.join(", "),
     onHighlight: (parkCode) => {

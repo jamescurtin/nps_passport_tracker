@@ -1,15 +1,24 @@
 // @vitest-environment jsdom
-import { describe, it, expect, beforeAll, beforeEach, afterEach } from "vitest";
+import {
+  describe,
+  it,
+  expect,
+  vi,
+  beforeAll,
+  beforeEach,
+  afterEach,
+} from "vitest";
 
 // jsdom has no matchMedia and no <dialog> methods; stub the minimum.
 let mobile = false;
+let reduced = false;
 const mediaListeners = [];
 
 beforeAll(() => {
   window.matchMedia = (query) => ({
     media: query,
     get matches() {
-      return mobile;
+      return query.includes("reduced-motion") ? reduced : mobile;
     },
     addEventListener: (_type, cb) => mediaListeners.push(cb),
     removeEventListener: () => {},
@@ -42,6 +51,7 @@ beforeAll(async () => {
 
 beforeEach(() => {
   mobile = false;
+  reduced = false;
   document.body.innerHTML = `
     <header class="app-bar"></header>
     <main id="map-container"></main>
@@ -51,6 +61,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  vi.useRealTimers();
+  vi.restoreAllMocks();
   while (closeTopSheet()) {
     // drain the registry so tests stay independent
   }
@@ -262,5 +274,152 @@ describe("focus", () => {
     a.close();
     expect(opener.hidden).toBe(false);
     expect(document.activeElement).toBe(opener);
+  });
+});
+
+describe("close timing", () => {
+  // jsdom has no transitions; report a 200 ms one like Chrome would.
+  function stubTransition() {
+    const real = window.getComputedStyle.bind(window);
+    vi.spyOn(window, "getComputedStyle").mockImplementation((el, ...rest) => {
+      const style = real(el, ...rest);
+      return new Proxy(style, {
+        get: (target, prop) => {
+          if (prop === "transitionDuration") return "0.2s";
+          const value = target[prop];
+          return typeof value === "function" ? value.bind(target) : value;
+        },
+      });
+    });
+  }
+
+  it("closes the dialog and lifts inert at once despite a transition", () => {
+    vi.useFakeTimers();
+    stubTransition();
+    const map = document.getElementById("map-container");
+    const a = make({ id: "a" });
+    a.open();
+    expect(map.hasAttribute("inert")).toBe(true);
+    a.close();
+    expect(a.el.open).toBe(false);
+    expect(map.hasAttribute("inert")).toBe(false);
+  });
+
+  it("restores focus at once despite a transition", () => {
+    vi.useFakeTimers();
+    stubTransition();
+    const opener = document.getElementById("opener");
+    opener.focus();
+    const a = make({ id: "a" });
+    a.open();
+    a.close();
+    expect(document.activeElement).toBe(opener);
+  });
+
+  it("can reopen while the exit animation is running", () => {
+    vi.useFakeTimers();
+    stubTransition();
+    const map = document.getElementById("map-container");
+    const a = make({ id: "a" });
+    a.open();
+    a.close();
+    vi.advanceTimersByTime(100);
+    a.open();
+    expect(a.isOpen()).toBe(true);
+    expect(a.el.open).toBe(true);
+    expect(map.hasAttribute("inert")).toBe(true);
+    vi.advanceTimersByTime(1000);
+    expect(a.el.open).toBe(true);
+    expect(closeTopSheet()).toBe(true);
+    expect(a.el.open).toBe(false);
+  });
+
+  it("runs onClose before the dialog closes under reduced motion", () => {
+    reduced = true;
+    const order = [];
+    const a = make({
+      id: "a",
+      onClose: () => order.push(`onClose open=${a.el.open}`),
+    });
+    a.open();
+    a.el.addEventListener("close", () => order.push("close event"));
+    a.close();
+    expect(a.el.open).toBe(false);
+    expect(order[0]).toBe("onClose open=true");
+  });
+});
+
+describe("focus fallback", () => {
+  it("falls back to the toolbar when the opener left the DOM", () => {
+    const opener = document.createElement("button");
+    document.body.append(opener);
+    const a = make({ id: "a" });
+    a.open({ opener });
+    opener.remove();
+    a.close();
+    expect(document.activeElement).toBe(document.getElementById("opener"));
+  });
+
+  it("falls back to the parent sheet's close button first", () => {
+    const outer = make({ id: "outer" });
+    outer.open();
+    const row = document.createElement("button");
+    outer.body.append(row);
+    const inner = make({ id: "inner" });
+    inner.open({ opener: row });
+    row.remove();
+    inner.close();
+    expect(document.activeElement).toBe(outer.el.querySelector(".sheet-close"));
+  });
+
+  it("leaves focus alone when the opener cannot take focus", () => {
+    const marker = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    document.body.append(marker);
+    const a = make({ id: "a" });
+    a.open({ opener: marker });
+    expect(() => a.close()).not.toThrow();
+  });
+});
+
+describe("drag", () => {
+  function pointer(type, props = {}) {
+    const event = new window.MouseEvent(type, {
+      bubbles: true,
+      button: 0,
+      ...props,
+    });
+    Object.defineProperty(event, "pointerId", { value: 1 });
+    return event;
+  }
+
+  function setup() {
+    mobile = true;
+    const a = make({ id: "a" });
+    a.open();
+    const header = a.el.querySelector(".sheet-header");
+    header.dispatchEvent(pointer("pointerdown", { clientY: 0 }));
+    expect("dragging" in a.el.dataset).toBe(true);
+    return { a, header };
+  }
+
+  it.each(["pointercancel", "lostpointercapture"])(
+    "clears data-dragging on %s without closing",
+    (type) => {
+      const { a, header } = setup();
+      header.dispatchEvent(pointer("pointermove", { clientY: 300 }));
+      expect(a.el.style.transform).toBe("translateY(300px)");
+      header.dispatchEvent(pointer(type));
+      expect("dragging" in a.el.dataset).toBe(false);
+      expect(a.el.style.transform).toBe("");
+      expect(a.isOpen()).toBe(true);
+    },
+  );
+
+  it("dismisses on a fast flick release", () => {
+    const { a, header } = setup();
+    header.dispatchEvent(pointer("pointermove", { clientY: 100 }));
+    header.dispatchEvent(pointer("pointerup", { clientY: 100 }));
+    expect(a.isOpen()).toBe(false);
+    expect("dragging" in a.el.dataset).toBe(false);
   });
 });

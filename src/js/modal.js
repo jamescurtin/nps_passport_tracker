@@ -22,16 +22,17 @@ function getSheet() {
 
 /**
  * Show the park details sheet when clicking on a point.
- * @param {object} _ - The event callback.
+ * @param {Event|null} event - The click event; its `currentTarget` is the
+ *   element focus returns to on close (null from non-click callers)
  * @param {object} d - The park clicked.
  * @return {undefined}
  */
-export function clickedPoint(_, d) {
+export function clickedPoint(event, d) {
   const parkSheet = getSheet();
   parkSheet.setTitle(d.fullName);
   renderPark(d3.select(parkSheet.body), d);
   parkSheet.body.scrollTop = 0;
-  parkSheet.open();
+  parkSheet.open({ opener: event?.currentTarget });
 }
 
 /**
@@ -99,12 +100,4 @@ function renderPark(body, d) {
     .attr("target", "_blank")
     .attr("rel", "noopener")
     .text("NPS park site");
-}
-
-/**
- * Close the park sheet if it is open.
- * @return {boolean} true if the sheet was open and is now closed
- */
-export function closeModal() {
-  return sheet ? sheet.close() : false;
 }
