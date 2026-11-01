@@ -25,10 +25,11 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
+    <a class="skip-link" href="#toolbar">Skip to map tools</a>
     <header class="app-bar"></header>
     <div id="legend-popover" class="legend-popover" popover></div>
     <main id="map-container" class="map-container"></main>
-    <nav class="toolbar" aria-label="Map tools">
+    <nav class="toolbar" id="toolbar" tabindex="-1" aria-label="Map tools">
       <div class="toolbar-slot" id="slot-search"></div>
       <div class="toolbar-slot" id="slot-parks"></div>
       <div class="toolbar-slot" id="slot-stats"></div>
