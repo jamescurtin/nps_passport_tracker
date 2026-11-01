@@ -92,6 +92,19 @@ div.tooltip {
   cursor: pointer;
 }
 
+/* Markers fade in once after data loads (JS sets --fade-delay and removes
+   the class on animationend). `backwards` holds opacity 0 during the delay;
+   afterwards the search filter's inline opacity applies. */
+.park-marker.fade-in {
+  animation: marker-in 300ms ease-out var(--fade-delay, 0ms) backwards;
+}
+
+@keyframes marker-in {
+  from {
+    opacity: 0;
+  }
+}
+
 .park-dot {
   fill: var(--visited);
 }

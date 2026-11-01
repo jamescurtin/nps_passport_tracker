@@ -230,39 +230,121 @@
   }
 }
 
-.loading-indicator {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: var(--z-modal);
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--color-background);
-  color: var(--color-text-primary);
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
-  font-family: var(--font-family);
-  font-size: var(--font-size-md);
+/* Loading and error states: one slot centered over the map. */
+.load-slot {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
 }
 
-.loading-indicator.error {
-  color: var(--nps-brown-dark);
+.spinner {
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 3px solid var(--surface-2);
+  border: 3px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-top-color: var(--ink-2);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced motion: a static ring. */
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
+
+.load-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  max-width: min(320px, calc(100% - 2 * var(--spacing-md)));
+  padding: var(--spacing-lg);
+  box-sizing: border-box;
+  border-radius: var(--border-radius-lg);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-md);
+  font-size: var(--font-size-md);
+  pointer-events: auto;
+}
+
+.load-card p {
+  margin: 0;
 }
 
 .retry-button {
-  margin-left: var(--spacing-sm);
-  padding: var(--spacing-xs) var(--spacing-md);
-  background: var(--nps-brown-dark);
+  min-height: 44px;
+  padding: 0 var(--spacing-lg);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
   color: var(--on-accent);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
   font-family: var(--font-family);
-  font-weight: bold;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
 }
 
 .retry-button:hover {
   background: var(--nps-brown);
+}
+
+/* Header pill and toolbar render before data arrives. */
+.toolbar-btn:disabled,
+.count-pill:disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.55;
+}
+
+.toolbar-btn:disabled {
+  background: var(--accent);
+  box-shadow: none;
+  transform: none;
+}
+
+/* Count pill label placeholder: ~12ch wide with a shimmer. */
+.count-label.skeleton {
+  display: inline-block;
+  width: 12ch;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--ink) 14%, transparent),
+    transparent
+  );
+  background-color: var(--surface-2);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .count-label.skeleton {
+    animation: none;
+  }
 }
 
 .button {
