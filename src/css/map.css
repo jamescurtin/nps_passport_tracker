@@ -1,13 +1,17 @@
 .map-container {
+  /* Reserve room for the fixed header and toolbar so they never overlap the map. */
+  box-sizing: border-box;
+  margin-top: var(--header-h);
+  margin-bottom: var(--toolbar-h);
   text-align: center;
   width: 100%;
-  height: 100dvh;
+  height: calc(100dvh - var(--header-h) - var(--toolbar-h));
   overflow: hidden;
 }
 
 @supports not (height: 100dvh) {
   .map-container {
-    height: 100vh;
+    height: calc(100vh - var(--header-h) - var(--toolbar-h));
   }
 }
 
@@ -35,37 +39,48 @@ div.tooltip {
   pointer-events: all;
 }
 
-.state {
+.state,
+.state-complete {
   cursor: pointer;
+  transition:
+    fill var(--transition-fast),
+    opacity 200ms ease-out;
+}
+
+.state {
   fill: var(--nps-green-light);
-  stroke-width: 0.5;
-  stroke: var(--nps-brown);
-  transition: fill var(--transition-fast);
 }
 
 .state-complete {
-  cursor: pointer;
   fill: var(--nps-green-sage);
-  stroke-width: 0.5;
-  stroke: var(--nps-brown);
-  transition: fill var(--transition-fast);
 }
 
-.state:hover,
-.state-complete:hover {
-  fill: var(--nps-tan);
+@media (hover: hover) {
+  .state:hover,
+  .state-complete:hover {
+    fill: var(--nps-tan);
+  }
 }
 
-.state.active,
-.state-complete.active {
-  fill: var(--nps-tan-dark);
+/* Every state except the active one while zoomed */
+.dimmed {
+  opacity: 0.6;
 }
 
-.mesh {
+.mesh,
+.outline {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.mesh {
   stroke: var(--nps-brown);
+}
+
+.outline {
+  stroke: var(--outline-map);
 }
 
 /* Search overlay SVG elements */
@@ -79,4 +94,32 @@ div.tooltip {
 
 .park-marker {
   cursor: pointer;
+}
+
+.park-dot.not-visited {
+  stroke: var(--surface);
+}
+
+/* Touch target: always in the DOM, only hit-testable on coarse pointers. */
+.park-hit {
+  fill: transparent;
+  pointer-events: none;
+}
+
+@media (pointer: coarse) {
+  .park-hit {
+    pointer-events: all;
+  }
+}
+
+@media (hover: hover) {
+  .park-marker:hover .park-dot {
+    stroke: var(--ink);
+  }
+}
+
+/* Search-filtered markers: dimmed inline, and not interactive. */
+.park-marker.filtered-out .park-dot,
+.park-marker.filtered-out .park-hit {
+  pointer-events: none;
 }

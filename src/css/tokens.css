@@ -4,6 +4,7 @@
   --land: #f3efe4;
   --land-complete: #8fb57a;
   --border-map: #9a8b78;
+  --outline-map: var(--ink-2);
   --visited: #2f6b2a;
   --not-visited: #b08a5a;
   --surface: #fffdf8;
@@ -16,6 +17,10 @@
 
   /* Safe area */
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Fixed chrome heights; #map-container reserves this space. */
+  --header-h: 48px;
+  --toolbar-h: calc(64px + var(--safe-bottom));
 
   /* Legacy names, mapped onto the theme tokens */
   --nps-brown-dark: var(--accent);
