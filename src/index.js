@@ -350,7 +350,7 @@ Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
     parkSearch.onUnhighlightPark = unhighlightParkMarker;
 
     // Open the park modal when a search result is clicked
-    parkSearch.onParkSelect = (park) => clickedPoint(null, park);
+    parkSearch.onParkSelect = (park, event) => clickedPoint(event, park);
 
     // Create search UI
     searchUI = createSearchUI(sheets, parkSearch, d3.select("#slot-search"));
