@@ -257,12 +257,18 @@ function renderYearChart(container, visitsByYear) {
     draw(wrap.node().clientWidth || 350);
     return;
   }
+  // Draw in the next frame, not inside the observer callback: redrawing
+  // inside it triggers "ResizeObserver loop completed with undelivered
+  // notifications". The wrap also has a fixed CSS height, so a redraw never
+  // changes the observed size.
   let lastWidth = -1;
+  let frame = 0;
   new ResizeObserver(([entry]) => {
     const w = Math.floor(entry.contentRect.width);
     if (w === lastWidth) return;
     lastWidth = w;
-    draw(w);
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => draw(w));
   }).observe(wrap.node());
 }
 

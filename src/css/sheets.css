@@ -122,6 +122,10 @@
   margin-left: auto;
 }
 
+.sheet-header-extra {
+  padding-right: var(--spacing-sm);
+}
+
 .sheet-header-extra:empty {
   display: none;
 }
@@ -458,6 +462,7 @@
 /* Statistics: year chart and top-state bars */
 .year-chart-wrap {
   width: 100%;
+  height: 180px; /* matches CHART_HEIGHT in statistics.js */
   color: var(--ink-2);
 }
 
