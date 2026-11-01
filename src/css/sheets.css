@@ -1,4 +1,520 @@
 /*
- * Sheet primitive styles (bottom sheets, dialogs, floating cards).
- * Populated in Phase 3 of docs/plans/2026-11-01-ui-uplevel.md.
+ * Sheet primitive (src/js/sheet.js): centered dialogs, floating cards, and
+ * mobile bottom sheets. The layout keys off `data-mode`, which JS sets at
+ * open time: "dialog" | "card" | "sheet".
  */
+
+/* Reset the UA <dialog> box; the inner panel is the visible surface. */
+.sheet {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  opacity: 0;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+.sheet[data-visible] {
+  opacity: 1;
+  transform: none;
+}
+
+.sheet::backdrop {
+  background: transparent;
+  transition: background-color 200ms ease-out;
+}
+
+.sheet[data-visible]::backdrop {
+  background: var(--scrim);
+}
+
+.sheet-panel {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-height: var(--sheet-max-h);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--surface-2);
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  border-radius: var(--radius-sheet);
+  box-shadow: var(--shadow-sheet);
+  touch-action: pan-y;
+}
+
+/* Shared header: drag handle (bottom sheets only), title, close button. */
+.sheet-header {
+  flex-shrink: 0;
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm)
+    var(--spacing-lg);
+}
+
+.sheet-handle {
+  display: none;
+  width: 36px;
+  height: 4px;
+  margin: 0 auto var(--spacing-sm);
+  border-radius: var(--radius-pill);
+  background: var(--ink-2);
+  opacity: 0.4;
+}
+
+.sheet-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+
+.sheet-title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Title kept for the accessible name only (the body has its own heading). */
+.sheet-title[data-hidden] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.sheet-close {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.sheet-close:hover {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+
+.sheet-close:focus-visible {
+  outline: 2px solid var(--visited);
+  outline-offset: 2px;
+}
+
+.sheet-title[data-hidden] + .sheet-close {
+  margin-left: auto;
+}
+
+.sheet-header-extra:empty {
+  display: none;
+}
+
+.sheet-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+/* Desktop, modal: centered dialog */
+.sheet[data-mode="dialog"] {
+  position: fixed;
+  inset: 0;
+  width: min(560px, calc(100% - 2 * var(--spacing-md)));
+  height: fit-content;
+  margin: auto;
+  transform: translateY(8px) scale(0.98);
+}
+
+.sheet[data-mode="dialog"] .sheet-panel {
+  max-height: min(var(--sheet-max-h), 820px);
+}
+
+.park-sheet[data-mode="dialog"] {
+  width: min(760px, calc(100% - 2 * var(--spacing-md)));
+}
+
+/* Desktop, non-modal: floating card above the toolbar */
+.sheet[data-mode="card"] {
+  position: fixed;
+  z-index: var(--z-overlay);
+  inset: auto auto calc(var(--toolbar-h) + var(--spacing-xs))
+    max(var(--spacing-lg), env(safe-area-inset-left));
+  width: 340px;
+  transform: translateY(8px);
+}
+
+.sheet[data-mode="card"][data-anchor="center"] {
+  inset: 0;
+  height: fit-content;
+  margin: auto;
+}
+
+.sheet[data-mode="card"] .sheet-panel {
+  max-height: calc(
+    100dvh - var(--header-h) - var(--toolbar-h) - 2 * var(--spacing-md)
+  );
+}
+
+/* Mobile: bottom sheet for every sheet */
+.sheet[data-mode="sheet"] {
+  position: fixed;
+  inset: auto 0 0;
+  width: 100%;
+  opacity: 1;
+  transform: translateY(100%);
+}
+
+.sheet[data-mode="sheet"][data-visible] {
+  transform: none;
+}
+
+.sheet[data-mode="sheet"] .sheet-panel {
+  padding-bottom: var(--safe-bottom);
+  border-bottom: 0;
+  border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
+}
+
+.sheet[data-mode="sheet"] .sheet-header {
+  padding-top: var(--spacing-sm);
+  cursor: grab;
+
+  /* Pointer events drive drag-to-dismiss here instead of scrolling. */
+  touch-action: none;
+}
+
+.sheet[data-mode="sheet"] .sheet-handle {
+  display: block;
+}
+
+.sheet[data-mode="sheet"] .sheet-body {
+  padding-inline: var(--spacing-md);
+}
+
+/* Non-modal bottom sheet: sits above the toolbar, map stays visible above. */
+.sheet[data-mode="sheet"]:not(:modal) {
+  z-index: var(--z-overlay);
+  inset: auto 0 var(--toolbar-h);
+}
+
+.sheet[data-mode="sheet"]:not(:modal) .sheet-panel {
+  max-height: var(--sheet-peek-max-h);
+  margin-inline: var(--spacing-sm);
+  padding-bottom: 0;
+  border-bottom: 1px solid var(--surface-2);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  border-radius: var(--radius-sheet);
+}
+
+/* While dragging, the sheet follows the pointer with no easing. */
+.sheet[data-dragging] {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet,
+  .sheet::backdrop {
+    transition: none;
+  }
+}
+
+/* Shared park row (search results, location results, state park list) */
+.park-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.park-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: var(--spacing-sm) var(--spacing-xs);
+  border-bottom: 1px solid var(--surface-2);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.park-row:last-child {
+  border-bottom: none;
+}
+
+@media (hover: hover) {
+  .park-row:hover {
+    background: var(--surface-2);
+  }
+}
+
+.park-row-dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.park-row-dot.visited {
+  background: var(--visited);
+}
+
+.park-row-dot.not-visited {
+  background: var(--not-visited);
+}
+
+.park-row-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.park-row-name {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.park-row-name:hover {
+  color: var(--visited);
+  text-decoration: underline;
+}
+
+.park-row-secondary {
+  color: var(--ink-2);
+  font-size: var(--font-size-sm);
+}
+
+.park-row-trailing {
+  flex-shrink: 0;
+  color: var(--ink-2);
+  font-size: var(--font-size-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Segmented control (search visited filter) */
+.segmented {
+  display: flex;
+  margin-block: var(--spacing-sm);
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+}
+
+.segment {
+  flex: 1;
+  min-height: 36px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.segment[aria-checked="true"] {
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 15%);
+}
+
+.segment:focus-visible {
+  outline: 2px solid var(--visited);
+  outline-offset: 1px;
+}
+
+.search-sheet .state-select {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* State park list: "X of Y visited" with a thin progress bar */
+.progress-label {
+  margin: var(--spacing-xs) 0;
+  color: var(--ink-2);
+  font-size: var(--font-size-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.progress {
+  height: 4px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--visited);
+}
+
+/* Park details */
+.park-hero {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+  background: var(--surface-2);
+}
+
+.badge {
+  display: inline-block;
+  margin-top: var(--spacing-md);
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.park-name-heading {
+  margin: var(--spacing-sm) 0;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin: 0 0 var(--spacing-md);
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--font-size-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.chip-visited {
+  background: var(--visited);
+  color: var(--on-accent);
+}
+
+.park-notes {
+  margin: 0 0 var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 3px solid var(--visited);
+  border-radius: 4px;
+  background: var(--surface-2);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.park-description {
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.park-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--spacing-sm);
+  margin-block: var(--spacing-md);
+}
+
+.park-thumbs img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  background: var(--surface-2);
+}
+
+/* Statistics: year chart and top-state bars */
+.year-chart-wrap {
+  width: 100%;
+  color: var(--ink-2);
+}
+
+.year-chart {
+  display: block;
+  overflow: visible;
+}
+
+.year-chart .bar {
+  fill: var(--visited);
+}
+
+.year-chart .bar-label {
+  fill: var(--ink);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.year-chart .axis text {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.state-bars {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.state-bars li {
+  display: grid;
+  grid-template-columns: 2.5em 1fr 2.5em;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) 0;
+  font-size: var(--font-size-sm);
+}
+
+.state-bar-code {
+  font-weight: 600;
+}
+
+.state-bar-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+}
+
+.state-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--visited);
+}
+
+.state-bar-count {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

@@ -63,6 +63,14 @@
   --modal-width-mobile: 95%;
   --border-radius: 8px;
   --border-radius-lg: 16px;
+  --radius-sheet: 24px;
+  --radius-pill: 999px;
+
+  /* Surfaces (sheets, dialogs, cards) */
+  --shadow-sheet: 0 1px 3px rgb(0 0 0 / 8%), 0 12px 32px rgb(0 0 0 / 14%);
+  --scrim: rgb(20 14 10 / 45%);
+  --sheet-max-h: 85dvh;
+  --sheet-peek-max-h: 55dvh;
 
   /* Transitions */
   --transition-fast: 200ms ease;
@@ -92,10 +100,19 @@
     --accent: #d9c3a5;
     --on-accent: #1e1b18;
     --danger: #ef5350;
+    --shadow-sheet: 0 1px 3px rgb(0 0 0 / 30%), 0 12px 32px rgb(0 0 0 / 45%);
+    --scrim: rgb(0 0 0 / 55%);
   }
 }
 
 /* Plain-color fallbacks for browsers without color-mix(). */
+@supports not (height: 100dvh) {
+  :root {
+    --sheet-max-h: 85vh;
+    --sheet-peek-max-h: 55vh;
+  }
+}
+
 @supports not (color: color-mix(in srgb, red, red)) {
   :root {
     --nps-tan-dark: #eae7e1;

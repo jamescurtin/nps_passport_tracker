@@ -1,5 +1,7 @@
 import * as d3 from "d3";
 
+import { renderParkRows } from "./park_row";
+import { createSheet } from "./sheet";
 import stateAbbreviations from "./state_abbreviations";
 
 // Reverse lookup: two-letter abbreviation -> full state/territory name.
@@ -254,44 +256,45 @@ export class ParkSearch {
   }
 }
 
+// Visited filter options for the segmented control: [key, label, value].
+const VISITED_OPTIONS = [
+  ["all", "All", null],
+  ["visited", "Visited", true],
+  ["not-visited", "Not Visited", false],
+];
+
 /**
- * Create search UI as a modal (hidden by default, toggled via button)
+ * Create the search UI: a toolbar toggle plus a non-modal sheet (a floating
+ * card at the bottom-left on desktop, a bottom sheet on mobile).
+ * @param {object} container - d3 selection the sheet is appended to
+ * @param {ParkSearch} parkSearch - Search model
+ * @param {object} [toolbar=container] - d3 selection for the toggle button
+ * @return {object} `{ sheet, searchContainer, searchToggle, updateParksList }`
  */
 export function createSearchUI(container, parkSearch, toolbar = container) {
+  const sheet = createSheet({
+    id: "search-container",
+    title: "Search & Filter",
+    modal: false,
+    anchor: "bottom-left",
+    className: "search-sheet",
+    parent: container.node(),
+  });
+
   // Create toggle button (lives in the toolbar)
   const searchToggle = toolbar
     .append("button")
+    .attr("type", "button")
     .attr("class", "search-toggle")
     .attr("id", "search-toggle")
     .attr("aria-label", "Search and filter parks")
     .text("Search")
     .on("click", () => {
-      const panel = document.getElementById("search-container");
-      if (panel) {
-        const isVisible = panel.style.display !== "none";
-        panel.style.display = isVisible ? "none" : "flex";
-      }
+      if (sheet.isOpen()) sheet.close();
+      else sheet.open({ opener: searchToggle.node() });
     });
 
-  // Create search panel (hidden by default)
-  const searchContainer = container
-    .append("div")
-    .attr("class", "search-container")
-    .attr("id", "search-container")
-    .style("display", "none");
-
-  // Close button
-  searchContainer
-    .append("button")
-    .attr("class", "search-close")
-    .attr("aria-label", "Close search")
-    .text("×")
-    .on("click", () => {
-      searchContainer.style("display", "none");
-    });
-
-  // Title
-  searchContainer.append("h2").text("Search & Filter");
+  const searchContainer = d3.select(sheet.body);
 
   // Search input
   searchContainer
@@ -304,42 +307,54 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
       parkSearch.setQuery(this.value);
     });
 
-  // Filter buttons container
-  const filterRow = searchContainer.append("div").attr("class", "filter-row");
+  // Visited filter: a segmented control with radio semantics and a roving
+  // tabindex (arrow keys move the selection, as for native radios).
+  const segmented = searchContainer
+    .append("div")
+    .attr("class", "segmented")
+    .attr("role", "radiogroup")
+    .attr("aria-label", "Visited filter");
 
-  // Visited filter buttons
-  filterRow
-    .append("button")
-    .attr("class", "filter-btn active")
-    .attr("data-filter", "all")
-    .text("All")
-    .on("click", function () {
-      d3.selectAll(".filter-btn").classed("active", false);
-      d3.select(this).classed("active", true);
-      parkSearch.setVisitedFilter(null);
+  const segments = segmented
+    .selectAll("button")
+    .data(VISITED_OPTIONS)
+    .join("button")
+    .attr("type", "button")
+    .attr("class", "segment")
+    .attr("role", "radio")
+    .attr("data-filter", ([key]) => key)
+    .text(([, label]) => label)
+    .on("click", (_event, option) => selectSegment(option))
+    .on("keydown", (event, option) => {
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[
+        event.key
+      ];
+      if (!step) return;
+      event.preventDefault();
+      const i = VISITED_OPTIONS.indexOf(option);
+      const next =
+        VISITED_OPTIONS[
+          (i + step + VISITED_OPTIONS.length) % VISITED_OPTIONS.length
+        ];
+      selectSegment(next);
+      segments
+        .filter((o) => o === next)
+        .node()
+        .focus();
     });
 
-  filterRow
-    .append("button")
-    .attr("class", "filter-btn")
-    .attr("data-filter", "visited")
-    .text("Visited")
-    .on("click", function () {
-      d3.selectAll(".filter-btn").classed("active", false);
-      d3.select(this).classed("active", true);
-      parkSearch.setVisitedFilter(true);
-    });
+  function markSegment(selected) {
+    segments
+      .attr("aria-checked", (o) => String(o === selected))
+      .attr("tabindex", (o) => (o === selected ? 0 : -1));
+  }
 
-  filterRow
-    .append("button")
-    .attr("class", "filter-btn")
-    .attr("data-filter", "not-visited")
-    .text("Not Visited")
-    .on("click", function () {
-      d3.selectAll(".filter-btn").classed("active", false);
-      d3.select(this).classed("active", true);
-      parkSearch.setVisitedFilter(false);
-    });
+  function selectSegment(option) {
+    markSegment(option);
+    parkSearch.setVisitedFilter(option[2]);
+  }
+
+  markSegment(VISITED_OPTIONS[0]);
 
   // State dropdown
   const stateSelect = searchContainer
@@ -598,74 +613,29 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
     }
   }
 
-  // Render a list of parks into a container. Shared by the location
-  // (distance-sorted) list and the text/state/visited results list, which
-  // differ only in the name element, the secondary text, and the empty message.
-  function renderParkList(
-    container,
-    parks,
-    { emptyMessage, secondaryText, onNameClick },
-  ) {
-    container.html("");
-    if (parks.length === 0) {
-      container
-        .append("p")
-        .attr("class", "no-parks-message")
-        .text(emptyMessage);
-      return;
-    }
-
-    const list = container.append("ul").attr("class", "parks-in-range-list");
-    parks.forEach((park) => {
-      const item = list.append("li").attr("class", "park-in-range-item");
-      const visitedClass = park.visited === 1 ? "visited" : "not-visited";
-      item
-        .append("span")
-        .attr("class", `park-visited-indicator ${visitedClass}`)
-        .attr("title", park.visited === 1 ? "Visited" : "Not Visited");
-
-      if (onNameClick) {
-        item
-          .append("button")
-          .attr("type", "button")
-          .attr("class", "park-name park-name-button")
-          .text(park.name)
-          .on("click", () => onNameClick(park));
-      } else {
-        item
-          .append("a")
-          .attr("class", "park-name")
-          .attr("href", park.url)
-          .attr("target", "_blank")
-          .text(park.name);
-      }
-
-      item
-        .append("span")
-        .attr("class", "park-distance")
-        .text(secondaryText(park));
-
-      item.on("mouseenter", () => {
-        if (parkSearch.onHighlightPark) {
-          parkSearch.onHighlightPark(park.parkCode);
-        }
-      });
-      item.on("mouseleave", () => {
-        if (parkSearch.onUnhighlightPark) {
-          parkSearch.onUnhighlightPark(park.parkCode);
-        }
-      });
-    });
-  }
+  // Row options shared by both result lists.
+  const rowOptions = {
+    onSelect: (park) => {
+      if (parkSearch.onParkSelect) parkSearch.onParkSelect(park);
+    },
+    secondaryText: (park) => park.states.join(", "),
+    onHighlight: (parkCode) => {
+      if (parkSearch.onHighlightPark) parkSearch.onHighlightPark(parkCode);
+    },
+    onUnhighlight: (parkCode) => {
+      if (parkSearch.onUnhighlightPark) parkSearch.onUnhighlightPark(parkCode);
+    },
+  };
 
   // Update the location (distance-sorted) parks list.
   function updateParksList() {
-    renderParkList(
+    renderParkRows(
       d3.select("#parks-in-range-container"),
       parkSearch.getParksInRange(),
       {
+        ...rowOptions,
         emptyMessage: "No parks found within this radius.",
-        secondaryText: (park) => `${Math.round(park.distance)} mi`,
+        trailingText: (park) => `${Math.round(park.distance)} mi`,
       },
     );
   }
@@ -683,18 +653,13 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
       `${filtered.length} ${filtered.length === 1 ? "park" : "parks"} match`,
     );
 
-    renderParkList(d3.select("#results-list-container"), filtered, {
+    renderParkRows(d3.select("#results-list-container"), filtered, {
+      ...rowOptions,
       emptyMessage: "No parks match these filters.",
-      secondaryText: (park) => park.states.join(", "),
-      onNameClick: (park) => {
-        if (parkSearch.onParkSelect) {
-          parkSearch.onParkSelect(park);
-        }
-      },
     });
   }
 
   parkSearch.onResults = renderResults;
 
-  return { searchContainer, searchToggle, updateParksList };
+  return { sheet, searchContainer, searchToggle, updateParksList };
 }
