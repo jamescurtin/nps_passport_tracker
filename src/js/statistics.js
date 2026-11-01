@@ -320,24 +320,29 @@ function renderStateBars(container, visitsByState) {
  */
 export function createStatsButton(container, stats, toolbar = container) {
   let sheet = null;
-  const statsButton = toolbar
-    .append("button")
-    .attr("type", "button")
-    .attr("class", "toolbar-btn stats-toggle")
-    .html(`${chart}<span class="btn-label">Stats</span>`)
-    .on("click", () => {
-      if (!sheet) {
-        sheet = createSheet({
-          id: "stats-dashboard",
-          title: "Visit Statistics",
-          className: "stats-sheet",
-          parent: container.node(),
-        });
-        renderStatsDashboard(d3.select(sheet.body), stats);
-      }
-      if (sheet.isOpen()) sheet.close();
-      else sheet.open({ opener: statsButton.node() });
-    });
+  // index.html renders the button before data loads; create it only when
+  // the page did not.
+  let statsButton = toolbar.select(".stats-toggle");
+  if (statsButton.empty()) {
+    statsButton = toolbar
+      .append("button")
+      .attr("type", "button")
+      .attr("class", "toolbar-btn stats-toggle")
+      .html(`${chart}<span class="btn-label">Stats</span>`);
+  }
+  statsButton.on("click", () => {
+    if (!sheet) {
+      sheet = createSheet({
+        id: "stats-dashboard",
+        title: "Visit Statistics",
+        className: "stats-sheet",
+        parent: container.node(),
+      });
+      renderStatsDashboard(d3.select(sheet.body), stats);
+    }
+    if (sheet.isOpen()) sheet.close();
+    else sheet.open({ opener: statsButton.node() });
+  });
 
   return statsButton;
 }

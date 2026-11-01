@@ -303,17 +303,21 @@ export function createSearchUI(container, parkSearch, toolbar = container) {
     parent: container.node(),
   });
 
-  // Create toggle button (lives in the toolbar)
-  const searchToggle = toolbar
-    .append("button")
-    .attr("type", "button")
-    .attr("class", "toolbar-btn search-toggle")
-    .attr("id", "search-toggle")
-    .html(`${searchIcon}<span class="btn-label">Search</span>`)
-    .on("click", () => {
-      if (sheet.isOpen()) sheet.close();
-      else sheet.open({ opener: searchToggle.node() });
-    });
+  // Toggle button (lives in the toolbar). index.html renders it before data
+  // loads; create it only when the page did not.
+  let searchToggle = toolbar.select("#search-toggle");
+  if (searchToggle.empty()) {
+    searchToggle = toolbar
+      .append("button")
+      .attr("type", "button")
+      .attr("class", "toolbar-btn search-toggle")
+      .attr("id", "search-toggle")
+      .html(`${searchIcon}<span class="btn-label">Search</span>`);
+  }
+  searchToggle.on("click", () => {
+    if (sheet.isOpen()) sheet.close();
+    else sheet.open({ opener: searchToggle.node() });
+  });
 
   const searchContainer = d3.select(sheet.body);
 

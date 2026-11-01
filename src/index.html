@@ -26,13 +26,55 @@
   </head>
   <body>
     <a class="skip-link" href="#toolbar">Skip to map tools</a>
-    <header class="app-bar"></header>
+    <header class="app-bar">
+      <h1>James &amp; Elize's National Park Trips</h1>
+      <button
+        type="button"
+        class="count-pill"
+        popovertarget="legend-popover"
+        disabled
+      >
+        <span class="count-label skeleton">&nbsp;</span>
+        <span class="count-pill-chevron"
+          ><%= require('./js/icons.js').chevron %></span
+        >
+      </button>
+    </header>
     <div id="legend-popover" class="legend-popover" popover></div>
     <main id="map-container" class="map-container"></main>
-    <nav class="toolbar" id="toolbar" tabindex="-1" aria-label="Map tools">
-      <div class="toolbar-slot" id="slot-search"></div>
-      <div class="toolbar-slot" id="slot-parks"></div>
-      <div class="toolbar-slot" id="slot-stats"></div>
+    <nav
+      class="toolbar"
+      id="toolbar"
+      tabindex="-1"
+      aria-label="Map tools"
+      aria-busy="true"
+    >
+      <div class="toolbar-slot" id="slot-search">
+        <button
+          type="button"
+          class="toolbar-btn search-toggle"
+          id="search-toggle"
+          disabled
+        >
+          <%= require('./js/icons.js').search %><span class="btn-label"
+            >Search</span
+          >
+        </button>
+      </div>
+      <div class="toolbar-slot" id="slot-parks">
+        <button type="button" class="toolbar-btn parks-in-state-toggle" hidden>
+          <%= require('./js/icons.js').list %><span class="btn-label"
+            >Parks in State</span
+          >
+        </button>
+      </div>
+      <div class="toolbar-slot" id="slot-stats">
+        <button type="button" class="toolbar-btn stats-toggle" disabled>
+          <%= require('./js/icons.js').chart %><span class="btn-label"
+            >Stats</span
+          >
+        </button>
+      </div>
     </nav>
     <div id="sheets"></div>
     <div id="live" aria-live="polite" class="visually-hidden"></div>

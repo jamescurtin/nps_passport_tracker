@@ -5,7 +5,6 @@ import topoJsonStates from "us-atlas/states-10m";
 import parksJSON from "./data/parks";
 import visitsJSON from "./data/visits";
 
-import { list as listIcon, chevron } from "./js/icons";
 import { createLegend } from "./js/legend";
 import {
   activateOnKey,
@@ -89,7 +88,6 @@ const TOOLTIP_MARGIN = 4;
 
 // Map properties
 const strokeWidth = 0.25;
-const mapTitle = "James & Elize's National Park Trips";
 let projection = geoAlbersUsaTerritories
   .geoAlbersUsaTerritories()
   .scale(scale)
@@ -98,7 +96,6 @@ let path = d3.geoPath(projection);
 
 // Page shell lives in src/index.html
 const body = d3.select("body");
-const header = d3.select(".app-bar");
 const sheets = d3.select("#sheets");
 
 const tooltip = body
@@ -163,13 +160,9 @@ const zoom = d3
 // Apply zoom to SVG (but filter out click events to allow state clicking)
 svg.call(zoom).on("dblclick.zoom", null);
 
+// Rendered hidden by index.html; shown while a state is active.
 const parksButton = d3
-  .select("#slot-parks")
-  .append("button")
-  .attr("type", "button")
-  .attr("class", "toolbar-btn parks-in-state-toggle")
-  .attr("hidden", "")
-  .html(`${listIcon}<span class="btn-label">Parks in State</span>`)
+  .select(".parks-in-state-toggle")
   .on("click", openStateList);
 
 // Park list for the active state. Content is filled by clickedMap; the
@@ -186,263 +179,337 @@ const stateSheet = createSheet({
   },
 });
 
-const loadingIndicator = body
+// Loading and error states share one slot inside the map container.
+const loadSlot = d3
+  .select("#map-container")
   .append("div")
-  .attr("class", "loading-indicator")
-  .attr("id", "loading-indicator")
-  .text("Loading map…");
+  .attr("class", "load-slot");
 
-Promise.all([d3.json(topoJsonStates), d3.json(parksJSON), d3.json(visitsJSON)])
-  .then(function ([json, parkData, visitData]) {
-    loadingIndicator.remove();
-    const data = mergeNPSData(parkData, visitData);
-    const features = topojson.feature(json, json.objects.states).features;
+/**
+ * Show the spinner in the load slot.
+ */
+function showLoading() {
+  loadSlot.html("");
+  loadSlot
+    .append("div")
+    .attr("class", "spinner")
+    .attr("role", "status")
+    .attr("aria-label", "Loading map");
+}
 
-    const parksVisitedCount = countParksVisited(data);
-    const percentVisited = Math.round((parksVisitedCount / data.length) * 100);
+/**
+ * Show the error card with a Retry button in the load slot.
+ * @param {Error} error - Failure to log
+ * @param {boolean} [reload=false] - Retry reloads the page instead of
+ *   re-fetching (used when rendering failed after the DOM was partly built)
+ */
+function showError(error, reload = false) {
+  console.error("Failed to load map data:", error);
+  loadSlot.html("");
+  const card = loadSlot
+    .append("div")
+    .attr("class", "load-card")
+    .attr("role", "alert");
+  card.append("p").text("Could not load map data.");
+  card
+    .append("button")
+    .attr("type", "button")
+    .attr("class", "retry-button")
+    .text("Retry")
+    .on("click", reload ? () => window.location.reload() : loadData)
+    .node()
+    .focus();
+}
 
-    header.append("h1").text(mapTitle);
-    const countPill = header
-      .append("button")
-      .attr("type", "button")
-      .attr("class", "count-pill")
-      .attr("popovertarget", "legend-popover");
-    countPill
-      .append("span")
-      .text(`Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`);
-    countPill.append("span").attr("class", "count-pill-chevron").html(chevron);
+/**
+ * Enable the header pill and toolbar once data is in place.
+ */
+function markReady() {
+  d3.select(".count-pill").property("disabled", false);
+  d3.selectAll(".toolbar .toolbar-btn").property("disabled", false);
+  d3.select(".toolbar").attr("aria-busy", "false");
+}
 
-    // Add NPS sites as properties of the states they are located within
-    for (let i = 0; i < features.length; i++) {
-      features[i].properties.parks = [];
-      for (let j = 0; j < data.length; j++) {
-        if (
-          data[j].states.includes(
-            stateAbbreviations[features[i].properties.name],
-          )
-        ) {
-          features[i].properties.parks.push(data[j]);
-        }
+/**
+ * Fade the markers in with a short stagger so the whole sweep stays within
+ * 600ms. Skipped under prefers-reduced-motion. The CSS animation leaves no
+ * inline style behind, so the search filter's opacity applies afterwards.
+ * @param {object} markers - d3 selection of .park-marker groups
+ */
+function fadeInMarkers(markers) {
+  if (reduceMotion) return;
+  const step = Math.min(1.5, 300 / Math.max(markers.size(), 1));
+  markers
+    .classed("fade-in", true)
+    .style("--fade-delay", (d, i) => `${(i * step).toFixed(2)}ms`)
+    .on("animationend.fade", function () {
+      d3.select(this)
+        .classed("fade-in", false)
+        .style("--fade-delay", null)
+        .on("animationend.fade", null);
+    });
+}
+
+/**
+ * Fetch map data and render it; show the error card on failure.
+ */
+function loadData() {
+  showLoading();
+  Promise.all([
+    d3.json(topoJsonStates),
+    d3.json(parksJSON),
+    d3.json(visitsJSON),
+  ]).then(
+    (results) => {
+      try {
+        renderMap(results);
+      } catch (error) {
+        showError(error, true);
+      }
+    },
+    (error) => showError(error),
+  );
+}
+
+loadData();
+
+/**
+ * Build the map, search, legend and stats from the loaded data.
+ * @param {Array} results - [topology, parks, visits] JSON
+ */
+function renderMap([json, parkData, visitData]) {
+  loadSlot.html("");
+  const data = mergeNPSData(parkData, visitData);
+  const features = topojson.feature(json, json.objects.states).features;
+
+  const parksVisitedCount = countParksVisited(data);
+  const percentVisited = Math.round((parksVisitedCount / data.length) * 100);
+
+  // The pill is rendered by index.html with a skeleton label.
+  const countPill = d3.select(".count-pill");
+  countPill
+    .select(".count-label")
+    .classed("skeleton", false)
+    .text(`Visited ${parksVisitedCount} NPS Units (${percentVisited}%)`);
+
+  // Add NPS sites as properties of the states they are located within
+  for (let i = 0; i < features.length; i++) {
+    features[i].properties.parks = [];
+    for (let j = 0; j < data.length; j++) {
+      if (
+        data[j].states.includes(stateAbbreviations[features[i].properties.name])
+      ) {
+        features[i].properties.parks.push(data[j]);
       }
     }
+  }
 
-    const mesh = topojson.mesh(json, json.objects.states, function (a, b) {
-      return a !== b;
-    });
-
-    g.selectAll("path")
-      .data(features)
-      .enter()
-      .append("path")
-      .attr("d", path)
-      .attr("class", function (d) {
-        let visit_count = d.properties.parks.reduce(
-          (count, park) => count + parseInt(park.visited),
-          0,
-        );
-        let parks_in_state = d.properties.parks.length;
-        // A state with no NPS sites is not "complete" (0 === 0 would
-        // otherwise mark it green).
-        return parks_in_state > 0 && visit_count === parks_in_state
-          ? "state-complete"
-          : "state";
-      })
-      .attr("tabindex", 0)
-      .attr("role", "button")
-      .attr("aria-pressed", "false")
-      .attr("aria-label", (d) => {
-        const parks = d.properties.parks;
-        return stateLabel(
-          d.properties.name,
-          countParksVisited(parks),
-          parks.length,
-        );
-      })
-      .on("mouseover", (event, d) => showTooltip(event, d.properties.name))
-      .on("mouseout", hideTooltip)
-      .on("click", clickedMap)
-      .on("keydown", activateOnKey(activateStateFromKey))
-      .on("focus", (event, d) => {
-        showFocusRing(d);
-        showTooltipForFocus(event, d.properties.name);
-      })
-      .on("blur", () => {
-        hideFocusRing();
-        hideTooltip();
-      });
-
-    g.append("path")
-      .datum(mesh)
-      .attr("class", "mesh")
-      .attr("stroke-width", strokeWidth)
-      .attr("d", path);
-
-    // Outer country outline: edges that belong to exactly one state.
-    const outline = topojson.mesh(json, json.objects.states, (a, b) => a === b);
-    g.append("path")
-      .datum(outline)
-      .attr("class", "outline")
-      .attr("stroke-width", outlineWidth)
-      .attr("d", path);
-
-    // Keyboard focus ring for states. A stroke on the state path itself would
-    // be half-covered by later-painted neighbours, and raising the path would
-    // reorder the DOM (and the tab order), so a dedicated path is drawn on top.
-    focusRing = g
-      .append("path")
-      .attr("class", "focus-ring")
-      .attr("stroke-width", 2)
-      .attr("display", "none");
-
-    const markers = g
-      .selectAll(".park-marker")
-      .data(data)
-      .enter()
-      .append("g")
-      .attr("class", "park-marker")
-      .attr("transform", markerTransform)
-      .attr("data-park-code", (d) => d.parkCode)
-      // Not a tab stop until its state is active (see syncActiveState).
-      .attr("tabindex", -1)
-      .attr("role", "button")
-      .attr("aria-label", (d) => markerLabel(d.fullName, d.visited))
-      .on("mouseover", (event, d) => showTooltip(event, d.name))
-      .on("mouseout", hideTooltip)
-      .on("click", clickedPoint)
-      .on(
-        "keydown",
-        activateOnKey((event) =>
-          clickedPoint(event, d3.select(event.currentTarget).datum()),
-        ),
-      )
-      .on("focus", (event, d) => {
-        // No raise: moving the node in the DOM would drop keyboard focus.
-        highlightParkMarker(d.parkCode, { raise: false });
-        showTooltipForFocus(event, d.name);
-      })
-      .on("blur", (event, d) => {
-        unhighlightParkMarker(d.parkCode);
-        hideTooltip();
-      });
-    markers
-      .append("circle")
-      .attr("class", (d) => (d.visited ? "park-dot" : "park-dot not-visited"))
-      .attr("r", pointRadius)
-      .attr("stroke-width", dotStrokeWidth);
-    // Transparent touch target; CSS enables it only on coarse pointers.
-    markers.append("circle").attr("class", "park-hit").attr("r", hitRadius);
-
-    // Function to zoom to a state by abbreviation
-    const zoomToStateByAbbrev = (stateAbbrev) => {
-      // Find the state feature by abbreviation
-      const stateFeature = features.find(
-        (f) => stateAbbreviations[f.properties.name] === stateAbbrev,
-      );
-      if (stateFeature) {
-        // Find the corresponding DOM element
-        const stateElement = g
-          .selectAll(".state, .state-complete")
-          .filter((d) => d === stateFeature)
-          .node();
-        if (stateElement) {
-          // Simulate a click on the state
-          clickedMap.call(stateElement, null, stateFeature);
-        }
-      }
-    };
-
-    // Function to zoom to a location with a given radius
-    const zoomToLocation = (lat, lng, radiusMiles) => {
-      // Clear signal from search panel
-      if (lat === null) {
-        clearSearchOverlay();
-        return;
-      }
-
-      // Project the center point
-      const center = projection([lng, lat]);
-      if (!center) return; // Location outside projection bounds
-
-      // Calculate scale based on radius
-      // We want the radius to fit within ~40% of the smaller screen dimension
-      const targetPixels = Math.min(width, height) * 0.4;
-      const radiusPixels = searchRadiusPixels(lat, lng, radiusMiles);
-      if (radiusPixels === 0) return;
-
-      // Calculate scale so that radius fits in targetPixels
-      const desiredScale = targetPixels / radiusPixels;
-      const clampedScale = Math.max(
-        MIN_SCALE,
-        Math.min(MAX_SCALE, desiredScale),
-      );
-
-      // Calculate translation to center the point
-      const translate = [
-        width / 2 - clampedScale * center[0],
-        height / 2 - clampedScale * center[1],
-      ];
-
-      // Apply the zoom transform
-      const transform = d3.zoomIdentity
-        .translate(translate[0], translate[1])
-        .scale(clampedScale);
-
-      svg.transition().duration(zoomDuration).call(zoom.transform, transform);
-
-      // Draw search overlay (pin + circle)
-      drawSearchOverlay(lat, lng, radiusMiles);
-    };
-
-    // Initialize search functionality
-    const parkSearch = new ParkSearch(
-      data,
-      (filteredParks) => {
-        // Update map to highlight/dim parks based on filter
-        g.selectAll(".park-marker")
-          .style("opacity", (d) => (filteredParks.includes(d) ? 1 : 0.2))
-          .classed("filtered-out", (d) => !filteredParks.includes(d));
-        syncActiveState();
-        announceResults(filteredParks.length, data.length);
-      },
-      zoomToStateByAbbrev,
-      zoomToLocation,
-    );
-
-    // Attach highlight callbacks for hover
-    parkSearch.onHighlightPark = highlightParkMarker;
-    parkSearch.onUnhighlightPark = unhighlightParkMarker;
-
-    // Open the park modal when a search result is clicked
-    parkSearch.onParkSelect = (park, event) => clickedPoint(event, park);
-
-    // Create search UI
-    searchUI = createSearchUI(sheets, parkSearch, d3.select("#slot-search"));
-
-    // Legend popover: rows toggle the visited filter, kept in sync with the
-    // search sheet's segmented control through the ParkSearch change callback.
-    const legend = createLegend({
-      trigger: countPill.node(),
-      popover: document.getElementById("legend-popover"),
-      visited: parksVisitedCount,
-      total: data.length,
-      onSelect: (value) => parkSearch.setVisitedFilter(value),
-    });
-    parkSearch.onVisitedChange(legend.setActive);
-
-    // Calculate and create stats button
-    const stats = calculateStats(data, visitData);
-    createStatsButton(sheets, stats, d3.select("#slot-stats"));
-  })
-  .catch(function (error) {
-    console.error("Failed to load map data:", error);
-    loadingIndicator.classed("error", true).text("Could not load map data. ");
-    loadingIndicator
-      .append("button")
-      .attr("type", "button")
-      .attr("class", "retry-button")
-      .text("Retry")
-      .on("click", () => window.location.reload());
+  const mesh = topojson.mesh(json, json.objects.states, function (a, b) {
+    return a !== b;
   });
+
+  g.selectAll("path")
+    .data(features)
+    .enter()
+    .append("path")
+    .attr("d", path)
+    .attr("class", function (d) {
+      let visit_count = d.properties.parks.reduce(
+        (count, park) => count + parseInt(park.visited),
+        0,
+      );
+      let parks_in_state = d.properties.parks.length;
+      // A state with no NPS sites is not "complete" (0 === 0 would
+      // otherwise mark it green).
+      return parks_in_state > 0 && visit_count === parks_in_state
+        ? "state-complete"
+        : "state";
+    })
+    .attr("tabindex", 0)
+    .attr("role", "button")
+    .attr("aria-pressed", "false")
+    .attr("aria-label", (d) => {
+      const parks = d.properties.parks;
+      return stateLabel(
+        d.properties.name,
+        countParksVisited(parks),
+        parks.length,
+      );
+    })
+    .on("mouseover", (event, d) => showTooltip(event, d.properties.name))
+    .on("mouseout", hideTooltip)
+    .on("click", clickedMap)
+    .on("keydown", activateOnKey(activateStateFromKey))
+    .on("focus", (event, d) => {
+      showFocusRing(d);
+      showTooltipForFocus(event, d.properties.name);
+    })
+    .on("blur", () => {
+      hideFocusRing();
+      hideTooltip();
+    });
+
+  g.append("path")
+    .datum(mesh)
+    .attr("class", "mesh")
+    .attr("stroke-width", strokeWidth)
+    .attr("d", path);
+
+  // Outer country outline: edges that belong to exactly one state.
+  const outline = topojson.mesh(json, json.objects.states, (a, b) => a === b);
+  g.append("path")
+    .datum(outline)
+    .attr("class", "outline")
+    .attr("stroke-width", outlineWidth)
+    .attr("d", path);
+
+  // Keyboard focus ring for states. A stroke on the state path itself would
+  // be half-covered by later-painted neighbours, and raising the path would
+  // reorder the DOM (and the tab order), so a dedicated path is drawn on top.
+  focusRing = g
+    .append("path")
+    .attr("class", "focus-ring")
+    .attr("stroke-width", 2)
+    .attr("display", "none");
+
+  const markers = g
+    .selectAll(".park-marker")
+    .data(data)
+    .enter()
+    .append("g")
+    .attr("class", "park-marker")
+    .attr("transform", markerTransform)
+    .attr("data-park-code", (d) => d.parkCode)
+    // Not a tab stop until its state is active (see syncActiveState).
+    .attr("tabindex", -1)
+    .attr("role", "button")
+    .attr("aria-label", (d) => markerLabel(d.fullName, d.visited))
+    .on("mouseover", (event, d) => showTooltip(event, d.name))
+    .on("mouseout", hideTooltip)
+    .on("click", clickedPoint)
+    .on(
+      "keydown",
+      activateOnKey((event) =>
+        clickedPoint(event, d3.select(event.currentTarget).datum()),
+      ),
+    )
+    .on("focus", (event, d) => {
+      // No raise: moving the node in the DOM would drop keyboard focus.
+      highlightParkMarker(d.parkCode, { raise: false });
+      showTooltipForFocus(event, d.name);
+    })
+    .on("blur", (event, d) => {
+      unhighlightParkMarker(d.parkCode);
+      hideTooltip();
+    });
+  markers
+    .append("circle")
+    .attr("class", (d) => (d.visited ? "park-dot" : "park-dot not-visited"))
+    .attr("r", pointRadius)
+    .attr("stroke-width", dotStrokeWidth);
+  // Transparent touch target; CSS enables it only on coarse pointers.
+  markers.append("circle").attr("class", "park-hit").attr("r", hitRadius);
+  fadeInMarkers(markers);
+
+  // Function to zoom to a state by abbreviation
+  const zoomToStateByAbbrev = (stateAbbrev) => {
+    // Find the state feature by abbreviation
+    const stateFeature = features.find(
+      (f) => stateAbbreviations[f.properties.name] === stateAbbrev,
+    );
+    if (stateFeature) {
+      // Find the corresponding DOM element
+      const stateElement = g
+        .selectAll(".state, .state-complete")
+        .filter((d) => d === stateFeature)
+        .node();
+      if (stateElement) {
+        // Simulate a click on the state
+        clickedMap.call(stateElement, null, stateFeature);
+      }
+    }
+  };
+
+  // Function to zoom to a location with a given radius
+  const zoomToLocation = (lat, lng, radiusMiles) => {
+    // Clear signal from search panel
+    if (lat === null) {
+      clearSearchOverlay();
+      return;
+    }
+
+    // Project the center point
+    const center = projection([lng, lat]);
+    if (!center) return; // Location outside projection bounds
+
+    // Calculate scale based on radius
+    // We want the radius to fit within ~40% of the smaller screen dimension
+    const targetPixels = Math.min(width, height) * 0.4;
+    const radiusPixels = searchRadiusPixels(lat, lng, radiusMiles);
+    if (radiusPixels === 0) return;
+
+    // Calculate scale so that radius fits in targetPixels
+    const desiredScale = targetPixels / radiusPixels;
+    const clampedScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, desiredScale));
+
+    // Calculate translation to center the point
+    const translate = [
+      width / 2 - clampedScale * center[0],
+      height / 2 - clampedScale * center[1],
+    ];
+
+    // Apply the zoom transform
+    const transform = d3.zoomIdentity
+      .translate(translate[0], translate[1])
+      .scale(clampedScale);
+
+    svg.transition().duration(zoomDuration).call(zoom.transform, transform);
+
+    // Draw search overlay (pin + circle)
+    drawSearchOverlay(lat, lng, radiusMiles);
+  };
+
+  // Initialize search functionality
+  const parkSearch = new ParkSearch(
+    data,
+    (filteredParks) => {
+      // Update map to highlight/dim parks based on filter
+      g.selectAll(".park-marker")
+        .style("opacity", (d) => (filteredParks.includes(d) ? 1 : 0.2))
+        .classed("filtered-out", (d) => !filteredParks.includes(d));
+      syncActiveState();
+      announceResults(filteredParks.length, data.length);
+    },
+    zoomToStateByAbbrev,
+    zoomToLocation,
+  );
+
+  // Attach highlight callbacks for hover
+  parkSearch.onHighlightPark = highlightParkMarker;
+  parkSearch.onUnhighlightPark = unhighlightParkMarker;
+
+  // Open the park modal when a search result is clicked
+  parkSearch.onParkSelect = (park, event) => clickedPoint(event, park);
+
+  // Create search UI
+  searchUI = createSearchUI(sheets, parkSearch, d3.select("#slot-search"));
+
+  // Legend popover: rows toggle the visited filter, kept in sync with the
+  // search sheet's segmented control through the ParkSearch change callback.
+  const legend = createLegend({
+    trigger: countPill.node(),
+    popover: document.getElementById("legend-popover"),
+    visited: parksVisitedCount,
+    total: data.length,
+    onSelect: (value) => parkSearch.setVisitedFilter(value),
+  });
+  parkSearch.onVisitedChange(legend.setActive);
+
+  // Calculate and create stats button
+  const stats = calculateStats(data, visitData);
+  createStatsButton(sheets, stats, d3.select("#slot-stats"));
+  markReady();
+}
 
 /**
  * Compute the on-screen pixel radius for a search circle of the given radius
