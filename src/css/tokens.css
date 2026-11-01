@@ -1,12 +1,14 @@
 :root {
+  color-scheme: light dark;
+
   /* Theme tokens (light) */
   --ocean: #dbe7ee;
   --land: #f3efe4;
-  --land-complete: #8fb57a;
-  --border-map: #9a8b78;
+  --land-complete: #b5d3a3;
+  --border-map: #8a7b68;
   --outline-map: var(--ink-2);
   --visited: #2f6b2a;
-  --not-visited: #b08a5a;
+  --not-visited: #86602a;
   --surface: #fffdf8;
   --surface-2: #f4efe6;
   --ink: #2b1f16;
@@ -86,8 +88,8 @@
   :root {
     --ocean: #1b2229;
     --land: #2a2d2a;
-    --land-complete: #3f6b38;
-    --border-map: #5a5248;
+    --land-complete: #355c2f;
+    --border-map: #857a6a;
     --visited: #7fc272;
     --not-visited: #c9a97a;
     --surface: #1e1b18;
@@ -100,6 +102,48 @@
     --shadow-sheet: 0 1px 3px rgb(0 0 0 / 30%), 0 12px 32px rgb(0 0 0 / 45%);
     --scrim: rgb(0 0 0 / 55%);
   }
+}
+
+/* Forced schemes (testing, future toggle). Keep in sync with the blocks above;
+   scripts/contrast.mjs checks this. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ocean: #1b2229;
+  --land: #2a2d2a;
+  --land-complete: #355c2f;
+  --border-map: #857a6a;
+  --visited: #7fc272;
+  --not-visited: #c9a97a;
+  --surface: #1e1b18;
+  --surface-2: #2a2622;
+  --ink: #f1ebe2;
+  --ink-2: #b4a898;
+  --accent: #d9c3a5;
+  --on-accent: #1e1b18;
+  --danger: #ef5350;
+  --shadow-sheet: 0 1px 3px rgb(0 0 0 / 30%), 0 12px 32px rgb(0 0 0 / 45%);
+  --scrim: rgb(0 0 0 / 55%);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --ocean: #dbe7ee;
+  --land: #f3efe4;
+  --land-complete: #b5d3a3;
+  --border-map: #8a7b68;
+  --visited: #2f6b2a;
+  --not-visited: #86602a;
+  --surface: #fffdf8;
+  --surface-2: #f4efe6;
+  --ink: #2b1f16;
+  --ink-2: #6b5a4b;
+  --accent: #3d2314;
+  --on-accent: #fff;
+  --danger: #c62828;
+  --shadow-sheet: 0 1px 3px rgb(0 0 0 / 8%), 0 12px 32px rgb(0 0 0 / 14%);
+  --scrim: rgb(20 14 10 / 45%);
 }
 
 /* Plain-color fallbacks for browsers without color-mix(). */
@@ -119,5 +163,13 @@
     :root {
       --nps-tan-dark: #33302c;
     }
+  }
+
+  :root[data-theme="dark"] {
+    --nps-tan-dark: #33302c;
+  }
+
+  :root[data-theme="light"] {
+    --nps-tan-dark: #eae7e1;
   }
 }

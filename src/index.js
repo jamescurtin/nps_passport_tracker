@@ -432,7 +432,7 @@ function drawSearchOverlay(lat, lng, radiusMiles) {
     .attr("cx", center[0])
     .attr("cy", center[1])
     .attr("r", 6 / k)
-    .attr("stroke", "white")
+    .style("stroke", "var(--surface)")
     .attr("stroke-width", 2 / k);
 
   applyOverlayColors();
