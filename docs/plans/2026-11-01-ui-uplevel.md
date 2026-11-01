@@ -226,6 +226,8 @@ Files: `src/css/tokens.css`, `src/js/theme.js`, `statistics.js`.
 - Contrast check: all text ≥ 4.5:1, markers ≥ 3:1 against land fills, in
   both themes. Record results in the PR.
 - `theme-color` meta switches via `media` attribute.
+- `:root[data-theme="dark"|"light"]` forces a scheme (testing, future toggle).
+  `npm run contrast` audits both token sets (`scripts/contrast.mjs`).
 
 ### Phase 7 — Accessibility and keyboard
 
@@ -244,10 +246,10 @@ Light:
 | ----------------- | --------- | ------------------- |
 | `--ocean`         | `#dbe7ee` | map background      |
 | `--land`          | `#f3efe4` | state fill          |
-| `--land-complete` | `#8fb57a` | fully-visited state |
-| `--border-map`    | `#9a8b78` | mesh stroke         |
+| `--land-complete` | `#b5d3a3` | fully-visited state |
+| `--border-map`    | `#8a7b68` | mesh stroke         |
 | `--visited`       | `#2f6b2a` | markers, chips      |
-| `--not-visited`   | `#b08a5a` | markers             |
+| `--not-visited`   | `#86602a` | markers             |
 | `--surface`       | `#fffdf8` | cards, sheets       |
 | `--surface-2`     | `#f4efe6` | nested cards        |
 | `--ink`           | `#2b1f16` | text                |
@@ -261,8 +263,8 @@ Dark:
 | ----------------- | --------- |
 | `--ocean`         | `#1b2229` |
 | `--land`          | `#2a2d2a` |
-| `--land-complete` | `#3f6b38` |
-| `--border-map`    | `#5a5248` |
+| `--land-complete` | `#355c2f` |
+| `--border-map`    | `#857a6a` |
 | `--visited`       | `#7fc272` |
 | `--not-visited`   | `#c9a97a` |
 | `--surface`       | `#1e1b18` |
