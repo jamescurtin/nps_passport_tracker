@@ -4,7 +4,7 @@ requests==2.34.2
 
 # CI Deps
 black==26.10.1
-flake8==7.4.1
+flake8==7.5.0
 isort==9.0.2
 mypy==2.4.0
 flake8-docstrings==1.7.0
