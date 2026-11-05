@@ -10,6 +10,14 @@
 // - "card":   desktop, non-modal -> floating card at `data-anchor`
 // - "sheet":  mobile, any -> bottom sheet with a drag handle
 //
+// A sheet created with `snapPoints` (e.g. ["peek", "full"]) is non-modal on
+// mobile: it opens at the first snap point as a card above the toolbar, the
+// map stays interactive, and dragging the handle moves between snap points
+// (down from the first one closes). `data-snap` carries the current point.
+// Desktop keeps the `modal` option. If a modal sheet is already open on
+// mobile, the snap sheet opens modal too (outside a modal dialog nothing is
+// interactive).
+//
 // Nothing here touches the DOM or `window` at import time, so modules that
 // import this file stay testable in the node environment.
 
@@ -22,6 +30,10 @@ const INERT_SELECTORS = ["#map-container", ".app-bar", ".toolbar"];
 const DISMISS_DISTANCE_RATIO = 0.25;
 const DISMISS_VELOCITY = 0.5; // px per ms
 const DISMISS_MIN_FLICK = 24; // px
+// Snap sheets: an upward drag this far (or a flick) moves up one snap point;
+// a downward drag past this fraction of the height closes from any point.
+const SNAP_UP_DISTANCE = 48; // px
+const CLOSE_FROM_UPPER_SNAP_RATIO = 0.6;
 
 // Open sheets, oldest first. The last entry is the innermost.
 const registry = [];
@@ -87,6 +99,13 @@ function restoreFocusTo(target) {
 }
 
 /**
+ * @return {boolean} true while any sheet is open
+ */
+export function hasOpenSheet() {
+  return registry.length > 0;
+}
+
+/**
  * Close the most recently opened sheet (used by the global Escape handler).
  * @return {boolean} true if a sheet was open and is now closing
  */
@@ -108,6 +127,9 @@ export function closeTopSheet() {
  *   readers only (the body renders its own heading)
  * @param {string} [options.className] - Extra classes for the <dialog>
  * @param {Element} [options.parent] - Container for the <dialog>
+ * @param {string[]} [options.snapPoints] - Mobile snap points, lowest
+ *   first (CSS heights key off `data-snap`). Makes the sheet non-modal on
+ *   mobile; see the file header.
  * @param {Function} [options.onClose] - Called with the close reason
  *   ("user", "escape", "backdrop", "drag", "native", or the caller's own) as
  *   soon as the sheet closes, before focus is restored
@@ -121,6 +143,7 @@ export function createSheet({
   hideTitle = false,
   className = "",
   parent,
+  snapPoints = null,
   onClose,
 } = {}) {
   getMobileQuery();
@@ -175,12 +198,19 @@ export function createSheet({
 
   let openState = false;
   let lastFocused = null;
+  // Modality of the current open (snap sheets differ between layouts).
+  let currentModal = modal;
+  // Set while applyMode swaps show()/showModal(), so the close event from
+  // that swap does not close the sheet.
+  let reopening = false;
 
   const sheet = {
     el,
     body,
     header: headerExtra,
-    modal,
+    get modal() {
+      return currentModal;
+    },
     open,
     close,
     isOpen: () => openState,
@@ -191,8 +221,41 @@ export function createSheet({
     focusClose: () => closeButton.focus(),
   };
 
+  /**
+   * @return {boolean} Whether this open should be modal
+   */
+  function wantModal() {
+    if (!snapPoints || !isMobile()) return modal;
+    return registry.some((other) => other !== sheet && other.modal);
+  }
+
+  /**
+   * Swap the open <dialog> between show() and showModal().
+   * @param {boolean} next - Modal or not
+   */
+  function setModality(next) {
+    if (next === currentModal) return;
+    currentModal = next;
+    if (!el.open) return;
+    reopening = true;
+    el.close();
+    reopening = false;
+    if (next) el.showModal();
+    else el.show();
+  }
+
   function applyMode() {
-    el.dataset.mode = isMobile() ? "sheet" : modal ? "dialog" : "card";
+    if (openState) setModality(wantModal());
+    const mobileMode = isMobile();
+    el.dataset.mode = mobileMode ? "sheet" : currentModal ? "dialog" : "card";
+    if (snapPoints && mobileMode && !currentModal) {
+      if (!snapPoints.includes(el.dataset.snap)) {
+        el.dataset.snap = snapPoints[0];
+      }
+    } else {
+      delete el.dataset.snap;
+    }
+    if (openState) syncInert();
   }
 
   /**
@@ -202,13 +265,19 @@ export function createSheet({
    *   (defaults to the focused element)
    */
   function open({ opener } = {}) {
-    if (openState) return;
+    if (openState) {
+      // Content swapped in place (e.g. another marker): no close/reopen.
+      if (opener) lastFocused = opener;
+      return;
+    }
     lastFocused = opener || document.activeElement;
+    currentModal = wantModal();
     openState = true;
     registry.push(sheet);
+    delete el.dataset.snap;
     applyMode();
     if (!el.open) {
-      if (modal) el.showModal();
+      if (currentModal) el.showModal();
       else el.show();
     }
     syncInert();
@@ -253,7 +322,7 @@ export function createSheet({
   // keep the registry in sync. Ignore the event from our own close, and
   // the case where the sheet was reopened before the event fired.
   el.addEventListener("close", () => {
-    if (openState && !el.open) close({ reason: "native" });
+    if (!reopening && openState && !el.open) close({ reason: "native" });
   });
 
   // Backdrop click (modal only). Require the press to start on the backdrop
@@ -263,34 +332,45 @@ export function createSheet({
     pressedBackdrop = event.target === el;
   });
   el.addEventListener("click", (event) => {
-    if (modal && pressedBackdrop && event.target === el) {
+    if (currentModal && pressedBackdrop && event.target === el) {
       close({ reason: "backdrop" });
     }
     pressedBackdrop = false;
   });
 
-  attachDrag(sheet, header, closeButton);
+  attachDrag(sheet, { header, panel, closeButton, snapPoints });
   return sheet;
 }
 
 /**
- * Drag-to-dismiss on the bottom sheet header (mobile mode only). The header
- * has `touch-action: none` so touch drags reach us instead of scrolling.
+ * Drag on the bottom sheet header (mobile mode only): dismiss, or move
+ * between snap points for a snap sheet. The header has `touch-action: none`
+ * so touch drags reach us instead of scrolling.
  * @param {object} sheet - Sheet object from createSheet
- * @param {Element} header - Drag surface
- * @param {Element} closeButton - Excluded from starting a drag
+ * @param {object} parts
+ * @param {Element} parts.header - Drag surface
+ * @param {Element} parts.panel - Grows while a snap sheet is dragged up
+ * @param {Element} parts.closeButton - Excluded from starting a drag
+ * @param {string[]|null} parts.snapPoints - Snap points, lowest first
  */
-function attachDrag(sheet, header, closeButton) {
+function attachDrag(sheet, { header, panel, closeButton, snapPoints }) {
   const el = sheet.el;
   let drag = null;
+
+  // Index of the current snap point, or -1 outside snap mode.
+  const snapIndex = () =>
+    snapPoints && el.dataset.snap ? snapPoints.indexOf(el.dataset.snap) : -1;
 
   header.addEventListener("pointerdown", (event) => {
     if (el.dataset.mode !== "sheet" || !sheet.isOpen()) return;
     if (event.button !== 0 || closeButton.contains(event.target)) return;
+    const index = snapIndex();
     drag = {
       id: event.pointerId,
       startY: event.clientY,
       startT: event.timeStamp,
+      startHeight: panel.getBoundingClientRect().height,
+      canGrow: index !== -1 && index < snapPoints.length - 1,
       dy: 0,
     };
     header.setPointerCapture?.(event.pointerId);
@@ -299,9 +379,43 @@ function attachDrag(sheet, header, closeButton) {
 
   header.addEventListener("pointermove", (event) => {
     if (!drag || event.pointerId !== drag.id) return;
-    drag.dy = Math.max(0, event.clientY - drag.startY);
-    el.style.transform = `translateY(${drag.dy}px)`;
+    const raw = event.clientY - drag.startY;
+    drag.dy = drag.canGrow ? raw : Math.max(0, raw);
+    if (drag.dy >= 0) {
+      el.style.transform = `translateY(${drag.dy}px)`;
+      panel.style.height = "";
+    } else {
+      // Up toward the next snap point: grow the panel (CSS max-height caps it).
+      el.style.transform = "";
+      panel.style.height = `${drag.startHeight - drag.dy}px`;
+    }
   });
+
+  /**
+   * Outcome of a released drag.
+   * @return {"close"|"up"|"down"|"stay"}
+   */
+  const outcome = (dy, velocity) => {
+    const height = el.getBoundingClientRect().height;
+    const flickDown = velocity > DISMISS_VELOCITY && dy > DISMISS_MIN_FLICK;
+    const flickUp = velocity < -DISMISS_VELOCITY && -dy > DISMISS_MIN_FLICK;
+    const index = snapIndex();
+    if (index === -1) {
+      return dy > height * DISMISS_DISTANCE_RATIO || flickDown
+        ? "close"
+        : "stay";
+    }
+    if (-dy > SNAP_UP_DISTANCE || flickUp) {
+      return index < snapPoints.length - 1 ? "up" : "stay";
+    }
+    if (dy > height * DISMISS_DISTANCE_RATIO || flickDown) {
+      if (index === 0 || dy > height * CLOSE_FROM_UPPER_SNAP_RATIO) {
+        return "close";
+      }
+      return "down";
+    }
+    return "stay";
+  };
 
   const end = (event) => {
     if (!drag || event.pointerId !== drag.id) return;
@@ -309,18 +423,18 @@ function attachDrag(sheet, header, closeButton) {
     drag = null;
     header.releasePointerCapture?.(event.pointerId);
     delete el.dataset.dragging;
-    let dismiss = false;
+    let result = "stay";
     if (event.type === "pointerup") {
-      const velocity = dy / Math.max(1, event.timeStamp - startT);
-      const far =
-        dy > el.getBoundingClientRect().height * DISMISS_DISTANCE_RATIO;
-      const flick = velocity > DISMISS_VELOCITY && dy > DISMISS_MIN_FLICK;
-      dismiss = far || flick;
+      result = outcome(dy, dy / Math.max(1, event.timeStamp - startT));
     }
     // Close before clearing the inline transform, so the exit animation
     // starts from the dragged position instead of jumping back first.
-    if (dismiss) sheet.close({ reason: "drag" });
+    if (result === "close") sheet.close({ reason: "drag" });
+    if (result === "up" || result === "down") {
+      el.dataset.snap = snapPoints[snapIndex() + (result === "up" ? 1 : -1)];
+    }
     el.style.transform = "";
+    panel.style.height = "";
   };
   header.addEventListener("pointerup", end);
   header.addEventListener("pointercancel", end);

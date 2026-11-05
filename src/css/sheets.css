@@ -247,6 +247,32 @@
   border-radius: var(--radius-sheet);
 }
 
+/*
+ * Snap sheet (mobile, non-modal): fixed heights so the card does not resize
+ * with its content. "peek" leaves the map visible above it; "full" matches a
+ * modal bottom sheet but never runs under the header.
+ */
+.sheet[data-mode="sheet"][data-snap] .sheet-panel {
+  max-height: min(
+    var(--sheet-max-h),
+    calc(100dvh - var(--header-h) - var(--toolbar-h) - var(--spacing-sm))
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sheet[data-mode="sheet"][data-snap]:not([data-dragging]) .sheet-panel {
+    transition: height 200ms ease-out;
+  }
+}
+
+.sheet[data-mode="sheet"][data-snap="peek"] .sheet-panel {
+  height: var(--sheet-peek-h);
+}
+
+.sheet[data-mode="sheet"][data-snap="full"] .sheet-panel {
+  height: var(--sheet-max-h);
+}
+
 /* Entry state. Must follow the per-mode rules above to win the cascade. */
 @starting-style {
   .sheet[open] {

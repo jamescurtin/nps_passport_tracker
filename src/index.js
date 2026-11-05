@@ -13,17 +13,15 @@ import {
   syncMarkerTabindex,
 } from "./js/keyboard";
 import { announce } from "./js/live";
-import { clickedPoint } from "./js/modal";
+import { clickedPoint, closeParkSheet } from "./js/modal";
 import { renderParkRows } from "./js/park_row";
-import { createSheet, closeTopSheet } from "./js/sheet";
+import { fitProjection } from "./js/projection";
+import { createSheet, closeTopSheet, hasOpenSheet } from "./js/sheet";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
 
 import "./css/index.css";
-
-// Modified version of geo-albers-usa that includes projections for all US territories
-const geoAlbersUsaTerritories = require("geo-albers-usa-territories");
 
 // Selector for active state when zoomed
 let active = d3.select(null);
@@ -57,12 +55,6 @@ const measureMap = () => {
   return { width: Math.round(rect.width), height: Math.round(rect.height) };
 };
 let { width, height } = measureMap();
-// Use smaller scale on mobile to prevent map from being cut off
-const getMapScale = () => {
-  const baseScale = mobileQuery.matches ? 1.2 : 1.5;
-  return Math.min(width, height) * baseScale;
-};
-let scale = getMapScale();
 const borderRadius = 5;
 
 // NPS Site point marker properties
@@ -88,11 +80,20 @@ const TOOLTIP_MARGIN = 4;
 
 // Map properties
 const strokeWidth = 0.25;
-let projection = geoAlbersUsaTerritories
-  .geoAlbersUsaTerritories()
-  .scale(scale)
-  .translate([width / 2, height / 2]);
-let path = d3.geoPath(projection);
+// States and territories as one FeatureCollection; the projection is fit to
+// it (set once data loads, reused on resize). At the zoom identity the whole
+// collection fits inside the container.
+let stateCollection = null;
+let projection = null;
+let path = null;
+
+/**
+ * Fit the projection to the current container size and the drawn states.
+ */
+function updateProjection() {
+  projection = fitProjection(width, height, stateCollection);
+  path = d3.geoPath(projection);
+}
 
 // Page shell lives in src/index.html
 const body = d3.select("body");
@@ -280,7 +281,9 @@ loadData();
 function renderMap([json, parkData, visitData]) {
   loadSlot.html("");
   const data = mergeNPSData(parkData, visitData);
-  const features = topojson.feature(json, json.objects.states).features;
+  stateCollection = topojson.feature(json, json.objects.states);
+  const features = stateCollection.features;
+  updateProjection();
 
   const parksVisitedCount = countParksVisited(data);
   const percentVisited = Math.round((parksVisitedCount / data.length) * 100);
@@ -661,6 +664,9 @@ function unhighlightParkMarker(parkCode) {
  * @return {undefined}
  */
 function clickedMap(_, d) {
+  // The mobile park card is non-modal, so this tap reached the map: one tap
+  // both closes the card and zooms.
+  closeParkSheet();
   if (active.node() === this) return resetMap();
   active.classed("active", false);
   active = d3.select(this).classed("active", true);
@@ -758,6 +764,7 @@ function renderStateList(d) {
  * @return {undefined}
  */
 function resetMap() {
+  closeParkSheet();
   active.classed("active", false);
   active = d3.select(null);
   g.selectAll(".dimmed").classed("dimmed", false);
@@ -898,14 +905,14 @@ function hideTooltip() {
 // Handle window resize for responsive map
 const handleResize = debounce(() => {
   ({ width, height } = measureMap());
-  scale = getMapScale();
 
-  // Update projection
-  projection = geoAlbersUsaTerritories
-    .geoAlbersUsaTerritories()
-    .scale(scale)
-    .translate([width / 2, height / 2]);
-  path = d3.geoPath(projection);
+  // Before data loads there is nothing to fit or redraw.
+  if (!stateCollection) {
+    svg.attr("width", width).attr("height", height);
+    svg.select(".background").attr("width", width).attr("height", height);
+    return;
+  }
+  updateProjection();
 
   // Update SVG dimensions
   svg.attr("width", width).attr("height", height);
@@ -1018,10 +1025,11 @@ function activateStateFromKey(event) {
 
 // Escape on the map resets the zoom and returns focus to the state that was
 // active (focus may be on one of its markers). It only acts while a state is
-// active, so a plain Escape elsewhere is untouched. Sheets are modal and make
-// the map inert, so this never competes with the sheet Escape handler below.
+// active, so a plain Escape elsewhere is untouched. Non-modal sheets (search,
+// the mobile park card) leave the map focusable; while one is open, Escape
+// closes the sheet first (document handler above) and the zoom stays.
 svg.on("keydown", (event) => {
-  if (event.key !== "Escape" || !active.node()) return;
+  if (event.key !== "Escape" || !active.node() || hasOpenSheet()) return;
   const stateNode = active.node();
   event.preventDefault();
   resetMap();

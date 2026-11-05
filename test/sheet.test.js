@@ -423,3 +423,148 @@ describe("drag", () => {
     expect("dragging" in a.el.dataset).toBe(false);
   });
 });
+
+describe("snap points", () => {
+  function pointer(type, props = {}) {
+    const event = new window.MouseEvent(type, {
+      bubbles: true,
+      button: 0,
+      ...props,
+    });
+    Object.defineProperty(event, "pointerId", { value: 1 });
+    return event;
+  }
+
+  function snapSheet(id = "park") {
+    return make({ id, snapPoints: ["peek", "full"] });
+  }
+
+  function drag(sheet, toY) {
+    const header = sheet.el.querySelector(".sheet-header");
+    header.dispatchEvent(pointer("pointerdown", { clientY: 0 }));
+    header.dispatchEvent(pointer("pointermove", { clientY: toY }));
+    header.dispatchEvent(pointer("pointerup", { clientY: toY }));
+  }
+
+  it("opens non-modal at the first snap point on mobile", () => {
+    mobile = true;
+    const sheet = snapSheet();
+    sheet.open();
+    expect(sheet.el.dataset.mode).toBe("sheet");
+    expect(sheet.el.dataset.snap).toBe("peek");
+    expect(sheet.modal).toBe(false);
+    expect("testModal" in sheet.el.dataset).toBe(false);
+    expect(document.getElementById("map-container").hasAttribute("inert")).toBe(
+      false,
+    );
+  });
+
+  it("stays a modal dialog on desktop", () => {
+    const sheet = snapSheet();
+    sheet.open();
+    expect(sheet.el.dataset.mode).toBe("dialog");
+    expect(sheet.el.dataset.snap).toBeUndefined();
+    expect(sheet.modal).toBe(true);
+    expect("testModal" in sheet.el.dataset).toBe(true);
+  });
+
+  it("opens modal on mobile when a modal sheet is already open", () => {
+    mobile = true;
+    const list = make({ id: "list" });
+    const sheet = snapSheet();
+    list.open();
+    sheet.open();
+    expect(sheet.modal).toBe(true);
+    expect(sheet.el.dataset.snap).toBeUndefined();
+  });
+
+  it("swaps content in place when opened again", () => {
+    mobile = true;
+    const sheet = snapSheet();
+    const onClose = vi.fn();
+    sheet.el.addEventListener("close", onClose);
+    sheet.open();
+    sheet.open({ opener: document.getElementById("opener") });
+    expect(sheet.isOpen()).toBe(true);
+    expect(onClose).not.toHaveBeenCalled();
+    sheet.close();
+    expect(document.activeElement.id).toBe("opener");
+  });
+
+  it("switches to a modal dialog when the layout leaves mobile", () => {
+    mobile = true;
+    const sheet = snapSheet();
+    sheet.open();
+    mobile = false;
+    mediaListeners.forEach((cb) => cb());
+    expect(sheet.isOpen()).toBe(true);
+    expect(sheet.el.open).toBe(true);
+    expect(sheet.el.dataset.mode).toBe("dialog");
+    expect("testModal" in sheet.el.dataset).toBe(true);
+    expect(document.getElementById("map-container").hasAttribute("inert")).toBe(
+      true,
+    );
+  });
+
+  it("drags up to full, down to peek, and down from peek to close", () => {
+    mobile = true;
+    const sheet = snapSheet();
+    vi.spyOn(sheet.el, "getBoundingClientRect").mockReturnValue({
+      height: 700,
+    });
+    sheet.open();
+    drag(sheet, -100);
+    expect(sheet.el.dataset.snap).toBe("full");
+    // Past the dismiss threshold but short of the close-from-full one.
+    drag(sheet, 250);
+    expect(sheet.isOpen()).toBe(true);
+    expect(sheet.el.dataset.snap).toBe("peek");
+    drag(sheet, 250);
+    expect(sheet.isOpen()).toBe(false);
+  });
+
+  it("closes from full on a long drag down", () => {
+    mobile = true;
+    const sheet = snapSheet();
+    vi.spyOn(sheet.el, "getBoundingClientRect").mockReturnValue({
+      height: 700,
+    });
+    sheet.open();
+    drag(sheet, -100);
+    drag(sheet, 500);
+    expect(sheet.isOpen()).toBe(false);
+  });
+
+  it("grows the panel while dragging up and clears it on release", () => {
+    mobile = true;
+    const sheet = snapSheet();
+    sheet.open();
+    const header = sheet.el.querySelector(".sheet-header");
+    const panel = sheet.el.querySelector(".sheet-panel");
+    vi.spyOn(panel, "getBoundingClientRect").mockReturnValue({ height: 400 });
+    header.dispatchEvent(pointer("pointerdown", { clientY: 0 }));
+    header.dispatchEvent(pointer("pointermove", { clientY: -30 }));
+    expect(panel.style.height).toBe("430px");
+    header.dispatchEvent(pointer("pointerup", { clientY: -30 }));
+    expect(panel.style.height).toBe("");
+  });
+
+  it("does not grow past the last snap point", () => {
+    mobile = true;
+    const sheet = snapSheet();
+    sheet.open();
+    drag(sheet, -100);
+    drag(sheet, -100);
+    expect(sheet.el.dataset.snap).toBe("full");
+  });
+
+  it("restarts at the first snap point on reopen", () => {
+    mobile = true;
+    const sheet = snapSheet();
+    sheet.open();
+    drag(sheet, -100);
+    sheet.close();
+    sheet.open();
+    expect(sheet.el.dataset.snap).toBe("peek");
+  });
+});

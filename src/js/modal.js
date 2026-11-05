@@ -15,6 +15,9 @@ function getSheet() {
       title: "Park details",
       hideTitle: true,
       className: "park-sheet",
+      // Mobile: a non-modal half-height card that keeps the map visible
+      // above it; drag the handle up for full height. Desktop: modal dialog.
+      snapPoints: ["peek", "full"],
     });
   }
   return sheet;
@@ -32,7 +35,17 @@ export function clickedPoint(event, d) {
   parkSheet.setTitle(d.fullName);
   renderPark(d3.select(parkSheet.body), d);
   parkSheet.body.scrollTop = 0;
+  // Already open (another marker tapped): content swaps in place and the new
+  // marker becomes the focus target on close.
   parkSheet.open({ opener: event?.currentTarget });
+}
+
+/**
+ * Close the park sheet if it is open (a tap on the map while the mobile card
+ * is open). Focus is not restored: the tap already moved it.
+ */
+export function closeParkSheet() {
+  if (sheet) sheet.close({ reason: "program", restoreFocus: false });
 }
 
 /**

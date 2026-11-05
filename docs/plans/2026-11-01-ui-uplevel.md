@@ -82,7 +82,12 @@ Desktop (>= 768px)                      Mobile (< 768px)
 - One `Sheet` primitive for all four overlays. Desktop: floating card
   (search) or centered `<dialog>` (park, stats, state list). Mobile: bottom
   sheet with drag handle, `max-height: 85dvh`, scroll inside, drag the
-  handle down to dismiss (no snap points).
+  handle down to dismiss. Exception: the park sheet on mobile is a
+  non-modal card with snap points (`snapPoints: ["peek", "full"]`): it opens
+  at peek (48dvh) above the toolbar so the map stays visible and tappable,
+  the handle drags up to full (85dvh) and down to close, and a tap on another
+  marker swaps its content in place. A tap on a state closes it and zooms in
+  one tap. Desktop keeps the centered modal dialog.
 - Legend becomes an HTML popover from the header count pill. Rows are tappable
   and toggle the visited / not-visited filter (replaces the filter buttons'
   duplicate role for the simple case; the search panel keeps its own).
@@ -159,6 +164,10 @@ Files: `src/index.js`, `src/css/map.css`.
 - `getMapScale()` → use `matchMedia("(max-width: 768px)")` and re-run on
   change (S2). Compute scale from the container's bounding box, not
   `window.inner*`, so the header/toolbar never overlap the map.
+  Superseded (fix/mobile-tap-and-fit): the `min(w, h) * factor` heuristic
+  clipped Alaska and American Samoa in portrait. `fitProjection()` in
+  `src/js/projection.js` now fits the states FeatureCollection into the
+  container with 12px padding; `test/projection.test.js` guards it.
 - Zoom duration respects reduced motion (V9).
 
 Exit criteria: zoom into any state shows 1px borders; markers tappable on a
@@ -175,7 +184,16 @@ Files: create `src/js/sheet.js`, `src/css/sheets.css`; modify `modal.js`,
     trap, Escape, `::backdrop` for free).
   - Desktop + `modal: false` → floating card (`position: fixed`).
   - Mobile → bottom sheet with drag handle; translateY transition; pointer
-    events for drag-to-dismiss (no snap points); `inert` applied to the map when modal.
+    events for drag-to-dismiss; `inert` applied to the map when modal.
+  - Deviation (fix/mobile-tap-and-fit): `createSheet` takes
+    `snapPoints: ["peek", "full"]`. Such a sheet is non-modal on mobile
+    (`show()`, no `inert`), opens at the first point (`data-snap="peek"`,
+    48dvh), drags up one point / down one point, and closes on a drag down
+    from peek or a long drag down from full. If a modal sheet is already open
+    on mobile it opens modal (a non-modal dialog behind a modal one is not
+    interactive). Crossing the breakpoint while open swaps
+    `show()`/`showModal()`. Only the park sheet uses it today; the state list
+    could adopt it later.
   - One shared close button with the `close` icon.
   - Registry so `closeTopSheet()` replaces the hand-rolled Escape chain in
     `index.js:760-781`.
