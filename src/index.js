@@ -13,9 +13,11 @@ import {
   syncMarkerTabindex,
 } from "./js/keyboard";
 import { announce } from "./js/live";
-import { clickedPoint, closeParkSheet } from "./js/modal";
+import { clickedPoint, closeParkSheet, onParkSheetChange } from "./js/modal";
 import { renderParkRows } from "./js/park_row";
 import { fitProjection } from "./js/projection";
+import { registerServiceWorker } from "./js/register_sw";
+import { createRouter } from "./js/router";
 import { createSheet, closeTopSheet, hasOpenSheet } from "./js/sheet";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
@@ -34,6 +36,10 @@ let focusRing = null;
 
 // Search UI handle (set once data loads); its sheet closes on state zoom.
 let searchUI = null;
+
+// Hash router (created once data loads); mirrors state zoom and the park
+// sheet into the URL and applies URL changes to the UI.
+let router = null;
 
 // Search overlay elements
 let searchCircle = null;
@@ -472,6 +478,33 @@ function renderMap([json, parkData, visitData]) {
     drawSearchOverlay(lat, lng, radiusMiles);
   };
 
+  router = createRouter({
+    parkStates: (code) => {
+      const park = data.find((p) => p.parkCode === code);
+      if (!park) return null;
+      // A park can span several states (Yellowstone): prefer the state whose
+      // outline contains the park, then the rest in listed order.
+      const containing = features.find((f) =>
+        d3.geoContains(f, [park.longitude, park.latitude]),
+      );
+      const home = containing && stateAbbreviations[containing.properties.name];
+      return home && park.states.includes(home)
+        ? [home, ...park.states.filter((s) => s !== home)]
+        : park.states;
+    },
+    hasState: (abbr) =>
+      features.some((f) => stateAbbreviations[f.properties.name] === abbr),
+    openPark: (code) =>
+      clickedPoint(
+        null,
+        data.find((p) => p.parkCode === code),
+      ),
+    closePark: closeParkSheet,
+    zoomState: zoomToStateByAbbrev,
+    reset: resetMap,
+  });
+  onParkSheetChange(router.parkChanged);
+
   // Initialize search functionality
   const parkSearch = new ParkSearch(
     data,
@@ -512,6 +545,8 @@ function renderMap([json, parkData, visitData]) {
   const stats = calculateStats(data, visitData);
   createStatsButton(sheets, stats, d3.select("#slot-stats"));
   markReady();
+  // Last: a deep link needs the map, search and sheets in place.
+  router.start();
 }
 
 /**
@@ -676,6 +711,7 @@ function clickedMap(_, d) {
     (_d, i, nodes) => nodes[i] !== this,
   );
   syncActiveState();
+  router?.stateChanged(stateAbbreviations[d.properties.name]);
 
   const bounds = path.bounds(d);
   const dx = bounds[1][0] - bounds[0][0];
@@ -769,6 +805,7 @@ function resetMap() {
   active = d3.select(null);
   g.selectAll(".dimmed").classed("dimmed", false);
   syncActiveState();
+  router?.stateChanged(null);
 
   // Reset d3 zoom transform
   svg.transition().duration(zoomDuration).call(zoom.transform, d3.zoomIdentity);
@@ -1087,3 +1124,7 @@ function openStateList() {
 function closeStateList({ restoreFocus = false } = {}) {
   stateSheet.close({ reason: "program", restoreFocus });
 }
+
+// Offline support. `process.env.SERVICE_WORKER` is false under the webpack dev
+// server, where a worker would serve stale builds.
+if (process.env.SERVICE_WORKER) registerServiceWorker();

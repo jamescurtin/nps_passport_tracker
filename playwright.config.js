@@ -26,7 +26,7 @@ export default defineConfig({
     },
     {
       name: "desktop",
-      testMatch: /desktop-.*\.spec\.js/,
+      testMatch: /(desktop-.*|deep-links|offline)\.spec\.js/,
       use: { ...devices["Desktop Chrome"] },
     },
   ],

@@ -14,6 +14,10 @@
     max(var(--spacing-md), env(safe-area-inset-right));
   background: var(--surface);
   background: color-mix(in srgb, var(--surface) 78%, transparent);
+
+  /* Safari before 18 only honours the prefixed property. .stylelintrc.json
+     exempts -webkit-backdrop-filter from property-no-vendor-prefix for this. */
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--surface-2);
   border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);

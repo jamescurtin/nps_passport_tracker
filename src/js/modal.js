@@ -1,9 +1,22 @@
 import * as d3 from "d3";
 
+import { copyLink } from "./copy_link";
+import { parkUrl } from "./router";
 import { createSheet } from "./sheet";
 
 // Created on first use so importing this module touches no DOM.
 let sheet = null;
+
+// Called with the park code when the sheet opens or swaps parks, and with
+// null when it closes (the router mirrors this into the URL).
+let parkListener = null;
+
+/**
+ * @param {(code: string|null) => void} listener - Park sheet change callback
+ */
+export function onParkSheetChange(listener) {
+  parkListener = listener;
+}
 
 /**
  * @return {object} The park details sheet (created lazily)
@@ -18,6 +31,7 @@ function getSheet() {
       // Mobile: a non-modal half-height card that keeps the map visible
       // above it; drag the handle up for full height. Desktop: modal dialog.
       snapPoints: ["peek", "full"],
+      onClose: () => parkListener?.(null),
     });
   }
   return sheet;
@@ -34,10 +48,36 @@ export function clickedPoint(event, d) {
   const parkSheet = getSheet();
   parkSheet.setTitle(d.fullName);
   renderPark(d3.select(parkSheet.body), d);
+  renderCopyLink(parkSheet.header, d);
   parkSheet.body.scrollTop = 0;
   // Already open (another marker tapped): content swaps in place and the new
   // marker becomes the focus target on close.
   parkSheet.open({ opener: event?.currentTarget });
+  parkListener?.(d.parkCode);
+}
+
+/**
+ * Put the "Copy link" button in the sheet header area.
+ * @param {Element} header - The sheet's header extra slot
+ * @param {object} d - Park datum
+ */
+function renderCopyLink(header, d) {
+  header.replaceChildren();
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "copy-link";
+  button.textContent = "Copy link";
+  let timer = null;
+  button.addEventListener("click", async () => {
+    const ok = await copyLink(parkUrl(d.parkCode, location.href), header);
+    if (!ok) return;
+    button.textContent = "Link copied";
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      button.textContent = "Copy link";
+    }, 2000);
+  });
+  header.prepend(button);
 }
 
 /**
