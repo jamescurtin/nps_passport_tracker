@@ -20,6 +20,6 @@ export default [
     },
   },
   {
-    ignores: ["dist"],
+    ignores: ["dist", "test-results", "playwright-report"],
   },
 ];

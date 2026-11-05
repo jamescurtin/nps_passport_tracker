@@ -5,3 +5,5 @@ coverage
 .pytest_cache
 venv
 parks-annotations.json
+test-results
+playwright-report

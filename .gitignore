@@ -347,3 +347,7 @@ pyrightconfig.json
 
 # Transient annotation payload written by the update-parks workflow
 parks-annotations.json
+
+# Playwright
+test-results/
+playwright-report/

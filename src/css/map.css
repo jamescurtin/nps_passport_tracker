@@ -125,6 +125,13 @@ div.tooltip {
   svg.zoomed .park-hit {
     pointer-events: all;
   }
+
+  /* Unzoomed, a finger cannot pick one dot (the Northeast ones overlap), so
+     taps go to the state path underneath. Keyboard focus/Enter on markers
+     does not depend on pointer-events. */
+  svg:not(.zoomed) .park-dot {
+    pointer-events: none;
+  }
 }
 
 @media (hover: hover) {

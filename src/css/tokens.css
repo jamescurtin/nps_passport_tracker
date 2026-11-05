@@ -74,6 +74,7 @@
   --scrim: rgb(20 14 10 / 45%);
   --sheet-max-h: 85dvh;
   --sheet-peek-max-h: 55dvh;
+  --sheet-peek-h: 48dvh;
 
   /* Transitions */
   --transition-fast: 200ms ease;
@@ -155,6 +156,7 @@
   :root {
     --sheet-max-h: 85vh;
     --sheet-peek-max-h: 55vh;
+    --sheet-peek-h: 48vh;
   }
 }
 
