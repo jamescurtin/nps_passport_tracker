@@ -88,6 +88,13 @@ test("a tap on a state zooms it; a tap on a zoomed marker opens a peek card", as
   const mapBox = await page.locator("#map-container").boundingBox();
   expect(cardBox.y - mapBox.y).toBeGreaterThan(viewport.height * 0.25);
   await expect(page.locator("#map-container")).not.toHaveAttribute("inert");
+  if (process.env.E2E_SCREENSHOT_DIR) {
+    // The hero is a lazy external image; let it load for the review shot.
+    await card
+      .locator("img.park-hero")
+      .evaluate((img) => img.decode())
+      .catch(() => {});
+  }
   await maybeScreenshot(page, "mobile-peek-card");
 });
 
@@ -111,4 +118,28 @@ test("a tap on another state closes the card and zooms in one tap", async ({
   await page.touchscreen.tap(box.x + box.width / 2, y);
   await expect(page.locator("#park-sheet[open]")).toHaveCount(0);
   await expect(newHampshire).toHaveAttribute("aria-pressed", "true");
+});
+
+test("a toolbar sheet replaces the open park card", async ({ page }) => {
+  await openMap(page);
+  await page.locator('path[aria-label^="Massachusetts,"]').focus();
+  await page.keyboard.press("Enter");
+  await page.locator('.park-marker[tabindex="0"]').first().focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#park-sheet[open]")).toHaveCount(1);
+
+  await page.locator("#search-toggle").tap();
+  await expect(page.locator("#park-sheet[open]")).toHaveCount(0);
+  await expect(page.locator("#search-container")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.locator("#search-container[open]")).toHaveCount(0);
+
+  // State list, then a row: the park opens above the modal list.
+  await page.locator(".parks-in-state-toggle").tap();
+  const list = page.locator("#state-park-list");
+  await expect(list).toHaveAttribute("open", "");
+  await list.locator(".park-row-name").first().tap();
+  const park = page.locator("#park-sheet");
+  await expect(park).toHaveAttribute("open", "");
+  await expect(park.locator(".sheet-close")).toBeFocused();
 });

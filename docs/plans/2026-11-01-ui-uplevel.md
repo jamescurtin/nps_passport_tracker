@@ -192,8 +192,10 @@ Files: create `src/js/sheet.js`, `src/css/sheets.css`; modify `modal.js`,
     from peek or a long drag down from full. If a modal sheet is already open
     on mobile it opens modal (a non-modal dialog behind a modal one is not
     interactive). Crossing the breakpoint while open swaps
-    `show()`/`showModal()`. Only the park sheet uses it today; the state list
-    could adopt it later.
+    `show()`/`showModal()`. Opening any other sheet closes an open snap card
+    (otherwise search would open hidden under it, and a state-list row would
+    fill a card behind the modal list). Only the park sheet uses it today;
+    the state list could adopt it later.
   - One shared close button with the `close` icon.
   - Registry so `closeTopSheet()` replaces the hand-rolled Escape chain in
     `index.js:760-781`.

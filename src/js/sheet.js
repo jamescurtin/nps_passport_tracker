@@ -16,7 +16,7 @@
 // (down from the first one closes). `data-snap` carries the current point.
 // Desktop keeps the `modal` option. If a modal sheet is already open on
 // mobile, the snap sheet opens modal too (outside a modal dialog nothing is
-// interactive).
+// interactive). Opening any other sheet closes an open snap card.
 //
 // Nothing here touches the DOM or `window` at import time, so modules that
 // import this file stay testable in the node environment.
@@ -219,6 +219,8 @@ export function createSheet({
     },
     applyMode,
     focusClose: () => closeButton.focus(),
+    // Open as a non-modal snap card (mobile).
+    isSnapCard: () => openState && el.dataset.snap !== undefined,
   };
 
   /**
@@ -271,6 +273,14 @@ export function createSheet({
       return;
     }
     lastFocused = opener || document.activeElement;
+    // A snap card shares the bottom of the screen with every other sheet:
+    // close it first, so the new sheet is not hidden under it (non-modal) or
+    // left above an unreachable card (modal).
+    registry
+      .filter((other) => other !== sheet && other.isSnapCard())
+      .forEach((other) =>
+        other.close({ reason: "program", restoreFocus: false }),
+      );
     currentModal = wantModal();
     openState = true;
     registry.push(sheet);

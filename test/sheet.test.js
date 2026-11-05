@@ -558,6 +558,30 @@ describe("snap points", () => {
     expect(sheet.el.dataset.snap).toBe("full");
   });
 
+  it("closes an open snap card when another sheet opens", () => {
+    mobile = true;
+    const card = snapSheet();
+    const search = make({ id: "search", modal: false });
+    const opener = document.getElementById("opener");
+    card.open();
+    opener.focus();
+    search.open();
+    expect(card.isOpen()).toBe(false);
+    expect(search.isOpen()).toBe(true);
+    search.close();
+    expect(document.activeElement).toBe(opener);
+  });
+
+  it("keeps an open search sheet when the snap card opens", () => {
+    mobile = true;
+    const search = make({ id: "search", modal: false });
+    const card = snapSheet();
+    search.open();
+    card.open();
+    expect(search.isOpen()).toBe(true);
+    expect(card.isOpen()).toBe(true);
+  });
+
   it("restarts at the first snap point on reopen", () => {
     mobile = true;
     const sheet = snapSheet();
