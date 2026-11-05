@@ -326,5 +326,10 @@ existing `:root` block with values adjusted as described in section 2.
 ## 7. Out of scope
 
 - Data pipeline, NPS API, park metadata.
-- URL routing / deep links to parks (worth a follow-up).
-- PWA offline support (manifest is added, service worker is not).
+- ~~URL routing / deep links to parks~~ Done: `src/js/router.js`, hash routes
+  `#/park/<code>` and `#/state/<ABBR>`, plus a "Copy link" button in the park
+  sheet.
+- ~~PWA offline support~~ Done: `src/sw.js` (precached app shell, network-first
+  data, bounded cache-first NPS photos) and `src/manifest.webmanifest`.
+- ~~`-webkit-backdrop-filter` on `.app-bar`~~ Done, with a narrow stylelint
+  exemption.

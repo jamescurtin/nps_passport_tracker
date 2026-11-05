@@ -141,6 +141,38 @@
   display: none;
 }
 
+.copy-link {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 1px solid var(--surface-2);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--font-size-sm, 0.875rem);
+  cursor: pointer;
+}
+
+.link-field {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--surface-2);
+  border-radius: var(--radius-sm, 6px);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+.copy-link:focus-visible,
+.link-field:focus-visible {
+  outline: 2px solid var(--visited);
+  outline-offset: 2px;
+}
+
 .sheet-body {
   flex: 1 1 auto;
   min-height: 0;

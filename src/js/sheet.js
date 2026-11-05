@@ -373,7 +373,11 @@ function attachDrag(sheet, { header, panel, closeButton, snapPoints }) {
 
   header.addEventListener("pointerdown", (event) => {
     if (el.dataset.mode !== "sheet" || !sheet.isOpen()) return;
-    if (event.button !== 0 || closeButton.contains(event.target)) return;
+    if (event.button !== 0) return;
+    // Controls in the header keep their own taps (pointer capture would
+    // swallow the click).
+    if (closeButton.contains(event.target)) return;
+    if (event.target.closest?.("button, a, input")) return;
     const index = snapIndex();
     drag = {
       id: event.pointerId,
