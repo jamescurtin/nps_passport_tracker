@@ -36,13 +36,13 @@
     "images": [
       {
         "url": "https://www.nps.gov/common/uploads/structured_data/C906986E-DA43-F265-DBB90B353344B762.jpg",
-        "title": "Accessibility in Acadia",
+        "title": "10_Accessibility in Acadia",
         "altText": "Man in a wheelchair smiles wide while stopped on a path with a pond and mountains in the distance"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/D44C463F-A561-74ED-C78695D3E0D31FF3.jpg",
-        "title": "Carriage Road Bike Tour",
-        "altText": "A group of people riding bicycles travels under the arch of a large stone bridge"
+        "url": "https://www.nps.gov/common/uploads/structured_data/5AAEED3A-FE4F-72BF-4C2F4D667A520762.jpg",
+        "title": "1_Cadillac Summit",
+        "altText": "On a mountain summit with open ocean in the distance, people walk along a trail and enjoy scenery"
       }
     ],
     "designation": "National Park"
@@ -3447,14 +3447,14 @@
     "states": ["PA"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/5EFD740F-C46A-26EB-81BBA63205F6C90B.jpg",
+        "title": "Autumn at Mount Washington Tavern",
+        "altText": "Side view of a brick structure on a hill with blue sky above and evergreens behind"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/F78F68EB-E4CB-1C1A-9A36EE67336D8B60.jpg",
         "title": "Fort Necessity",
         "altText": "Circular stockade in the middle of a meadow. Dramatic clouds build in the blue sky."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/3C861B80-1DD8-B71B-0B95A0219BA1CF5A.jpg",
-        "title": "Fort Necessity",
-        "altText": "Fort Necessity and the Great Meadow with trail and tree in the foreground"
       }
     ],
     "designation": "National Battlefield"
