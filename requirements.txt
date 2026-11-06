@@ -8,5 +8,5 @@ flake8==7.5.0
 isort==9.0.2
 mypy==2.4.1
 flake8-docstrings==1.7.0
-types-requests==2.33.0.20261006
+types-requests==2.33.0.20261030
 pytest==9.2.0
