@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@playwright/test": "1.64.1",
+    "@playwright/test": "1.65.0",
     "baseline-browser-mapping": "^2.9.14",
     "css-loader": "7.1.5",
     "eslint": "10.14.0",
