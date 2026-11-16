@@ -20,9 +20,19 @@
     "notes": "We took a tour with Jolene Babyak, who lived on Alacatraz as a child while her father was a guard and, later, assistant warden at the prison. The prison held up to 250 inmates, but the island was also home to over 60 families, including 75 children who took the ferry to and from school every day."
   },
   {
+    "parkCode": "alpo",
+    "visitedOn": ["2026-11-10"],
+    "notes": "The railroad used ten inclined planes, five on each side of the mountain, to cross 36 miles between Hollidaysburg and Johnstown. Its 901-foot Staple Bend Tunnel, completed in 1833, was the first railroad tunnel in the United States. When we visited, we also enjoyed driving just up the road to the Horseshoe Curve to see the funicular and unusual train tracks."
+  },
+  {
     "parkCode": "anti",
     "visitedOn": ["2024-06-17"],
     "notes": "The Battle of Antietam on September 17, 1862 remains the bloodiest single day in American history, with about 23,000 killed, wounded, or missing in roughly 12 hours, and it led Lincoln to issue the preliminary Emancipation Proclamation five days later."
+  },
+  {
+    "parkCode": "arho",
+    "visitedOn": ["2026-11-08"],
+    "notes": "We took a walking tour of Arlington National Cemetery on the same trip that we visited Arlington House. We observed the Changing of the Guard ceremony at 5 PM as the cemetery closed. Due to the timing of our visit, there was a nice sunset visible in the background."
   },
   {
     "parkCode": "bawa",
@@ -65,9 +75,19 @@
     "notes": "Protects 24 miles of undeveloped barrier-island beach, the longest stretch of wild Atlantic coast in Florida. Home to Turtle Mound, a roughly 50-foot Timucua shell midden built up over centuries of discarded oyster shells."
   },
   {
+    "parkCode": "cato",
+    "visitedOn": ["2026-11-09"],
+    "notes": "Camp David, the presidential retreat, sits inside the park and is closed to the public. It started as Camp Hi-Catoctin, a camp for federal employees completed in 1939, and Franklin D. Roosevelt named it Shangri-La in 1942. Blue Blazes Creek, which we walked along, had a large number of small fish, despite a fairly low water level at the time."
+  },
+  {
     "parkCode": "choh",
     "visitedOn": ["2025-03-28"],
     "notes": "The canal runs 184.5 miles from Georgetown to Cumberland, using 74 lift locks to overcome the 605-foot elevation change along the route."
+  },
+  {
+    "parkCode": "chyo",
+    "visitedOn": ["2026-11-13"],
+    "notes": "Charles Young was the third African American graduate of West Point and, in 1903, the first Black superintendent of a national park, at Sequoia. In 1918 he rode a horse 497 miles in 16 days from Wilberforce, Ohio to Washington, DC to prove his fitness for duty. The Park Service did not have many images taken of the interior of the house to use to reconstruct its appearance, though they do know that the house's stained glass windows were purchased by Charles Young's wife from a Sears, Roebuck, and Co. catalog."
   },
   {
     "parkCode": "clba",
@@ -80,9 +100,19 @@
     "notes": "On a small island reached by a wooden footbridge, 56 granite blocks carry the signature, hometown, and occupation of each signer of the Declaration of Independence; dedicated July 2, 1984."
   },
   {
+    "parkCode": "daav",
+    "visitedOn": ["2026-11-13"],
+    "notes": "Orville Wright and Paul Laurence Dunbar were classmates at Dayton's Central High School, and the Wright brothers printed Dunbar's newspaper, the Dayton Tattler. At Huffman Prairie the brothers perfected the 1905 Wright Flyer III, the first practical airplane. While there, we visited Carillon Park, which also had a large museum focusing on Dayton's history of innovation. Some of the highlights beyond the Wright Flyer III included the work that the National Cash Register Company did to crack the German Enigma cipher and the work on the Dayton Project in WWII to produce polonium."
+  },
+  {
     "parkCode": "ddem",
     "visitedOn": ["2024-06-18"],
     "notes": "Designed by Frank Gehry and dedicated in 2020, it features a 447-foot-long stainless steel tapestry, the largest ever attempted, depicting the Pointe du Hoc cliffs of Normandy in peacetime."
+  },
+  {
+    "parkCode": "dsds",
+    "visitedOn": ["2026-11-08"],
+    "notes": "The memorial was dedicated on October 24, 2026, two weeks before our visit. Congress authorized it in 2014 on the condition that it use no federal funds."
   },
   {
     "parkCode": "edal",
@@ -115,9 +145,19 @@
     "notes": "The Fire Island lighthouse was originally constructed at the west end of the island, but is currently more than 5 miles east of the island's end, due to the island's growth from littoral drift."
   },
   {
+    "parkCode": "flni",
+    "visitedOn": ["2026-11-10"],
+    "notes": "There was a moderate wind on the day we visited, and the Tower of Voices (a 93-foot-tall sculpture and instrument that holds 40 wind chimes, one for each passenger and crew member) was ringing loudly."
+  },
+  {
     "parkCode": "fomc",
     "visitedOn": ["2025-03-30"],
     "notes": "The fort's defense during the Battle of Baltimore on September 13–14, 1814 inspired Francis Scott Key to write \"The Star-Spangled Banner\"; it is the only place designated both a National Monument and a Historic Shrine."
+  },
+  {
+    "parkCode": "fone",
+    "visitedOn": ["2026-11-11"],
+    "notes": "On July 3, 1754, a 22-year-old George Washington surrendered here, the only surrender of his military career. It was interesting that Washington purchased the surrounding land later in life as a land speculator, but it did not prove to have significant value. Farmers who subsequently purchased the property did not plow the fort site, and in the 1950s an archeologist was able to find the burnt stump ends from the original posts that were used to construct the fort wall."
   },
   {
     "parkCode": "fopo",
@@ -128,6 +168,11 @@
     "parkCode": "frde",
     "visitedOn": ["2024-06-18"],
     "notes": "Spread over 7.5 acres, the memorial is laid out as four open-air \"rooms,\" one for each of FDR's four terms, with 21 of his quotations carved in granite."
+  },
+  {
+    "parkCode": "frhi",
+    "visitedOn": ["2026-11-11"],
+    "notes": "Swiss-born Albert Gallatin served as Secretary of the Treasury from 1801 to 1814, still the longest tenure in that office. In 1831 he served on the council that established New York University. Gallatin was extremely influential in the construction of the National Road, the first US highway (now known as US Route 40, which we drove on for quite a while in this area)."
   },
   {
     "parkCode": "frla",
@@ -240,6 +285,11 @@
     "notes": "The Kennedy family sold the property in 1920, and it remained a private residence until 1966 when Rose Kennedy repurchased the house. About 20% of the items in the house were original to the Kennedy family, including the bassinet in the nursery that was used by all of the Kennedy children."
   },
   {
+    "parkCode": "jofl",
+    "visitedOn": ["2026-11-10"],
+    "notes": "The South Fork Dam belonged to the South Fork Fishing and Hunting Club, whose members included Andrew Carnegie, Henry Clay Frick and Andrew Mellon. The relief effort was the first major peacetime disaster response of Clara Barton's American Red Cross."
+  },
+  {
     "parkCode": "jomu",
     "visitedOn": ["2023-05-12"],
     "notes": "John Muir inherited this 10,000 square foot house and orchard from his father in law. The National Park Service still maintains some a small orchard, and we were able to take home lemons as souvenirs!"
@@ -293,6 +343,11 @@
     "parkCode": "mlkm",
     "visitedOn": ["2024-06-18"],
     "notes": "Opened in 2011, it was the first Mall memorial to honor an African American and the first to honor a citizen activist rather than a president or war hero; visitors pass through the split \"Mountain of Despair\" to reach the \"Stone of Hope.\""
+  },
+  {
+    "parkCode": "mono",
+    "visitedOn": ["2026-11-09"],
+    "notes": "Known as \"The Battle That Saved Washington,\" the fight on July 9, 1864 delayed Jubal Early's army by one day, enough for reinforcements to reach the capital. The Union commander, Lew Wallace, later wrote Ben-Hur."
   },
   {
     "parkCode": "morr",
