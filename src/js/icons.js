@@ -39,3 +39,9 @@ export const route = svg(
 export const back = svg(`<path d="M15 6l-6 6 6 6"/>`);
 
 export const play = svg(`<path d="M8 5.5v13l10.5-6.5z"/>`);
+
+export const pause = svg(`<path d="M8 5v14M16 5v14"/>`);
+
+export const clock = svg(
+  `<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>`,
+);

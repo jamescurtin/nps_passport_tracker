@@ -51,6 +51,11 @@ div.tooltip {
   fill: var(--nps-green-sage);
 }
 
+/* Timeline: a complete state stays plain until its last park is visited. */
+.timeline-mode .tl-incomplete {
+  fill: var(--nps-green-light);
+}
+
 @media (hover: hover) {
   .state:hover,
   .state-complete:hover {
@@ -152,6 +157,13 @@ div.tooltip {
   pointer-events: none;
 }
 
+/* Timeline: the map as it was on the slider date. Parks first visited later
+   look not visited yet. */
+.timeline-mode .tl-future .park-dot {
+  fill: var(--not-visited);
+  stroke: var(--surface);
+}
+
 /* Trip view: the route under the markers, other markers faded back. */
 .trip-leg {
   fill: none;
@@ -189,7 +201,8 @@ div.tooltip {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .park-marker.trip-arrive .park-dot {
+  .park-marker.trip-arrive .park-dot,
+  .park-marker.tl-arrive .park-dot {
     transform-box: fill-box;
     transform-origin: center;
     animation: trip-arrive 500ms ease-out;

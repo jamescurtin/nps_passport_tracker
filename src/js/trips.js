@@ -128,7 +128,7 @@ export function tripSummary(trip) {
  * @param {() => void} [options.onOpen] - The sheet is about to open
  * @param {(trip: object) => void} [options.onReplay] - Play the route again
  * @param {() => void} [options.onSkip] - Jump to the end of playback
- * @return {object} `{ sheet, button, show, hide, current, hasTrip,
+ * @return {object} `{ sheet, button, trips, show, hide, current, hasTrip,
  *   setPlaying, markStop }`
  */
 export function createTripsUI({
@@ -351,6 +351,7 @@ export function createTripsUI({
     button,
     show,
     hide,
+    trips,
     current: () => current,
     hasTrip: (id) => byId.has(id),
     setPlaying,

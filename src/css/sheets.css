@@ -769,3 +769,107 @@
 .trip-stop-row.is-current .trip-stop-number {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--trip-route) 35%, transparent);
 }
+
+/* Timeline sheet: wide card centred above the toolbar on desktop, a short
+   card on mobile. */
+.timeline-sheet[data-mode="card"] {
+  right: 0;
+  left: 0;
+  width: min(720px, calc(100% - 2 * var(--spacing-lg)));
+  margin-inline: auto;
+}
+
+.timeline-sheet[data-mode="sheet"][data-snap] .sheet-panel {
+  height: auto;
+}
+
+.timeline-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.timeline-play {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--spacing-xs);
+  min-height: 40px;
+  padding: 0 var(--spacing-md) 0 var(--spacing-sm);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--on-accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.timeline-readout {
+  margin: 0;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-count {
+  color: var(--ink);
+  font-size: var(--font-size-xl);
+}
+
+.timeline-date {
+  display: block;
+  font-size: var(--font-size-sm);
+}
+
+.timeline-chart {
+  position: relative;
+
+  /* Chart (112px, see CHART_HEIGHT in timeline_ui.js) plus the slider. */
+  height: 140px;
+}
+
+.timeline-svg {
+  display: block;
+}
+
+.timeline-bar-total {
+  fill: var(--visited);
+  opacity: 0.2;
+}
+
+.timeline-bar {
+  fill: var(--visited);
+  pointer-events: none;
+}
+
+.timeline-year-label,
+.timeline-bar-value {
+  fill: var(--ink-2);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-playhead {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.timeline-slider {
+  position: absolute;
+  bottom: 0;
+  height: 24px;
+  margin: 0;
+  accent-color: var(--visited);
+  cursor: pointer;
+}
+
+.timeline-slider::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+}
+
+.timeline-play:focus-visible,
+.timeline-slider:focus-visible {
+  outline: 2px solid var(--visited);
+  outline-offset: 2px;
+}

@@ -197,9 +197,11 @@
   }
 }
 
-/* Below 400px the pills become 48px circles; the label stays for screen
-   readers (same rules as the .visually-hidden utility in base.css). */
-@media (width < 400px) {
+/* In the mobile layout the pills become 48px circles: five labeled pills
+   (Search, Parks in <State>, Trips, Timeline, Stats) do not fit a phone. The
+   label stays for screen readers (same rules as the .visually-hidden utility
+   in base.css). */
+@media (width <= 768px) {
   .toolbar-btn {
     width: 48px;
     height: 48px;
