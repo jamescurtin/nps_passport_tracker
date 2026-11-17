@@ -112,3 +112,43 @@ test("the dark theme draws the route", async ({ page }) => {
   await expect(page.locator(".trip-leg")).toHaveCount(22);
   await maybeScreenshot(page, "desktop-trip-dark");
 });
+
+test.describe("with motion", () => {
+  test.use({ reducedMotion: "no-preference" });
+
+  test("the route draws in, stop by stop, then offers Replay", async ({
+    page,
+  }) => {
+    await page.goto("/#/trip/2023-02-hudson");
+    const sheet = page.locator("#trips-sheet");
+    const pending = page.locator(".park-marker.trip-pending");
+    const play = sheet.locator(".trip-play");
+    await expect(play).toHaveText("Skip to end");
+    // Mid-playback: some stops are still waiting for the line.
+    await expect(pending).not.toHaveCount(0);
+    await maybeScreenshot(page, "desktop-trip-playing");
+    await expect(pending).toHaveCount(0, { timeout: 15000 });
+    await expect(play).toHaveText("Replay");
+    await expect(page.locator(".trip-leg[stroke-dasharray]")).toHaveCount(0);
+
+    // Replay starts over; Skip ends it at once.
+    await play.click();
+    await expect(pending).not.toHaveCount(0);
+    await play.click();
+    await expect(pending).toHaveCount(0);
+    await expect(play).toHaveText("Replay");
+  });
+
+  test("a drag on the map ends playback in place", async ({ page }) => {
+    await page.goto("/#/trip/2024-06-mid-atlantic");
+    const pending = page.locator(".park-marker.trip-pending");
+    await expect(pending).not.toHaveCount(0);
+    await page.mouse.move(900, 300);
+    await page.mouse.down();
+    await page.mouse.move(800, 250, { steps: 5 });
+    await page.mouse.up();
+    await expect(pending).toHaveCount(0);
+    await expect(page.locator("#trips-sheet .trip-play")).toHaveText("Replay");
+    await expect(page.locator(".trip-leg")).toHaveCount(22);
+  });
+});

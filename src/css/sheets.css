@@ -669,7 +669,14 @@
   font-variant-numeric: tabular-nums;
 }
 
-.trip-back {
+.trip-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.trip-back,
+.trip-play {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -685,7 +692,8 @@
   cursor: pointer;
 }
 
-.trip-back .icon {
+.trip-back .icon,
+.trip-play .icon {
   width: 16px;
   height: 16px;
 }
@@ -747,7 +755,17 @@
 
 .trip-row:focus-visible,
 .trip-back:focus-visible,
+.trip-play:focus-visible,
 .trip-stop-name:focus-visible {
   outline: 2px solid var(--visited);
   outline-offset: 2px;
+}
+
+/* The stop the route just reached during playback */
+.trip-stop-row.is-current .trip-stop-name {
+  color: var(--trip-route);
+}
+
+.trip-stop-row.is-current .trip-stop-number {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--trip-route) 35%, transparent);
 }

@@ -23,7 +23,8 @@ import { createSheet, closeTopSheet, hasOpenSheet } from "./js/sheet";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
-import { buildTrips, createTripsUI } from "./js/trips";
+import { createTripPlayer } from "./js/trip_player";
+import { buildTrips, createTripsUI, formatDay } from "./js/trips";
 
 import "./css/index.css";
 
@@ -43,9 +44,11 @@ let searchUI = null;
 // sheet into the URL and applies URL changes to the UI.
 let router = null;
 
-// Trips UI handle and the map layer for the route (set once data loads).
+// Trips UI handle, the map layer for the route, and the route player (set
+// once data loads).
 let tripsUI = null;
 let tripLayer = null;
+let tripPlayer = null;
 
 // Search overlay elements
 let searchCircle = null;
@@ -80,13 +83,17 @@ const outlineWidth = 0.6;
 // Trip route line width (px at every zoom level)
 const tripLineWidth = 2.5;
 // A trip fills this fraction of the visible map; its box is at least this
-// many px at k=1, so a cluster of stops in one city does not zoom to max.
+// many px at k=1 (about a mile), so two stops a block apart do not zoom to max.
 const TRIP_FILL = 0.8;
-const TRIP_MIN_EXTENT = 4;
+const TRIP_MIN_EXTENT = 0.5;
+// Camera move between days of a trip, ms.
+const TRIP_CAMERA_MS = 750;
 
-// Zoom scale bounds, shared by the zoom behavior and programmatic zooms.
+// Zoom scale bounds. MAX_SCALE caps the state and location zooms; gestures
+// and trip views may go further, so the National Mall's memorials separate.
 const MIN_SCALE = 1;
 const MAX_SCALE = 16;
+const GESTURE_MAX_SCALE = 400;
 
 // On click properties
 const tooltipOpacity = 0.9;
@@ -147,9 +154,14 @@ const g = svg.append("g");
 // Extended max zoom (16x) to handle small states like DC
 const zoom = d3
   .zoom()
-  .scaleExtent([MIN_SCALE, MAX_SCALE])
+  .scaleExtent([MIN_SCALE, GESTURE_MAX_SCALE])
   .on("zoom", (event) => {
     g.attr("transform", event.transform);
+    // A pan or pinch during trip playback takes over: the route jumps to its
+    // end state and the camera stays where the user put it.
+    if (event.sourceEvent && tripPlayer?.isPlaying()) {
+      tripPlayer.skip({ fit: false });
+    }
 
     // Adjust stroke widths and point sizes based on zoom level
     const k = event.transform.k;
@@ -494,6 +506,8 @@ function renderMap([json, parkData, visitData, tripData]) {
     trips: buildTrips(tripData, new Map(data.map((p) => [p.parkCode, p]))),
     onShow: showTripOnMap,
     onHide: hideTripOnMap,
+    onReplay: playTrip,
+    onSkip: () => tripPlayer.skip(),
     onSelectStop: (park, event) => clickedPoint(event, park),
     onHighlight: highlightParkMarker,
     onUnhighlight: unhighlightParkMarker,
@@ -501,6 +515,8 @@ function renderMap([json, parkData, visitData, tripData]) {
     onOpen: () =>
       searchUI?.sheet.close({ reason: "program", restoreFocus: false }),
   });
+
+  tripPlayer = makeTripPlayer();
 
   router = createRouter({
     parkStates: (code) => {
@@ -674,13 +690,14 @@ function clearSearchOverlay() {
 }
 
 /**
- * Whether a park-dot belongs to a highlighted marker or a trip stop.
+ * Radius multiplier for a park-dot: highlighted markers 2.5x, trip stops 2x.
  * @param {Element} dot - The .park-dot element
- * @return {boolean} true if highlighted
+ * @return {number} 1 for a plain marker
  */
-function isHighlightedDot(dot) {
+function dotScale(dot) {
   const classes = dot.parentNode.classList;
-  return classes.contains("highlighted") || classes.contains("trip-stop");
+  if (classes.contains("highlighted")) return 2.5;
+  return classes.contains("trip-stop") ? 2 : 1;
 }
 
 /**
@@ -691,10 +708,10 @@ function isHighlightedDot(dot) {
 function sizeDots(k = d3.zoomTransform(svg.node()).k) {
   g.selectAll(".park-dot")
     .attr("r", function () {
-      return (isHighlightedDot(this) ? pointRadius * 2.5 : pointRadius) / k;
+      return (pointRadius * dotScale(this)) / k;
     })
     .attr("stroke-width", function () {
-      return (isHighlightedDot(this) ? 2 : dotStrokeWidth) / k;
+      return (dotScale(this) > 1 ? 2 : dotStrokeWidth) / k;
     });
 }
 
@@ -726,10 +743,21 @@ function visibleMapRect() {
  * @param {object} trip - Built trip
  */
 function fitTrip(trip) {
-  const points = trip.stops
+  const transform = stopsTransform(trip.stops);
+  if (!transform) return;
+  svg.transition().duration(zoomDuration).call(zoom.transform, transform);
+}
+
+/**
+ * Zoom transform that fits trip stops beside the trips sheet.
+ * @param {object[]} stops - Trip stops (`{ park }`)
+ * @return {object|null} d3 zoom transform, or null if nothing projects
+ */
+function stopsTransform(stops) {
+  const points = stops
     .map((s) => projection([+s.park.longitude, +s.park.latitude]))
     .filter(Boolean);
-  if (points.length === 0) return;
+  if (points.length === 0) return null;
   const xs = points.map((p) => p[0]);
   const ys = points.map((p) => p[1]);
   const bounds = [
@@ -740,12 +768,120 @@ function fitTrip(trip) {
     fill: TRIP_FILL,
     minExtent: TRIP_MIN_EXTENT,
     minScale: MIN_SCALE,
-    maxScale: MAX_SCALE,
+    maxScale: GESTURE_MAX_SCALE,
   });
-  svg
-    .transition()
-    .duration(zoomDuration)
-    .call(zoom.transform, d3.zoomIdentity.translate(t.x, t.y).scale(t.k));
+  return d3.zoomIdentity.translate(t.x, t.y).scale(t.k);
+}
+
+/**
+ * @param {object} trip - Built trip
+ * @return {object} The trip's stop markers (d3 selection)
+ */
+function tripMarkers(trip) {
+  const codes = new Set(trip.stops.map((s) => s.park.parkCode));
+  return g.selectAll(".park-marker").filter((d) => codes.has(d.parkCode));
+}
+
+/**
+ * The route player, wired to the map. Created once data loads.
+ * @return {object} See createTripPlayer
+ */
+function makeTripPlayer() {
+  const legNodes = () => tripLayer.selectAll(".trip-leg").nodes();
+  return createTripPlayer({
+    // Default-named transition: a d3-zoom gesture or any other zoom
+    // transition interrupts it (the gesture also skips, see the zoom handler).
+    camera: (stops) => {
+      const transform = stopsTransform(stops);
+      if (!transform) return Promise.resolve();
+      return svg
+        .transition()
+        .duration(TRIP_CAMERA_MS)
+        .ease(d3.easeCubicInOut)
+        .call(zoom.transform, transform)
+        .end();
+    },
+    legLength: (i) => legNodes()[i]?.getTotalLength() ?? 0,
+    drawLeg: (i, ms) =>
+      d3
+        .select(legNodes()[i])
+        .transition("trip-draw")
+        .duration(ms)
+        .ease(d3.easeCubicInOut)
+        .attr("stroke-dashoffset", 0)
+        .end(),
+    lightStop: (stop) => {
+      const marker = g
+        .selectAll(".park-marker")
+        .filter((d) => d.parkCode === stop.park.parkCode)
+        .classed("trip-pending", false)
+        .classed("trip-arrive", true);
+      marker.on("animationend.trip", () =>
+        marker.classed("trip-arrive", false).on("animationend.trip", null),
+      );
+      tripsUI.markStop(stop.number);
+    },
+    onDay: (step) =>
+      announce(
+        `${formatDay(step.date)}: ${step.stops.map((s) => s.park.name).join(", ")}`,
+        0,
+      ),
+    finish: (trip, { fit }) => {
+      showRouteComplete(trip);
+      if (fit) fitTrip(trip);
+    },
+    onState: (playing) => tripsUI.setPlaying(playing),
+  });
+}
+
+/**
+ * Hide every leg (full dash offset) and mark every stop pending, ready for
+ * the player to draw them in.
+ * @param {object} trip - Built trip
+ */
+function resetRoute(trip) {
+  tripLayer
+    .selectAll(".trip-leg")
+    .interrupt("trip-draw")
+    .each(function () {
+      const len = this.getTotalLength();
+      d3.select(this)
+        .attr("stroke-dasharray", `${len} ${len}`)
+        .attr("stroke-dashoffset", len);
+    });
+  tripMarkers(trip).classed("trip-pending", true).classed("trip-arrive", false);
+  tripsUI.markStop(null);
+}
+
+/**
+ * Show the whole route drawn and every stop lit.
+ * @param {object} trip - Built trip
+ */
+function showRouteComplete(trip) {
+  tripLayer
+    .selectAll(".trip-leg")
+    .interrupt("trip-draw")
+    .attr("stroke-dasharray", null)
+    .attr("stroke-dashoffset", null);
+  tripMarkers(trip)
+    .classed("trip-pending", false)
+    .classed("trip-arrive", false);
+  tripsUI.markStop(null);
+}
+
+/**
+ * Play a trip's route from the start, or show it complete under reduced
+ * motion.
+ * @param {object} trip - Built trip
+ */
+function playTrip(trip) {
+  if (reduceMotion) {
+    showRouteComplete(trip);
+    fitTrip(trip);
+    return;
+  }
+  resetRoute(trip);
+  tripPlayer.play(trip);
 }
 
 /**
@@ -781,8 +917,8 @@ function showTripOnMap(trip) {
     .attr("d", path)
     .attr("stroke-width", tripLineWidth / k);
 
-  fitTrip(trip);
   router?.tripChanged(trip.id);
+  playTrip(trip);
   announce(`${trip.name}: ${trip.stops.length} sites`);
 }
 
@@ -792,8 +928,13 @@ function showTripOnMap(trip) {
  * @param {boolean} [options.resetZoom=true] - Zoom back out
  */
 function hideTripOnMap({ resetZoom = true } = {}) {
+  tripPlayer.stop();
+  svg.interrupt();
   g.classed("trip-mode", false);
-  g.selectAll(".park-marker.trip-stop").classed("trip-stop", false);
+  g.selectAll(".park-marker.trip-stop")
+    .classed("trip-stop", false)
+    .classed("trip-pending", false)
+    .classed("trip-arrive", false);
   sizeDots();
   syncActiveState();
   tripLayer.selectAll("*").remove();
@@ -852,14 +993,10 @@ function unhighlightParkMarker(parkCode) {
     .transition()
     .duration(highlightDuration)
     // A trip stop keeps its enlarged size (see sizeDots).
-    .attr(
-      "r",
-      (_d, i, nodes) =>
-        (isHighlightedDot(nodes[i]) ? pointRadius * 2.5 : pointRadius) / k,
-    )
+    .attr("r", (_d, i, nodes) => (pointRadius * dotScale(nodes[i])) / k)
     .attr(
       "stroke-width",
-      (_d, i, nodes) => (isHighlightedDot(nodes[i]) ? 2 : dotStrokeWidth) / k,
+      (_d, i, nodes) => (dotScale(nodes[i]) > 1 ? 2 : dotStrokeWidth) / k,
     );
 }
 
@@ -1162,7 +1299,9 @@ const handleResize = debounce(() => {
   if (active.node()) {
     resetMap();
   } else if (tripsUI?.current()) {
-    fitTrip(tripsUI.current());
+    // Leg lengths changed with the projection: end any playback first.
+    if (tripPlayer.isPlaying()) tripPlayer.skip();
+    else fitTrip(tripsUI.current());
   }
 }, 150);
 

@@ -181,6 +181,27 @@ div.tooltip {
   pointer-events: auto;
 }
 
+/* Playback: a stop the line has not reached yet is hollow; it pulses once
+   when the line arrives. */
+.trip-mode .park-marker.trip-stop.trip-pending .park-dot {
+  fill: var(--surface);
+  stroke: var(--trip-route);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .park-marker.trip-arrive .park-dot {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: trip-arrive 500ms ease-out;
+  }
+}
+
+@keyframes trip-arrive {
+  from {
+    transform: scale(1.8);
+  }
+}
+
 /* Itinerary row hover still shows the search highlight color. */
 .trip-mode .park-marker.trip-stop.highlighted .park-dot {
   fill: var(--danger);

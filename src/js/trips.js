@@ -7,7 +7,7 @@
 
 import * as d3 from "d3";
 
-import { back, route } from "./icons";
+import { back, play, route } from "./icons";
 import { createSheet } from "./sheet";
 
 const MONTHS = [
@@ -126,7 +126,10 @@ export function tripSummary(trip) {
  * @param {(code: string) => void} [options.onHighlight] - Stop row hovered
  * @param {(code: string) => void} [options.onUnhighlight] - Hover left
  * @param {() => void} [options.onOpen] - The sheet is about to open
- * @return {object} `{ sheet, button, show, hide, current, hasTrip }`
+ * @param {(trip: object) => void} [options.onReplay] - Play the route again
+ * @param {() => void} [options.onSkip] - Jump to the end of playback
+ * @return {object} `{ sheet, button, show, hide, current, hasTrip,
+ *   setPlaying, markStop }`
  */
 export function createTripsUI({
   container,
@@ -138,9 +141,14 @@ export function createTripsUI({
   onHighlight = () => {},
   onUnhighlight = () => {},
   onOpen = () => {},
+  onReplay = () => {},
+  onSkip = () => {},
 }) {
   const byId = new Map(trips.map((t) => [t.id, t]));
   let current = null;
+  let playing = false;
+  // Replay/Skip button of the rendered trip view (null in the list view).
+  let playButton = null;
 
   const sheet = createSheet({
     id: "trips-sheet",
@@ -182,6 +190,7 @@ export function createTripsUI({
   }
 
   function renderList() {
+    playButton = null;
     sheet.setTitle("Trips");
     sheet.header.replaceChildren();
     const body = d3.select(sheet.body);
@@ -222,7 +231,18 @@ export function createTripsUI({
       const first = sheet.body.querySelector(".trip-row");
       if (first) first.focus();
     });
-    sheet.header.replaceChildren(backButton);
+    playButton = document.createElement("button");
+    playButton.type = "button";
+    playButton.className = "trip-play";
+    playButton.addEventListener("click", () => {
+      if (playing) onSkip();
+      else onReplay(trip);
+    });
+    syncPlayButton();
+    const controls = document.createElement("div");
+    controls.className = "trip-controls";
+    controls.append(backButton, playButton);
+    sheet.header.replaceChildren(controls);
 
     const body = d3.select(sheet.body);
     body.html("");
@@ -244,6 +264,7 @@ export function createTripsUI({
           .attr("class", "trip-stop-row")
           .on("mouseenter", () => onHighlight(stop.park.parkCode))
           .on("mouseleave", () => onUnhighlight(stop.park.parkCode));
+        row.attr("data-stop-number", stop.number);
         row
           .append("span")
           .attr("class", "trip-stop-number")
@@ -295,6 +316,36 @@ export function createTripsUI({
     onHide({ resetZoom });
   }
 
+  function syncPlayButton() {
+    if (!playButton) return;
+    playButton.innerHTML = playing
+      ? `<span>Skip to end</span>`
+      : `${play}<span>Replay</span>`;
+  }
+
+  /**
+   * @param {boolean} value - Whether the route is playing
+   */
+  function setPlaying(value) {
+    playing = value;
+    syncPlayButton();
+  }
+
+  /**
+   * Mark the stop the route just reached, and scroll it into view.
+   * @param {number|null} number - Stop number, or null to clear
+   */
+  function markStop(number) {
+    const rows = sheet.body.querySelectorAll(".trip-stop-row");
+    let target = null;
+    for (const row of rows) {
+      const hit = Number(row.dataset.stopNumber) === number;
+      row.classList.toggle("is-current", hit);
+      if (hit) target = row;
+    }
+    if (target && sheet.isOpen()) target.scrollIntoView({ block: "nearest" });
+  }
+
   return {
     sheet,
     button,
@@ -302,5 +353,7 @@ export function createTripsUI({
     hide,
     current: () => current,
     hasTrip: (id) => byId.has(id),
+    setPlaying,
+    markStop,
   };
 }

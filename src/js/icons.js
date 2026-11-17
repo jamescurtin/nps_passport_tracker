@@ -37,3 +37,5 @@ export const route = svg(
 );
 
 export const back = svg(`<path d="M15 6l-6 6 6 6"/>`);
+
+export const play = svg(`<path d="M8 5.5v13l10.5-6.5z"/>`);
