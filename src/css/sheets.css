@@ -623,3 +623,131 @@
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
+
+/* Trips sheet: list of trips, then one trip's itinerary */
+.trip-list,
+.trip-days,
+.trip-stops {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trip-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--spacing-sm) var(--spacing-xs);
+  border: none;
+  border-bottom: 1px solid var(--surface-2);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .trip-row:hover {
+    background: var(--surface-2);
+  }
+}
+
+.trip-row-name {
+  font-weight: 600;
+}
+
+.trip-row-meta,
+.trip-row-states,
+.trip-meta {
+  color: var(--ink-2);
+  font-size: var(--font-size-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.trip-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  min-height: 32px;
+  padding: 0 var(--spacing-md) 0 var(--spacing-sm);
+  border: 1px solid var(--surface-2);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.trip-back .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.trip-meta {
+  margin: 0 0 var(--spacing-sm);
+}
+
+.trip-day + .trip-day {
+  margin-top: var(--spacing-md);
+}
+
+.trip-day-label {
+  margin: 0 0 var(--spacing-xs);
+  color: var(--ink-2);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.trip-stop-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+}
+
+.trip-stop-number {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--trip-route);
+  color: var(--surface);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.trip-stop-name {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trip-stop-name:hover {
+  color: var(--trip-route);
+  text-decoration: underline;
+}
+
+.trip-row:focus-visible,
+.trip-back:focus-visible,
+.trip-stop-name:focus-visible {
+  outline: 2px solid var(--visited);
+  outline-offset: 2px;
+}

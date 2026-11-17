@@ -3,6 +3,7 @@ import * as topojson from "topojson-client";
 import topoJsonStates from "us-atlas/states-10m";
 
 import parksJSON from "./data/parks";
+import tripsJSON from "./data/trips";
 import visitsJSON from "./data/visits";
 
 import { createLegend } from "./js/legend";
@@ -15,13 +16,14 @@ import {
 import { announce } from "./js/live";
 import { clickedPoint, closeParkSheet, onParkSheetChange } from "./js/modal";
 import { renderParkRows } from "./js/park_row";
-import { fitProjection } from "./js/projection";
+import { fitProjection, transformForBounds } from "./js/projection";
 import { registerServiceWorker } from "./js/register_sw";
 import { createRouter } from "./js/router";
 import { createSheet, closeTopSheet, hasOpenSheet } from "./js/sheet";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
+import { buildTrips, createTripsUI } from "./js/trips";
 
 import "./css/index.css";
 
@@ -40,6 +42,10 @@ let searchUI = null;
 // Hash router (created once data loads); mirrors state zoom and the park
 // sheet into the URL and applies URL changes to the UI.
 let router = null;
+
+// Trips UI handle and the map layer for the route (set once data loads).
+let tripsUI = null;
+let tripLayer = null;
 
 // Search overlay elements
 let searchCircle = null;
@@ -71,6 +77,12 @@ const hitRadius = 12;
 const dotStrokeWidth = 1;
 // Interior (mesh) and outer (outline) border widths at k=1
 const outlineWidth = 0.6;
+// Trip route line width (px at every zoom level)
+const tripLineWidth = 2.5;
+// A trip fills this fraction of the visible map; its box is at least this
+// many px at k=1, so a cluster of stops in one city does not zoom to max.
+const TRIP_FILL = 0.8;
+const TRIP_MIN_EXTENT = 4;
 
 // Zoom scale bounds, shared by the zoom behavior and programmatic zooms.
 const MIN_SCALE = 1;
@@ -143,15 +155,9 @@ const zoom = d3
     const k = event.transform.k;
     g.selectAll(".mesh").attr("stroke-width", strokeWidth / k);
     g.selectAll(".outline").attr("stroke-width", outlineWidth / k);
-    // Highlighted markers keep their enlarged radius and 2px ring.
-    g.selectAll(".park-dot")
-      .attr("r", function () {
-        return (isHighlightedDot(this) ? pointRadius * 2.5 : pointRadius) / k;
-      })
-      .attr("stroke-width", function () {
-        return (isHighlightedDot(this) ? 2 : dotStrokeWidth) / k;
-      });
+    sizeDots(k);
     g.selectAll(".park-hit").attr("r", hitRadius / k);
+    g.selectAll(".trip-leg").attr("stroke-width", tripLineWidth / k);
     // Touch hit circles are only active when zoomed (pinch does not set `active`).
     svg.classed("zoomed", k >= 2);
 
@@ -266,6 +272,7 @@ function loadData() {
     d3.json(topoJsonStates),
     d3.json(parksJSON),
     d3.json(visitsJSON),
+    d3.json(tripsJSON),
   ]).then(
     (results) => {
       try {
@@ -282,9 +289,9 @@ loadData();
 
 /**
  * Build the map, search, legend and stats from the loaded data.
- * @param {Array} results - [topology, parks, visits] JSON
+ * @param {Array} results - [topology, parks, visits, trips] JSON
  */
-function renderMap([json, parkData, visitData]) {
+function renderMap([json, parkData, visitData, tripData]) {
   loadSlot.html("");
   const data = mergeNPSData(parkData, visitData);
   stateCollection = topojson.feature(json, json.objects.states);
@@ -380,6 +387,9 @@ function renderMap([json, parkData, visitData]) {
     .attr("class", "focus-ring")
     .attr("stroke-width", 2)
     .attr("display", "none");
+
+  // Trip route, under the markers.
+  tripLayer = g.append("g").attr("class", "trip-layer");
 
   const markers = g
     .selectAll(".park-marker")
@@ -478,6 +488,20 @@ function renderMap([json, parkData, visitData]) {
     drawSearchOverlay(lat, lng, radiusMiles);
   };
 
+  tripsUI = createTripsUI({
+    container: sheets,
+    toolbar: d3.select("#slot-trips"),
+    trips: buildTrips(tripData, new Map(data.map((p) => [p.parkCode, p]))),
+    onShow: showTripOnMap,
+    onHide: hideTripOnMap,
+    onSelectStop: (park, event) => clickedPoint(event, park),
+    onHighlight: highlightParkMarker,
+    onUnhighlight: unhighlightParkMarker,
+    // Search and trips share the bottom-left corner on desktop.
+    onOpen: () =>
+      searchUI?.sheet.close({ reason: "program", restoreFocus: false }),
+  });
+
   router = createRouter({
     parkStates: (code) => {
       const park = data.find((p) => p.parkCode === code);
@@ -502,6 +526,9 @@ function renderMap([json, parkData, visitData]) {
     closePark: closeParkSheet,
     zoomState: zoomToStateByAbbrev,
     reset: resetMap,
+    hasTrip: (id) => tripsUI.hasTrip(id),
+    openTrip: (id) => tripsUI.show(id),
+    closeTrip: closeTrip,
   });
   onParkSheetChange(router.parkChanged);
 
@@ -647,12 +674,148 @@ function clearSearchOverlay() {
 }
 
 /**
- * Whether a park-dot belongs to a highlighted marker.
+ * Whether a park-dot belongs to a highlighted marker or a trip stop.
  * @param {Element} dot - The .park-dot element
  * @return {boolean} true if highlighted
  */
 function isHighlightedDot(dot) {
-  return dot.parentNode.classList.contains("highlighted");
+  const classes = dot.parentNode.classList;
+  return classes.contains("highlighted") || classes.contains("trip-stop");
+}
+
+/**
+ * Size every dot for zoom scale `k`: highlighted markers and trip stops keep
+ * their enlarged radius and 2px ring.
+ * @param {number} [k] - Zoom scale (default: the current one)
+ */
+function sizeDots(k = d3.zoomTransform(svg.node()).k) {
+  g.selectAll(".park-dot")
+    .attr("r", function () {
+      return (isHighlightedDot(this) ? pointRadius * 2.5 : pointRadius) / k;
+    })
+    .attr("stroke-width", function () {
+      return (isHighlightedDot(this) ? 2 : dotStrokeWidth) / k;
+    });
+}
+
+/**
+ * The part of the map not covered by the trips sheet, in map px. Mobile: the
+ * bottom sheet covers the bottom; desktop: the card covers the left side.
+ * Never less than a third of the map, so a tall sheet cannot squeeze the fit
+ * to nothing.
+ * @return {{x: number, y: number, width: number, height: number}} Rect
+ */
+function visibleMapRect() {
+  const rect = { x: 0, y: 0, width, height };
+  const sheet = tripsUI?.sheet;
+  if (!sheet?.isOpen()) return rect;
+  // offset* ignore the sheet's entry transform, unlike getBoundingClientRect.
+  const el = sheet.el;
+  if (el.dataset.mode === "sheet") {
+    rect.height = Math.max(height / 3, height - el.offsetHeight);
+  } else if (el.dataset.mode === "card") {
+    const covered = el.offsetLeft + el.offsetWidth - mapContainer.offsetLeft;
+    rect.width = Math.max(width / 3, width - covered);
+    rect.x = width - rect.width;
+  }
+  return rect;
+}
+
+/**
+ * Zoom so every stop of a trip is visible beside the trips sheet.
+ * @param {object} trip - Built trip
+ */
+function fitTrip(trip) {
+  const points = trip.stops
+    .map((s) => projection([+s.park.longitude, +s.park.latitude]))
+    .filter(Boolean);
+  if (points.length === 0) return;
+  const xs = points.map((p) => p[0]);
+  const ys = points.map((p) => p[1]);
+  const bounds = [
+    [Math.min(...xs), Math.min(...ys)],
+    [Math.max(...xs), Math.max(...ys)],
+  ];
+  const t = transformForBounds(bounds, visibleMapRect(), {
+    fill: TRIP_FILL,
+    minExtent: TRIP_MIN_EXTENT,
+    minScale: MIN_SCALE,
+    maxScale: MAX_SCALE,
+  });
+  svg
+    .transition()
+    .duration(zoomDuration)
+    .call(zoom.transform, d3.zoomIdentity.translate(t.x, t.y).scale(t.k));
+}
+
+/**
+ * Draw a trip: dim the other markers, enlarge the stops, draw one route leg
+ * per pair of consecutive stops, and zoom to fit.
+ * @param {object} trip - Built trip
+ */
+function showTripOnMap(trip) {
+  clearActiveState();
+  const codes = new Set(trip.stops.map((s) => s.park.parkCode));
+  g.classed("trip-mode", true);
+  g.selectAll(".park-marker")
+    .classed("trip-stop", (d) => codes.has(d.parkCode))
+    .filter((d) => codes.has(d.parkCode))
+    .raise();
+  sizeDots();
+  syncActiveState();
+
+  // Legs are GeoJSON, so the resize handler's `path` redraw covers them.
+  const legs = d3.pairs(trip.stops).map(([a, b]) => ({
+    type: "LineString",
+    coordinates: [
+      [+a.park.longitude, +a.park.latitude],
+      [+b.park.longitude, +b.park.latitude],
+    ],
+  }));
+  const k = d3.zoomTransform(svg.node()).k;
+  tripLayer
+    .selectAll(".trip-leg")
+    .data(legs)
+    .join("path")
+    .attr("class", "trip-leg")
+    .attr("d", path)
+    .attr("stroke-width", tripLineWidth / k);
+
+  fitTrip(trip);
+  router?.tripChanged(trip.id);
+  announce(`${trip.name}: ${trip.stops.length} sites`);
+}
+
+/**
+ * Remove the trip drawing (tripsUI has already cleared its current trip).
+ * @param {object} [options]
+ * @param {boolean} [options.resetZoom=true] - Zoom back out
+ */
+function hideTripOnMap({ resetZoom = true } = {}) {
+  g.classed("trip-mode", false);
+  g.selectAll(".park-marker.trip-stop").classed("trip-stop", false);
+  sizeDots();
+  syncActiveState();
+  tripLayer.selectAll("*").remove();
+  router?.tripChanged(null);
+  if (resetZoom) {
+    svg
+      .transition()
+      .duration(zoomDuration)
+      .call(zoom.transform, d3.zoomIdentity);
+  }
+}
+
+/**
+ * Leave the trip view and close the trips sheet, without user intent (the
+ * router moved to a state, or the map zoomed to one).
+ * @param {object} [options]
+ * @param {boolean} [options.resetZoom=true] - Zoom back out
+ */
+function closeTrip({ resetZoom = true } = {}) {
+  if (!tripsUI) return;
+  tripsUI.hide({ resetZoom });
+  tripsUI.sheet.close({ reason: "program", restoreFocus: false });
 }
 
 /**
@@ -688,8 +851,16 @@ function unhighlightParkMarker(parkCode) {
     .select(".park-dot")
     .transition()
     .duration(highlightDuration)
-    .attr("r", pointRadius / k)
-    .attr("stroke-width", dotStrokeWidth / k);
+    // A trip stop keeps its enlarged size (see sizeDots).
+    .attr(
+      "r",
+      (_d, i, nodes) =>
+        (isHighlightedDot(nodes[i]) ? pointRadius * 2.5 : pointRadius) / k,
+    )
+    .attr(
+      "stroke-width",
+      (_d, i, nodes) => (isHighlightedDot(nodes[i]) ? 2 : dotStrokeWidth) / k,
+    );
 }
 
 /**
@@ -703,6 +874,7 @@ function clickedMap(_, d) {
   // both closes the card and zooms.
   closeParkSheet();
   if (active.node() === this) return resetMap();
+  closeTrip({ resetZoom: false });
   active.classed("active", false);
   active = d3.select(this).classed("active", true);
   // Dim every other state instead of recoloring the active one.
@@ -713,23 +885,15 @@ function clickedMap(_, d) {
   syncActiveState();
   router?.stateChanged(stateAbbreviations[d.properties.name]);
 
-  const bounds = path.bounds(d);
-  const dx = bounds[1][0] - bounds[0][0];
-  const dy = bounds[1][1] - bounds[0][1];
-  const x = (bounds[0][0] + bounds[1][0]) / 2;
-  const y = (bounds[0][1] + bounds[1][1]) / 2;
-  const scale = 0.9 / Math.max(dx / width, dy / height);
   // Clamp to the zoom behavior's scale extent and drive the zoom through it so
   // its stored transform stays in sync. Otherwise a subsequent drag/pan starts
   // from the stale (identity) transform and snaps the map back to full country.
-  const clampedScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale));
-  const translate = [
-    width / 2 - clampedScale * x,
-    height / 2 - clampedScale * y,
-  ];
-  const transform = d3.zoomIdentity
-    .translate(translate[0], translate[1])
-    .scale(clampedScale);
+  const t = transformForBounds(
+    path.bounds(d),
+    { x: 0, y: 0, width, height },
+    { fill: 0.9, minScale: MIN_SCALE, maxScale: MAX_SCALE },
+  );
+  const transform = d3.zoomIdentity.translate(t.x, t.y).scale(t.k);
 
   // The zoom "on('zoom')" handler counter-scales the mesh, markers, and search
   // overlay for each interpolated transform during this transition.
@@ -800,11 +964,8 @@ function renderStateList(d) {
  * @return {undefined}
  */
 function resetMap() {
-  closeParkSheet();
-  active.classed("active", false);
-  active = d3.select(null);
-  g.selectAll(".dimmed").classed("dimmed", false);
-  syncActiveState();
+  clearActiveState();
+  tripsUI?.hide({ resetZoom: false });
   router?.stateChanged(null);
 
   // Reset d3 zoom transform
@@ -847,7 +1008,18 @@ function resetMap() {
       .attr("r", 6)
       .attr("stroke-width", 2);
   }
+}
 
+/**
+ * Leave the zoomed state: close the park sheet and the state park list, and
+ * clear the active state. The zoom itself is the caller's business.
+ */
+function clearActiveState() {
+  closeParkSheet();
+  active.classed("active", false);
+  active = d3.select(null);
+  g.selectAll(".dimmed").classed("dimmed", false);
+  syncActiveState();
   parksButton.attr("hidden", "");
   closeStateList({ restoreFocus: false });
 }
@@ -986,9 +1158,11 @@ const handleResize = debounce(() => {
     }
   }
 
-  // Reset map view if zoomed
+  // Reset map view if zoomed; a trip refits to the new size instead.
   if (active.node()) {
     resetMap();
+  } else if (tripsUI?.current()) {
+    fitTrip(tripsUI.current());
   }
 }, 150);
 
@@ -1026,17 +1200,22 @@ function hideFocusRing() {
 /**
  * Mirror the active state into accessibility state: `aria-pressed` on the
  * state buttons, and tab stops on markers. Only the active state's markers are
- * tabbable (437 global tab stops would be unusable); with no active state,
- * none are. Plan deviation: the plan puts tabindex 0 on every marker.
+ * tabbable (437 global tab stops would be unusable); in the trip view the
+ * trip's stops are; otherwise none are. Plan deviation: the plan puts
+ * tabindex 0 on every marker.
  */
 function syncActiveState() {
   const activeNode = active.node();
   g.selectAll(".state, .state-complete").attr("aria-pressed", (_d, i, nodes) =>
     String(nodes[i] === activeNode),
   );
-  const codes = activeNode
-    ? new Set(active.datum().properties.parks.map((p) => p.parkCode))
-    : null;
+  const trip = tripsUI?.current();
+  let codes = null;
+  if (activeNode) {
+    codes = new Set(active.datum().properties.parks.map((p) => p.parkCode));
+  } else if (trip) {
+    codes = new Set(trip.stops.map((s) => s.park.parkCode));
+  }
   syncMarkerTabindex(g.selectAll(".park-marker").nodes(), codes);
 }
 
@@ -1066,7 +1245,14 @@ function activateStateFromKey(event) {
 // the mobile park card) leave the map focusable; while one is open, Escape
 // closes the sheet first (document handler above) and the zoom stays.
 svg.on("keydown", (event) => {
-  if (event.key !== "Escape" || !active.node() || hasOpenSheet()) return;
+  if (event.key !== "Escape" || hasOpenSheet()) return;
+  // Trip view with its sheet closed: Escape leaves the trip.
+  if (tripsUI?.current()) {
+    event.preventDefault();
+    tripsUI.hide();
+    return;
+  }
+  if (!active.node()) return;
   const stateNode = active.node();
   event.preventDefault();
   resetMap();

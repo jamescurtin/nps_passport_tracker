@@ -46,6 +46,22 @@ describe("parseHash / formatHash", () => {
     expect(formatHash({ park: "yell", state: "WY" })).toBe("#/park/yell");
   });
 
+  it("parses and formats trip routes", () => {
+    expect(parseHash("#/trip/2023-05-California")).toEqual({
+      type: "trip",
+      id: "2023-05-california",
+    });
+    expect(parseHash("#/trip/")).toBeNull();
+    expect(formatHash({ trip: "2022-11-nyc" })).toBe("#/trip/2022-11-nyc");
+    // A park sheet over a trip wins; a trip wins over a state.
+    expect(formatHash({ park: "stli", trip: "2022-11-nyc" })).toBe(
+      "#/park/stli",
+    );
+    expect(formatHash({ trip: "2022-11-nyc", state: "NY" })).toBe(
+      "#/trip/2022-11-nyc",
+    );
+  });
+
   it("builds a shareable park URL", () => {
     expect(parkUrl("yell", "https://nps.example/?a=1#/state/WY")).toBe(
       "https://nps.example/?a=1#/park/yell",
@@ -83,11 +99,14 @@ function setup(hash = "") {
     closePark: vi.fn(),
     zoomState: vi.fn(),
     reset: vi.fn(),
+    openTrip: vi.fn(),
+    closeTrip: vi.fn(),
   };
   const router = createRouter({
     win,
     parkStates: (code) => parks[code] ?? null,
     hasState: (abbr) => ["WY", "MT", "ID", "ME", "MA"].includes(abbr),
+    hasTrip: (id) => ["2023-05-california", "2022-11-nyc"].includes(id),
     ...calls,
   });
   return { router, win, ...calls };
@@ -233,5 +252,60 @@ describe("router URL writes", () => {
     win.location.hash = "#/state/ME";
     win.listeners.hashchange();
     expect(zoomState).toHaveBeenLastCalledWith("ME");
+  });
+});
+
+describe("router trips", () => {
+  it("opens a known trip and ignores an unknown one", () => {
+    const { router, openTrip } = setup();
+    router.apply("#/trip/nope");
+    expect(openTrip).not.toHaveBeenCalled();
+    router.apply("#/trip/2023-05-california");
+    expect(openTrip).toHaveBeenCalledExactlyOnceWith("2023-05-california");
+    router.apply("#/trip/2023-05-california");
+    expect(openTrip).toHaveBeenCalledOnce();
+  });
+
+  it("opens a park over a trip without zooming to its state", () => {
+    const { router, zoomState, openPark, closePark } = setup();
+    router.apply("#/trip/2022-11-nyc");
+    router.apply("#/park/acad");
+    expect(zoomState).not.toHaveBeenCalled();
+    expect(openPark).toHaveBeenCalledWith("acad");
+    // Back to the trip closes the park and keeps the trip.
+    router.apply("#/trip/2022-11-nyc");
+    expect(closePark).toHaveBeenCalledOnce();
+  });
+
+  it("leaves the trip for a state route and resets from a trip", () => {
+    const { router, closeTrip, zoomState, reset } = setup();
+    router.apply("#/trip/2022-11-nyc");
+    router.apply("#/state/MA");
+    expect(closeTrip).toHaveBeenCalledOnce();
+    expect(zoomState).toHaveBeenCalledWith("MA");
+    router.apply("#/trip/2022-11-nyc");
+    router.apply("");
+    expect(reset).toHaveBeenCalledOnce();
+  });
+
+  it("pushes when a trip opens and replaces when it swaps or closes", () => {
+    const { router, win } = setup();
+    router.tripChanged("2022-11-nyc");
+    expect(win.history.pushState).toHaveBeenCalledOnce();
+    expect(win.location.hash).toBe("#/trip/2022-11-nyc");
+    router.tripChanged("2023-05-california");
+    router.tripChanged(null);
+    expect(win.history.pushState).toHaveBeenCalledOnce();
+    expect(win.history.replaceState).toHaveBeenCalledTimes(2);
+    expect(win.location.hash).toBe("");
+  });
+
+  it("a trip replaces the zoomed state in the URL", () => {
+    const { router, win } = setup();
+    router.stateChanged("MA");
+    router.tripChanged("2022-11-nyc");
+    expect(win.location.hash).toBe("#/trip/2022-11-nyc");
+    router.tripChanged(null);
+    expect(win.location.hash).toBe("");
   });
 });
