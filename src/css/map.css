@@ -164,7 +164,17 @@ div.tooltip {
   stroke: var(--surface);
 }
 
-/* Trip view: the route under the markers, other markers faded back. */
+/* Trip view: the route under the markers, other markers faded back. The
+   faint copy shows the whole route while the solid line draws over it. */
+.trip-leg-ghost {
+  fill: none;
+  stroke: var(--trip-route);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
 .trip-leg {
   fill: none;
   stroke: var(--trip-route);
