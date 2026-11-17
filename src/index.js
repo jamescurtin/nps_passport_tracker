@@ -23,6 +23,14 @@ import { createSheet, closeTopSheet, hasOpenSheet } from "./js/sheet";
 import stateAbbreviations from "./js/state_abbreviations";
 import { ParkSearch, createSearchUI } from "./js/search";
 import { calculateStats, createStatsButton } from "./js/statistics";
+import {
+  buildTimeline,
+  createTimelinePlayer,
+  eventsAfter,
+  isoFromDay,
+  dayNumber,
+} from "./js/timeline";
+import { createTimelineUI } from "./js/timeline_ui";
 import { createTripPlayer } from "./js/trip_player";
 import { buildTrips, createTripsUI, formatDay } from "./js/trips";
 
@@ -49,6 +57,14 @@ let router = null;
 let tripsUI = null;
 let tripLayer = null;
 let tripPlayer = null;
+
+// Timeline: model, sheet, player, the date shown, and each zoom-to-complete
+// state's completion date (set once data loads).
+let timeline = null;
+let timelineUI = null;
+let timelinePlayer = null;
+let timelineDate = null;
+let stateCompletion = new Map();
 
 // Search overlay elements
 let searchCircle = null;
@@ -88,6 +104,13 @@ const TRIP_FILL = 0.8;
 const TRIP_MIN_EXTENT = 0.5;
 // Camera move between days of a trip, ms.
 const TRIP_CAMERA_MS = 750;
+// Timeline playback: camera move and pause per visit date, ms. A visit
+// outside a trip is framed at least this wide (px at k=1, about 250 miles)
+// and no closer than TIMELINE_MAX_SCALE.
+const TIMELINE_CAMERA_MS = 700;
+const TIMELINE_DWELL_MS = 450;
+const TIMELINE_MIN_EXTENT = 110;
+const TIMELINE_MAX_SCALE = 8;
 
 // Zoom scale bounds. MAX_SCALE caps the state and location zooms; gestures
 // and trip views may go further, so the National Mall's memorials separate.
@@ -161,6 +184,10 @@ const zoom = d3
     // end state and the camera stays where the user put it.
     if (event.sourceEvent && tripPlayer?.isPlaying()) {
       tripPlayer.skip({ fit: false });
+    }
+    // Same for the timeline: a gesture pauses it.
+    if (event.sourceEvent && timelinePlayer?.isPlaying()) {
+      timelinePlayer.stop();
     }
 
     // Adjust stroke widths and point sizes based on zoom level
@@ -512,11 +539,37 @@ function renderMap([json, parkData, visitData, tripData]) {
     onHighlight: highlightParkMarker,
     onUnhighlight: unhighlightParkMarker,
     // Search and trips share the bottom-left corner on desktop.
-    onOpen: () =>
-      searchUI?.sheet.close({ reason: "program", restoreFocus: false }),
+    onOpen: () => {
+      searchUI?.sheet.close({ reason: "program", restoreFocus: false });
+      closeTimeline();
+    },
   });
 
   tripPlayer = makeTripPlayer();
+
+  timeline = buildTimeline(data);
+  stateCompletion = completionDates(features, timeline);
+  timelinePlayer = createTimelinePlayer({
+    step: timelineStep,
+    onState: (playing) => timelineUI.setPlaying(playing),
+  });
+  timelineUI = createTimelineUI({
+    container: sheets,
+    toolbar: d3.select("#slot-timeline"),
+    timeline,
+    onScrub: (date) => {
+      timelinePlayer.stop();
+      applyTimelineDate(date);
+    },
+    onPlay: playTimeline,
+    onPause: () => timelinePlayer.stop(),
+    onOpen: showTimelineOnMap,
+    // A user close leaves the timeline. Another sheet replacing the mobile
+    // card ("program": a park card opened from a marker) keeps the view.
+    onClose: (reason) => {
+      if (reason !== "program") hideTimelineOnMap();
+    },
+  });
 
   router = createRouter({
     parkStates: (code) => {
@@ -545,6 +598,10 @@ function renderMap([json, parkData, visitData, tripData]) {
     hasTrip: (id) => tripsUI.hasTrip(id),
     openTrip: (id) => tripsUI.show(id),
     closeTrip: closeTrip,
+    openTimeline: () => {
+      if (!timelineUI.sheet.isOpen()) timelineUI.open();
+    },
+    closeTimeline: closeTimeline,
   });
   onParkSheetChange(router.parkChanged);
 
@@ -716,24 +773,30 @@ function sizeDots(k = d3.zoomTransform(svg.node()).k) {
 }
 
 /**
- * The part of the map not covered by the trips sheet, in map px. Mobile: the
- * bottom sheet covers the bottom; desktop: the card covers the left side.
- * Never less than a third of the map, so a tall sheet cannot squeeze the fit
- * to nothing.
+ * The part of the map not covered by the open trips or timeline sheet, in
+ * map px. The sheet is cut off the side that leaves the larger area: the
+ * bottom for a bottom sheet or the wide timeline card, the left for the
+ * trips card. Never less than a third of the map, so a tall sheet cannot
+ * squeeze the fit to nothing.
  * @return {{x: number, y: number, width: number, height: number}} Rect
  */
 function visibleMapRect() {
   const rect = { x: 0, y: 0, width, height };
-  const sheet = tripsUI?.sheet;
-  if (!sheet?.isOpen()) return rect;
+  const sheet = [tripsUI?.sheet, timelineUI?.sheet].find((s) => s?.isOpen());
+  if (!sheet) return rect;
   // offset* ignore the sheet's entry transform, unlike getBoundingClientRect.
+  // Both the sheet and the map container are position: fixed, so their
+  // offsets are viewport coordinates.
   const el = sheet.el;
-  if (el.dataset.mode === "sheet") {
-    rect.height = Math.max(height / 3, height - el.offsetHeight);
-  } else if (el.dataset.mode === "card") {
-    const covered = el.offsetLeft + el.offsetWidth - mapContainer.offsetLeft;
-    rect.width = Math.max(width / 3, width - covered);
-    rect.x = width - rect.width;
+  const leftCut = el.offsetLeft + el.offsetWidth - mapContainer.offsetLeft;
+  const bottomCut = mapContainer.offsetTop + height - el.offsetTop;
+  const keepWidth = Math.max(width / 3, width - leftCut);
+  const keepHeight = Math.max(height / 3, height - bottomCut);
+  if (keepWidth * height >= width * keepHeight) {
+    rect.width = keepWidth;
+    rect.x = width - keepWidth;
+  } else {
+    rect.height = keepHeight;
   }
   return rect;
 }
@@ -754,8 +817,23 @@ function fitTrip(trip) {
  * @return {object|null} d3 zoom transform, or null if nothing projects
  */
 function stopsTransform(stops) {
-  const points = stops
-    .map((s) => projection([+s.park.longitude, +s.park.latitude]))
+  return parksTransform(stops.map((s) => s.park));
+}
+
+/**
+ * Zoom transform that fits parks beside the open sheet.
+ * @param {object[]} parks - Parks with `latitude`/`longitude`
+ * @param {object} [options]
+ * @param {number} [options.minExtent] - Smallest box side, px at k=1
+ * @param {number} [options.maxScale] - Closest zoom
+ * @return {object|null} d3 zoom transform, or null if nothing projects
+ */
+function parksTransform(
+  parks,
+  { minExtent = TRIP_MIN_EXTENT, maxScale = GESTURE_MAX_SCALE } = {},
+) {
+  const points = parks
+    .map((p) => projection([+p.longitude, +p.latitude]))
     .filter(Boolean);
   if (points.length === 0) return null;
   const xs = points.map((p) => p[0]);
@@ -766,9 +844,9 @@ function stopsTransform(stops) {
   ];
   const t = transformForBounds(bounds, visibleMapRect(), {
     fill: TRIP_FILL,
-    minExtent: TRIP_MIN_EXTENT,
+    minExtent,
     minScale: MIN_SCALE,
-    maxScale: GESTURE_MAX_SCALE,
+    maxScale,
   });
   return d3.zoomIdentity.translate(t.x, t.y).scale(t.k);
 }
@@ -948,6 +1026,192 @@ function hideTripOnMap({ resetZoom = true } = {}) {
 }
 
 /**
+ * Date each zoom-to-complete state became complete: the latest first visit
+ * among its parks. States with an unvisited park are left out.
+ * @param {object[]} features - State features with `properties.parks`
+ * @param {object} model - From buildTimeline
+ * @return {Map<object, string>} Feature -> `YYYY-MM-DD`
+ */
+function completionDates(features, model) {
+  const dates = new Map();
+  for (const feature of features) {
+    const parks = feature.properties.parks;
+    if (parks.length === 0) continue;
+    const firsts = parks.map((p) => model.firstVisit.get(p.parkCode));
+    if (firsts.some((d) => !d)) continue;
+    dates.set(feature, firsts.sort().at(-1));
+  }
+  return dates;
+}
+
+/**
+ * Show the map as it was on `date`: parks first visited by then are green,
+ * the rest brown; a state turns green on the day its last park was visited.
+ * @param {string} date - `YYYY-MM-DD` (before the first visit shows none)
+ * @param {object} [options]
+ * @param {object} [options.event] - Timeline event being played: its parks
+ *   pulse
+ */
+function applyTimelineDate(date, { event = null } = {}) {
+  timelineDate = date;
+  const first = timeline.firstVisit;
+  const arriving = new Set(event ? event.parks.map((p) => p.parkCode) : []);
+  g.selectAll(".park-marker")
+    .classed(
+      "tl-future",
+      (d) => first.has(d.parkCode) && first.get(d.parkCode) > date,
+    )
+    .classed("tl-arrive", (d) => arriving.has(d.parkCode))
+    .filter((d) => arriving.has(d.parkCode))
+    .raise()
+    .on("animationend.tl", function () {
+      d3.select(this).classed("tl-arrive", false).on("animationend.tl", null);
+    });
+  g.selectAll(".state-complete").classed(
+    "tl-incomplete",
+    (d) => (stateCompletion.get(d) ?? "~") > date,
+  );
+  timelineUI.setDate(date);
+}
+
+/**
+ * Enter the timeline view (the sheet is opening): leave any trip or state
+ * zoom and show today's map.
+ */
+function showTimelineOnMap() {
+  // Reopened after a park card replaced the sheet: keep the date and view.
+  if (g.classed("timeline-mode")) return;
+  closeTrip({ resetZoom: false });
+  clearActiveState();
+  searchUI?.sheet.close({ reason: "program", restoreFocus: false });
+  g.classed("timeline-mode", true);
+  applyTimelineDate(timeline.end);
+  fitTimeline();
+  router?.timelineChanged(true);
+}
+
+/**
+ * Frame every park ever visited beside the timeline sheet (the sheet covers
+ * the lower map, so the plain zoomed-out view would hide parks under it).
+ */
+function fitTimeline() {
+  const visited = timeline.events.flatMap((e) => e.newParks);
+  const transform = parksTransform(visited, {
+    minExtent: TIMELINE_MIN_EXTENT,
+    maxScale: TIMELINE_MAX_SCALE,
+  });
+  if (!transform) return;
+  svg.transition().duration(zoomDuration).call(zoom.transform, transform);
+}
+
+/**
+ * Leave the timeline view (the sheet closed).
+ * @param {object} [options]
+ * @param {boolean} [options.resetZoom=true] - Zoom back out
+ */
+function hideTimelineOnMap({ resetZoom = true } = {}) {
+  if (!g.classed("timeline-mode")) return;
+  timelinePlayer.stop();
+  svg.interrupt();
+  g.classed("timeline-mode", false);
+  g.selectAll(".tl-future, .tl-arrive")
+    .classed("tl-future", false)
+    .classed("tl-arrive", false);
+  g.selectAll(".tl-incomplete").classed("tl-incomplete", false);
+  timelineDate = null;
+  router?.timelineChanged(false);
+  if (resetZoom) {
+    svg
+      .transition()
+      .duration(zoomDuration)
+      .call(zoom.transform, d3.zoomIdentity);
+  }
+}
+
+/**
+ * Close the timeline without user intent (a trip or a state takes over).
+ * @param {object} [options]
+ * @param {boolean} [options.resetZoom=true] - Zoom back out
+ */
+function closeTimeline({ resetZoom = true } = {}) {
+  if (!timelineUI) return;
+  hideTimelineOnMap({ resetZoom });
+  timelineUI.sheet.close({ reason: "program", restoreFocus: false });
+}
+
+/**
+ * Whether two zoom transforms frame nearly the same view (skip the camera).
+ * @param {object} a - d3 zoom transform
+ * @param {object} b - d3 zoom transform
+ * @return {boolean} true when the scale is within 50% and the centre moved
+ *   less than a fifth of the map
+ */
+function similarView(a, b) {
+  if (Math.abs(Math.log(a.k / b.k)) > Math.log(1.5)) return false;
+  const [ax, ay] = a.invert([width / 2, height / 2]);
+  const [bx, by] = b.invert([width / 2, height / 2]);
+  return Math.hypot(ax - bx, ay - by) * a.k < Math.min(width, height) / 5;
+}
+
+/**
+ * Trip a visit date belongs to, if any.
+ * @param {string} date - `YYYY-MM-DD`
+ * @return {object|null} Built trip
+ */
+function tripOn(date) {
+  return tripsUI.trips.find((t) => t.start <= date && date <= t.end) ?? null;
+}
+
+/**
+ * Play one timeline event: move the date, frame the visit (its whole trip
+ * when it is part of one), then pause on it.
+ * @param {object} event - Timeline event
+ * @param {() => boolean} cancelled - True once playback was paused
+ */
+async function timelineStep(event, cancelled) {
+  applyTimelineDate(event.date, { event });
+  const trip = tripOn(event.date);
+  const target = trip
+    ? stopsTransform(trip.stops)
+    : parksTransform(event.parks, {
+        minExtent: TIMELINE_MIN_EXTENT,
+        maxScale: TIMELINE_MAX_SCALE,
+      });
+  if (target && !similarView(d3.zoomTransform(svg.node()), target)) {
+    await svg
+      .transition()
+      .duration(TIMELINE_CAMERA_MS)
+      .ease(d3.easeCubicInOut)
+      .call(zoom.transform, target)
+      .end();
+  }
+  if (cancelled()) return;
+  await new Promise((resolve) => setTimeout(resolve, TIMELINE_DWELL_MS));
+}
+
+/**
+ * Play from the current date (from the start when at the end), then show
+ * today and zoom back out. Reduced motion jumps straight to today.
+ */
+async function playTimeline() {
+  if (reduceMotion) {
+    applyTimelineDate(timeline.end);
+    return;
+  }
+  const { events, restart } = eventsAfter(
+    timeline,
+    timelineDate ?? timeline.end,
+  );
+  if (restart) {
+    applyTimelineDate(isoFromDay(dayNumber(timeline.start) - 1));
+  }
+  const done = await timelinePlayer.play(events);
+  if (!done) return;
+  applyTimelineDate(timeline.end);
+  fitTimeline();
+}
+
+/**
  * Leave the trip view and close the trips sheet, without user intent (the
  * router moved to a state, or the map zoomed to one).
  * @param {object} [options]
@@ -1012,6 +1276,7 @@ function clickedMap(_, d) {
   closeParkSheet();
   if (active.node() === this) return resetMap();
   closeTrip({ resetZoom: false });
+  closeTimeline({ resetZoom: false });
   active.classed("active", false);
   active = d3.select(this).classed("active", true);
   // Dim every other state instead of recoloring the active one.
@@ -1103,6 +1368,7 @@ function renderStateList(d) {
 function resetMap() {
   clearActiveState();
   tripsUI?.hide({ resetZoom: false });
+  closeTimeline({ resetZoom: false });
   router?.stateChanged(null);
 
   // Reset d3 zoom transform
@@ -1298,6 +1564,8 @@ const handleResize = debounce(() => {
   // Reset map view if zoomed; a trip refits to the new size instead.
   if (active.node()) {
     resetMap();
+  } else if (timelinePlayer?.isPlaying()) {
+    timelinePlayer.stop();
   } else if (tripsUI?.current()) {
     // Leg lengths changed with the projection: end any playback first.
     if (tripPlayer.isPlaying()) tripPlayer.skip();
@@ -1385,6 +1653,12 @@ function activateStateFromKey(event) {
 // closes the sheet first (document handler above) and the zoom stays.
 svg.on("keydown", (event) => {
   if (event.key !== "Escape" || hasOpenSheet()) return;
+  // Timeline view with its sheet closed: Escape leaves it.
+  if (g.classed("timeline-mode")) {
+    event.preventDefault();
+    closeTimeline();
+    return;
+  }
   // Trip view with its sheet closed: Escape leaves the trip.
   if (tripsUI?.current()) {
     event.preventDefault();

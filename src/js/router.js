@@ -1,5 +1,5 @@
-// Hash routes: `#/park/<parkCode>`, `#/trip/<id>` and `#/state/<ABBR>`. An
-// empty hash means the default (fully zoomed out) view.
+// Hash routes: `#/park/<parkCode>`, `#/trip/<id>`, `#/timeline` and
+// `#/state/<ABBR>`. An empty hash means the default (fully zoomed out) view.
 //
 // This module holds no DOM or D3 code. `createRouter` takes the UI callbacks
 // and the `window`-like object (`location`, `history`, event listeners) as
@@ -8,17 +8,20 @@
 const PARK_PREFIX = "#/park/";
 const STATE_PREFIX = "#/state/";
 const TRIP_PREFIX = "#/trip/";
+const TIMELINE_HASH = "#/timeline";
 
 /**
  * Parse a location hash.
  * @param {string} hash - `location.hash`, with or without the leading `#`
  * @return {{type: "reset"}|{type: "park", code: string}|
- *   {type: "state", abbr: string}|{type: "trip", id: string}|null} The route, or null when the hash is
+ *   {type: "state", abbr: string}|{type: "trip", id: string}|
+ *   {type: "timeline"}|null} The route, or null when the hash is
  *   not one of ours (callers ignore it)
  */
 export function parseHash(hash) {
   const value = hash && hash.startsWith("#") ? hash : `#${hash || ""}`;
   if (value === "#" || value === "#/") return { type: "reset" };
+  if (value === TIMELINE_HASH) return { type: "timeline" };
   if (value.startsWith(PARK_PREFIX)) {
     const code = decode(value.slice(PARK_PREFIX.length));
     return code ? { type: "park", code: code.toLowerCase() } : null;
@@ -49,13 +52,21 @@ function decode(text) {
 
 /**
  * Format a route as a hash. Inverse of `parseHash`.
- * @param {{park?: string|null, trip?: string|null, state?: string|null}}
- *   route - A park wins over a trip, a trip over a state; none gives ""
- * @return {string} `#/park/<code>`, `#/trip/<id>`, `#/state/<ABBR>` or ""
+ * @param {{park?: string|null, trip?: string|null, timeline?: boolean,
+ *   state?: string|null}} route - A park wins over a trip, a trip over the
+ *   timeline, the timeline over a state; none gives ""
+ * @return {string} `#/park/<code>`, `#/trip/<id>`, `#/timeline`,
+ *   `#/state/<ABBR>` or ""
  */
-export function formatHash({ park = null, trip = null, state = null } = {}) {
+export function formatHash({
+  park = null,
+  trip = null,
+  timeline = false,
+  state = null,
+} = {}) {
   if (park) return `${PARK_PREFIX}${encodeURIComponent(park)}`;
   if (trip) return `${TRIP_PREFIX}${encodeURIComponent(trip)}`;
+  if (timeline) return TIMELINE_HASH;
   if (state) return `${STATE_PREFIX}${encodeURIComponent(state)}`;
   return "";
 }
@@ -87,7 +98,10 @@ export function parkUrl(code, base) {
  * @param {(id: string) => boolean} [options.hasTrip] - Known trip?
  * @param {(id: string) => void} [options.openTrip] - Show a trip
  * @param {() => void} [options.closeTrip] - Hide the shown trip
- * @return {object} `{ start, apply, stateChanged, parkChanged, tripChanged }`
+ * @param {() => void} [options.openTimeline] - Show the timeline
+ * @param {() => void} [options.closeTimeline] - Hide the timeline
+ * @return {object} `{ start, apply, stateChanged, parkChanged, tripChanged,
+ *   timelineChanged }`
  */
 export function createRouter({
   win = window,
@@ -100,11 +114,14 @@ export function createRouter({
   hasTrip = () => false,
   openTrip = () => {},
   closeTrip = () => {},
+  openTimeline = () => {},
+  closeTimeline = () => {},
 }) {
   // What the UI shows, kept up to date by `stateChanged` / `parkChanged` /
   // `tripChanged` (from the UI) and by `apply` (from the hash). A trip and a
-  // zoomed state never coexist; a park sheet can open over either.
-  const model = { state: null, park: null, trip: null };
+  // zoomed state never coexist; a park sheet can open over either. The
+  // timeline excludes both.
+  const model = { state: null, park: null, trip: null, timeline: false };
   // True while a hash is being applied: UI callbacks then report back
   // through `stateChanged` / `parkChanged`, but nothing is written.
   let applying = false;
@@ -134,30 +151,44 @@ export function createRouter({
     applying = true;
     try {
       if (route.type === "reset") {
-        if (model.state || model.park || model.trip) reset();
+        if (model.state || model.park || model.trip || model.timeline) reset();
         model.state = null;
         model.park = null;
         model.trip = null;
+        model.timeline = false;
       } else if (route.type === "state") {
         if (!hasState(route.abbr)) return;
         if (model.park) closePark();
         model.park = null;
         if (model.trip) closeTrip();
         model.trip = null;
+        if (model.timeline) closeTimeline();
+        model.timeline = false;
         if (model.state !== route.abbr) zoomState(route.abbr);
         model.state = route.abbr;
+      } else if (route.type === "timeline") {
+        if (model.park) closePark();
+        model.park = null;
+        if (model.trip) closeTrip();
+        model.trip = null;
+        if (!model.timeline) openTimeline();
+        model.timeline = true;
+        model.state = null;
       } else if (route.type === "trip") {
         if (!hasTrip(route.id)) return;
         if (model.park) closePark();
         model.park = null;
+        if (model.timeline) closeTimeline();
+        model.timeline = false;
         if (model.trip !== route.id) openTrip(route.id);
         model.trip = route.id;
         model.state = null;
       } else {
         const states = parkStates(route.code);
         if (!states) return;
-        // Over a trip, the park opens in place: the trip view stays.
-        if (!model.trip && !states.includes(model.state)) {
+        // Over a trip or the timeline, the park opens in place: that view
+        // stays.
+        if (!model.trip && !model.timeline && !states.includes(model.state)) {
           const target = states.find(hasState);
           if (target) {
             zoomState(target);
@@ -210,6 +241,19 @@ export function createRouter({
       const opening = id !== null && model.trip === null;
       model.trip = id;
       if (id !== null) model.state = null;
+      write(opening);
+    },
+    /**
+     * The timeline opened or closed. Opening adds a history entry.
+     * @param {boolean} open - Whether the timeline is shown
+     */
+    timelineChanged(open) {
+      const opening = open && !model.timeline;
+      model.timeline = open;
+      if (open) {
+        model.state = null;
+        model.trip = null;
+      }
       write(opening);
     },
   };

@@ -35,6 +35,8 @@ D3.js interactive map visualization of National Park Service sites, deployed as 
 - `src/data/visits.json` — Manually curated visited parks with dates and notes
 - `src/data/trips.json` — Manually curated trips: ordered stops (`parkCode` + visit `date`)
 - `src/js/trips.js` — Trips list/itinerary sheet; the route drawing lives in `src/index.js`
+- `src/js/trip_player.js` — Trip route playback (day/camera planning, sequencing)
+- `src/js/timeline.js` / `src/js/timeline_ui.js` — Timeline model and sheet (`#/timeline`)
 - `.github/scripts/update_parks.py` — Fetches NPS API, validates with Pydantic models
 - `.github/scripts/sort_visits.py` — Sorts visits.json by parkCode
 

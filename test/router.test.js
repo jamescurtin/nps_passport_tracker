@@ -101,6 +101,8 @@ function setup(hash = "") {
     reset: vi.fn(),
     openTrip: vi.fn(),
     closeTrip: vi.fn(),
+    openTimeline: vi.fn(),
+    closeTimeline: vi.fn(),
   };
   const router = createRouter({
     win,
@@ -306,6 +308,54 @@ describe("router trips", () => {
     router.tripChanged("2022-11-nyc");
     expect(win.location.hash).toBe("#/trip/2022-11-nyc");
     router.tripChanged(null);
+    expect(win.location.hash).toBe("");
+  });
+});
+
+describe("router timeline", () => {
+  it("parses and formats #/timeline", () => {
+    expect(parseHash("#/timeline")).toEqual({ type: "timeline" });
+    expect(formatHash({ timeline: true })).toBe("#/timeline");
+    expect(formatHash({ timeline: true, state: "MA" })).toBe("#/timeline");
+    expect(formatHash({ park: "acad", timeline: true })).toBe("#/park/acad");
+  });
+
+  it("opens the timeline once and closes the trip first", () => {
+    const { router, openTimeline, closeTrip } = setup();
+    router.apply("#/trip/2022-11-nyc");
+    router.apply("#/timeline");
+    router.apply("#/timeline");
+    expect(closeTrip).toHaveBeenCalledOnce();
+    expect(openTimeline).toHaveBeenCalledOnce();
+  });
+
+  it("a park opens over the timeline without zooming", () => {
+    const { router, zoomState, openPark } = setup();
+    router.apply("#/timeline");
+    router.apply("#/park/acad");
+    expect(zoomState).not.toHaveBeenCalled();
+    expect(openPark).toHaveBeenCalledWith("acad");
+  });
+
+  it("a trip or state route closes the timeline; reset resets", () => {
+    const { router, closeTimeline, reset } = setup();
+    router.apply("#/timeline");
+    router.apply("#/trip/2022-11-nyc");
+    expect(closeTimeline).toHaveBeenCalledOnce();
+    router.apply("#/timeline");
+    router.apply("#/state/MA");
+    expect(closeTimeline).toHaveBeenCalledTimes(2);
+    router.apply("#/timeline");
+    router.apply("");
+    expect(reset).toHaveBeenCalledOnce();
+  });
+
+  it("pushes on open and replaces on close", () => {
+    const { router, win } = setup();
+    router.timelineChanged(true);
+    expect(win.history.pushState).toHaveBeenCalledOnce();
+    expect(win.location.hash).toBe("#/timeline");
+    router.timelineChanged(false);
     expect(win.location.hash).toBe("");
   });
 });
