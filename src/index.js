@@ -1171,12 +1171,15 @@ function tripOn(date) {
 async function timelineStep(event, cancelled) {
   applyTimelineDate(event.date, { event });
   const trip = tripOn(event.date);
-  const target = trip
-    ? stopsTransform(trip.stops)
-    : parksTransform(event.parks, {
-        minExtent: TIMELINE_MIN_EXTENT,
-        maxScale: TIMELINE_MAX_SCALE,
-      });
+  // Region scale even for a trip: a one-city trip at street level would
+  // jump in and out between neighbouring dates.
+  const target = parksTransform(
+    trip ? trip.stops.map((s) => s.park) : event.parks,
+    {
+      minExtent: TIMELINE_MIN_EXTENT,
+      maxScale: TIMELINE_MAX_SCALE,
+    },
+  );
   if (target && !similarView(d3.zoomTransform(svg.node()), target)) {
     await svg
       .transition()
