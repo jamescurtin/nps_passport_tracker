@@ -171,6 +171,16 @@ div.tooltip {
   stroke: var(--surface);
 }
 
+/* The search/legend filter fades markers with inline opacity and turns off
+   their pointer events; a trip shows all of its stops regardless. */
+.trip-mode .park-marker.trip-stop {
+  opacity: 1 !important;
+}
+
+.trip-mode .park-marker.trip-stop.filtered-out .park-dot {
+  pointer-events: auto;
+}
+
 /* Itinerary row hover still shows the search highlight color. */
 .trip-mode .park-marker.trip-stop.highlighted .park-dot {
   fill: var(--danger);

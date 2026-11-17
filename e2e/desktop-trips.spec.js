@@ -24,7 +24,18 @@ test("Trips lists every trip and a pick draws its route", async ({ page }) => {
   await expect(svg(page)).toHaveClass(/zoomed/);
   await maybeScreenshot(page, "desktop-trip-mid-atlantic");
 
-  // Another trip swaps in place: no history entry, new route.
+  // Hovering an itinerary row and leaving it keeps the stop enlarged.
+  const firstRow = stops.first();
+  const firstCode = "morr";
+  await firstRow.hover();
+  await page.mouse.move(1200, 100);
+  const radius = (code) =>
+    page
+      .locator(`.park-marker[data-park-code="${code}"] .park-dot`)
+      .getAttribute("r");
+  expect(await radius(firstCode)).toBe(await radius("hofu"));
+
+  // "All trips" clears the route; another trip draws its own.
   await sheet.locator(".trip-back").click();
   await expect(page.locator(".trip-leg")).toHaveCount(0);
   await sheet.locator('[data-trip-id="2023-05-california"]').click();
@@ -40,7 +51,7 @@ test("Trips lists every trip and a pick draws its route", async ({ page }) => {
   await expect(svg(page)).not.toHaveClass(/zoomed/);
 });
 
-test("#/trip/<id> deep link shows the trip; Back leaves it", async ({
+test("#/trip/<id> deep link shows the trip; Back from a park returns to it", async ({
   page,
 }) => {
   await page.goto("/#/trip/2022-11-nyc");
@@ -80,4 +91,24 @@ test("an unknown trip id is ignored", async ({ page }) => {
   await openMap(page);
   await expect(page.locator("dialog[open]")).toHaveCount(0);
   await expect(page.locator(".trip-leg")).toHaveCount(0);
+});
+
+test("a visited filter does not hide trip stops", async ({ page }) => {
+  await openMap(page);
+  await page.locator(".count-pill").click();
+  await page.locator("#legend-popover").getByText("Not visited").click();
+  await page.keyboard.press("Escape");
+  await page.goto("/#/trip/2023-05-california");
+  await expect(page.locator(".trip-leg")).toHaveCount(10);
+  const opacities = await page
+    .locator(".park-marker.trip-stop")
+    .evaluateAll((els) => els.map((el) => getComputedStyle(el).opacity));
+  expect(new Set(opacities)).toEqual(new Set(["1"]));
+});
+
+test("the dark theme draws the route", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/#/trip/2024-06-mid-atlantic");
+  await expect(page.locator(".trip-leg")).toHaveCount(22);
+  await maybeScreenshot(page, "desktop-trip-dark");
 });

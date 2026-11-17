@@ -851,8 +851,16 @@ function unhighlightParkMarker(parkCode) {
     .select(".park-dot")
     .transition()
     .duration(highlightDuration)
-    .attr("r", pointRadius / k)
-    .attr("stroke-width", dotStrokeWidth / k);
+    // A trip stop keeps its enlarged size (see sizeDots).
+    .attr(
+      "r",
+      (_d, i, nodes) =>
+        (isHighlightedDot(nodes[i]) ? pointRadius * 2.5 : pointRadius) / k,
+    )
+    .attr(
+      "stroke-width",
+      (_d, i, nodes) => (isHighlightedDot(nodes[i]) ? 2 : dotStrokeWidth) / k,
+    );
 }
 
 /**
