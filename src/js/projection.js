@@ -37,3 +37,36 @@ export function fitProjection(width, height, features) {
       y0 + (h - k * (by1 + by0)) / 2,
     ]);
 }
+
+/**
+ * Zoom transform that fits projected `bounds` inside a viewport rectangle.
+ * Pure math (no d3-zoom), so callers wrap the result in `zoomIdentity`.
+ * @param {number[][]} bounds - `[[x0, y0], [x1, y1]]` in projected px
+ * @param {{x: number, y: number, width: number, height: number}} rect -
+ *   Visible part of the map, in the same px space as the zoom identity
+ * @param {object} [options]
+ * @param {number} [options.fill=0.9] - Fraction of the rect the box fills
+ * @param {number} [options.minExtent=1] - Smallest box side in px; a single
+ *   point or a tight cluster would otherwise ask for an infinite zoom
+ * @param {number} [options.minScale=1] - Lower zoom clamp
+ * @param {number} [options.maxScale=Infinity] - Upper zoom clamp
+ * @return {{x: number, y: number, k: number}} Translate and scale
+ */
+export function transformForBounds(
+  bounds,
+  rect,
+  { fill = 0.9, minExtent = 1, minScale = 1, maxScale = Infinity } = {},
+) {
+  const [[x0, y0], [x1, y1]] = bounds;
+  const dx = Math.max(x1 - x0, minExtent);
+  const dy = Math.max(y1 - y0, minExtent);
+  const cx = (x0 + x1) / 2;
+  const cy = (y0 + y1) / 2;
+  const fit = fill / Math.max(dx / rect.width, dy / rect.height);
+  const k = Math.max(minScale, Math.min(maxScale, fit));
+  return {
+    x: rect.x + rect.width / 2 - k * cx,
+    y: rect.y + rect.height / 2 - k * cy,
+    k,
+  };
+}

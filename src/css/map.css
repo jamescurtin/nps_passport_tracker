@@ -152,6 +152,30 @@ div.tooltip {
   pointer-events: none;
 }
 
+/* Trip view: the route under the markers, other markers faded back. */
+.trip-leg {
+  fill: none;
+  stroke: var(--trip-route);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.trip-mode .park-marker .park-dot {
+  opacity: 0.25;
+}
+
+.trip-mode .park-marker.trip-stop .park-dot {
+  opacity: 1;
+  fill: var(--trip-route);
+  stroke: var(--surface);
+}
+
+/* Itinerary row hover still shows the search highlight color. */
+.trip-mode .park-marker.trip-stop.highlighted .park-dot {
+  fill: var(--danger);
+}
+
 /* Keyboard focus: states get a drawn ring path, markers get the hover
    highlight (set from JS). SVG outlines are unreliable, so turn them off. */
 .state:focus,

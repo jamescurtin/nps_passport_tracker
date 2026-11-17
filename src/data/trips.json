@@ -1,0 +1,191 @@
+[
+  {
+    "id": "2018-08-dc",
+    "name": "Washington, DC",
+    "stops": [
+      { "parkCode": "paav", "date": "2018-08-13" },
+      { "parkCode": "this", "date": "2018-08-13" }
+    ]
+  },
+  {
+    "id": "2022-08-providence",
+    "name": "Providence",
+    "stops": [
+      { "parkCode": "blrv", "date": "2022-08-13" },
+      { "parkCode": "rowi", "date": "2022-08-13" }
+    ]
+  },
+  {
+    "id": "2022-08-lowell",
+    "name": "Lowell & Minute Man",
+    "stops": [
+      { "parkCode": "lowe", "date": "2022-08-15" },
+      { "parkCode": "mima", "date": "2022-08-15" }
+    ]
+  },
+  {
+    "id": "2022-08-north-shore",
+    "name": "Saugus & Salem",
+    "stops": [
+      { "parkCode": "sair", "date": "2022-08-19" },
+      { "parkCode": "sama", "date": "2022-08-19" }
+    ]
+  },
+  {
+    "id": "2022-09-boston",
+    "name": "Boston",
+    "stops": [
+      { "parkCode": "boaf", "date": "2022-09-03" },
+      { "parkCode": "bost", "date": "2022-09-03" },
+      { "parkCode": "boha", "date": "2022-09-03" }
+    ]
+  },
+  {
+    "id": "2022-10-midwest",
+    "name": "St. Louis to Chicago",
+    "stops": [
+      { "parkCode": "stge", "date": "2022-10-15" },
+      { "parkCode": "ulsg", "date": "2022-10-15" },
+      { "parkCode": "jeff", "date": "2022-10-16" },
+      { "parkCode": "liho", "date": "2022-10-16" },
+      { "parkCode": "pull", "date": "2022-10-17" }
+    ]
+  },
+  {
+    "id": "2022-11-nyc",
+    "name": "New York City",
+    "stops": [
+      { "parkCode": "ston", "date": "2022-11-14" },
+      { "parkCode": "feha", "date": "2022-11-14" },
+      { "parkCode": "afbg", "date": "2022-11-18" },
+      { "parkCode": "cacl", "date": "2022-11-18" },
+      { "parkCode": "stli", "date": "2022-11-18" },
+      { "parkCode": "elis", "date": "2022-11-18" },
+      { "parkCode": "npnh", "date": "2022-11-18" }
+    ]
+  },
+  {
+    "id": "2023-02-hudson",
+    "name": "Long Island & Hudson Valley",
+    "stops": [
+      { "parkCode": "fiis", "date": "2023-02-18" },
+      { "parkCode": "sahi", "date": "2023-02-18" },
+      { "parkCode": "elro", "date": "2023-02-19" },
+      { "parkCode": "hofr", "date": "2023-02-19" },
+      { "parkCode": "vama", "date": "2023-02-19" }
+    ]
+  },
+  {
+    "id": "2023-05-california",
+    "name": "California",
+    "stops": [
+      { "parkCode": "pore", "date": "2023-05-06" },
+      { "parkCode": "rori", "date": "2023-05-07" },
+      { "parkCode": "yose", "date": "2023-05-08" },
+      { "parkCode": "pinn", "date": "2023-05-10" },
+      { "parkCode": "euon", "date": "2023-05-12" },
+      { "parkCode": "jomu", "date": "2023-05-12" },
+      { "parkCode": "alca", "date": "2023-05-13" },
+      { "parkCode": "safr", "date": "2023-05-14" },
+      { "parkCode": "prsf", "date": "2023-05-14" },
+      { "parkCode": "fopo", "date": "2023-05-14" },
+      { "parkCode": "goga", "date": "2023-05-14" }
+    ]
+  },
+  {
+    "id": "2023-06-nyc",
+    "name": "Upper Manhattan",
+    "stops": [
+      { "parkCode": "thrb", "date": "2023-06-24" },
+      { "parkCode": "hagr", "date": "2023-06-24" },
+      { "parkCode": "gegr", "date": "2023-06-24" }
+    ]
+  },
+  {
+    "id": "2023-08-nyc",
+    "name": "Governors Island & Lower East Side",
+    "stops": [
+      { "parkCode": "gois", "date": "2023-08-13" },
+      { "parkCode": "loea", "date": "2023-08-13" }
+    ]
+  },
+  {
+    "id": "2023-08-philadelphia",
+    "name": "Philadelphia",
+    "stops": [
+      { "parkCode": "inde", "date": "2023-08-18" },
+      { "parkCode": "thko", "date": "2023-08-19" },
+      { "parkCode": "glde", "date": "2023-08-19" },
+      { "parkCode": "edal", "date": "2023-08-19" }
+    ]
+  },
+  {
+    "id": "2024-06-mid-atlantic",
+    "name": "Mid-Atlantic",
+    "stops": [
+      { "parkCode": "morr", "date": "2024-06-15" },
+      { "parkCode": "hofu", "date": "2024-06-15" },
+      { "parkCode": "gett", "date": "2024-06-17" },
+      { "parkCode": "anti", "date": "2024-06-17" },
+      { "parkCode": "hafe", "date": "2024-06-17" },
+      { "parkCode": "gwmp", "date": "2024-06-18" },
+      { "parkCode": "vive", "date": "2024-06-18" },
+      { "parkCode": "coga", "date": "2024-06-18" },
+      { "parkCode": "wwii", "date": "2024-06-18" },
+      { "parkCode": "wamo", "date": "2024-06-18" },
+      { "parkCode": "whho", "date": "2024-06-18" },
+      { "parkCode": "wwim", "date": "2024-06-18" },
+      { "parkCode": "nama", "date": "2024-06-18" },
+      { "parkCode": "ddem", "date": "2024-06-18" },
+      { "parkCode": "thje", "date": "2024-06-18" },
+      { "parkCode": "frde", "date": "2024-06-18" },
+      { "parkCode": "mlkm", "date": "2024-06-18" },
+      { "parkCode": "kowa", "date": "2024-06-18" },
+      { "parkCode": "linc", "date": "2024-06-18" },
+      { "parkCode": "grfa", "date": "2024-06-19" },
+      { "parkCode": "mana", "date": "2024-06-20" },
+      { "parkCode": "wotr", "date": "2024-06-20" },
+      { "parkCode": "frst", "date": "2024-06-21" }
+    ]
+  },
+  {
+    "id": "2025-03-dc-baltimore",
+    "name": "New York to Baltimore",
+    "stops": [
+      { "parkCode": "sapa", "date": "2025-03-27" },
+      { "parkCode": "vafo", "date": "2025-03-27" },
+      { "parkCode": "bawa", "date": "2025-03-27" },
+      { "parkCode": "rocr", "date": "2025-03-28" },
+      { "parkCode": "clba", "date": "2025-03-28" },
+      { "parkCode": "glec", "date": "2025-03-28" },
+      { "parkCode": "choh", "date": "2025-03-28" },
+      { "parkCode": "fomc", "date": "2025-03-30" },
+      { "parkCode": "hamp", "date": "2025-03-30" }
+    ]
+  },
+  {
+    "id": "2026-06-new-orleans",
+    "name": "New Orleans",
+    "stops": [
+      { "parkCode": "jazz", "date": "2026-06-27" },
+      { "parkCode": "jela", "date": "2026-06-27" }
+    ]
+  },
+  {
+    "id": "2026-11-dc-ohio",
+    "name": "DC, Pennsylvania & Ohio",
+    "stops": [
+      { "parkCode": "dsds", "date": "2026-11-08" },
+      { "parkCode": "arho", "date": "2026-11-08" },
+      { "parkCode": "mono", "date": "2026-11-09" },
+      { "parkCode": "cato", "date": "2026-11-09" },
+      { "parkCode": "alpo", "date": "2026-11-10" },
+      { "parkCode": "jofl", "date": "2026-11-10" },
+      { "parkCode": "flni", "date": "2026-11-10" },
+      { "parkCode": "fone", "date": "2026-11-11" },
+      { "parkCode": "frhi", "date": "2026-11-11" },
+      { "parkCode": "chyo", "date": "2026-11-13" },
+      { "parkCode": "daav", "date": "2026-11-13" }
+    ]
+  }
+]

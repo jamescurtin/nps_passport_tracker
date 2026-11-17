@@ -33,6 +33,8 @@ D3.js interactive map visualization of National Park Service sites, deployed as 
 - `src/css/map.css` — Responsive styling with CSS variables (NPS color palette)
 - `src/data/parks.json` — NPS park metadata (auto-updated weekly via GitHub Actions)
 - `src/data/visits.json` — Manually curated visited parks with dates and notes
+- `src/data/trips.json` — Manually curated trips: ordered stops (`parkCode` + visit `date`)
+- `src/js/trips.js` — Trips list/itinerary sheet; the route drawing lives in `src/index.js`
 - `.github/scripts/update_parks.py` — Fetches NPS API, validates with Pydantic models
 - `.github/scripts/sort_visits.py` — Sorts visits.json by parkCode
 
@@ -41,6 +43,7 @@ D3.js interactive map visualization of National Park Service sites, deployed as 
 - **parks.json** — Auto-updated by `update-parks.yml` workflow (weekly cron + on push). Python script fetches NPS API using `NPS_API_KEY` secret, validates with Pydantic, auto-commits changes via PR.
 - **visits.json** — Manually edited. Contains `parkCode`, `visitedOn` date array, and `notes`. Sorted by `npm run sort-visits`.
 - At build time, `src/index.js` merges both files to flag visited parks and attach visit dates.
+- **trips.json** — Manually edited. Each stop must match a `visitedOn` date in visits.json (`test/trips.test.js` enforces it). Deep link: `#/trip/<id>`.
 
 ## Code style
 

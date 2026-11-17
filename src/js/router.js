@@ -1,5 +1,5 @@
-// Hash routes: `#/park/<parkCode>` and `#/state/<ABBR>`. An empty hash means
-// the default (fully zoomed out) view.
+// Hash routes: `#/park/<parkCode>`, `#/trip/<id>` and `#/state/<ABBR>`. An
+// empty hash means the default (fully zoomed out) view.
 //
 // This module holds no DOM or D3 code. `createRouter` takes the UI callbacks
 // and the `window`-like object (`location`, `history`, event listeners) as
@@ -7,12 +7,13 @@
 
 const PARK_PREFIX = "#/park/";
 const STATE_PREFIX = "#/state/";
+const TRIP_PREFIX = "#/trip/";
 
 /**
  * Parse a location hash.
  * @param {string} hash - `location.hash`, with or without the leading `#`
  * @return {{type: "reset"}|{type: "park", code: string}|
- *   {type: "state", abbr: string}|null} The route, or null when the hash is
+ *   {type: "state", abbr: string}|{type: "trip", id: string}|null} The route, or null when the hash is
  *   not one of ours (callers ignore it)
  */
 export function parseHash(hash) {
@@ -25,6 +26,10 @@ export function parseHash(hash) {
   if (value.startsWith(STATE_PREFIX)) {
     const abbr = decode(value.slice(STATE_PREFIX.length));
     return abbr ? { type: "state", abbr: abbr.toUpperCase() } : null;
+  }
+  if (value.startsWith(TRIP_PREFIX)) {
+    const id = decode(value.slice(TRIP_PREFIX.length));
+    return id ? { type: "trip", id: id.toLowerCase() } : null;
   }
   return null;
 }
@@ -44,12 +49,13 @@ function decode(text) {
 
 /**
  * Format a route as a hash. Inverse of `parseHash`.
- * @param {{park?: string|null, state?: string|null}} route - A park wins over
- *   a state; neither gives "" (no hash)
- * @return {string} `#/park/<code>`, `#/state/<ABBR>` or ""
+ * @param {{park?: string|null, trip?: string|null, state?: string|null}}
+ *   route - A park wins over a trip, a trip over a state; none gives ""
+ * @return {string} `#/park/<code>`, `#/trip/<id>`, `#/state/<ABBR>` or ""
  */
-export function formatHash({ park = null, state = null } = {}) {
+export function formatHash({ park = null, trip = null, state = null } = {}) {
   if (park) return `${PARK_PREFIX}${encodeURIComponent(park)}`;
+  if (trip) return `${TRIP_PREFIX}${encodeURIComponent(trip)}`;
   if (state) return `${STATE_PREFIX}${encodeURIComponent(state)}`;
   return "";
 }
@@ -78,7 +84,10 @@ export function parkUrl(code, base) {
  * @param {(abbr: string) => void} options.zoomState - Zoom to a state (and
  *   close the park sheet)
  * @param {() => void} options.reset - Zoom out and close everything
- * @return {object} `{ start, apply, stateChanged, parkChanged }`
+ * @param {(id: string) => boolean} [options.hasTrip] - Known trip?
+ * @param {(id: string) => void} [options.openTrip] - Show a trip
+ * @param {() => void} [options.closeTrip] - Hide the shown trip
+ * @return {object} `{ start, apply, stateChanged, parkChanged, tripChanged }`
  */
 export function createRouter({
   win = window,
@@ -88,10 +97,14 @@ export function createRouter({
   closePark,
   zoomState,
   reset,
+  hasTrip = () => false,
+  openTrip = () => {},
+  closeTrip = () => {},
 }) {
-  // What the UI shows, kept up to date by `stateChanged` / `parkChanged`
-  // (from the UI) and by `apply` (from the hash).
-  const model = { state: null, park: null };
+  // What the UI shows, kept up to date by `stateChanged` / `parkChanged` /
+  // `tripChanged` (from the UI) and by `apply` (from the hash). A trip and a
+  // zoomed state never coexist; a park sheet can open over either.
+  const model = { state: null, park: null, trip: null };
   // True while a hash is being applied: UI callbacks then report back
   // through `stateChanged` / `parkChanged`, but nothing is written.
   let applying = false;
@@ -121,19 +134,30 @@ export function createRouter({
     applying = true;
     try {
       if (route.type === "reset") {
-        if (model.state || model.park) reset();
+        if (model.state || model.park || model.trip) reset();
         model.state = null;
         model.park = null;
+        model.trip = null;
       } else if (route.type === "state") {
         if (!hasState(route.abbr)) return;
         if (model.park) closePark();
         model.park = null;
+        if (model.trip) closeTrip();
+        model.trip = null;
         if (model.state !== route.abbr) zoomState(route.abbr);
         model.state = route.abbr;
+      } else if (route.type === "trip") {
+        if (!hasTrip(route.id)) return;
+        if (model.park) closePark();
+        model.park = null;
+        if (model.trip !== route.id) openTrip(route.id);
+        model.trip = route.id;
+        model.state = null;
       } else {
         const states = parkStates(route.code);
         if (!states) return;
-        if (!states.includes(model.state)) {
+        // Over a trip, the park opens in place: the trip view stays.
+        if (!model.trip && !states.includes(model.state)) {
           const target = states.find(hasState);
           if (target) {
             zoomState(target);
@@ -175,6 +199,17 @@ export function createRouter({
     parkChanged(code) {
       const opening = code !== null && model.park === null;
       model.park = code;
+      write(opening);
+    },
+    /**
+     * A trip was shown, swapped or hidden. Showing one adds a history entry,
+     * so Back leaves the trip; everything else replaces.
+     * @param {string|null} id - Trip id, or null when hidden
+     */
+    tripChanged(id) {
+      const opening = id !== null && model.trip === null;
+      model.trip = id;
+      if (id !== null) model.state = null;
       write(opening);
     },
   };

@@ -43,6 +43,12 @@ Add visited NPS sites to `src/data/visits.json`. For each park: resolve its `par
 
 6. **Verify.** `python3 -c "import json; json.load(open('src/data/visits.json'))"` to confirm valid JSON, and `git diff --stat src/data/visits.json` to confirm the diff is limited to the new entries (a clean add is a small insertion count, not a whole-file reformat).
 
+7. **Trips.** Check whether the new visits belong in `src/data/trips.json`. Rule: a trip has 2+ sites. Away from the Boston area, visit days with gaps of 2 days max form one trip. A Boston-area day with 2+ sites is its own trip. Then:
+   - New trip: add `{ "id": "YYYY-MM-<slug>", "name": "...", "stops": [...] }`, one `{ "parkCode", "date" }` per stop.
+   - Extends an existing trip: insert the stops in that trip.
+   - Stops are in visit order. Order across days follows the dates. Order within one day is a guess unless the user says it: propose one (shortest driving path from the previous stop), and show it to the user with **full park names**, not parkCodes, before writing it.
+   - Run `npx prettier --write src/data/trips.json` and `npx vitest run test/trips.test.js` (checks each stop against `visits.json`).
+
 ## Notes
 
 - Do not commit unless the user asks.
