@@ -157,11 +157,14 @@ div.tooltip {
   pointer-events: none;
 }
 
-/* Timeline: the map as it was on the slider date. Parks first visited later
-   look not visited yet. */
+/* Timeline: the map as it was on the slider date. Parks not visited yet (or
+   never) are faint tan dots with no ring, so the green dots stand out as
+   they appear. */
+.timeline-mode .park-dot.not-visited,
 .timeline-mode .tl-future .park-dot {
   fill: var(--not-visited);
-  stroke: var(--surface);
+  stroke: none;
+  opacity: 0.3;
 }
 
 /* Trip view: the route under the markers, other markers faded back. The
