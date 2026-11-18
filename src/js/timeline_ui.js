@@ -9,11 +9,11 @@ import { createSheet } from "./sheet";
 import { dayNumber, isoFromDay } from "./timeline";
 import { formatDateRange } from "./trips";
 
-const CHART_HEIGHT = 112;
+const CHART_HEIGHT = 64;
 // Half the slider thumb width (CSS); the chart x range is inset by it so the
 // thumb centre sits exactly over its date.
 const THUMB_HALF = 11;
-const MARGIN = { top: 16, bottom: 18 };
+const MARGIN = { top: 14, bottom: 16 };
 
 /**
  * Create the Timeline toolbar button and its sheet.
@@ -48,6 +48,8 @@ export function createTimelineUI({
   const sheet = createSheet({
     id: "timeline-sheet",
     title: "Timeline",
+    // Compact: the Play row is the visible heading.
+    hideTitle: true,
     modal: false,
     anchor: "bottom-left",
     className: "timeline-sheet",

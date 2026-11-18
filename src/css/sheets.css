@@ -775,12 +775,37 @@
 .timeline-sheet[data-mode="card"] {
   right: 0;
   left: 0;
-  width: min(720px, calc(100% - 2 * var(--spacing-lg)));
+  width: min(520px, calc(100% - 2 * var(--spacing-lg)));
   margin-inline: auto;
 }
 
 .timeline-sheet[data-mode="sheet"][data-snap] .sheet-panel {
   height: auto;
+}
+
+/* One header row: Play and the count on the left, Close on the right (the
+   title is visually hidden). The mobile drag handle keeps its own row. */
+.sheet.timeline-sheet[data-mode] .sheet-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding-block: var(--spacing-sm) 0;
+}
+
+.sheet.timeline-sheet[data-mode] .sheet-handle {
+  grid-area: 1 / 1 / 2 / -1;
+}
+
+.sheet.timeline-sheet[data-mode] .sheet-header-row {
+  grid-area: 2 / 2;
+}
+
+.sheet.timeline-sheet[data-mode] .sheet-header-extra {
+  grid-area: 2 / 1;
+}
+
+.sheet.timeline-sheet[data-mode] .sheet-body {
+  padding-bottom: var(--spacing-sm);
 }
 
 .timeline-head {
@@ -813,7 +838,7 @@
 
 .timeline-count {
   color: var(--ink);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
 }
 
 .timeline-date {
@@ -824,8 +849,8 @@
 .timeline-chart {
   position: relative;
 
-  /* Chart (112px, see CHART_HEIGHT in timeline_ui.js) plus the slider. */
-  height: 140px;
+  /* Chart (64px, see CHART_HEIGHT in timeline_ui.js) plus the slider. */
+  height: 90px;
 }
 
 .timeline-svg {

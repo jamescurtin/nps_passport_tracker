@@ -31,7 +31,7 @@ import {
   dayNumber,
 } from "./js/timeline";
 import { createTimelineUI } from "./js/timeline_ui";
-import { createTripPlayer } from "./js/trip_player";
+import { createTripPlayer, planRuns } from "./js/trip_player";
 import { buildTrips, createTripsUI, formatDay } from "./js/trips";
 
 import "./css/index.css";
@@ -102,21 +102,22 @@ const tripLineWidth = 2.5;
 // many px at k=1 (about a mile), so two stops a block apart do not zoom to max.
 const TRIP_FILL = 0.8;
 const TRIP_MIN_EXTENT = 0.5;
-// Camera move between days of a trip, ms.
+// A trip overview is never tighter than this fraction of the map's shorter
+// side at k=1 (about 5x zoom), so it keeps the broader picture. Stops that
+// crowd together at that zoom get a close-up (see planRuns).
+const TRIP_OVERVIEW_MIN_EXTENT = 0.15;
+// Camera move into or out of a trip close-up, ms.
 const TRIP_CAMERA_MS = 750;
-// Timeline playback: camera move and pause per visit date, ms. A visit
-// outside a trip is framed at least this wide (px at k=1, about 250 miles)
-// and no closer than TIMELINE_MAX_SCALE.
-const TIMELINE_CAMERA_MS = 700;
+// Timeline playback: pause per visit date, ms. The camera does not move.
 const TIMELINE_DWELL_MS = 450;
-const TIMELINE_MIN_EXTENT = 110;
-const TIMELINE_MAX_SCALE = 8;
 
 // Zoom scale bounds. MAX_SCALE caps the state and location zooms; gestures
 // and trip views may go further, so the National Mall's memorials separate.
 const MIN_SCALE = 1;
 const MAX_SCALE = 16;
 const GESTURE_MAX_SCALE = 400;
+// The timeline shrinks the whole map a little to keep it above its card.
+const GESTURE_MIN_SCALE = 0.5;
 
 // On click properties
 const tooltipOpacity = 0.9;
@@ -177,17 +178,13 @@ const g = svg.append("g");
 // Extended max zoom (16x) to handle small states like DC
 const zoom = d3
   .zoom()
-  .scaleExtent([MIN_SCALE, GESTURE_MAX_SCALE])
+  .scaleExtent([GESTURE_MIN_SCALE, GESTURE_MAX_SCALE])
   .on("zoom", (event) => {
     g.attr("transform", event.transform);
     // A pan or pinch during trip playback takes over: the route jumps to its
     // end state and the camera stays where the user put it.
     if (event.sourceEvent && tripPlayer?.isPlaying()) {
       tripPlayer.skip({ fit: false });
-    }
-    // Same for the timeline: a gesture pauses it.
-    if (event.sourceEvent && timelinePlayer?.isPlaying()) {
-      timelinePlayer.stop();
     }
 
     // Adjust stroke widths and point sizes based on zoom level
@@ -196,7 +193,10 @@ const zoom = d3
     g.selectAll(".outline").attr("stroke-width", outlineWidth / k);
     sizeDots(k);
     g.selectAll(".park-hit").attr("r", hitRadius / k);
-    g.selectAll(".trip-leg").attr("stroke-width", tripLineWidth / k);
+    g.selectAll(".trip-leg, .trip-leg-ghost").attr(
+      "stroke-width",
+      tripLineWidth / k,
+    );
     // Touch hit circles are only active when zoomed (pinch does not set `active`).
     svg.classed("zoomed", k >= 2);
 
@@ -747,14 +747,16 @@ function clearSearchOverlay() {
 }
 
 /**
- * Radius multiplier for a park-dot: highlighted markers 2.5x, trip stops 2x.
+ * Radius multiplier for a park-dot: highlighted markers 2.5x, trip stops 2x,
+ * parks the timeline just reached 1.7x.
  * @param {Element} dot - The .park-dot element
  * @return {number} 1 for a plain marker
  */
 function dotScale(dot) {
   const classes = dot.parentNode.classList;
   if (classes.contains("highlighted")) return 2.5;
-  return classes.contains("trip-stop") ? 2 : 1;
+  if (classes.contains("trip-stop")) return 2;
+  return classes.contains("tl-arrive") ? 1.7 : 1;
 }
 
 /**
@@ -806,9 +808,22 @@ function visibleMapRect() {
  * @param {object} trip - Built trip
  */
 function fitTrip(trip) {
-  const transform = stopsTransform(trip.stops);
+  const transform = tripOverview(trip);
   if (!transform) return;
   svg.transition().duration(zoomDuration).call(zoom.transform, transform);
+}
+
+/**
+ * The trip's overview: every stop beside the trips sheet, but never zoomed
+ * in past TRIP_OVERVIEW_MIN_EXTENT.
+ * @param {object} trip - Built trip
+ * @return {object|null} d3 zoom transform
+ */
+function tripOverview(trip) {
+  return parksTransform(
+    trip.stops.map((s) => s.park),
+    { minExtent: TRIP_OVERVIEW_MIN_EXTENT * Math.min(width, height) },
+  );
 }
 
 /**
@@ -866,11 +881,25 @@ function tripMarkers(trip) {
  */
 function makeTripPlayer() {
   const legNodes = () => tripLayer.selectAll(".trip-leg").nodes();
+  // Projected (k=1) length of each leg, measured on the drawn path.
+  const legLength = (i) => legNodes()[i]?.getTotalLength() ?? 0;
+  const runStops = (trip, run) =>
+    trip.stops.slice(run.legs[0], run.legs[run.legs.length - 1] + 2);
+  const runTransform = (trip, run) =>
+    run ? stopsTransform(runStops(trip, run)) : tripOverview(trip);
   return createTripPlayer({
+    plan: (trip) => {
+      const k = tripOverview(trip)?.k ?? 1;
+      return planRuns(trip.stops.slice(1).map((_, i) => legLength(i) * k));
+    },
+    runLength: (trip, run) => {
+      const k = runTransform(trip, run.closeUp ? run : null)?.k ?? 1;
+      return run.legs.reduce((sum, i) => sum + legLength(i), 0) * k;
+    },
     // Default-named transition: a d3-zoom gesture or any other zoom
     // transition interrupts it (the gesture also skips, see the zoom handler).
-    camera: (stops) => {
-      const transform = stopsTransform(stops);
+    camera: (trip, run) => {
+      const transform = runTransform(trip, run);
       if (!transform) return Promise.resolve();
       return svg
         .transition()
@@ -879,15 +908,37 @@ function makeTripPlayer() {
         .call(zoom.transform, transform)
         .end();
     },
-    legLength: (i) => legNodes()[i]?.getTotalLength() ?? 0,
-    drawLeg: (i, ms) =>
-      d3
-        .select(legNodes()[i])
+    // One linear transition across the run's legs, so the pen moves at a
+    // steady speed through every stop instead of easing in and out of each.
+    drawRun: (run, ms, onReach) => {
+      const nodes = run.legs.map((i) => legNodes()[i]);
+      const lengths = nodes.map((n) => n.getTotalLength());
+      const starts = lengths.map((_, j) =>
+        lengths.slice(0, j).reduce((a, b) => a + b, 0),
+      );
+      const total = lengths.reduce((a, b) => a + b, 0);
+      let reached = 0;
+      return d3
+        .select(tripLayer.node())
         .transition("trip-draw")
         .duration(ms)
-        .ease(d3.easeCubicInOut)
-        .attr("stroke-dashoffset", 0)
-        .end(),
+        .ease(d3.easeLinear)
+        .tween("draw", () => (t) => {
+          const pos = t * total;
+          nodes.forEach((node, j) => {
+            const drawn = Math.max(0, Math.min(lengths[j], pos - starts[j]));
+            node.setAttribute("stroke-dashoffset", lengths[j] - drawn);
+          });
+          while (
+            reached < nodes.length &&
+            (t === 1 || pos >= starts[reached] + lengths[reached])
+          ) {
+            onReach(run.legs[reached]);
+            reached += 1;
+          }
+        })
+        .end();
+    },
     lightStop: (stop) => {
       const marker = g
         .selectAll(".park-marker")
@@ -898,12 +949,15 @@ function makeTripPlayer() {
         marker.classed("trip-arrive", false).on("animationend.trip", null),
       );
       tripsUI.markStop(stop.number);
+      const trip = tripsUI.current();
+      const day = trip?.days.find((d) => d.stops[0] === stop);
+      if (day) {
+        announce(
+          `${formatDay(day.date)}: ${day.stops.map((s) => s.park.name).join(", ")}`,
+          0,
+        );
+      }
     },
-    onDay: (step) =>
-      announce(
-        `${formatDay(step.date)}: ${step.stops.map((s) => s.park.name).join(", ")}`,
-        0,
-      ),
     finish: (trip, { fit }) => {
       showRouteComplete(trip);
       if (fit) fitTrip(trip);
@@ -918,15 +972,13 @@ function makeTripPlayer() {
  * @param {object} trip - Built trip
  */
 function resetRoute(trip) {
-  tripLayer
-    .selectAll(".trip-leg")
-    .interrupt("trip-draw")
-    .each(function () {
-      const len = this.getTotalLength();
-      d3.select(this)
-        .attr("stroke-dasharray", `${len} ${len}`)
-        .attr("stroke-dashoffset", len);
-    });
+  tripLayer.interrupt("trip-draw");
+  tripLayer.selectAll(".trip-leg").each(function () {
+    const len = this.getTotalLength();
+    d3.select(this)
+      .attr("stroke-dasharray", `${len} ${len}`)
+      .attr("stroke-dashoffset", len);
+  });
   tripMarkers(trip).classed("trip-pending", true).classed("trip-arrive", false);
   tripsUI.markStop(null);
 }
@@ -936,9 +988,9 @@ function resetRoute(trip) {
  * @param {object} trip - Built trip
  */
 function showRouteComplete(trip) {
+  tripLayer.interrupt("trip-draw");
   tripLayer
     .selectAll(".trip-leg")
-    .interrupt("trip-draw")
     .attr("stroke-dasharray", null)
     .attr("stroke-dashoffset", null);
   tripMarkers(trip)
@@ -986,7 +1038,15 @@ function showTripOnMap(trip) {
       [+b.park.longitude, +b.park.latitude],
     ],
   }));
+  // A faint copy of the whole route sits under the line that draws in.
   const k = d3.zoomTransform(svg.node()).k;
+  tripLayer
+    .selectAll(".trip-leg-ghost")
+    .data(legs)
+    .join("path")
+    .attr("class", "trip-leg-ghost")
+    .attr("d", path)
+    .attr("stroke-width", tripLineWidth / k);
   tripLayer
     .selectAll(".trip-leg")
     .data(legs)
@@ -1050,7 +1110,7 @@ function completionDates(features, model) {
  * @param {string} date - `YYYY-MM-DD` (before the first visit shows none)
  * @param {object} [options]
  * @param {object} [options.event] - Timeline event being played: its parks
- *   pulse
+ *   pop and stay a little larger until the next date
  */
 function applyTimelineDate(date, { event = null } = {}) {
   timelineDate = date;
@@ -1063,10 +1123,8 @@ function applyTimelineDate(date, { event = null } = {}) {
     )
     .classed("tl-arrive", (d) => arriving.has(d.parkCode))
     .filter((d) => arriving.has(d.parkCode))
-    .raise()
-    .on("animationend.tl", function () {
-      d3.select(this).classed("tl-arrive", false).on("animationend.tl", null);
-    });
+    .raise();
+  sizeDots();
   g.selectAll(".state-complete").classed(
     "tl-incomplete",
     (d) => (stateCompletion.get(d) ?? "~") > date,
@@ -1091,17 +1149,19 @@ function showTimelineOnMap() {
 }
 
 /**
- * Frame every park ever visited beside the timeline sheet (the sheet covers
- * the lower map, so the plain zoomed-out view would hide parks under it).
+ * Show the whole map above the timeline card: never zoomed in, shrunk just
+ * enough that the card does not cover any of it.
  */
 function fitTimeline() {
-  const visited = timeline.events.flatMap((e) => e.newParks);
-  const transform = parksTransform(visited, {
-    minExtent: TIMELINE_MIN_EXTENT,
-    maxScale: TIMELINE_MAX_SCALE,
+  const t = transformForBounds(path.bounds(stateCollection), visibleMapRect(), {
+    fill: 1,
+    minScale: GESTURE_MIN_SCALE,
+    maxScale: 1,
   });
-  if (!transform) return;
-  svg.transition().duration(zoomDuration).call(zoom.transform, transform);
+  svg
+    .transition()
+    .duration(zoomDuration)
+    .call(zoom.transform, d3.zoomIdentity.translate(t.x, t.y).scale(t.k));
 }
 
 /**
@@ -1117,6 +1177,7 @@ function hideTimelineOnMap({ resetZoom = true } = {}) {
   g.selectAll(".tl-future, .tl-arrive")
     .classed("tl-future", false)
     .classed("tl-arrive", false);
+  sizeDots();
   g.selectAll(".tl-incomplete").classed("tl-incomplete", false);
   timelineDate = null;
   router?.timelineChanged(false);
@@ -1140,61 +1201,20 @@ function closeTimeline({ resetZoom = true } = {}) {
 }
 
 /**
- * Whether two zoom transforms frame nearly the same view (skip the camera).
- * @param {object} a - d3 zoom transform
- * @param {object} b - d3 zoom transform
- * @return {boolean} true when the scale is within 50% and the centre moved
- *   less than a fifth of the map
- */
-function similarView(a, b) {
-  if (Math.abs(Math.log(a.k / b.k)) > Math.log(1.5)) return false;
-  const [ax, ay] = a.invert([width / 2, height / 2]);
-  const [bx, by] = b.invert([width / 2, height / 2]);
-  return Math.hypot(ax - bx, ay - by) * a.k < Math.min(width, height) / 5;
-}
-
-/**
- * Trip a visit date belongs to, if any.
- * @param {string} date - `YYYY-MM-DD`
- * @return {object|null} Built trip
- */
-function tripOn(date) {
-  return tripsUI.trips.find((t) => t.start <= date && date <= t.end) ?? null;
-}
-
-/**
- * Play one timeline event: move the date, frame the visit (its whole trip
- * when it is part of one), then pause on it.
+ * Play one timeline event: move the date (its parks turn green and pop),
+ * then pause on it. The camera stays put.
  * @param {object} event - Timeline event
  * @param {() => boolean} cancelled - True once playback was paused
  */
 async function timelineStep(event, cancelled) {
   applyTimelineDate(event.date, { event });
-  const trip = tripOn(event.date);
-  // Region scale even for a trip: a one-city trip at street level would
-  // jump in and out between neighbouring dates.
-  const target = parksTransform(
-    trip ? trip.stops.map((s) => s.park) : event.parks,
-    {
-      minExtent: TIMELINE_MIN_EXTENT,
-      maxScale: TIMELINE_MAX_SCALE,
-    },
-  );
-  if (target && !similarView(d3.zoomTransform(svg.node()), target)) {
-    await svg
-      .transition()
-      .duration(TIMELINE_CAMERA_MS)
-      .ease(d3.easeCubicInOut)
-      .call(zoom.transform, target)
-      .end();
-  }
   if (cancelled()) return;
   await new Promise((resolve) => setTimeout(resolve, TIMELINE_DWELL_MS));
 }
 
 /**
  * Play from the current date (from the start when at the end), then show
- * today and zoom back out. Reduced motion jumps straight to today.
+ * today. Reduced motion jumps straight to today.
  */
 async function playTimeline() {
   if (reduceMotion) {
@@ -1211,7 +1231,6 @@ async function playTimeline() {
   const done = await timelinePlayer.play(events);
   if (!done) return;
   applyTimelineDate(timeline.end);
-  fitTimeline();
 }
 
 /**
@@ -1567,8 +1586,8 @@ const handleResize = debounce(() => {
   // Reset map view if zoomed; a trip refits to the new size instead.
   if (active.node()) {
     resetMap();
-  } else if (timelinePlayer?.isPlaying()) {
-    timelinePlayer.stop();
+  } else if (g.classed("timeline-mode")) {
+    fitTimeline();
   } else if (tripsUI?.current()) {
     // Leg lengths changed with the projection: end any playback first.
     if (tripPlayer.isPlaying()) tripPlayer.skip();
