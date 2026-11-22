@@ -79,8 +79,38 @@ def test_excluded_by_name_suffix_fallback() -> None:
     # designation empty, but the name suffix still matches.
     park = NationalPark(
         **_valid_record(
-            fullName="Niobrara National Scenic River",
+            fullName="Oregon National Historic Trail",
             designation="",
+        )
+    )
+    assert _park_has_excluded_designation(park) is True
+
+
+@pytest.mark.parametrize(
+    ("full_name", "designation"),
+    [
+        ("Appalachian National Scenic Trail", "National Scenic Trail"),
+        ("Niobrara National Scenic River", "National Scenic River"),
+        ("Buffalo National River", "National River"),
+        ("Missouri National Recreational River", "National Recreational River"),
+        ("Obed Wild & Scenic River", "Wild & Scenic River"),
+        ("Upper Delaware Scenic & Recreational River", "Scenic & Recreational River"),
+        ("Saint Croix National Scenic Riverway", "National Scenic Riverway"),
+        ("Alagnak Wild River", "Wild River"),
+    ],
+)
+def test_not_excluded_for_river_and_scenic_trail_units(
+    full_name: str, designation: str
+) -> None:
+    park = NationalPark(**_valid_record(fullName=full_name, designation=designation))
+    assert _park_has_excluded_designation(park) is False
+
+
+def test_excluded_for_non_unit_wild_and_scenic_river() -> None:
+    park = NationalPark(
+        **_valid_record(
+            fullName="Lower Delaware National Wild and Scenic River",
+            designation="National Wild and Scenic River",
         )
     )
     assert _park_has_excluded_designation(park) is True
