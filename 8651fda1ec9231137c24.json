@@ -2804,7 +2804,7 @@
         "altText": "View from the air of a mound covered in short green vegetation with forest behind."
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/20611706-1DD8-B71B-0BEA4697A628DD12.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/FC920959-9A61-C9C5-954E2230974BDE6D.jpg",
         "title": "Conical Mounds Leading to Fire Point",
         "altText": "Circular mounds in a single line."
       }
@@ -4095,14 +4095,14 @@
     "states": ["VA"],
     "images": [
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/0ABBFD32-FE2A-6141-1486AC0FF80936EC.jpg",
-        "title": "George Washington Birthplace National Monument in Spring",
-        "altText": "White obelisk in a roundabout, surrounded by trees and the park sign"
+        "url": "https://www.nps.gov/common/uploads/structured_data/88AA51AC-FD59-AD31-FD34C716E2814F75.jpg",
+        "title": "A fishing bald eagle",
+        "altText": "An eagle catching a fish in Popes Creek"
       },
       {
-        "url": "https://www.nps.gov/common/uploads/structured_data/678B843C-0D04-17B1-41E634FC92C3F98A.jpg",
+        "url": "https://www.nps.gov/common/uploads/structured_data/884716EB-C591-CC35-68042E088C4B3499.jpg",
         "title": "George Washington Birthplace National Monument in Winter",
-        "altText": "A large monument sits in the middle of a roundabout with snow on the ground"
+        "altText": "The Memorial Area with snow on the ground"
       }
     ],
     "designation": "National Monument"
@@ -9647,14 +9647,14 @@
     "states": ["NM"],
     "images": [
       {
+        "url": "https://www.nps.gov/common/uploads/structured_data/6ACD2413-9EFF-323B-9BBA39886CD06B75.jpg",
+        "title": "Big Sky",
+        "altText": "Fluffy white clouds above a sweeping montane grassland"
+      },
+      {
         "url": "https://www.nps.gov/common/uploads/structured_data/8DB2060F-DEE0-EAD7-DE87220D060A15CD.jpeg",
         "title": "Coyote on Thin Ice",
         "altText": "A coyote walks across a frozen stream in a snowy valley."
-      },
-      {
-        "url": "https://www.nps.gov/common/uploads/structured_data/8D6CBE97-98D3-EDE2-2F0AF5FBD451BA18.jpg",
-        "title": "East Fork",
-        "altText": "A narrow stream meanders through a montane grassland."
       }
     ],
     "designation": "National Preserve"
