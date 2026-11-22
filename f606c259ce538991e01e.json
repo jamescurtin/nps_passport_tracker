@@ -144,6 +144,30 @@
     "designation": "National Monument"
   },
   {
+    "id": "C4E1A9A4-D121-4734-94FA-7788A93C2AAA",
+    "url": "https://www.nps.gov/alag/index.htm",
+    "name": "Alagnak",
+    "fullName": "Alagnak Wild River",
+    "parkCode": "alag",
+    "description": "The headwaters of Alagnak Wild River lie within the rugged Aleutian Range of neighboring Katmai National Park and Preserve. Meandering west towards Bristol Bay and the Bering Sea, the Alagnak traverses the beautiful Alaska Peninsula, providing an unparalleled opportunity to experience the unique wilderness, wildlife, and cultural heritage of southwest Alaska.",
+    "latitude": 59.05180188,
+    "longitude": -156.112002,
+    "states": ["AK"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E8391-1DD8-B71B-0BB3E18B7F96110A.jpg",
+        "title": "Alagnak Wild River",
+        "altText": "aerial view of braided Alagnak River"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7E8259-1DD8-B71B-0B45810F0CB6E02C.jpg",
+        "title": "Rafts along the river",
+        "altText": "inflatable rafts on the edge of a river"
+      }
+    ],
+    "designation": "Wild River"
+  },
+  {
     "id": "C08AD828-98FF-478E-A63C-614E7534274B",
     "url": "https://www.nps.gov/alca/index.htm",
     "name": "Alcatraz Island",
@@ -454,6 +478,45 @@
       }
     ],
     "designation": "National Lakeshore"
+  },
+  {
+    "id": "FAEF5684-83A4-4CF2-A701-60CF8D4014BD",
+    "url": "https://www.nps.gov/appa/index.htm",
+    "name": "Appalachian",
+    "fullName": "Appalachian National Scenic Trail",
+    "parkCode": "appa",
+    "description": "The Appalachian Trail is a 2,190+ mile long public footpath that traverses the scenic, wooded, pastoral, wild, and culturally resonant lands of the Appalachian Mountains. Conceived in 1921, built by private citizens, and completed in 1937, today the trail is managed by the National Park Service, US Forest Service, Appalachian Trail Conservancy, numerous state agencies and thousands of volunteers.",
+    "latitude": 40.41029575,
+    "longitude": -76.4337548,
+    "states": [
+      "CT",
+      "GA",
+      "MA",
+      "MD",
+      "ME",
+      "NC",
+      "NH",
+      "NJ",
+      "NY",
+      "PA",
+      "TN",
+      "VA",
+      "VT",
+      "WV"
+    ],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C83A128-1DD8-B71B-0B02DED286AFD8C6.jpg",
+        "title": "Appalachian Trail",
+        "altText": "The Appalachian Trail runs across a mountain ridge line with views to the horizon of mountain range."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C8397D6-1DD8-B71B-0BEF4C54462A1EB3.jpg",
+        "title": "McAfee Knob",
+        "altText": "Silhouette of a man with backpack standing on McAfee Knob at sunset with mountains in the distance."
+      }
+    ],
+    "designation": "National Scenic Trail"
   },
   {
     "id": "16CCCC56-1DC1-47D6-AE91-E939955BFC53",
@@ -1022,6 +1085,30 @@
     "designation": "Parkway"
   },
   {
+    "id": "14025CA9-91DE-4D36-B4CA-9880463C3BC2",
+    "url": "https://www.nps.gov/blue/index.htm",
+    "name": "Bluestone",
+    "fullName": "Bluestone National Scenic River",
+    "parkCode": "blue",
+    "description": "The Bluestone River and the rugged and ancient gorge it has carved is a richly diverse and scenic area of the southern Appalachians. Bluestone National Scenic River is preserved as a living landscape that provides an unspoiled experience for visitors and a haven for a variety of plants and animals. The park protects a 10.5-mile section of the Bluestone River in southern West Virginia.",
+    "latitude": 37.56577087,
+    "longitude": -80.98366657,
+    "states": ["WV"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C800E49-1DD8-B71B-0BD0956F0EFE00F0.jpg",
+        "title": "Bluestone River",
+        "altText": "Bluestone River"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/6F37F8DC-C649-5B81-F8C2F239936D4C27.jpg",
+        "title": "Bluestone River",
+        "altText": "river with trees"
+      }
+    ],
+    "designation": "National Scenic River"
+  },
+  {
     "id": "6278FE68-139E-4758-A6DE-9A0437F777B5",
     "url": "https://www.nps.gov/bowa/index.htm",
     "name": "Booker T. Washington",
@@ -1207,6 +1294,30 @@
       }
     ],
     "designation": "National Monument"
+  },
+  {
+    "id": "DBD2FCBF-D0DD-4262-A04E-93090888F0F5",
+    "url": "https://www.nps.gov/buff/index.htm",
+    "name": "Buffalo",
+    "fullName": "Buffalo National River",
+    "parkCode": "buff",
+    "description": "Established in 1972, Buffalo National River flows freely for 135 miles and is one of the few remaining undammed rivers in the lower 48 states. Once you arrive, prepare to journey from running rapids to quiet pools while surrounded by massive bluffs as you cruise through the Ozark Mountains down to the White River.",
+    "latitude": 36.04116481,
+    "longitude": -92.90761584,
+    "states": ["AR"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7D6BE9-1DD8-B71B-0BE7024117A6287B.jpg",
+        "title": "Floating the Buffalo",
+        "altText": "Floaters on the river."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7AAA8F-1DD8-B71B-0B030B40F222703A.jpg",
+        "title": "Indian Rockhouse",
+        "altText": "A large bluff shelter near Buffalo Point."
+      }
+    ],
+    "designation": "National River"
   },
   {
     "id": "2DB09FB7-0408-44C9-8083-8F50039BD6DA",
@@ -5226,6 +5337,30 @@
     "designation": "National Historic Site"
   },
   {
+    "id": "DED290D0-879A-4134-BBC3-54980D80959E",
+    "url": "https://www.nps.gov/iatr/index.htm",
+    "name": "Ice Age",
+    "fullName": "Ice Age National Scenic Trail",
+    "parkCode": "iatr",
+    "description": "The Ice Age National Scenic Trail spans 1,200 miles, traverses some of Wisconsin's finest geologic and glacial features, and passes through the ancestral lands of 15 Tribes. The Trail is built, managed and maintained by dedicated volunteers, Ice Age Trail Alliance, Wisconsin Department of Natural Resources, local partners, and the National Park Service.",
+    "latitude": 43.9895697794,
+    "longitude": -89.5612021706,
+    "states": ["WI"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/4BFD5658-FDF3-925A-C6567EFBD3EE583F.jpg",
+        "title": "Felsenmeer in Ice Age National Scenic Trail Blue Hills Segment",
+        "altText": "Photograph of a forest scene with a V-shaped boulder-strewn valley."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/E538F76C-CB06-6007-549113D6D1A7E4D5.jpg",
+        "title": "Glacial Erratic Boulder on Harwood Lake Segment of Ice Age National Scenic Trail",
+        "altText": "Photograph of a large glacial erratic boulder in autumn with trees covered in colorful foliage and f"
+      }
+    ],
+    "designation": "National Scenic Trail"
+  },
+  {
     "id": "CF35CC35-12CE-473D-9E4C-703916105B78",
     "url": "https://www.nps.gov/inde/index.htm",
     "name": "Independence",
@@ -6733,6 +6868,30 @@
     "designation": "National River & Recreation Area"
   },
   {
+    "id": "D43C7439-5C0B-4F4F-9D5B-65080F13AD28",
+    "url": "https://www.nps.gov/mnrr/index.htm",
+    "name": "Missouri",
+    "fullName": "Missouri National Recreational River",
+    "parkCode": "mnrr",
+    "description": "Imagine a 100-mile stretch of North America's longest river, a vestige of the untamed American West. The Missouri National Recreational River is where imagination meets reality. Two free flowing stretches of the Missouri make up the National Park. Relive the past by exploring the wild, untamed and mighty river that continues to flow as nature intended.",
+    "latitude": 42.7882189,
+    "longitude": -97.59077822,
+    "states": ["SD", "NE"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C8375D2-1DD8-B71B-0B28DF0D3992CFAE.jpg",
+        "title": "Aerial of Missouri River",
+        "altText": "Aerial view of the Missouri River and surrounding landscape."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/176CC10B-9149-BA14-EBA7934F1BDCA490.jpg",
+        "title": "All alone with my canoe",
+        "altText": "A canoe loaded with gear sits quietly on a sandy river bank with blue sky above."
+      }
+    ],
+    "designation": "National Recreational River"
+  },
+  {
     "id": "D509DC08-53AD-4661-A2EA-FC69BE456E50",
     "url": "https://www.nps.gov/moja/index.htm",
     "name": "Mojave",
@@ -6949,6 +7108,30 @@
     "designation": "National Historical Park"
   },
   {
+    "id": "3ACC9199-1234-4E50-B80E-65DB783B4BB7",
+    "url": "https://www.nps.gov/natt/index.htm",
+    "name": "Natchez Trace",
+    "fullName": "Natchez Trace National Scenic Trail",
+    "parkCode": "natt",
+    "description": "The Natchez Trace National Scenic Trail is five sections of hiking trail running roughly parallel to the 444-mile long Natchez Trace Parkway scenic motor road. The foot trails total more than 60 miles and offer opportunities to explore wetlands, swamps, hardwood forest, and the history of the area.",
+    "latitude": 34.330290333,
+    "longitude": -88.7100104094,
+    "states": ["AL", "MS", "TN"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C843CE5-1DD8-B71B-0BAFBFE2E37ADA31.jpg",
+        "title": "Potkopinu Section of the Natchez Trace National Scenic Trail",
+        "altText": "Potkopinu Section of the Natchez Trace National Scenic Trail"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C843EB9-1DD8-B71B-0B958F0F60585D20.jpg",
+        "title": "Rocky Springs Section of the Natchez Trace National Scenic Trail",
+        "altText": "A section of the Old Trace at Rocky Springs (MP 52.4-59)"
+      }
+    ],
+    "designation": "National Scenic Trail"
+  },
+  {
     "id": "E8A0F0B6-983F-4B9A-9A67-BFF6F9E4204A",
     "url": "https://www.nps.gov/natr/index.htm",
     "name": "Natchez Trace",
@@ -7136,6 +7319,30 @@
     "designation": "National Historical Park"
   },
   {
+    "id": "CF83E09C-3E55-4B5A-9D8B-E833CF6FEB5A",
+    "url": "https://www.nps.gov/neen/index.htm",
+    "name": "New England",
+    "fullName": "New England National Scenic Trail",
+    "parkCode": "neen",
+    "description": "From the Sound to the summits: the New England Trail covers 235 miles from Long Island Sound across long ridges to scenic mountain summits in Connecticut and Massachusetts. The trail offers panoramic vistas and close-ups of New England\u2019s natural and cultural landscape: traprock ridges, historic village centers, farmlands, unfragmented forests, quiet streams, steep river valleys and waterfalls.",
+    "latitude": 42.2915819137,
+    "longitude": -72.5242767334,
+    "states": ["MA", "CT"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/62EEBADD-1DD8-B71B-0B610F999ED4F0F5.jpg",
+        "title": "Fall on the NET",
+        "altText": "Fall trees on the mountains of the trail"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/62D44561-1DD8-B71B-0B2578338FED38F1.jpg",
+        "title": "Mt Tom Overlook",
+        "altText": "Overview of the trail in the fall"
+      }
+    ],
+    "designation": "National Scenic Trail"
+  },
+  {
     "id": "D0F897A0-9545-4901-A1B8-7128E11A51FA",
     "url": "https://www.nps.gov/pine/index.htm",
     "name": "New Jersey Pinelands",
@@ -7299,6 +7506,30 @@
     "designation": "National Historic Site"
   },
   {
+    "id": "406594CB-1532-45CD-82EA-0C03FD2F0422",
+    "url": "https://www.nps.gov/niob/index.htm",
+    "name": "Niobrara",
+    "fullName": "Niobrara National Scenic River",
+    "parkCode": "niob",
+    "description": "With a little something for everyone, the Niobrara National Scenic River is a destination for crossing adventures off your bucket list. Most popular for river recreation, you can float the Niobrara River on a canoe, tube, or kayak as a beginner and have a blast. Hiking, biking, and wildlife watching keep our visitors busy. Oh! And we haven't even told you about the waterfalls yet.",
+    "latitude": 42.79413083,
+    "longitude": -99.91870646,
+    "states": ["NE"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C95AD-1DD8-B71B-0B9C962E8BA62E89.jpg",
+        "title": "Berry Falls along the Niobrara NSR.",
+        "altText": "A beautiful, if short, waterfall empties into the side of the Niobrara NSR."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C7C948A-1DD8-B71B-0B91A2ACA9AACDDF.jpg",
+        "title": "Canoeing the Niobrara NSR",
+        "altText": "Two people in one canoe paddle along the bluffs of the Niobrara NSR."
+      }
+    ],
+    "designation": "National Scenic River"
+  },
+  {
     "id": "C9AA17CC-3152-464A-A9E2-494368086045",
     "url": "https://www.nps.gov/noat/index.htm",
     "name": "Noatak",
@@ -7345,6 +7576,54 @@
       }
     ],
     "designation": "National Park"
+  },
+  {
+    "id": "4BE453C2-6527-484F-90D6-98057901EBDF",
+    "url": "https://www.nps.gov/noco/index.htm",
+    "name": "North Country",
+    "fullName": "North Country National Scenic Trail",
+    "parkCode": "noco",
+    "description": "Come to the North Country. Trek the hills and valleys. Stand on the shores of lakes & streams from glaciers 10,000 years before. Clear-flowing water, red/gold of autumn, a fairyland of snow, open prairies, and distant horizons paint the land. Historic sites along the way tell how America settled and grew as a nation. From North Dakota to Vermont, adventure is never far away.",
+    "latitude": 46.334400743,
+    "longitude": -90.8165630499,
+    "states": ["MI", "MN", "ND", "NY", "OH", "PA", "VT", "WI"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C834D56-1DD8-B71B-0B74388D9102A08E.jpg",
+        "title": "Fall foliage",
+        "altText": "Fall colors along the trail"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C834ED3-1DD8-B71B-0B816A8BE4C5F955.jpg",
+        "title": "Hiking the NCT",
+        "altText": "Hiking on the North Country Trail"
+      }
+    ],
+    "designation": "National Scenic Trail"
+  },
+  {
+    "id": "EE2565D2-D745-4EF7-8814-21DF448427AD",
+    "url": "https://www.nps.gov/obed/index.htm",
+    "name": "Obed",
+    "fullName": "Obed Wild & Scenic River",
+    "parkCode": "obed",
+    "description": "The Obed Wild and Scenic River looks much the same today as it did when the first white settlers strolled its banks in the late 1700s. While meagerly populated due to poor farming soil, the river was a hospitable fishing and hunting area for trappers and pioneers. Today, the Obed stretches along the Cumberland Plateau and offers visitors a variety of outdoor recreational opportunities.",
+    "latitude": 36.1056026037,
+    "longitude": -84.5979170501,
+    "states": ["TN"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/D17726FC-07FB-8438-A686E8023180D510.jpg",
+        "title": "Aurora Over Lilly Bluff",
+        "altText": "Night sky with a mix of colors of purple, blue hues."
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/D19C8BD9-E42A-1ACF-F7DF7F35551BE414.jpg",
+        "title": "Butterly",
+        "altText": "A butterfly on a flower"
+      }
+    ],
+    "designation": "Wild & Scenic River"
   },
   {
     "id": "81AFEB37-7119-4BF1-B65B-806BAB973FFD",
@@ -7947,6 +8226,30 @@
     "designation": "National Memorial"
   },
   {
+    "id": "B7429C72-D8CA-46D9-8E89-E659259D8EEF",
+    "url": "https://www.nps.gov/pohe/index.htm",
+    "name": "Potomac Heritage",
+    "fullName": "Potomac Heritage National Scenic Trail",
+    "parkCode": "pohe",
+    "description": "The Potomac River corridor is rich in both history and recreation, offering a chance to both explore your heritage and choose your adventure along the way. Start your journey here!",
+    "latitude": 39.15060133,
+    "longitude": -77.52301085,
+    "states": ["DC", "MD", "PA", "VA"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/580BEC61-A9CE-EDA1-98EFFD3B1E833A73.jpg",
+        "title": "Chesapeake and Ohio Canal",
+        "altText": "blue flowers bloom next to a trail"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/7D2DAB74-09C8-50D4-7C45CFF9DA18B7BF.jpg",
+        "title": "Follow the Trail!",
+        "altText": "two blue blazes are painted on a tree"
+      }
+    ],
+    "designation": "National Scenic Trail"
+  },
+  {
     "id": "DC9185D6-CCA9-4F40-AE53-5D77DE35E202",
     "url": "https://www.nps.gov/popo/index.htm",
     "name": "Poverty Point",
@@ -8211,6 +8514,30 @@
     "designation": "National Battlefield Park"
   },
   {
+    "id": "E1A636E5-E7AC-4B71-93DE-F1408F65C458",
+    "url": "https://www.nps.gov/rigr/index.htm",
+    "name": "Rio Grande",
+    "fullName": "Rio Grande Wild & Scenic River",
+    "parkCode": "rigr",
+    "description": "For 196 miles, this free-flowing stretch of the Rio Grande winds its way through desert expanses and stunning canyons of stratified rock. For the well prepared, an extended float trip provides opportunities to explore the most remote corner of Texas and experience the ultimate in solitude, self-reliance, and immersion in natural soundscapes.",
+    "latitude": 29.881,
+    "longitude": -102.3188,
+    "states": ["TX"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/7F000DA5-F0C4-D048-1EF137BD2F80CB3C.jpg",
+        "title": "Boquillas Canyon",
+        "altText": "View in Boquillas Canyon"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/7F2119C6-9098-7131-FCBAC74787E4E2DB.jpg",
+        "title": "Canoeing Boquillas Canyon",
+        "altText": "Canoeing Boquillas Canyon"
+      }
+    ],
+    "designation": "Wild & Scenic River"
+  },
+  {
     "id": "0AEC82D5-0D49-492A-9936-DBE44AF69F09",
     "url": "https://www.nps.gov/rira/index.htm",
     "name": "River Raisin",
@@ -8425,6 +8752,30 @@
       }
     ],
     "designation": "National Park"
+  },
+  {
+    "id": "5CB26B91-B888-46E0-95E1-0683A63C45B0",
+    "url": "https://www.nps.gov/sacn/index.htm",
+    "name": "Saint Croix",
+    "fullName": "Saint Croix National Scenic Riverway",
+    "parkCode": "sacn",
+    "description": "Grab your paddle and your longing for adventure and head to the St. Croix and Namekagon rivers! Together they form the St. Croix National Scenic Riverway, offering over 200 miles of clean water that glides and rushes through a forested landscape. Paddle, boat, fish, and camp among this wild and scenic beauty. Hiking and historic towns also beckon.",
+    "latitude": 45.70019235,
+    "longitude": -92.36126685,
+    "states": ["WI", "MN"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/2ED0C67A-F909-836D-063BC8A02EC00151.jpg",
+        "title": "Minnows in River Grass",
+        "altText": "A school of minnows swimming in river grass"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/67DD34AA-0176-149E-8C70F3A8899D6AAD.jpg",
+        "title": "Osprey over the Namegakon",
+        "altText": "A large bird flying with partly cloudy skies beyond"
+      }
+    ],
+    "designation": "National Scenic Riverway"
   },
   {
     "id": "57B2D95A-6D3E-49D6-BF73-623D6BD33D06",
@@ -9634,6 +9985,30 @@
       }
     ],
     "designation": "National Historic Site"
+  },
+  {
+    "id": "09812D3A-1E2B-4402-9ABC-31C79BCB9F6B",
+    "url": "https://www.nps.gov/upde/index.htm",
+    "name": "Upper Delaware",
+    "fullName": "Upper Delaware Scenic & Recreational River",
+    "parkCode": "upde",
+    "description": "Canoe through rapids and quiet pools as the Delaware River winds its way through a valley of swiftly changing scenery or fish amid rolling hills and riverfront villages in one of the finest fishing rivers in the northeastern United States. The clean water of the Delaware, the last major undammed river in the eastern United States, supports a healthy ecosystem and offers tranquility and excitement.",
+    "latitude": 41.66172578,
+    "longitude": -75.03861562,
+    "states": ["NY", "PA"],
+    "images": [
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/CD6C7346-1DD8-B71B-0BC90615DE962D11.jpg",
+        "title": "Lackawaxen, PA River Access at Upper Delaware Scenic and Recreational River",
+        "altText": "park ranger canoes on the shore at Upper Delaware Scenic and Recreational River"
+      },
+      {
+        "url": "https://www.nps.gov/common/uploads/structured_data/CD123899-1DD8-B71B-0BDDF82BB429114F.jpg",
+        "title": "Park Ranger - Upper Delaware Scenic and Recreational River",
+        "altText": "a Park Ranger shows children the wonders of nature"
+      }
+    ],
+    "designation": "Scenic & Recreational River"
   },
   {
     "id": "8908E0CA-3603-4578-B957-837F9813E6D5",
