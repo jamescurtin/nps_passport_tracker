@@ -27,23 +27,18 @@ REQUEST_TIMEOUT: tuple[int, int] = (5, 30)
 # of fetched records fail validation, which would indicate an upstream schema
 # change rather than a few malformed units.
 MAX_DROP_FRACTION: float = 0.05
-# NPS units whose designation (or, as a fallback, full-name suffix) matches one
-# of the following are excluded from the list of parks used to populate the map.
+# Records whose designation (or, as a fallback, full-name suffix) matches one of
+# the following are not NPS units and are excluded from the map. Every
+# designation in the NPS "National Park System" unit list (nps.gov/aboutus/
+# national-park-system.htm) must stay out of this set, including the river and
+# National Scenic Trail units.
 EXCLUDED_DESIGNATIONS: set[str] = {
     "Affiliated Area",
     "Bay",
     "National Geologic Trail",
     "National Historic Trail",
-    "National Recreational River",
-    "National River",
-    "National Scenic River",
-    "National Scenic Trail",
+    "National Wild and Scenic River",
     "Public Lands",
-    "Scenic & Recreational River",
-    "Scenic River",
-    "Scenic Riverway",
-    "Wild and Scenic River",
-    "Wild River",
 }
 
 
